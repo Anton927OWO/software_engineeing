@@ -99,28 +99,20 @@ namespace TrackingNIU
 
             Result = null;
             Score = default;
-
-            var scene = SceneManager.GetActiveScene();
-#if UNITY_EDITOR
-            // 還沒加進 Build Settings 的 Scene 只能用編輯器 API 重新載入。
-            if (scene.buildIndex < 0)
-            {
-                UnityEditor.SceneManagement.EditorSceneManager.LoadSceneInPlayMode(
-                    scene.path, new LoadSceneParameters(LoadSceneMode.Single));
-                return;
-            }
-#endif
-            SceneManager.LoadScene(scene.buildIndex);
+            SceneLoader.Load(SceneManager.GetActiveScene().name);
         }
 
-        // 關閉 Domain Reload 時，靜態欄位會保留上一次 Play 的值，這裡手動清除。
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-        static void ResetStatics()
+        /// <summary>GameManager 載入關卡 Scene 失敗時，取消已經開始的關卡，不呼叫結束回呼。</summary>
+        internal static void Abort()
         {
             Current = null;
             s_onExit = null;
             Result = null;
             Score = default;
         }
+
+        // 關閉 Domain Reload 時，靜態欄位會保留上一次 Play 的值，這裡手動清除。
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void ResetStatics() => Abort();
     }
 }
