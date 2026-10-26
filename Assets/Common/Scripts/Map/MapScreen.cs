@@ -12,9 +12,12 @@ namespace TrackingNIU
     /// </summary>
     public sealed class MapScreen : MonoBehaviour
     {
+        [SerializeField] MapKind mapKind;
         [SerializeField] TMP_Text subtitle;
         [SerializeField] TMP_Text scoreText;
         [SerializeField] MapLocation[] locations;
+        [Tooltip("從圖資館出發的路線，只有校園地圖使用")]
+        [SerializeField] MapRoute[] routes;
         [SerializeField] TaskRow[] taskRows;
         [SerializeField] ArtifactSlot[] artifactSlots;
         [SerializeField] TMP_Text selectedName;
@@ -60,19 +63,19 @@ namespace TrackingNIU
                 GameManager.Instance.RunChanged -= OnRunChanged;
         }
 
-        static void EnsureGameManager()
+        void EnsureGameManager()
         {
             if (GameManager.Instance != null && GameManager.Instance.Run != null)
                 return;
 
             if (GameManager.Instance == null)
             {
-                Debug.Log("[地圖] 沒有 GameManager，建立預覽用的 GameManager 並跳過序章。正式遊玩請從 Boot 場景開始。");
+                Debug.Log("[地圖] 沒有 GameManager，建立預覽用的 GameManager 並模擬到這張地圖的階段。正式遊玩請從 Boot 場景開始。");
                 var manager = new GameObject("GameManager（預覽）");
                 manager.AddComponent<GameManager>();
                 manager.AddComponent<GameFlowDebugPanel>().Visible = false;
             }
-            GameManager.Instance.StartNewGame(skipPrologue: true);
+            GameManager.Instance.StartPreviewRun(mapKind);
         }
 
         void OnRunChanged()
@@ -123,11 +126,14 @@ namespace TrackingNIU
         void OnGoClicked()
         {
             PlayClick();
-            if (Run.Phase == RunPhase.Outdoor || Run.Phase == RunPhase.Finished)
+            if (Run.Phase == RunPhase.Finished || NeedsTravel(Run))
                 GameManager.Instance.ReturnToMap();
             else if (_selected.HasValue)
                 GameManager.Instance.EnterLevel(_selected.Value);
         }
+
+        /// <summary>目前階段的關卡不在這張地圖上，要先前往另一張地圖。</summary>
+        bool NeedsTravel(GameRun run) => run.CurrentMap.HasValue && run.CurrentMap.Value != mapKind;
 
         void Refresh()
         {
@@ -139,6 +145,8 @@ namespace TrackingNIU
                 location.Refresh(run);
             foreach (var marker in _markers)
                 marker.Refresh(run.GetStatus(marker.LevelId), marker.LevelId == _selected);
+            foreach (var route in routes)
+                route.Refresh(run);
 
             RefreshTasks(run);
             for (int i = 0; i < artifactSlots.Length; i++)
@@ -170,19 +178,19 @@ namespace TrackingNIU
 
         void RefreshSelection(GameRun run)
         {
-            if (run.Phase == RunPhase.Outdoor)
-            {
-                ShowSelection("館內任務完成", "下一站是校園中的無圍牆博物館", "前往校園地圖", true);
-                return;
-            }
             if (run.Phase == RunPhase.Finished)
             {
                 ShowSelection("本局完成", $"總分 {run.TotalScore}｜{run.Title}", "查看結算", true);
                 return;
             }
+            if (NeedsTravel(run))
+            {
+                ShowTravel(run);
+                return;
+            }
             if (!_selected.HasValue)
             {
-                ShowSelection("選擇樓層上的任務", "", "前往", false);
+                ShowSelection(mapKind == MapKind.Library ? "選擇樓層上的任務" : "選擇地圖上的任務", "", "前往", false);
                 return;
             }
 
@@ -195,6 +203,16 @@ namespace TrackingNIU
                 : status == LevelStatus.Available ? "前往"
                 : "尚未開放";
             ShowSelection(definition.DisplayName, info, label, status == LevelStatus.Available);
+        }
+
+        void ShowTravel(GameRun run)
+        {
+            if (run.CurrentMap == MapKind.Campus)
+                ShowSelection("館內任務完成", "下一站是校園中的無圍牆博物館", "前往校園地圖", true);
+            else if (run.Phase == RunPhase.Finale)
+                ShowSelection("三件文物到齊", "沿著綠色路線回到圖資館 2F 宜大記憶庫", "返回圖資館", true);
+            else
+                ShowSelection("圖資館還有任務", "先完成館內的關卡", "返回圖資館", true);
         }
 
         void ShowSelection(string title, string info, string buttonLabel, bool canGo)
@@ -219,7 +237,7 @@ namespace TrackingNIU
                     }
                     return $"第一章　在圖資館找回文物（{done} / {run.IndoorLevels.Count}）";
                 case RunPhase.Outdoor:
-                    return "第二章　前往校園中的無圍牆博物館";
+                    return "第二章　在無圍牆博物館找回第三件文物";
                 case RunPhase.Finale:
                     return "終章　帶著三件文物回到 2F 宜大記憶庫";
                 case RunPhase.Finished:

@@ -24,6 +24,7 @@ namespace TrackingNIU
         int randomSeed;
 
         string _bootScene;
+        bool _stayInScene;
         float _startTime;
         float? _finishTime;
         System.Random _random;
@@ -78,6 +79,28 @@ namespace TrackingNIU
                 EnterLevel(LevelId.Prologue);
         }
 
+        /// <summary>
+        /// 直接打開地圖場景按 Play 時使用：開新局並模擬到這張地圖的階段，過程中不切換場景。
+        /// 校園地圖會先把館內關卡記為通關。
+        /// </summary>
+        public void StartPreviewRun(MapKind map)
+        {
+            _stayInScene = true;
+            try
+            {
+                StartNewGame(skipPrologue: true);
+                if (map == MapKind.Campus)
+                {
+                    foreach (var level in Run.IndoorLevels)
+                        SimulateClear(level);
+                }
+            }
+            finally
+            {
+                _stayInScene = false;
+            }
+        }
+
         /// <summary>地圖上的「前往」按鈕呼叫這個。關卡目前不能進入時回傳 false。</summary>
         public bool EnterLevel(LevelId levelId)
         {
@@ -113,7 +136,7 @@ namespace TrackingNIU
             LevelSession.Exit();
         }
 
-        /// <summary>回到目前階段該顯示的地圖或結算畫面。</summary>
+        /// <summary>前往目前階段該去的地圖或結算畫面，地圖上的「前往校園地圖」「返回圖資館」按鈕呼叫這個。</summary>
         public void ReturnToMap() => LoadScene(GetSceneForPhase());
 
         /// <summary>結束這一局，回到 Boot 場景。</summary>
@@ -154,27 +177,28 @@ namespace TrackingNIU
 
             Debug.Log($"[GameManager] 完成 {result}｜{score}｜目前總分 {Run.TotalScore}｜階段 {Run.Phase}");
             RunChanged?.Invoke();
-            ReturnToMap();
+
+            // 先回到這一關所在的地圖，再由地圖指引下一站。
+            // 例如完成戶外關卡後回到校園地圖，畫面上顯示返回圖資館的路線。
+            LoadScene(Run.Phase == RunPhase.Finished ? resultsScene : GetMapScene(GameRun.GetMap(result.LevelId)));
         }
 
         string GetSceneForPhase()
         {
-            switch (Run?.Phase)
-            {
-                case RunPhase.Indoor:
-                case RunPhase.Finale:
-                    return libraryMapScene;
-                case RunPhase.Outdoor:
-                    return campusMapScene;
-                case RunPhase.Finished:
-                    return resultsScene;
-                default:
-                    return _bootScene;
-            }
+            if (Run == null)
+                return _bootScene;
+            if (Run.Phase == RunPhase.Finished)
+                return resultsScene;
+            return Run.CurrentMap.HasValue ? GetMapScene(Run.CurrentMap.Value) : _bootScene;
         }
+
+        string GetMapScene(MapKind map) => map == MapKind.Campus ? campusMapScene : libraryMapScene;
 
         void LoadScene(string sceneName)
         {
+            if (_stayInScene)
+                return;
+
             // 地圖與結算畫面還沒做好之前，先回到 Boot 場景，用流程測試面板操作。
             if (!SceneLoader.Exists(sceneName))
             {

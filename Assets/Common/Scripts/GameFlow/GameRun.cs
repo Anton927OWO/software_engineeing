@@ -22,6 +22,13 @@ namespace TrackingNIU
         Completed,  // 已完成（地圖上的綠色勾）
     }
 
+    /// <summary>兩張地圖：圖資館樓層地圖與無圍牆博物館（校園）地圖。</summary>
+    public enum MapKind
+    {
+        Library,
+        Campus,
+    }
+
     /// <summary>完成一關後留下的紀錄，結算畫面依此顯示各關分數。</summary>
     public sealed class LevelRecord
     {
@@ -66,6 +73,28 @@ namespace TrackingNIU
         }
 
         public string Title => ScoreCalculator.GetTitle(TotalScore);
+
+        /// <summary>目前階段的關卡在哪張地圖上；序章與結算時為 null。</summary>
+        public MapKind? CurrentMap
+        {
+            get
+            {
+                switch (Phase)
+                {
+                    case RunPhase.Indoor:
+                    case RunPhase.Finale:
+                        return MapKind.Library;
+                    case RunPhase.Outdoor:
+                        return MapKind.Campus;
+                    default:
+                        return null;
+                }
+            }
+        }
+
+        /// <summary>關卡所在的地圖：戶外關卡在校園地圖，其他都在圖資館。</summary>
+        public static MapKind GetMap(LevelId levelId) =>
+            LevelCatalog.Get(levelId).Pool == LevelPool.Outdoor ? MapKind.Campus : MapKind.Library;
 
         /// <param name="includeFinalsLevels">期末加入黃春明關後設為 true，館內改為 5 抽 2。</param>
         public GameRun(bool includeFinalsLevels, Random random)

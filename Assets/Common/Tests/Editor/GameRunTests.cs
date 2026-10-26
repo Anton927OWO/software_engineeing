@@ -178,5 +178,32 @@ namespace TrackingNIU.Tests
             Assert.IsFalse(run.CanEnter(LevelId.Prologue));
             Assert.Throws<InvalidOperationException>(() => Play(run, LevelId.Prologue));
         }
+
+        [Test]
+        public void CurrentMap_FollowsPhase_LibraryCampusLibrary()
+        {
+            var run = new GameRun(false, new Random(3));
+            Assert.IsNull(run.CurrentMap);
+
+            Play(run, LevelId.Prologue);
+            Assert.AreEqual(MapKind.Library, run.CurrentMap);
+            foreach (var level in run.IndoorLevels)
+                Play(run, level);
+            Assert.AreEqual(MapKind.Campus, run.CurrentMap);
+            Play(run, run.OutdoorLevels[0]);
+            Assert.AreEqual(MapKind.Library, run.CurrentMap);
+            Play(run, LevelId.Finale);
+            Assert.IsNull(run.CurrentMap);
+        }
+
+        [Test]
+        public void GetMap_OutdoorLevelsOnCampus()
+        {
+            foreach (var level in LevelCatalog.All)
+            {
+                var expected = level.Pool == LevelPool.Outdoor ? MapKind.Campus : MapKind.Library;
+                Assert.AreEqual(expected, GameRun.GetMap(level.Id), level.Id.ToString());
+            }
+        }
     }
 }
