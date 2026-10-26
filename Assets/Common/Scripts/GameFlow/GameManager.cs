@@ -60,7 +60,8 @@ namespace TrackingNIU
         }
 
         /// <summary>重新抽關並從序章開始。結算畫面的「重新遊玩」也呼叫這個。</summary>
-        public void StartNewGame()
+        /// <param name="skipPrologue">測試用：直接把序章記為完成，進入圖資館樓層地圖。</param>
+        public void StartNewGame(bool skipPrologue = false)
         {
             if (LevelSession.IsActive)
                 LevelSession.Abort();
@@ -71,7 +72,10 @@ namespace TrackingNIU
             Debug.Log($"[GameManager] 新的一局｜館內：{Names(Run.IndoorLevels)}｜戶外：{Names(Run.OutdoorLevels)}");
             RunChanged?.Invoke();
 
-            EnterLevel(LevelId.Prologue);
+            if (skipPrologue)
+                SimulateClear(LevelId.Prologue);
+            else
+                EnterLevel(LevelId.Prologue);
         }
 
         /// <summary>地圖上的「前往」按鈕呼叫這個。關卡目前不能進入時回傳 false。</summary>

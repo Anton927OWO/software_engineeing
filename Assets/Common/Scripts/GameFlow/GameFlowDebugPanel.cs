@@ -17,6 +17,12 @@ namespace TrackingNIU
         GUIStyle _label;
         GUIStyle _button;
 
+        public bool Visible
+        {
+            get => visible;
+            set => visible = value;
+        }
+
         void Update()
         {
 #if ENABLE_INPUT_SYSTEM
@@ -28,7 +34,7 @@ namespace TrackingNIU
         void OnGUI()
         {
             var manager = GameManager.Instance;
-            if (!visible || manager == null)
+            if (manager == null)
                 return;
 
             _label ??= new GUIStyle(GUI.skin.label) { fontSize = 24, wordWrap = true };
@@ -38,10 +44,24 @@ namespace TrackingNIU
             float scale = Screen.height / 1080f;
             GUI.matrix = Matrix4x4.Scale(new Vector3(scale, scale, 1f));
 
+            if (!visible)
+            {
+                // 隱藏時在左下角留一個小按鈕，避免忘記怎麼打開。
+                if (GUI.Button(new Rect(16, 1080 - 56, 220, 40), "測試面板（F1）", _button))
+                    visible = true;
+                return;
+            }
+
             GUILayout.BeginArea(new Rect(24, 24, 640, 1032), GUI.skin.box);
             GUILayout.Label("流程測試面板（F1 隱藏）", _label);
+            GUILayout.BeginHorizontal();
             if (GUILayout.Button("開始新的一局", _button, GUILayout.Height(48)))
                 manager.StartNewGame();
+            if (GUILayout.Button("跳過序章開始", _button, GUILayout.Height(48)))
+                manager.StartNewGame(skipPrologue: true);
+            if (GUILayout.Button("隱藏", _button, GUILayout.Height(48), GUILayout.Width(100)))
+                visible = false;
+            GUILayout.EndHorizontal();
 
             var run = manager.Run;
             if (run != null)
