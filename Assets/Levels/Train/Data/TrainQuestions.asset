@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5548ee394824cbe8a619e4a01c9e29, type: 3}
+  m_Name: TrainQuestions
+  m_EditorClassIdentifier: XunJiYiDa.Levels.Train::XunJiYiDa.Levels.Train.TrainQuestionBank
+  questions:
+  - id: history-1926
+    prompt: "\u5B9C\u862D\u5927\u5B78\u5275\u6821\u65BC\u897F\u5143\u54EA\u4E00\u5E74\uFF1F"
+    options:
+    - "1926 \u5E74"
+    - "1956 \u5E74"
+    - "2003 \u5E74"
+    correctIndex: 0
+    explanation: "\u5275\u6821\u6642\u9593\u70BA\u6C11\u570B\u5341\u4E94\u5E74\uFF0C\u63DB\u7B97\u897F\u5143\u70BA
+      1926 \u5E74\u3002"
+    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
+    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    verified: 1
+    verifiedOn: 2026-10-26
+  - id: history-name
+    prompt: "\u5B9C\u5927\u5275\u6821\u6642\u7684\u6821\u540D\u662F\u54EA\u4E00\u500B\uFF1F"
+    options:
+    - "\u570B\u7ACB\u5B9C\u862D\u6280\u8853\u5B78\u9662"
+    - "\u53F0\u5317\u5DDE\u7ACB\u5B9C\u862D\u8FB2\u6797\u5B78\u6821"
+    - "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78"
+    correctIndex: 1
+    explanation: "\u5275\u6821\u6642\u4EE5\u8FB2\u6797\u6559\u80B2\u70BA\u51FA\u767C\u9EDE\u3002"
+    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
+    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    verified: 1
+    verifiedOn: 2026-10-26
+  - id: history-1946
+    prompt: "\u6C11\u570B\u4E09\u5341\u4E94\u5E74\uFF0C\u5B78\u6821\u6B63\u540D\u70BA\u4EC0\u9EBC\uFF1F"
+    options:
+    - "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78"
+    - "\u5B9C\u862D\u9AD8\u7D1A\u5DE5\u696D\u5B78\u6821"
+    - "\u53F0\u7063\u7701\u7ACB\u5B9C\u862D\u8FB2\u696D\u8077\u696D\u5B78\u6821"
+    correctIndex: 2
+    explanation: "\u5B98\u65B9\u6821\u53F2\u8A18\u8F09\u6C11\u570B\u4E09\u5341\u4E94\u5E74\u7684\u6821\u540D\u70BA\u8FB2\u696D\u8077\u696D\u5B78\u6821\u3002"
+    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
+    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    verified: 1
+    verifiedOn: 2026-10-26
+  - id: history-1967
+    prompt: "\u6C11\u570B\u4E94\u5341\u516D\u5E74\u7684\u6821\u540D\u589E\u52A0\u4E86\u54EA\u500B\u5B57\uFF0C\u6210\u70BA\u300C\u8FB2\u5DE5\u8077\u696D\u5B78\u6821\u300D\uFF1F"
+    options:
+    - "\u5DE5"
+    - "\u5546"
+    - "\u91AB"
+    correctIndex: 0
+    explanation: "\u6821\u540D\u7531\u8FB2\u696D\u8D70\u5411\u8FB2\u5DE5\uFF0C\u53CD\u6620\u6559\u80B2\u9818\u57DF\u7684\u8B8A\u5316\u3002"
+    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
+    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    verified: 1
+    verifiedOn: 2026-10-26
+  - id: history-1969
+    prompt: "\u6C11\u570B\u4E94\u5341\u516B\u5E74\uFF0C\u6821\u540D\u6539\u70BA\u54EA\u4E00\u500B\uFF1F"
+    options:
+    - "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78"
+    - "\u53F0\u7063\u7701\u7ACB\u5B9C\u862D\u9AD8\u7D1A\u8FB2\u5DE5\u8077\u696D\u5B78\u6821"
+    - "\u570B\u7ACB\u5B9C\u862D\u6280\u8853\u5B78\u9662"
+    correctIndex: 1
+    explanation: "\u9019\u4E00\u968E\u6BB5\u7684\u6B63\u5F0F\u6821\u540D\u5305\u542B\u300C\u9AD8\u7D1A\u8FB2\u5DE5\u8077\u696D\u5B78\u6821\u300D\u3002"
+    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
+    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    verified: 1
+    verifiedOn: 2026-10-26
+  - id: history-1988
+    prompt: "\u6C11\u570B\u4E03\u5341\u4E03\u5E74\uFF0C\u5B9C\u5927\u6539\u5236\u70BA\u54EA\u7A2E\u5B78\u6821\uFF1F"
+    options:
+    - "\u5927\u5B78"
+    - "\u6280\u8853\u5B78\u9662"
+    - "\u8FB2\u5DE5\u5C08\u79D1\u5B78\u6821"
+    correctIndex: 2
+    explanation: "\u6C11\u570B\u4E03\u5341\u4E03\u5E74\u6539\u5236\u70BA\u570B\u7ACB\u5B9C\u862D\u8FB2\u5DE5\u5C08\u79D1\u5B78\u6821\u3002"
+    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
+    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    verified: 1
+    verifiedOn: 2026-10-26
+  - id: history-1998
+    prompt: "\u6C11\u570B\u516B\u5341\u4E03\u5E74\uFF0C\u5B78\u6821\u5347\u683C\u5F8C\u7684\u540D\u7A31\u662F\uFF1F"
+    options:
+    - "\u570B\u7ACB\u5B9C\u862D\u6280\u8853\u5B78\u9662"
+    - "\u570B\u7ACB\u5B9C\u862D\u5E2B\u7BC4\u5B78\u9662"
+    - "\u570B\u7ACB\u5B9C\u862D\u91AB\u5B78\u9662"
+    correctIndex: 0
+    explanation: "\u5C08\u79D1\u968E\u6BB5\u4E4B\u5F8C\uFF0C\u5B78\u6821\u5347\u683C\u70BA\u6280\u8853\u5B78\u9662\u3002"
+    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
+    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    verified: 1
+    verifiedOn: 2026-10-26
+  - id: history-2003
+    prompt: "\u5B78\u6821\u5728\u54EA\u4E00\u5E74\u66F4\u540D\u70BA\u300C\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\u300D\uFF1F"
+    options:
+    - "1988 \u5E74"
+    - "2003 \u5E74"
+    - "1998 \u5E74"
+    correctIndex: 1
+    explanation: "\u6C11\u570B\u4E5D\u5341\u4E8C\u5E74\u5373\u897F\u5143 2003 \u5E74\u3002"
+    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
+    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    verified: 1
+    verifiedOn: 2026-10-26
+  - id: motto
+    prompt: "\u54EA\u4E00\u7D44\u662F\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\u7684\u6821\u8A13\uFF1F"
+    options:
+    - "\u81EA\u7531\u3001\u5E73\u7B49\u3001\u535A\u611B\u3001\u548C\u5E73"
+    - "\u8AA0\u5BE6\u3001\u52C7\u6562\u3001\u7BC0\u5109\u3001\u5FCD\u8010"
+    - "\u7BE4\u5B78\u3001\u529B\u884C\u3001\u656C\u696D\u3001\u6A02\u7FA4"
+    correctIndex: 2
+    explanation: "\u6821\u8A13\u9F13\u52F5\u5B78\u7FD2\u3001\u5BE6\u8E10\u3001\u656C\u91CD\u5C08\u696D\u8207\u7FA4\u9AD4\u5408\u4F5C\u3002"
+    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u8A13"
+    sourceUrl: https://www.niu.edu.tw/p/412-1000-1310.php
+    verified: 1
+    verifiedOn: 2026-10-26
+  - id: location
+    prompt: "\u5B9C\u862D\u5927\u5B78\u6821\u672C\u90E8\u4F4D\u65BC\u54EA\u500B\u57CE\u5E02\uFF1F"
+    options:
+    - "\u5B9C\u862D\u5E02"
+    - "\u7F85\u6771\u93AE"
+    - "\u82B1\u84EE\u5E02"
+    correctIndex: 0
+    explanation: "\u5B98\u65B9\u4EA4\u901A\u4F4D\u7F6E\u9801\u8A18\u8F09\u6821\u672C\u90E8\u4F4D\u65BC\u5B9C\u862D\u5E02\u3002"
+    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u4EA4\u901A\u4F4D\u7F6E"
+    sourceUrl: https://www.niu.edu.tw/p/412-1000-1052.php
+    verified: 1
+    verifiedOn: 2026-10-26
+  - id: station
+    prompt: "\u4F9D\u5B9C\u5927\u5B98\u65B9\u4EA4\u901A\u6307\u5F15\uFF0C\u642D\u53F0\u9435\u61C9\u5728\u54EA\u4E00\u7AD9\u4E0B\u8ECA\u524D\u5F80\u6821\u672C\u90E8\uFF1F"
+    options:
+    - "\u51AC\u5C71\u7AD9"
+    - "\u5B9C\u862D\u7AD9"
+    - "\u7901\u6EAA\u7AD9"
+    correctIndex: 1
+    explanation: "\u5B98\u65B9\u4EA4\u901A\u6307\u5F15\u5EFA\u8B70\u642D\u53F0\u9435\u81F3\u5B9C\u862D\u706B\u8ECA\u7AD9\uFF0C\u518D\u8F49\u4E58\u6216\u6B65\u884C\u3002"
+    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u4EA4\u901A\u4F4D\u7F6E"
+    sourceUrl: https://www.niu.edu.tw/p/412-1000-1052.php
+    verified: 1
+    verifiedOn: 2026-10-26
+  - id: archaeology
+    prompt: "\u6821\u5712\u6240\u5728\u5730\u7684\u8003\u53E4\u907A\u5740\uFF0C\u6CBF\u7528\u5B78\u6821\u820A\u540D\u5217\u518A\u70BA\u4EC0\u9EBC\uFF1F"
+    options:
+    - "\u5351\u5357\u907A\u5740"
+    - "\u5713\u5C71\u907A\u5740"
+    - "\u5B9C\u862D\u8FB2\u6821\u907A\u5740"
+    correctIndex: 2
+    explanation: "\u5716\u8CC7\u9928\u6821\u53F2\u8CC7\u6599\u8AAA\u660E\uFF0C\u9019\u8655\u6821\u5712\u907A\u5740\u6CBF\u7528\u5B78\u6821\u820A\u540D\u3002"
+    sourceTitle: "\u5B9C\u5927\u5716\u8CC7\u9928\uFF5C\u6821\u53F2\u7DE3\u8D77"
+    sourceUrl: https://lic.niu.edu.tw/p/412-1010-2275.php
+    verified: 1
+    verifiedOn: 2026-10-26

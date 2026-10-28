@@ -1,0 +1,5 @@
+{
+  "name": "XunJiYiDa.Levels.Train",
+  "rootNamespace": "XunJiYiDa.Levels.Train",
+  "references": ["XunJiYiDa.Levels.Shared", "XunJiYiDa.Levels.Shared.Core", "Unity.TextMeshPro", "UnityEngine.UI"]
+}

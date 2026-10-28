@@ -1,0 +1,184 @@
+{
+  "questions": [
+    {
+      "id": "history-1926",
+      "prompt": "宜蘭大學創校於西元哪一年？",
+      "options": [
+        "1926 年",
+        "1956 年",
+        "2003 年"
+      ],
+      "correctIndex": 0,
+      "explanation": "創校時間為民國十五年，換算西元為 1926 年。",
+      "sourceTitle": "國立宜蘭大學｜校史",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1049.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "history-name",
+      "prompt": "宜大創校時的校名是哪一個？",
+      "options": [
+        "國立宜蘭技術學院",
+        "台北州立宜蘭農林學校",
+        "國立宜蘭大學"
+      ],
+      "correctIndex": 1,
+      "explanation": "創校時以農林教育為出發點。",
+      "sourceTitle": "國立宜蘭大學｜校史",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1049.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "history-1946",
+      "prompt": "民國三十五年，學校正名為什麼？",
+      "options": [
+        "國立宜蘭大學",
+        "宜蘭高級工業學校",
+        "台灣省立宜蘭農業職業學校"
+      ],
+      "correctIndex": 2,
+      "explanation": "官方校史記載民國三十五年的校名為農業職業學校。",
+      "sourceTitle": "國立宜蘭大學｜校史",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1049.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "history-1967",
+      "prompt": "民國五十六年的校名增加了哪個字，成為「農工職業學校」？",
+      "options": [
+        "工",
+        "商",
+        "醫"
+      ],
+      "correctIndex": 0,
+      "explanation": "校名由農業走向農工，反映教育領域的變化。",
+      "sourceTitle": "國立宜蘭大學｜校史",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1049.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "history-1969",
+      "prompt": "民國五十八年，校名改為哪一個？",
+      "options": [
+        "國立宜蘭大學",
+        "台灣省立宜蘭高級農工職業學校",
+        "國立宜蘭技術學院"
+      ],
+      "correctIndex": 1,
+      "explanation": "這一階段的正式校名包含「高級農工職業學校」。",
+      "sourceTitle": "國立宜蘭大學｜校史",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1049.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "history-1988",
+      "prompt": "民國七十七年，宜大改制為哪種學校？",
+      "options": [
+        "大學",
+        "技術學院",
+        "農工專科學校"
+      ],
+      "correctIndex": 2,
+      "explanation": "民國七十七年改制為國立宜蘭農工專科學校。",
+      "sourceTitle": "國立宜蘭大學｜校史",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1049.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "history-1998",
+      "prompt": "民國八十七年，學校升格後的名稱是？",
+      "options": [
+        "國立宜蘭技術學院",
+        "國立宜蘭師範學院",
+        "國立宜蘭醫學院"
+      ],
+      "correctIndex": 0,
+      "explanation": "專科階段之後，學校升格為技術學院。",
+      "sourceTitle": "國立宜蘭大學｜校史",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1049.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "history-2003",
+      "prompt": "學校在哪一年更名為「國立宜蘭大學」？",
+      "options": [
+        "1988 年",
+        "2003 年",
+        "1998 年"
+      ],
+      "correctIndex": 1,
+      "explanation": "民國九十二年即西元 2003 年。",
+      "sourceTitle": "國立宜蘭大學｜校史",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1049.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "motto",
+      "prompt": "哪一組是國立宜蘭大學的校訓？",
+      "options": [
+        "自由、平等、博愛、和平",
+        "誠實、勇敢、節儉、忍耐",
+        "篤學、力行、敬業、樂群"
+      ],
+      "correctIndex": 2,
+      "explanation": "校訓鼓勵學習、實踐、敬重專業與群體合作。",
+      "sourceTitle": "國立宜蘭大學｜校訓",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1310.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "location",
+      "prompt": "宜蘭大學校本部位於哪個城市？",
+      "options": [
+        "宜蘭市",
+        "羅東鎮",
+        "花蓮市"
+      ],
+      "correctIndex": 0,
+      "explanation": "官方交通位置頁記載校本部位於宜蘭市。",
+      "sourceTitle": "國立宜蘭大學｜交通位置",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1052.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "station",
+      "prompt": "依宜大官方交通指引，搭台鐵應在哪一站下車前往校本部？",
+      "options": [
+        "冬山站",
+        "宜蘭站",
+        "礁溪站"
+      ],
+      "correctIndex": 1,
+      "explanation": "官方交通指引建議搭台鐵至宜蘭火車站，再轉乘或步行。",
+      "sourceTitle": "國立宜蘭大學｜交通位置",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1052.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    },
+    {
+      "id": "archaeology",
+      "prompt": "校園所在地的考古遺址，沿用學校舊名列冊為什麼？",
+      "options": [
+        "卑南遺址",
+        "圓山遺址",
+        "宜蘭農校遺址"
+      ],
+      "correctIndex": 2,
+      "explanation": "圖資館校史資料說明，這處校園遺址沿用學校舊名。",
+      "sourceTitle": "宜大圖資館｜校史緣起",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-2275.php",
+      "verified": true,
+      "verifiedOn": "2026-10-26"
+    }
+  ]
+}
