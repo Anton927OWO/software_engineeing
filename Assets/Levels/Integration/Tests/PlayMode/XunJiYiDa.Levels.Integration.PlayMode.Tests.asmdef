@@ -1,0 +1,5 @@
+{
+  "name": "XunJiYiDa.Levels.Integration.PlayMode.Tests",
+  "references": ["TrackingNIU.Common", "XunJiYiDa.Levels.Shared", "XunJiYiDa.Levels.Shared.Core", "Unity.TextMeshPro", "UnityEngine.UI"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}

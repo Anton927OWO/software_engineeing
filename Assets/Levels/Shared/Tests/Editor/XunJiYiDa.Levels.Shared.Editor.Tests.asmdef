@@ -1,0 +1,17 @@
+{
+  "name": "XunJiYiDa.Levels.Shared.Editor.Tests",
+  "references": [
+    "XunJiYiDa.Levels.Shared.Core",
+    "XunJiYiDa.Levels.Shared",
+    "XunJiYiDa.Levels.Shared.Editor",
+    "Unity.TextMeshPro",
+    "UnityEngine.UI",
+    "Unity.InputSystem"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

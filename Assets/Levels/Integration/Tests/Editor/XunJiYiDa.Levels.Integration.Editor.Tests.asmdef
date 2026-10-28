@@ -1,0 +1,6 @@
+{
+  "name": "XunJiYiDa.Levels.Integration.Editor.Tests",
+  "references": ["XunJiYiDa.Levels.Integration.Editor"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}
