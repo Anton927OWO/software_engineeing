@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map_Campus.unity
     guid: 3259654dc8ef8834793b2eb724e972d6
+  - enabled: 1
+    path: Assets/Levels/Finale/L_Finale.unity
+    guid: b2b97a0ca304e478eb5174f08f6126eb
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
