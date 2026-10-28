@@ -1,0 +1,6 @@
+{
+  "name": "XunJiYiDa.Levels.Timeline.Editor.Tests",
+  "references": ["XunJiYiDa.Levels.Shared", "XunJiYiDa.Levels.Shared.Core", "XunJiYiDa.Levels.Timeline.Editor", "Unity.TextMeshPro", "UnityEngine.UI", "Unity.InputSystem"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}
