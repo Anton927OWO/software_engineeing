@@ -13,7 +13,6 @@ namespace XunJiYiDa.Levels.Finale
     {
         public string id;
         public string title;
-        [TextArea(2, 6)] public string knowledge;
         public Sprite face;
         public Sprite icon;
     }
@@ -27,7 +26,9 @@ namespace XunJiYiDa.Levels.Finale
         [SerializeField] private SharedLevelUI ui;
         [SerializeField] private SharedAudioPlayer audioPlayer;
         [SerializeField] private FinaleArtifactSource artifactSource;
+        [SerializeField] private TextAsset artifactFacts;
         [SerializeField] private FinaleArtifact[] artifacts;
+        private FinaleArtifactCatalog facts;
         [SerializeField] private Sprite cardBack;
         [SerializeField] private FinaleCardView[] cards;
         [SerializeField] private TMP_Text progress;
@@ -54,6 +55,7 @@ namespace XunJiYiDa.Levels.Finale
 
         private void Awake()
         {
+            facts = JsonUtility.FromJson<FinaleArtifactCatalog>(artifactFacts.text);
             for (int i = 0; i < cards.Length; i++) cards[i].Bind(i, index => TryFlip(index));
             ResetAttempt();
         }
@@ -230,7 +232,7 @@ namespace XunJiYiDa.Levels.Finale
             int artifactIndex = first >= 0 ? Board.ArtifactAt(first) :
                 Array.FindIndex(artifacts, item => acquiredIds.Length > 0 && item.id == acquiredIds[0]);
             var artifact = artifacts[Mathf.Max(0, artifactIndex)];
-            ui.ShowKnowledgeCard(artifact.title, artifact.knowledge, artifact.icon);
+            ui.ShowKnowledgeCard(artifact.title, facts.Find(artifact.id).KnowledgeBody, artifact.icon);
         }
 
         private void OnCompleted(LevelResult result)

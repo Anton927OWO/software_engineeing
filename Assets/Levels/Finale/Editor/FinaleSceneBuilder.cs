@@ -26,16 +26,6 @@ namespace XunJiYiDa.Levels.Finale.Editor
         private static readonly Color Paper = new Color32(251, 248, 242, 255);
         private static readonly Color Gold = new Color32(215, 174, 89, 255);
         private static readonly string[] Titles = { "金鯉魚", "金箔片", "幾何印紋陶罐", "木鏟", "木質圓形雕板", "瑪瑙珠" };
-        private static readonly string[] Knowledge =
-        {
-            "圖像觀察｜金鯉魚\n\n從魚身、尾鰭與眼睛辨認輪廓，再注意金色表面的線條。先看整體形狀，再看局部細節，是記住文物圖像的方法。\n\n翻牌線索：金色魚身與三角形尾鰭。",
-            "圖像觀察｜金箔片\n\n箔片呈現薄片的外形。觀察圖中的邊緣與表面色澤，比較它與立體器物的差異。記憶相近色彩時，輪廓也是重要線索。\n\n翻牌線索：金色薄片的邊緣。",
-            "圖像觀察｜幾何印紋陶罐\n\n除了陶罐的口部和器身，也可以注意表面重複的幾何紋樣。形狀、材質與紋樣，都是閱讀文物時可以分別觀察的特徵。\n\n翻牌線索：罐形輪廓與幾何紋樣。",
-            "圖像觀察｜木鏟\n\n觀察握柄與鏟面如何連接，想像手握的位置。辨認工具時，先分辨各部位的形狀，再思考它可能如何使用。\n\n翻牌線索：細長握柄與較寬的鏟面。",
-            "圖像觀察｜木質圓形雕板\n\n圓形外輪廓與表面的雕刻線條，提供兩種記憶線索。把整體外形與局部紋樣一起記住，能幫助辨識相似的圖卡。\n\n翻牌線索：圓形木板與雕刻紋樣。",
-            "圖像觀察｜瑪瑙珠\n\n從珠子的圓形、色澤與排列方式觀察圖像。小型文物也有值得仔細比較的細節，試著找出其中最容易記住的特徵。\n\n翻牌線索：圓珠的色彩與排列。"
-        };
-
         [MenuItem("尋跡宜大/Finale/建立缺少的終章場景")]
         public static void Build()
         {
@@ -110,7 +100,7 @@ namespace XunJiYiDa.Levels.Finale.Editor
             font.name = "Finale NotoSansTC SDF";
             font.material.name = font.name + " Material";
             string seed = string.Concat(Enumerable.Range(32, 95).Select(i => (char)i)) +
-                string.Join("", Titles) + string.Join("", Knowledge) +
+                string.Join("", Titles) + AssetDatabase.LoadAssetAtPath<TextAsset>(Root + "/Data/ArtifactFacts.json").text +
                 "終章文物記憶翻牌空間介紹知識卡重新開始暫停繼續探索成功未完成本次已結束進行中準備剩餘時間失誤次數收集再試一次金框配對找回本局取得的三件兩秒後開始記住它們拼圖連結正確再看清楚翻回剛才位置休息一下好後完整一張相同六組都到了下次閱讀確認挑戰材料形狀紋樣通關倒數提示展示與秒後才開始共有種各兩張不同則等待並記錄一次即可可或閱讀不扣為示意圖。、，。｜：；／！？（）「」　×";
             font.TryAddCharacters(seed, out _);
             AssetDatabase.CreateAsset(font, FontPath);
@@ -203,6 +193,7 @@ namespace XunJiYiDa.Levels.Finale.Editor
                 Place(hintLabels[i].rectTransform, new Vector2((i - 1) * 340, -185), new Vector2(330, 60));
             }
             hint.gameObject.SetActive(false);
+            Set(finale, "artifactFacts", AssetDatabase.LoadAssetAtPath<TextAsset>(Root + "/Data/ArtifactFacts.json"));
             Set(finale, "controller", controller); Set(finale, "ui", ui);
             Set(finale, "audioPlayer", root.GetComponentInChildren<SharedAudioPlayer>(true));
             Set(finale, "artifactSource", source); Set(finale, "cardBack", Sprite("CardBack"));
@@ -217,7 +208,6 @@ namespace XunJiYiDa.Levels.Finale.Editor
                 var entry = artifacts.GetArrayElementAtIndex(i);
                 entry.FindPropertyRelative("id").stringValue = $"artifact-{i + 1:00}";
                 entry.FindPropertyRelative("title").stringValue = Titles[i];
-                entry.FindPropertyRelative("knowledge").stringValue = Knowledge[i];
                 entry.FindPropertyRelative("face").objectReferenceValue = Sprite($"CardFace_{i + 1:00}");
                 entry.FindPropertyRelative("icon").objectReferenceValue = Sprite($"Artifact_{i + 1:00}");
             }
@@ -230,6 +220,13 @@ namespace XunJiYiDa.Levels.Finale.Editor
             Place(introBody.rectTransform, new Vector2(-210, -5), new Vector2(770, 450));
             PrefabUtility.RecordPrefabInstancePropertyModifications(introBody);
             PrefabUtility.RecordPrefabInstancePropertyModifications(introBody.rectTransform);
+            var knowledgeBody = safe.Find("KnowledgeCard/Card/Body").GetComponent<TMP_Text>();
+            knowledgeBody.fontSize = 24;
+            knowledgeBody.enableAutoSizing = true;
+            knowledgeBody.fontSizeMin = 22; knowledgeBody.fontSizeMax = 24;
+            Place(knowledgeBody.rectTransform, new Vector2(-210, -5), new Vector2(770, 450));
+            PrefabUtility.RecordPrefabInstancePropertyModifications(knowledgeBody);
+            PrefabUtility.RecordPrefabInstancePropertyModifications(knowledgeBody.rectTransform);
         }
 
         private static FinaleCardView CreateCard(Transform parent, TMP_FontAsset font, int index)

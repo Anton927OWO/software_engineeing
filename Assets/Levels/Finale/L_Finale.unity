@@ -6214,6 +6214,34 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -43271464612342262, guid: 602bbe7f8d8f545fba803fdf33991478, type: 2}
+    - target: {fileID: 566372790186179741, guid: cf1ef0116ceaf4a378dc9803a436b41d, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 566372790186179741, guid: cf1ef0116ceaf4a378dc9803a436b41d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 566372790186179741, guid: cf1ef0116ceaf4a378dc9803a436b41d, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 566372790186179741, guid: cf1ef0116ceaf4a378dc9803a436b41d, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 566372790186179741, guid: cf1ef0116ceaf4a378dc9803a436b41d, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 118388223908129234, guid: cf1ef0116ceaf4a378dc9803a436b41d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 118388223908129234, guid: cf1ef0116ceaf4a378dc9803a436b41d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -9795,35 +9823,30 @@ MonoBehaviour:
   ui: {fileID: 1184835762}
   audioPlayer: {fileID: 1184835761}
   artifactSource: {fileID: 2096176807}
+  artifactFacts: {fileID: 4900000, guid: fada3b2a2d9145ce9df448c606ac2bd9, type: 3}
   artifacts:
   - id: artifact-01
     title: "\u91D1\u9BC9\u9B5A"
-    knowledge: "\u5716\u50CF\u89C0\u5BDF\uFF5C\u91D1\u9BC9\u9B5A\n\n\u5F9E\u9B5A\u8EAB\u3001\u5C3E\u9C2D\u8207\u773C\u775B\u8FA8\u8A8D\u8F2A\u5ED3\uFF0C\u518D\u6CE8\u610F\u91D1\u8272\u8868\u9762\u7684\u7DDA\u689D\u3002\u5148\u770B\u6574\u9AD4\u5F62\u72C0\uFF0C\u518D\u770B\u5C40\u90E8\u7D30\u7BC0\uFF0C\u662F\u8A18\u4F4F\u6587\u7269\u5716\u50CF\u7684\u65B9\u6CD5\u3002\n\n\u7FFB\u724C\u7DDA\u7D22\uFF1A\u91D1\u8272\u9B5A\u8EAB\u8207\u4E09\u89D2\u5F62\u5C3E\u9C2D\u3002"
     face: {fileID: -3986131177259440346, guid: 419556d0308ae4ca5a7f8a009acb24c8, type: 3}
     icon: {fileID: 290658076908743098, guid: 847e17a6ad766492eb2a4fed84278210, type: 3}
   - id: artifact-02
     title: "\u91D1\u7B94\u7247"
-    knowledge: "\u5716\u50CF\u89C0\u5BDF\uFF5C\u91D1\u7B94\u7247\n\n\u7B94\u7247\u5448\u73FE\u8584\u7247\u7684\u5916\u5F62\u3002\u89C0\u5BDF\u5716\u4E2D\u7684\u908A\u7DE3\u8207\u8868\u9762\u8272\u6FA4\uFF0C\u6BD4\u8F03\u5B83\u8207\u7ACB\u9AD4\u5668\u7269\u7684\u5DEE\u7570\u3002\u8A18\u61B6\u76F8\u8FD1\u8272\u5F69\u6642\uFF0C\u8F2A\u5ED3\u4E5F\u662F\u91CD\u8981\u7DDA\u7D22\u3002\n\n\u7FFB\u724C\u7DDA\u7D22\uFF1A\u91D1\u8272\u8584\u7247\u7684\u908A\u7DE3\u3002"
     face: {fileID: -5013147207911720552, guid: c4f8df2e8c21447d781b5213ec62e9bb, type: 3}
     icon: {fileID: -2497371209780061737, guid: e6cd148dedac74d7b887173927586416, type: 3}
   - id: artifact-03
     title: "\u5E7E\u4F55\u5370\u7D0B\u9676\u7F50"
-    knowledge: "\u5716\u50CF\u89C0\u5BDF\uFF5C\u5E7E\u4F55\u5370\u7D0B\u9676\u7F50\n\n\u9664\u4E86\u9676\u7F50\u7684\u53E3\u90E8\u548C\u5668\u8EAB\uFF0C\u4E5F\u53EF\u4EE5\u6CE8\u610F\u8868\u9762\u91CD\u8907\u7684\u5E7E\u4F55\u7D0B\u6A23\u3002\u5F62\u72C0\u3001\u6750\u8CEA\u8207\u7D0B\u6A23\uFF0C\u90FD\u662F\u95B1\u8B80\u6587\u7269\u6642\u53EF\u4EE5\u5206\u5225\u89C0\u5BDF\u7684\u7279\u5FB5\u3002\n\n\u7FFB\u724C\u7DDA\u7D22\uFF1A\u7F50\u5F62\u8F2A\u5ED3\u8207\u5E7E\u4F55\u7D0B\u6A23\u3002"
     face: {fileID: 1785719640804170548, guid: 226c0cfd7c2ea4a83a3a8b9a218c739b, type: 3}
     icon: {fileID: 2706087241714312547, guid: e55f3ac0c03224cf190acbe3ea5f28ab, type: 3}
   - id: artifact-04
     title: "\u6728\u93DF"
-    knowledge: "\u5716\u50CF\u89C0\u5BDF\uFF5C\u6728\u93DF\n\n\u89C0\u5BDF\u63E1\u67C4\u8207\u93DF\u9762\u5982\u4F55\u9023\u63A5\uFF0C\u60F3\u50CF\u624B\u63E1\u7684\u4F4D\u7F6E\u3002\u8FA8\u8A8D\u5DE5\u5177\u6642\uFF0C\u5148\u5206\u8FA8\u5404\u90E8\u4F4D\u7684\u5F62\u72C0\uFF0C\u518D\u601D\u8003\u5B83\u53EF\u80FD\u5982\u4F55\u4F7F\u7528\u3002\n\n\u7FFB\u724C\u7DDA\u7D22\uFF1A\u7D30\u9577\u63E1\u67C4\u8207\u8F03\u5BEC\u7684\u93DF\u9762\u3002"
     face: {fileID: 8519551545952249829, guid: 74fdf69c2c0964ee894fe8d969cafd04, type: 3}
     icon: {fileID: 6235942069448927048, guid: a239f3cc083e84fa0a642ad136d4e1fb, type: 3}
   - id: artifact-05
     title: "\u6728\u8CEA\u5713\u5F62\u96D5\u677F"
-    knowledge: "\u5716\u50CF\u89C0\u5BDF\uFF5C\u6728\u8CEA\u5713\u5F62\u96D5\u677F\n\n\u5713\u5F62\u5916\u8F2A\u5ED3\u8207\u8868\u9762\u7684\u96D5\u523B\u7DDA\u689D\uFF0C\u63D0\u4F9B\u5169\u7A2E\u8A18\u61B6\u7DDA\u7D22\u3002\u628A\u6574\u9AD4\u5916\u5F62\u8207\u5C40\u90E8\u7D0B\u6A23\u4E00\u8D77\u8A18\u4F4F\uFF0C\u80FD\u5E6B\u52A9\u8FA8\u8B58\u76F8\u4F3C\u7684\u5716\u5361\u3002\n\n\u7FFB\u724C\u7DDA\u7D22\uFF1A\u5713\u5F62\u6728\u677F\u8207\u96D5\u523B\u7D0B\u6A23\u3002"
     face: {fileID: 3269255307754079237, guid: 9f5eca023853c454283bfe266f55d649, type: 3}
     icon: {fileID: -5076286127993939389, guid: 942adfaca865249399cec46b774038b7, type: 3}
   - id: artifact-06
     title: "\u746A\u7459\u73E0"
-    knowledge: "\u5716\u50CF\u89C0\u5BDF\uFF5C\u746A\u7459\u73E0\n\n\u5F9E\u73E0\u5B50\u7684\u5713\u5F62\u3001\u8272\u6FA4\u8207\u6392\u5217\u65B9\u5F0F\u89C0\u5BDF\u5716\u50CF\u3002\u5C0F\u578B\u6587\u7269\u4E5F\u6709\u503C\u5F97\u4ED4\u7D30\u6BD4\u8F03\u7684\u7D30\u7BC0\uFF0C\u8A66\u8457\u627E\u51FA\u5176\u4E2D\u6700\u5BB9\u6613\u8A18\u4F4F\u7684\u7279\u5FB5\u3002\n\n\u7FFB\u724C\u7DDA\u7D22\uFF1A\u5713\u73E0\u7684\u8272\u5F69\u8207\u6392\u5217\u3002"
     face: {fileID: -8276371786008654977, guid: d1bac8a945a5d411aac98f2822aaa3ae, type: 3}
     icon: {fileID: -133472046158393260, guid: 8770b2bdabcd04d5f8e186386d7a6f00, type: 3}
   cardBack: {fileID: -8622259438476403829, guid: 924c5819a6db04b5e88c61cb1c0a931c, type: 3}

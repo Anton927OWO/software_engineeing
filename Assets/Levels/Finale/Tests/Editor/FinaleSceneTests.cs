@@ -75,6 +75,37 @@ namespace XunJiYiDa.Levels.Finale.Tests
         }
 
         [Test]
+        public void SavedSceneBindsSixSourcedArtifactFacts()
+        {
+            var scene = EditorSceneManager.OpenPreviewScene(FinaleSceneBuilder.ScenePath);
+            try
+            {
+                var finale = scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<FinaleLevelController>(true)).Single();
+                var data = new SerializedObject(finale).FindProperty("artifactFacts");
+                Assert.That(data, Is.Not.Null, "The scene must bind the source-backed artifact catalog.");
+                var asset = data.objectReferenceValue as TextAsset;
+                Assert.That(asset, Is.Not.Null);
+                var catalog = JsonUtility.FromJson<FinaleArtifactCatalog>(asset.text);
+                Assert.That(catalog.items.Length, Is.EqualTo(6));
+                Assert.That(catalog.items.Select(f => f.id).OrderBy(id => id),
+                    Is.EqualTo(Enumerable.Range(1, 6).Select(i => $"artifact-{i:00}")));
+                foreach (var fact in catalog.items)
+                {
+                    Assert.That(fact.sourceUrl, Is.EqualTo("https://lic.niu.edu.tw/p/412-1010-6107.php"), fact.id);
+                    Assert.That(fact.verificationStatus, Is.EqualTo("VerifiedOfficialSource"), fact.id);
+                    Assert.That(fact.verifiedOn, Is.EqualTo("2026-10-29"), fact.id);
+                    Assert.That(fact.summary.Length, Is.InRange(1, 52), fact.id + " must be readable during play.");
+                    Assert.That(fact.memoryCue, Is.Not.Empty, fact.id);
+                    Assert.That(fact.knowledge, Does.Contain(fact.summary), fact.id);
+                    Assert.That(fact.contextSourceUrl, Does.StartWith("https://lic.niu.edu.tw/"), fact.id);
+                    Assert.That(fact.context, Is.Not.Empty, fact.id);
+                }
+                Assert.That(catalog.items.Single(f => f.id == "artifact-04").knowledge, Does.Contain("推測"));
+            }
+            finally { EditorSceneManager.ClosePreviewScene(scene); }
+        }
+
+        [Test]
         public void SourceIdsArePrioritizedTrimmedDeduplicatedAndLimitedToThree()
         {
             Assert.That(FinaleArtifactSource.ResolveIds(
