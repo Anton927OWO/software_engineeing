@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BrushCursorController : MonoBehaviour
 {
@@ -34,22 +35,38 @@ public class BrushCursorController : MonoBehaviour
             return;
         }
 
-        Vector2 pointerPosition;
+        Vector2 pointerPosition = default;
+        bool hasTouch = false;
+        var touchscreen = Touchscreen.current;
 
-        // 手機觸控
-        if (Input.touchCount > 0)
+        // 觸控優先，每幀只選一個接觸點；此處只更新游標，不另行觸發刷土。
+        if (touchscreen != null && touchscreen.enabled)
         {
-            pointerPosition = Input.GetTouch(0).position;
+            foreach (var touch in touchscreen.touches)
+            {
+                if (!touch.press.isPressed)
+                    continue;
+
+                pointerPosition = touch.position.ReadValue();
+                hasTouch = true;
+                break;
+            }
         }
-        // 電腦滑鼠
-        else if (!Application.isMobilePlatform)
+
+        if (!hasTouch)
         {
-            pointerPosition = Input.mousePosition;
-        }
-        else
-        {
-            ShowBrush(false);
-            return;
+            var mouse = Mouse.current;
+
+            // 保留桌面滑鼠懸停顯示；行動裝置無觸控時隱藏游標。
+            if (!Application.isMobilePlatform && mouse != null && mouse.enabled)
+            {
+                pointerPosition = mouse.position.ReadValue();
+            }
+            else
+            {
+                ShowBrush(false);
+                return;
+            }
         }
 
         // 判斷滑鼠或手指是否在考古區域內

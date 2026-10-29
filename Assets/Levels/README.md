@@ -23,7 +23,7 @@ Unity 6000.3.19f1｜更新：2026-10-29
 | 地層解碼 | `Scripts/StrataStageOneManager.cs`、`StrataStageTwoManager.cs`、拖曳／Drop腳本、`StrataLevelFlow.cs`、`StrataLevelUI.cs`、`StrataLevelAudio.cs`、`StrataChallengeRules.cs`、Catalog／QuestionSet資料結構及其餘支援腳本。 |
 | 第三關資料 | `Assets/Levels/Strata/StrataPatternQuestionSet.asset`；`Assets/Levels/Strata/Resources/StrataKnowledgeCatalog.asset`及各自Meta。 |
 | 關卡外依賴 | `Assets/Common/Fonts/`、實際使用的`Assets/Common/audio/`及License；`Assets/TextMesh Pro/`內引用的Shader、資源及fallback字型。 |
-| Unity環境 | `Packages/manifest.json`與`packages-lock.json`；URP 17.3.0、UGUI 2.0.0、Input System 1.19.0。保留團隊現有URP／輸入設定；團隊專案目前Active Input Handling為Input System Package (New)（activeInputHandler: 1），第二關刷土游標仍使用舊版UnityEngine.Input，整合評估見「待整合事項」。 |
+| Unity環境 | `Packages/manifest.json`與`packages-lock.json`；URP 17.3.0、UGUI 2.0.0、Input System 1.19.0。保留團隊現有URP／輸入設定；三關使用New Input System，Active Input Handling維持Input System Package (New)（activeInputHandler: 1）。第二關刷土游標使用Mouse.current與Touchscreen.current；按住刷土、放開停止仍由InputSystemUIInputModule的EventSystem事件處理，不需啟用舊版Input Manager。 |
 
 建議保留完整專案（Assets、Packages、ProjectSettings）作可重現基準；供既有主專案匯入時使用含依賴的UnityPackage，另外核對程式引用、Resources及授權文件。只交Assets/Levels會漏掉共用依賴。不要直接覆蓋主專案ProjectSettings。
 
@@ -142,7 +142,7 @@ BGM沿用既有素材；暫停Pause、恢復接續，結束停止，重置重播
 - 由主遊戲系統確認正式Level ID、每個一般關卡的單一獎勵ID及對照表；序章不發一般關卡獎勵。本次不設定任何正式ID。
 - 關卡整合端確認nullable結果欄位、ResultReady接收、AttemptId去重及重試發獎政策；七個一般關卡抽三關、總分、地圖、永久收藏與全組結算由主遊戲系統處理。
 - 由整合開發者統一Build Profile／Build Scene清單與載入／離開策略。團隊目前EditorBuildSettings已啟用的Scene依序為`Assets/Scenes/Boot.unity`、`Assets/Scenes/SampleScene.unity`、`Assets/Scenes/Map_Library.unity`、`Assets/Scenes/Map_Campus.unity`；三關尚未列入，須於整合時加入正式Player載入清單。本次不改設定。
-- 第二關的刷土游標使用舊版 UnityEngine.Input。整合時建議評估將 Active Input Handling 設為 Both，並重新啟動 Unity 後測試滑鼠與觸控輸入。
+- 三關輸入需求為New Input System，Active Input Handling維持Input System Package (New)，不需設為Both。第二關游標優先使用觸控，沒有進行中的觸控時才使用桌面滑鼠；無可用裝置時隱藏游標。整合後須測試滑鼠移動、按住刷土、放開停止、單指觸控、觸控與滑鼠模擬並存時不重複刷土，以及暫停／恢復與重新挑戰後的輸入。
 - 協調Additive中的Canvas、EventSystem、AudioListener及音源生命週期；序章Time.timeScale會影響全域。外部卸載時解除事件訂閱，不只停用Flow。
 - 若替換共用知識卡／音效版型，保留三頁資料、來源、示意限定及原本事件發布時機。
 
