@@ -13,7 +13,7 @@ namespace XunJiYiDa.Levels.Timeline.Editor
     /// <summary>Edits the existing Timeline objects; does not rebuild the scene or Shared prefab.</summary>
     public static class TimelineQualityUpgrade
     {
-        public const string IntroductionBody = "找出宜大學制變化的五個節點。\n\n45 秒內放對五張卡即可通關；錯放可再試，並記錄失誤。\n開啟「年代提示」可查閱校史；閱讀與暫停期間不扣時間。";
+        public const string IntroductionBody = "找出宜大學制變化的五個節點。\n\n倒數內放對五張卡即可通關；錯放可再試，並記錄失誤。\n開啟「年代提示」可查閱校史；閱讀與暫停期間不扣時間。";
         private static readonly Color32[] Accents =
         {
             new Color32(117, 73, 38, 255), new Color32(139, 63, 49, 255),
@@ -66,7 +66,8 @@ namespace XunJiYiDa.Levels.Timeline.Editor
             Place(trayLabel.rectTransform, new Vector2(-730, -196), new Vector2(340, 50));
             trayLabel.fontSize = 24;
             root.Find("Knowledge/Label").GetComponent<TMP_Text>().text = "年代提示";
-            root.Find("SpaceIntroduction/Label").GetComponent<TMP_Text>().text = "操作說明";
+            var guide = (Button)new SerializedObject(board).FindProperty("spaceIntroduction").objectReferenceValue;
+            guide.GetComponentInChildren<TMP_Text>(true).text = "操作說明";
             foreach (var card in board.GetComponentsInChildren<TimelineCard>(true))
             {
                 int i = card.TargetIndex;
@@ -105,6 +106,124 @@ namespace XunJiYiDa.Levels.Timeline.Editor
                 Place(gesture.rectTransform, new Vector2(0, -104), new Vector2(260, 40));
                 gesture.color = Accents[i];
             }
+            ApplyLearning(scene, board);
+        }
+
+        private static void ApplyLearning(Scene scene, TimelineBoard board)
+        {
+            var controller = scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<SharedLevelController>(true)).Single();
+            var ui = controller.GetComponentInChildren<SharedLevelUI>(true);
+            var panels = ui.GetComponentsInChildren<SharedContentPanel>(true);
+            var knowledgePanel = panels.Single(p => p.name == "KnowledgeCard");
+            var knowledgeCard = knowledgePanel.transform.Find("Card");
+            var font = board.transform.Find("Progress").GetComponent<TMP_Text>().font;
+            TextAt("CultureConnection", board.transform, font, TimelineHistory.Stages[4].Connection, 24,
+                new Vector2(220, 302), new Vector2(630, 88));
+            var body = knowledgeCard.Find("Body").GetComponent<TMP_Text>();
+            Place(body.rectTransform, new Vector2(-210, 45), new Vector2(770, 300));
+            body.fontSize = 30;
+            Place((RectTransform)knowledgeCard.Find("Illustration"), new Vector2(430, 90), new Vector2(300, 250));
+            var boardSo = new SerializedObject(board);
+            var guide = (Button)boardSo.FindProperty("spaceIntroduction").objectReferenceValue;
+            guide.transform.SetParent(knowledgeCard, false);
+            Place((RectTransform)guide.transform, new Vector2(430, -90), new Vector2(260, 60));
+            Place(guide.GetComponentInChildren<TMP_Text>().rectTransform, Vector2.zero, new Vector2(240, 52));
+            TextAt("KnowledgeScope", knowledgeCard, font, TimelineHistory.ScopeNote, 20,
+                new Vector2(0, -150), new Vector2(1180, 40));
+            var kp = ButtonAt("KnowledgePrevious", knowledgeCard, font, "上一階段", new Vector2(-450, -215), 260);
+            var kn = ButtonAt("KnowledgeNext", knowledgeCard, font, "下一階段", new Vector2(-150, -215), 260);
+            var kh = ButtonAt("KnowledgeHistorySource", knowledgeCard, font, "校史出處", new Vector2(150, -215), 260);
+            var kc = ButtonAt("KnowledgeCultureSource", knowledgeCard, font, "文化出處", new Vector2(450, -215), 260);
+
+            var resultCard = ui.GetComponentsInChildren<Transform>(true).Single(t => t.name == "ResultCard");
+            ((RectTransform)resultCard).sizeDelta = new Vector2(1000, 760);
+            var resultTitle = resultCard.Find("Title").GetComponent<TMP_Text>();
+            Place(resultTitle.rectTransform, new Vector2(0, 330), new Vector2(800, 70));
+            resultTitle.fontSize = 44;
+            PrefabUtility.RecordPrefabInstancePropertyModifications(resultTitle);
+            var resultBody = resultCard.Find("Body").GetComponent<TMP_Text>();
+            Place(resultBody.rectTransform, new Vector2(0, 220), new Vector2(880, 150));
+            resultBody.fontSize = 24;
+            PrefabUtility.RecordPrefabInstancePropertyModifications(resultBody);
+            Place((RectTransform)resultCard.Find("Retry"), new Vector2(-210, -295), new Vector2(380, 90));
+            Place((RectTransform)resultCard.Find("ContinueToMap"), new Vector2(210, -295), new Vector2(380, 90));
+            var browser = resultCard.Find("ResultHistory") as RectTransform;
+            if (browser == null) browser = Rect("ResultHistory", resultCard);
+            Place(browser, Vector2.zero, new Vector2(1000, 550));
+            var heading = TextAt("ResultHistoryTitle", browser, font, "五階段校史摘要", 28,
+                new Vector2(0, 115), new Vector2(880, 50));
+            var summary = TextAt("ResultHistoryBody", browser, font, "", 25,
+                new Vector2(0, -5), new Vector2(880, 200));
+            summary.alignment = TextAlignmentOptions.TopLeft;
+            TextAt("ResultHistoryScope", browser, font, TimelineHistory.ScopeNote, 16,
+                new Vector2(0, -139), new Vector2(880, 34));
+            var rp = ButtonAt("ResultPrevious", browser, font, "上一階段", new Vector2(-330, -195), 200);
+            var rn = ButtonAt("ResultNext", browser, font, "下一階段", new Vector2(-110, -195), 200);
+            var rh = ButtonAt("ResultHistorySource", browser, font, "校史出處", new Vector2(110, -195), 200);
+            var rc = ButtonAt("ResultCultureSource", browser, font, "文化出處", new Vector2(330, -195), 200);
+            browser.gameObject.SetActive(false);
+
+            var view = board.GetComponent<TimelineHistoryView>() ?? board.gameObject.AddComponent<TimelineHistoryView>();
+            Set(view, "controller", controller);
+            Set(view, "ui", ui);
+            Set(view, "knowledgePanel", knowledgePanel);
+            Set(view, "resultBrowser", browser.gameObject);
+            Set(view, "resultHeading", heading);
+            Set(view, "resultSummary", summary);
+            SetArray(view, "cards", board.GetComponentsInChildren<TimelineCard>(true).OrderBy(c => c.TargetIndex).ToArray());
+            SetArray(view, "previous", new[] { kp, rp });
+            SetArray(view, "next", new[] { kn, rn });
+            SetArray(view, "historySources", new[] { kh, rh });
+            SetArray(view, "cultureSources", new[] { kc, rc });
+            Set(board, "historyView", view);
+        }
+
+        private static TMP_Text TextAt(string name, Transform parent, TMP_FontAsset font, string value,
+            float size, Vector2 position, Vector2 dimensions)
+        {
+            var existing = parent.Find(name);
+            var text = existing != null ? existing.GetComponent<TMP_Text>() : Rect(name, parent).gameObject.AddComponent<TextMeshProUGUI>();
+            Place(text.rectTransform, position, dimensions);
+            text.font = font;
+            text.fontSize = size;
+            text.color = new Color32(31, 58, 46, 255);
+            text.text = value;
+            text.alignment = TextAlignmentOptions.Center;
+            text.raycastTarget = false;
+            text.richText = false;
+            text.textWrappingMode = TextWrappingModes.Normal;
+            text.overflowMode = TextOverflowModes.Ellipsis;
+            return text;
+        }
+
+        private static Button ButtonAt(string name, Transform parent, TMP_FontAsset font, string label, Vector2 position, float width)
+        {
+            var image = Decoration(name, parent, Color.white);
+            image.sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Levels/Shared/Sprites/Button_Green.png");
+            image.type = Image.Type.Sliced;
+            image.raycastTarget = true;
+            Place(image.rectTransform, position, new Vector2(width, 54));
+            var button = image.GetComponent<Button>() ?? image.gameObject.AddComponent<Button>();
+            button.targetGraphic = image;
+            var text = TextAt("Label", image.transform, font, label, 22, Vector2.zero, new Vector2(width - 16, 48));
+            text.color = new Color32(251, 248, 242, 255);
+            return button;
+        }
+
+        private static void Set(UnityEngine.Object target, string field, UnityEngine.Object value)
+        {
+            var so = new SerializedObject(target);
+            so.FindProperty(field).objectReferenceValue = value;
+            so.ApplyModifiedPropertiesWithoutUndo();
+        }
+
+        private static void SetArray(UnityEngine.Object target, string field, UnityEngine.Object[] values)
+        {
+            var so = new SerializedObject(target);
+            var array = so.FindProperty(field);
+            array.arraySize = values.Length;
+            for (int i = 0; i < values.Length; i++) array.GetArrayElementAtIndex(i).objectReferenceValue = values[i];
+            so.ApplyModifiedPropertiesWithoutUndo();
         }
 
         private static void Stroke(Transform parent, int index, Vector2 position, Vector2 size, Color color)

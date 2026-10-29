@@ -13,7 +13,7 @@ Unity 6000.3.19f1 在暫存專案副本實測，排除首次匯入對交付範�
 | 全部 EditMode | 58 | 0 | 0 |
 | 全部 PlayMode | 16 | 0 | 2 |
 
-略過項目：Integration 的 `StandaloneCanRetryAfterContinue`、`StandaloneRetryClearsReportedScoreAndReportsFreshAttempt`，由既有測試因 Finale Scene 不在 Timeline 分支而略過。非 Timeline 測試失敗。原始 XML、Editor log 與 introduction/gameplay/knowledge/pause/success/timeout 截圖保留於暫存驗證資料夾，未混入遊戲資產。
+略過項目：Integration 的 `StandaloneCanRetryAfterContinue`、`StandaloneRetryClearsReportedScoreAndReportsFreshAttempt`，由既有測試因 Train Scene 不在 Timeline 分支而略過。非 Timeline 測試失敗。原始 XML、Editor log 與 introduction/gameplay/knowledge/pause/success/timeout 截圖保留於暫存驗證資料夾，未混入遊戲資產。
 
 原規則：45 秒、五張全對通關、超時失敗、失誤無次數上限、錯放或放空每次拖曳只記一次失誤。知識卡暫停計時，重試重置並洗牌；正式結果由既有 Shared / TrackingLevelBridge 回傳。
 
@@ -39,3 +39,39 @@ Unity 6000.3.19f1 在暫存專案副本實測，排除首次匯入對交付範�
 保留全部 273 個原有序列化物件、原插圖裁切、卡槽與時間軸。五卡分別加入暖褐平行線、磚紅直紋、青綠方格、靛藍階梯、草綠門框等遊戲識別；不把圖形宣稱為史實。加大卡名、手勢文字與正誤回饋，調整卡底字框以免裁字，簡化介紹並將按鈕文案分成「操作說明／年代提示」。
 
 先行場景測試因缺少年代識別而失敗；局部升級後全 EditMode 60/60 通過，Timeline PlayMode 11/11 通過。原生 1920×1080 截圖已檢查，額外發現並修正手勢文字高度不足。升級工具只修改 Timeline Scene 與其獨立 definition，不重新建立 Scene，不儲存全域 dirty 資產。
+
+## 改善三：五階段導讀、結果摘要與文化連結
+
+沿用原 KnowledgeCard，改為一次閱讀一階段：年份與學制、該年一句變化、文化連結、兩個分別對應的官方來源。主畫面移除重複介紹入口，操作說明移到年代提示內；原位置改顯示宜大記憶庫、噶瑪蘭文化廊道與萬斌廳考古展示的連結（沿用第五階段文化資料及 CampusUrl）。原年份標籤、軌道提示與插圖裁切皆保留。
+
+原 ResultOverlay 內加入五頁摘要；最後放對的年代直接呈現，能前後瀏覽。成功與超時都可閱讀，未增加必讀步驟或改變通關條件。原重試、繼續、分數和 Report / Exit 邏輯保留。頁面區分「文化連結（非當年事件）」，並保留 1967、1969 年的範圍註記，避免把五張卡說成完整校史或把今日展區回推到創校年代。
+
+先行新增的三項瀏覽測試，在舊 Scene 因缺少控制項而全部失敗。原生畫面檢查另發現 Prefab TMP 字級 setter 未儲存為場景 override，導致載入後標題和得分被裁切；新增不可溢出的行為檢查重現標題恢復為 56 字級，再以本關的字級 override 修正。未修改共用 Prefab。
+
+## 最終實測
+
+Unity **6000.3.19f1**，最終 C# Editor 編譯無錯誤。全套測試涵蓋此分支可用的 Common、Shared、Integration 與 Timeline。
+
+| 套件 | 通過 | 失敗 | 略過 |
+| --- | ---: | ---: | ---: |
+| 最終全部 EditMode | 62 | 0 | 0 |
+| 最終全部 PlayMode | 21 | 0 | 2 |
+
+2 項略過原因與基準相同：該既有 Integration 測試需要此分支不存在的 Train Scene。未新增或複製其他關卡來消除略過。
+
+新增測試確認：五年代正確放置立即顯示史實；錯誤線索不同且不含年份；五種視覺識別；所有史實／文化連結有官方 HTTPS URL；知識卡瀏覽凍結倒數，手動暫停阻擋瀏覽；五頁文字與原結果標題／完整得分不溢出；來源控制項通過 GraphicRaycaster 命中；瀏覽不改結果、不重送；超時維持失敗；重試清除瀏覽與進度；升級工具重跑結果一致、拒絕 dirty scene 且保留開啟場景與 Build Settings。
+
+原有測試持續確認：真實 Input System 合成滑鼠拖放、錯放／放空只記一次、正確吸附與固定、最後一張才成功、倒數／介紹／知識／手動暫停、拖曳中超時、重試洗牌、45 秒預設與正式 LevelContext 限時覆寫、團隊計分及按繼續才退出。
+
+原生 1920×1080 已檢視介紹、主畫面、正確回饋、錯誤線索、知識卡、暫停、成功、失敗與五階段結果摘要。唯讀獨立程式審查及增量複查沒有待修的功能問題；審查不代替 Unity 實測。
+
+## 教育目標與限制
+
+- 辨認農林學校、職業教育、專科、技術學院與大學的變化；透過拖放及當下回饋建立年份與學制的連結。
+- 錯放後讀學制關鍵詞，利用原時間軸再推理；不直接發放答案年份。
+- 在主畫面與遊戲中年代提示認識宜大記憶庫保存師生記憶，以及校史與宜蘭在地文化的連結，不把全部學習集中於結束後。
+- 讓玩家可從史實與文化連結各自的來源核對；教學內容的存在已驗證，實際學習成效仍需真人遊玩評估。
+
+尚未確認：實體手機觸控及各種螢幕比例、Android/iOS/獨立播放器建置、真人理解與閱讀速度、遊戲內外部瀏覽器實際啟動。官方 URL 已逐頁線上查核，但不保證日後頁面永久不變。完整三關整合需在包含其他關卡的分支再驗證；本次未觸碰那些關卡。卡片樣式不宣稱史料復原。
+
+交付分支保留在 `codex/timeline-quality`，不 merge main、不 push。測試在副本執行，只帶回 Timeline 檔案；438 個範圍外檔案雜湊維持原值、273 個原場景物件全數保留、資產 GUID 無重複。原 `codex/team-finale` 工作區及其既有未提交變更保留。

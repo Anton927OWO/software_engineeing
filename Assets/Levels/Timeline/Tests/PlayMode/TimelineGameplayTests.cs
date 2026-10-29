@@ -340,6 +340,117 @@ namespace XunJiYiDa.Levels.Timeline.Tests
             }
         }
 
+        [UnityTest]
+        public IEnumerator KnowledgeBrowserTeachesCultureAndKeepsTheTimerPaused()
+        {
+            Begin();
+            Button("Knowledge").onClick.Invoke();
+            float frozen = controller.Session.RemainingTime;
+            Assert.That(Button("KnowledgePrevious").interactable, Is.False);
+            for (int i = 0; i < years.Length; i++)
+            {
+                Assert.That(Panel("KnowledgeCard").GetComponentsInChildren<TMPro.TMP_Text>().Single(t => t.name == "Title").text,
+                    Does.Contain(years[i].ToString()));
+                var body = Panel("KnowledgeCard").GetComponentsInChildren<TMPro.TMP_Text>().Single(t => t.name == "Body");
+                Assert.That(body.text, Does.Contain("文化連結（非當年事件）"));
+                body.ForceMeshUpdate();
+                Assert.That(body.isTextOverflowing, Is.False, body.text);
+                Assert.That(Button("KnowledgeHistorySource").gameObject.activeInHierarchy, Is.True);
+                Assert.That(Button("KnowledgeCultureSource").gameObject.activeInHierarchy, Is.True);
+                if (i < years.Length - 1) Button("KnowledgeNext").onClick.Invoke();
+            }
+            Assert.That(Button("KnowledgeNext").interactable, Is.False);
+            controller.Pause();
+            Button("KnowledgePrevious").onClick.Invoke();
+            Assert.That(Panel("KnowledgeCard").GetComponentsInChildren<TMPro.TMP_Text>().Single(t => t.name == "Title").text,
+                Does.Contain("2003"), "Manual pause must block hidden browser input.");
+            controller.Resume();
+            yield return new WaitForSecondsRealtime(.08f);
+            Assert.That(controller.Session.RemainingTime, Is.EqualTo(frozen));
+            Capture("knowledge-browser");
+            Assert.That(Button("SpaceIntroduction").gameObject.activeInHierarchy, Is.True, "Keep the guide inside the learning panel.");
+            Button("SpaceIntroduction").onClick.Invoke();
+            Assert.That(Panel("Introduction").gameObject.activeInHierarchy, Is.True);
+            Assert.That(controller.CanInteract, Is.False);
+            Panel("Introduction").PrimaryButton.onClick.Invoke();
+            Assert.That(controller.CanInteract, Is.True);
+        }
+
+        [UnityTest]
+        public IEnumerator CompletionSummaryBrowsesFiveStagesAndRetryClearsItsState()
+        {
+            Begin();
+            int reports = 0;
+            controller.Completed += _ => reports++;
+            foreach (int year in years) Drag(year, year);
+            yield return new WaitForSecondsRealtime(.12f); // Let newly enabled UI complete its colour transition.
+            string result = relay.LastResultJson;
+            Canvas.ForceUpdateCanvases();
+            var resultCard = GameObject("ResultOverlay").transform.Find("ResultCard");
+            foreach (string name in new[] { "Title", "Body" })
+            {
+                var text = resultCard.Find(name).GetComponent<TMPro.TMP_Text>();
+                text.ForceMeshUpdate();
+                Assert.That(text.isTextOverflowing, Is.False, $"{name}: font={text.fontSize}, rect={text.rectTransform.rect}, text={text.text}");
+            }
+            Assert.That(GameObject("ResultHistory").activeInHierarchy, Is.True);
+            Assert.That(GameObject("ResultHistoryTitle").GetComponent<TMPro.TMP_Text>().text, Does.Contain("2003"),
+                "The last correct placement must still teach its change after the result overlay opens.");
+            for (int i = 0; i < 4; i++) Button("ResultPrevious").onClick.Invoke();
+            Assert.That(Button("ResultPrevious").interactable, Is.False);
+            for (int i = 0; i < years.Length; i++)
+            {
+                Assert.That(GameObject("ResultHistoryTitle").GetComponent<TMPro.TMP_Text>().text, Does.Contain(years[i].ToString()));
+                var body = GameObject("ResultHistoryBody").GetComponent<TMPro.TMP_Text>();
+                Assert.That(body.text, Does.Contain("文化連結（非當年事件）"));
+                body.ForceMeshUpdate();
+                Assert.That(body.isTextOverflowing, Is.False, body.text);
+                foreach (string name in new[] { "ResultHistorySource", "ResultCultureSource" })
+                {
+                    var button = Button(name);
+                    Assert.That(button.interactable, Is.True);
+                    var hits = new List<RaycastResult>();
+                    Find<EventSystem>().RaycastAll(Pointer((RectTransform)button.transform), hits);
+                    Assert.That(hits, Is.Not.Empty);
+                    Assert.That(ExecuteEvents.GetEventHandler<UnityEngine.EventSystems.IPointerClickHandler>(hits[0].gameObject),
+                        Is.EqualTo(button.gameObject), "Source controls must be reachable above the result overlay.");
+                }
+                yield return new WaitForSecondsRealtime(.12f); // Capture each page after its button tint settles.
+                Capture("summary-" + years[i]);
+                if (i < years.Length - 1) Button("ResultNext").onClick.Invoke();
+            }
+            Assert.That(Button("ResultNext").interactable, Is.False);
+            Assert.That(reports, Is.EqualTo(1));
+            Assert.That(relay.LastResultJson, Is.EqualTo(result));
+            Assert.That(controller.Session.State, Is.EqualTo(LevelState.Succeeded));
+            GameObject("ResultOverlay").GetComponentsInChildren<Button>().Single(b => b.name == "Retry").onClick.Invoke();
+            Assert.That(GameObject("ResultHistory").activeInHierarchy, Is.False);
+            Assert.That(relay.LastResult, Is.Null);
+            Assert.That(controller.Session.RemainingTime, Is.EqualTo(45));
+            Begin();
+            Button("Knowledge").onClick.Invoke();
+            Assert.That(Panel("KnowledgeCard").GetComponentsInChildren<TMPro.TMP_Text>().Single(t => t.name == "Title").text, Does.Contain("1926"));
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator TimeoutAllowsHistoricalReviewWithoutChangingTheFailureReport()
+        {
+            Begin();
+            Drag(1926, 1946);
+            controller.Session.Tick(45);
+            string result = relay.LastResultJson;
+            Assert.That(controller.Session.State, Is.EqualTo(LevelState.Failed));
+            Assert.That(GameObject("ResultHistory").activeInHierarchy, Is.True);
+            Button("ResultNext").onClick.Invoke();
+            Assert.That(GameObject("ResultHistoryTitle").GetComponent<TMPro.TMP_Text>().text, Does.Contain("1946"));
+            Assert.That(relay.LastResultJson, Is.EqualTo(result));
+            Assert.That(relay.LastResult.Success, Is.False);
+            Assert.That(relay.LastResult.MistakeCount, Is.EqualTo(1));
+            yield return null;
+            Capture("failure-learning");
+        }
+
         private void Begin() => Panel("Introduction").PrimaryButton.onClick.Invoke();
         private T Find<T>() where T : Component => scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<T>(true)).Single();
         private GameObject GameObject(string name) => scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Transform>(true)).Single(t => t.name == name).gameObject;

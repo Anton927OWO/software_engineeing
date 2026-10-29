@@ -48,7 +48,7 @@ namespace XunJiYiDa.Levels.Timeline
         public string SourceUrl => TimelineHistory.SchoolHistoryUrl;
         public string ConnectionSourceUrl { get; }
         public string Feedback => $"{Year}｜{Change}";
-        public string Summary => $"{SchoolName}\n{Change}\n\n文化連結（非當年事件）\n{Connection}";
+        public string Summary => $"{Change}\n\n文化連結（非當年事件）\n{Connection}";
 
         public TimelineEra(int year, string shortName, string schoolName, string change,
             string clue, string connection, string connectionSourceUrl)

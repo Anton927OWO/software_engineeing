@@ -78,6 +78,40 @@ namespace XunJiYiDa.Levels.Timeline.Tests
         }
 
         [Test]
+        public void RepeatedQualityUpgradePreservesSceneContextAndBuildSettings()
+        {
+            var active = SceneManager.GetActiveScene();
+            int count = SceneManager.sceneCount;
+            byte[] settings = File.ReadAllBytes("ProjectSettings/EditorBuildSettings.asset");
+            TimelineQualityUpgrade.UpgradeSavedScene();
+            byte[] first = File.ReadAllBytes(ScenePath);
+            TimelineQualityUpgrade.UpgradeSavedScene();
+            Assert.That(File.ReadAllBytes(ScenePath), Is.EqualTo(first));
+            Assert.That(File.ReadAllBytes("ProjectSettings/EditorBuildSettings.asset"), Is.EqualTo(settings));
+            Assert.That(SceneManager.GetActiveScene(), Is.EqualTo(active));
+            Assert.That(SceneManager.sceneCount, Is.EqualTo(count));
+        }
+
+        [Test]
+        public void QualityUpgradeRefusesDirtyScenesWithoutWritingTheSavedScene()
+        {
+            byte[] saved = File.ReadAllBytes(ScenePath);
+            var active = SceneManager.GetActiveScene();
+            var probe = EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Additive);
+            try
+            {
+                EditorSceneManager.MarkSceneDirty(probe);
+                Assert.Throws<System.InvalidOperationException>(() => TimelineQualityUpgrade.UpgradeSavedScene());
+                Assert.That(File.ReadAllBytes(ScenePath), Is.EqualTo(saved));
+            }
+            finally
+            {
+                if (active.IsValid() && active.isLoaded) SceneManager.SetActiveScene(active);
+                EditorSceneManager.CloseScene(probe, true);
+            }
+        }
+
+        [Test]
         public void DeliveredSceneHasSharedPrefabFiveCardsFiveSlotsAndChineseFont()
         {
             Assert.That(File.Exists(ScenePath), Is.True, "Editor generator must deliver a saved Unity scene.");

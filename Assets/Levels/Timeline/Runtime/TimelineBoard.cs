@@ -17,6 +17,7 @@ namespace XunJiYiDa.Levels.Timeline
         [SerializeField] private TMP_Text feedback;
         [SerializeField] private Button knowledge;
         [SerializeField] private Button spaceIntroduction;
+        [SerializeField] private TimelineHistoryView historyView;
         private bool initialized;
         private int placed;
         private int[] previousOrder;
@@ -54,6 +55,7 @@ namespace XunJiYiDa.Levels.Timeline
             slot.SetOccupied(true);
             card.LockAt(slot.transform.position);
             placed++;
+            historyView.RememberPlacement(card.TargetIndex);
             audioPlayer?.PlayCorrect();
             progress.text = $"已定位 {placed} / 5";
             feedback.text = TimelineHistory.Stages[card.TargetIndex].Feedback;
@@ -100,13 +102,15 @@ namespace XunJiYiDa.Levels.Timeline
                 cards[order[position]].ResetTo(new Vector2((position - 2) * 360, -340));
             foreach (var slot in slots) slot.SetOccupied(false);
             progress.text = "已定位 0 / 5";
-            feedback.text = "拖曳學制卡到對應年份；閱讀知識卡可獲得提示。";
+            feedback.text = "拖曳至年份；「年代提示」可查校史與宜大記憶庫的文化連結。";
         }
 
         private void HandleState(LevelState state)
         {
             bool running = CanInteract;
-            knowledge.interactable = spaceIntroduction.interactable = running;
+            knowledge.interactable = running;
+            spaceIntroduction.interactable = running ||
+                (state == LevelState.Paused && controller.Session.PauseReasons == PauseReason.Modal);
             if (!running) foreach (var card in cards) card.CancelDrag();
         }
 
@@ -114,19 +118,13 @@ namespace XunJiYiDa.Levels.Timeline
         {
             if (!CanInteract) return;
             audioPlayer?.PlayClick();
-            ui.ShowKnowledgeCard("百年學制的五個節點",
-                "1926｜臺北州立宜蘭農林學校，開啟農林教育。\n" +
-                "1946｜臺灣省立宜蘭農業職業學校。\n" +
-                "1988｜改制國立宜蘭農工專科學校。\n" +
-                "1998｜升格國立宜蘭技術學院。\n" +
-                "2003｜更名國立宜蘭大學。\n\n" +
-                "期間另有 1967、1969 年職校改名。\n這五張卡呈現主要節點，並非全部校名。",
-                cards[4].Illustration);
+            historyView.ShowKnowledge();
         }
 
         private void ShowIntroduction()
         {
-            if (!CanInteract) return;
+            if (!CanInteract && !(controller.Session.State == LevelState.Paused &&
+                controller.Session.PauseReasons == PauseReason.Modal)) return;
             audioPlayer?.PlayClick();
             var definition = controller.Definition;
             ui.ShowIntroduction(definition.IntroductionTitle, definition.IntroductionBody, definition.IntroductionImage);
