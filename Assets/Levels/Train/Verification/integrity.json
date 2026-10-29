@@ -1,0 +1,30 @@
+{
+  "baseCommit": "fdf89dd4d891ec62772649968bcc3f28d3fb4438",
+  "protectedFilesChecked": 423,
+  "protectedContentChanges": [],
+  "lfsFilesMaterializedToExactVersion": 38,
+  "originalSceneObjects": 157,
+  "retainedSceneObjects": 157,
+  "addedSceneObjects": 20,
+  "removedSceneObjects": [],
+  "duplicateAssetGuids": [],
+  "testedDeliveryFileHashes": {
+    "L_Train.unity": "c489c46d5bba663b9b8ce218fc72ef8d7ce03768c019cd1a6e967b8c96e8deea",
+    "Runtime/TrainQuestion.cs": "3c96f5c938901342172c12ad899930327661a1160980458eb98683d3aa1fe537",
+    "Runtime/TrainRound.cs": "036511e87f7e5ee299d92e1f7fee6ae97226bcc076a72b0c6e92a5c86a605316",
+    "Runtime/TrainLevelController.cs": "1d29a0011af2fd4b0e87ca7ebcdf124689398246ffda2f7aaede40d4827aa7c5",
+    "Runtime/XunJiYiDa.Levels.Train.asmdef": "e3cdfd3226980a694bed1c0969155fd43b62c348510ae80f04a1f2c9262f6d96",
+    "Runtime/TrainQuestionBank.cs": "b26bb47346c883f988c094cbb16af2470e877d316be7e7985386da9749f6e377",
+    "Fonts/Train NotoSansTC SDF.asset": "8b60d614845b725799985c784b476391855e35936298cb80d7d366c3d502096d",
+    "Data/TrainLevel.asset": "d0405364140aa57749f8c33c2c3c880461c347e10f3ad8ba80ab515c088858ec",
+    "Data/TrainQuestions.asset": "df1d1fc95a889bccbeeb568bb2aaad5834eb918f31910e6fe15ba565014027a1",
+    "Data/TrainQuestions.seed.json": "aa00ff9a55a97b5da63a52d0e16fe1ea1aed3d30b7403231485bd6788e82e5d6",
+    "Editor/XunJiYiDa.Levels.Train.Editor.asmdef": "59ca7313456cfb3efa7b4bf545d9f2d146a17a98c072e8a4f1ff77e6a60b514c",
+    "Editor/TrainSceneBuilder.cs": "c2c5ef18faffe200c64fe38d552e4991a00fa63ec7e9efc72a5d32ec689d84ae",
+    "Tests/PlayMode/TrainGameplayTests.cs": "92f306b661143e813fb453ab38573dfd609df2ea62e0d3b9cd243a7e43d4a5e0",
+    "Tests/PlayMode/XunJiYiDa.Levels.Train.PlayMode.Tests.asmdef": "ebaf67d8b628b015a08c7cf6063edbb6f7e437d83d331851c4c26f7db6a5329b",
+    "Tests/Editor/TrainAssetTests.cs": "32af018d04efa996e3aeffa105acdec859ea7f050f6a5ac8566505ee751cb4d6",
+    "Tests/Editor/XunJiYiDa.Levels.Train.Editor.Tests.asmdef": "b973da7a91643581bddb3312eca52992e28f4158e6d9ed79fa720d13b2667629",
+    "Tests/Editor/TrainRoundTests.cs": "3381014c0292f3e7cf9244ef4c0b38daa016fda4bc6b7835cf45ce7a1eac3783"
+  }
+}
