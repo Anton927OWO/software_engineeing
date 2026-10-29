@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="18" result="Passed" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-29 12:35:00Z" end-time="2026-10-29 12:35:48Z" duration="48.4838335">
+  <test-suite type="TestSuite" id="1047" name="Tracking_NIU" fullname="Tracking_NIU" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-10-29 12:35:00Z" end-time="2026-10-29 12:35:48Z" duration="48.483834" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1020" name="XunJiYiDa.Levels.Finale.PlayMode.Tests.dll" fullname="/Users/testarossa/Desktop/new-unity-mid/Library/ScriptAssemblies/XunJiYiDa.Levels.Finale.PlayMode.Tests.dll" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-10-29 12:35:00Z" end-time="2026-10-29 12:35:47Z" duration="47.374932" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="61225" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1021" name="XunJiYiDa" fullname="XunJiYiDa" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-10-29 12:35:00Z" end-time="2026-10-29 12:35:47Z" duration="47.374620" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1022" name="Levels" fullname="XunJiYiDa.Levels" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-10-29 12:35:00Z" end-time="2026-10-29 12:35:47Z" duration="47.374504" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1023" name="Finale" fullname="XunJiYiDa.Levels.Finale" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-10-29 12:35:00Z" end-time="2026-10-29 12:35:47Z" duration="47.374362" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1024" name="Tests" fullname="XunJiYiDa.Levels.Finale.Tests" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-10-29 12:35:00Z" end-time="2026-10-29 12:35:47Z" duration="47.374189" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1004" name="FinaleGameplayTests" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-10-29 12:35:00Z" end-time="2026-10-29 12:35:47Z" duration="47.318264" total="12" passed="12" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1006" name="AnimationsRejectRapidClicksAndWrongPairWaitsPointEightActiveSeconds" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.AnimationsRejectRapidClicksAndWrongPairWaitsPointEightActiveSeconds" methodname="AnimationsRejectRapidClicksAndWrongPairWaitsPointEightActiveSeconds" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="217997358" result="Passed" start-time="2026-10-29 12:35:00Z" end-time="2026-10-29 12:35:05Z" duration="4.751390" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1012" name="AssignedCollectedArtifactsDriveTheHintAndReportedResult" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.AssignedCollectedArtifactsDriveTheHintAndReportedResult" methodname="AssignedCollectedArtifactsDriveTheHintAndReportedResult" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="768204090" result="Passed" start-time="2026-10-29 12:35:05Z" end-time="2026-10-29 12:35:07Z" duration="2.026214" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1015" name="FocusLossFreezesHintAndMismatchWait" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.FocusLossFreezesHintAndMismatchWait" methodname="FocusLossFreezesHintAndMismatchWait" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="61411447" result="Passed" start-time="2026-10-29 12:35:07Z" end-time="2026-10-29 12:35:13Z" duration="6.534309" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1005" name="HintLastsTwoSecondsWithoutSpendingCountdownAndHonorsPause" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.HintLastsTwoSecondsWithoutSpendingCountdownAndHonorsPause" methodname="HintLastsTwoSecondsWithoutSpendingCountdownAndHonorsPause" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="401479435" result="Passed" start-time="2026-10-29 12:35:13Z" end-time="2026-10-29 12:35:17Z" duration="3.728662" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1016" name="IntroductionAllKnowledgeCardsAndResultsFitTheirTextAreas" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.IntroductionAllKnowledgeCardsAndResultsFitTheirTextAreas" methodname="IntroductionAllKnowledgeCardsAndResultsFitTheirTextAreas" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="626904682" result="Passed" start-time="2026-10-29 12:35:17Z" end-time="2026-10-29 12:35:21Z" duration="4.378283" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜通關｜剩餘 87.8 秒｜失誤 0 次｜文物 ｜配對 6 組
+[測試] 得分：基礎 600＋時間 488－失誤 0＝1088
+]]></output>
+                </test-case>
+                <test-case id="1010" name="KnowledgeAndIntroductionPauseCountdownWithoutClearingManualPause" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.KnowledgeAndIntroductionPauseCountdownWithoutClearingManualPause" methodname="KnowledgeAndIntroductionPauseCountdownWithoutClearingManualPause" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="1599242646" result="Passed" start-time="2026-10-29 12:35:21Z" end-time="2026-10-29 12:35:24Z" duration="2.605214" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1009" name="PauseRetryClearsPendingMismatchAndStartsAFreshHint" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.PauseRetryClearsPendingMismatchAndStartsAFreshHint" methodname="PauseRetryClearsPendingMismatchAndStartsAFreshHint" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="1507093200" result="Passed" start-time="2026-10-29 12:35:24Z" end-time="2026-10-29 12:35:29Z" duration="5.490839" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1011" name="PausingMidFlipFreezesVisualAndRejectsPointerClickBehindOverlay" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.PausingMidFlipFreezesVisualAndRejectsPointerClickBehindOverlay" methodname="PausingMidFlipFreezesVisualAndRejectsPointerClickBehindOverlay" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="924773492" result="Passed" start-time="2026-10-29 12:35:29Z" end-time="2026-10-29 12:35:32Z" duration="2.750298" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1013" name="RestartDuringHintDiscardsHintAndDoesNotStartOldCountdown" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.RestartDuringHintDiscardsHintAndDoesNotStartOldCountdown" methodname="RestartDuringHintDiscardsHintAndDoesNotStartOldCountdown" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="1826707366" result="Passed" start-time="2026-10-29 12:35:32Z" end-time="2026-10-29 12:35:37Z" duration="4.696713" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1014" name="RootReactivationCancelsUnfinishedFlipsButPreservesMatchedPairs" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.RootReactivationCancelsUnfinishedFlipsButPreservesMatchedPairs" methodname="RootReactivationCancelsUnfinishedFlipsButPreservesMatchedPairs" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="1573578440" result="Passed" start-time="2026-10-29 12:35:37Z" end-time="2026-10-29 12:35:40Z" duration="2.844694" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1007" name="SixPairsKeepGoldFramesAndPublishOneImmutableSuccessResult" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.SixPairsKeepGoldFramesAndPublishOneImmutableSuccessResult" methodname="SixPairsKeepGoldFramesAndPublishOneImmutableSuccessResult" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="1953622422" result="Passed" start-time="2026-10-29 12:35:40Z" end-time="2026-10-29 12:35:44Z" duration="4.188300" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜通關｜剩餘 87.8 秒｜失誤 0 次｜文物 ｜配對 6 組
+[測試] 得分：基礎 600＋時間 488－失誤 0＝1088
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1008" name="TimeoutDuringAnimationPublishesFailureOnceAndCancelsPendingWork" fullname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests.TimeoutDuringAnimationPublishesFailureOnceAndCancelsPendingWork" methodname="TimeoutDuringAnimationPublishesFailureOnceAndCancelsPendingWork" classname="XunJiYiDa.Levels.Finale.Tests.FinaleGameplayTests" runstate="Runnable" seed="1388792926" result="Passed" start-time="2026-10-29 12:35:44Z" end-time="2026-10-29 12:35:47Z" duration="3.306687" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 InitTestScene74332b8e-23c1-4721-ab65-96d3eed1a01d，但 Level Id 對應的是 L_Finale，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：終章：文物記憶翻牌（Finale）｜限時 90 秒｜文物 
+[測試] 關卡結束：Finale｜失敗｜剩餘 0.0 秒｜失誤 1 次｜文物 ｜配對 0 組
+[測試] 得分：基礎 0＋時間 0－失誤 20＝0
+]]></output>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1017" name="TrackingFinaleFlowTests" fullname="XunJiYiDa.Levels.Finale.Tests.TrackingFinaleFlowTests" classname="XunJiYiDa.Levels.Finale.Tests.TrackingFinaleFlowTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-29 12:35:47Z" end-time="2026-10-29 12:35:47Z" duration="0.054089" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1019" name="FinaleTimeoutReportsActualPartialPairs" fullname="XunJiYiDa.Levels.Finale.Tests.TrackingFinaleFlowTests.FinaleTimeoutReportsActualPartialPairs" methodname="FinaleTimeoutReportsActualPartialPairs" classname="XunJiYiDa.Levels.Finale.Tests.TrackingFinaleFlowTests" runstate="Runnable" seed="1933683513" result="Passed" start-time="2026-10-29 12:35:47Z" end-time="2026-10-29 12:35:47Z" duration="0.030167" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1018" name="FinaleUsesCollectedArtifactsFromTeamContext" fullname="XunJiYiDa.Levels.Finale.Tests.TrackingFinaleFlowTests.FinaleUsesCollectedArtifactsFromTeamContext" methodname="FinaleUsesCollectedArtifactsFromTeamContext" classname="XunJiYiDa.Levels.Finale.Tests.TrackingFinaleFlowTests" runstate="Runnable" seed="1315435155" result="Passed" start-time="2026-10-29 12:35:47Z" end-time="2026-10-29 12:35:47Z" duration="0.022434" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1042" name="XunJiYiDa.Levels.Shared.PlayMode.Tests.dll" fullname="/Users/testarossa/Desktop/new-unity-mid/Library/ScriptAssemblies/XunJiYiDa.Levels.Shared.PlayMode.Tests.dll" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:35:47Z" end-time="2026-10-29 12:35:48Z" duration="1.101944" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="61225" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1043" name="XunJiYiDa" fullname="XunJiYiDa" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:35:47Z" end-time="2026-10-29 12:35:48Z" duration="1.101610" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1044" name="Levels" fullname="XunJiYiDa.Levels" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:35:47Z" end-time="2026-10-29 12:35:48Z" duration="1.101430" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1045" name="Shared" fullname="XunJiYiDa.Levels.Shared" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:35:47Z" end-time="2026-10-29 12:35:48Z" duration="1.101296" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1046" name="Tests" fullname="XunJiYiDa.Levels.Shared.Tests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:35:47Z" end-time="2026-10-29 12:35:48Z" duration="1.101014" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1037" name="SharedLifecycleTests" fullname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" classname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:35:47Z" end-time="2026-10-29 12:35:48Z" duration="1.100680" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1041" name="DisablingControllerRestoresPreviousWorldTimeScale" fullname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests.DisablingControllerRestoresPreviousWorldTimeScale" methodname="DisablingControllerRestoresPreviousWorldTimeScale" classname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" runstate="Runnable" seed="974919254" result="Passed" start-time="2026-10-29 12:35:47Z" end-time="2026-10-29 12:35:47Z" duration="0.002322" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1038" name="FoundationSceneSupportsKnowledgePauseAndRetry" fullname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests.FoundationSceneSupportsKnowledgePauseAndRetry" methodname="FoundationSceneSupportsKnowledgePauseAndRetry" classname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" runstate="Runnable" seed="1740356710" result="Passed" start-time="2026-10-29 12:35:47Z" end-time="2026-10-29 12:35:48Z" duration="1.075651" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1040" name="MinigameTrapsNavigationWhileItsClockContinuesAndRetryClearsResult" fullname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests.MinigameTrapsNavigationWhileItsClockContinuesAndRetryClearsResult" methodname="MinigameTrapsNavigationWhileItsClockContinuesAndRetryClearsResult" classname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" runstate="Runnable" seed="1634017008" result="Passed" start-time="2026-10-29 12:35:48Z" end-time="2026-10-29 12:35:48Z" duration="0.014693" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+]]></output>
+                </test-case>
+                <test-case id="1039" name="ReenablingRootKeepsIntroductionAndItsStartAction" fullname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests.ReenablingRootKeepsIntroductionAndItsStartAction" methodname="ReenablingRootKeepsIntroductionAndItsStartAction" classname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" runstate="Runnable" seed="1077358289" result="Passed" start-time="2026-10-29 12:35:48Z" end-time="2026-10-29 12:35:48Z" duration="0.006307" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Saving results to: /Users/testarossa/Library/Application Support/DefaultCompany/Tracking_NIU/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
