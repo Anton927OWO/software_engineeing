@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1af0814a0f45b5990d329bf92441d8, type: 3}
+  m_Name: DigArtifactCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::DigArtifactCatalog
+  entries:
+  - id: gold
+    displayName: "壓印紋飾金箔片"
+    illustration: {fileID: 21300000, guid: 053df6379a5b4b24d9e10f65b1771e2d, type: 3}
+    introduction: "宜蘭農校遺址出土的金箔片，\n具有閉眼人臉模樣的壓印紋飾，\n是在墓葬中發現的珍貴文物。\n透過這件文物，可以認識當時先民的\n裝飾文化與工藝特色。"
+    source: "國立宜蘭大學圖書資訊館\n宜蘭農校遺址－出土文物\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"
+    verified: 1
+  - id: agate
+    displayName: "瑪瑙珠"
+    illustration: {fileID: 21300000, guid: ce83a0ccfc63ba3428eb55e3b65a3b9c, type: 3}
+    introduction: "瑪瑙珠是舊社時期常見的裝飾品之一，\n以六角管形較為常見。\n宜蘭農校遺址出土的各式珠飾，\n反映了當時先民的裝飾文化，\n以及與其他地區的交流活動。"
+    source: "國立宜蘭大學圖書資訊館\n宜蘭農校遺址－出土文物\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"
+    verified: 1
+  - id: pottery
+    displayName: "幾何印紋陶片"
+    illustration: {fileID: 21300000, guid: 2bfc827c037eb69409741b7956aa7db5, type: 3}
+    introduction: "幾何印紋陶器是舊社時期具有代表性的文物。\n先民利用蘭陽平原的黏土製作陶罐，\n並在表面留下各種幾何紋飾。\n這些陶器展現了當時的製陶技術與生活文化。\n\n圖像為遊戲陶片示意圖，非特定出土文物；\n本卡介紹幾何印紋陶器文化。"
+    source: "國立宜蘭大學圖書資訊館\n宜蘭農校遺址－出土文物\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"
+    verified: 1

@@ -1,0 +1,1729 @@
+fileFormatVersion: 2
+guid: 3f65f93602f747c46bc816e1b625c6f0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9073482814128833471
+    second: BookBox_0
+  - first:
+      213: -1786526630006490879
+    second: BookBox_1
+  - first:
+      213: 3865487995970832298
+    second: BookBox_2
+  - first:
+      213: -5975886764288222216
+    second: BookBox_3
+  - first:
+      213: 5073852119613632775
+    second: BookBox_4
+  - first:
+      213: 4034875040608382249
+    second: BookBox_5
+  - first:
+      213: 8724883659716120244
+    second: BookBox_6
+  - first:
+      213: -7676209285167866819
+    second: BookBox_7
+  - first:
+      213: -8327389678218183719
+    second: BookBox_8
+  - first:
+      213: -6349673100978985847
+    second: BookBox_9
+  - first:
+      213: -1265539676321332309
+    second: BookBox_10
+  - first:
+      213: 3761530617988951559
+    second: BookBox_11
+  - first:
+      213: -6862864559700160614
+    second: BookBox_12
+  - first:
+      213: -4243720904486868323
+    second: BookBox_13
+  - first:
+      213: 337915031544087031
+    second: BookBox_14
+  - first:
+      213: 1136235575039936938
+    second: BookBox_15
+  - first:
+      213: -6722108539772383784
+    second: BookBox_16
+  - first:
+      213: 7750282817907256695
+    second: BookBox_17
+  - first:
+      213: -5245090875560706537
+    second: BookBox_18
+  - first:
+      213: -3351454827501851460
+    second: BookBox_19
+  - first:
+      213: -5390769989328979707
+    second: BookBox_20
+  - first:
+      213: 2027298002324701603
+    second: BookBox_21
+  - first:
+      213: -9014396115075526932
+    second: BookBox_22
+  - first:
+      213: 7335912719712333422
+    second: BookBox_23
+  - first:
+      213: 4652269672984090149
+    second: BookBox_24
+  - first:
+      213: -770636057686753602
+    second: BookBox_25
+  - first:
+      213: -1066449069094298800
+    second: BookBox_26
+  - first:
+      213: 7940228920795629611
+    second: BookBox_27
+  - first:
+      213: 6506634189047994693
+    second: BookBox_28
+  - first:
+      213: 4157267361826974976
+    second: BookBox_29
+  - first:
+      213: 2378169303692508755
+    second: BookBox_30
+  - first:
+      213: -180719135720449338
+    second: BookBox_31
+  - first:
+      213: 2495118222349376005
+    second: BookBox_32
+  - first:
+      213: -6011893207311006637
+    second: BookBox_33
+  - first:
+      213: -3103011656756469571
+    second: BookBox_34
+  - first:
+      213: 4224750985748420081
+    second: BookBox_35
+  - first:
+      213: -8421352499108738676
+    second: BookBox_36
+  - first:
+      213: 1469187730106470723
+    second: BookBox_37
+  - first:
+      213: 2545652498712448483
+    second: BookBox_38
+  - first:
+      213: 485080561616053113
+    second: BookBox_39
+  - first:
+      213: -8143353816047876065
+    second: BookBox_40
+  - first:
+      213: 1431133385514964793
+    second: BookBox_41
+  - first:
+      213: 916336922518523929
+    second: BookBox_42
+  - first:
+      213: -3272053560302651638
+    second: BookBox_43
+  - first:
+      213: 14392702018984829
+    second: BookBox_44
+  - first:
+      213: -2420199749638393470
+    second: BookBox_45
+  - first:
+      213: 5276153585826737566
+    second: BookBox_46
+  - first:
+      213: 5154600665885725580
+    second: BookBox_47
+  - first:
+      213: 1192871779367711375
+    second: BookBox_48
+  - first:
+      213: 8885061683808539579
+    second: BookBox_49
+  - first:
+      213: -3012004952872736875
+    second: BookBox_50
+  - first:
+      213: 3432914065548065735
+    second: BookBox_51
+  - first:
+      213: 1137262926789730315
+    second: BookBox_52
+  - first:
+      213: -6728060702139016890
+    second: BookBox_53
+  - first:
+      213: 4232192458982696006
+    second: BookBox_54
+  - first:
+      213: 2450378707940546780
+    second: BookBox_55
+  - first:
+      213: 1049211862304647536
+    second: BookBox_56
+  - first:
+      213: -1314922949575702243
+    second: BookBox_57
+  - first:
+      213: 628191100301449887
+    second: BookBox_58
+  - first:
+      213: 807761816971359323
+    second: BookBox_59
+  - first:
+      213: 6836021383882578099
+    second: BookBox_60
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BookBox_0
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 1038
+        width: 37
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb3c2cbcb8c7bed70800000000000000
+      internalID: 9073482814128833471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_1
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1034
+        width: 45
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 109ffa4de7bf437e0800000000000000
+      internalID: -1786526630006490879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_2
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1044
+        width: 62
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa7c0632ad8f4a530800000000000000
+      internalID: 3865487995970832298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_3
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 1041
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fb54a446a2611da0800000000000000
+      internalID: -5975886764288222216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_4
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 1050
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701fe60de91f96640800000000000000
+      internalID: 5073852119613632775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_5
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 1048
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d6d84c871cef730800000000000000
+      internalID: 4034875040608382249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_6
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 1050
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be4dfb4673051970800000000000000
+      internalID: 8724883659716120244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_7
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 1055
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3c93005350a87590800000000000000
+      internalID: -7676209285167866819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_8
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 1052
+        width: 33
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dbfc83453b2f6c80800000000000000
+      internalID: -8327389678218183719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_9
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1051
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9846b48e4fd61e7a0800000000000000
+      internalID: -6349673100978985847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_10
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 1041
+        width: 66
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba344b79e56ef6ee0800000000000000
+      internalID: -1265539676321332309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_11
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 1019
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70eacf8ea24a33430800000000000000
+      internalID: 3761530617988951559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_12
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 1039
+        width: 41
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9f44714b0532c0a0800000000000000
+      internalID: -6862864559700160614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_13
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 1052
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9a292252564b15c0800000000000000
+      internalID: -4243720904486868323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_14
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 1030
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f1437b4ee380b400800000000000000
+      internalID: 337915031544087031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_15
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 1050
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa9ca674c38b4cf00800000000000000
+      internalID: 1136235575039936938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_16
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 1063
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dd4f39f5e546b2a0800000000000000
+      internalID: -6722108539772383784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_17
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 1036
+        width: 119
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77dec2ef8298e8b60800000000000000
+      internalID: 7750282817907256695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_18
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 1052
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71ebf8b63a1b537b0800000000000000
+      internalID: -5245090875560706537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1429
+        height: 1034
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbcebf5579d3d71d0800000000000000
+      internalID: -3351454827501851460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_20
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1031
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 509b53891432035b0800000000000000
+      internalID: -5390769989328979707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_21
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 969
+        width: 104
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a14c62cac8622c10800000000000000
+      internalID: 2027298002324701603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_22
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 994
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee03406e7e66e280800000000000000
+      internalID: -9014396115075526932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_23
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 1030
+        width: 21
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6e29b150c56ec560800000000000000
+      internalID: 7335912719712333422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_24
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 1028
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5261a896e9e209040800000000000000
+      internalID: 4652269672984090149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_25
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 1028
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe397aa6962e45f0800000000000000
+      internalID: -770636057686753602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_26
+      rect:
+        serializedVersion: 2
+        x: 861
+        y: 1030
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05b9691d8363331f0800000000000000
+      internalID: -1066449069094298800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_27
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 969
+        width: 81
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b288e43622c513e60800000000000000
+      internalID: 7940228920795629611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_28
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1022
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5491e9142553c4a50800000000000000
+      internalID: 6506634189047994693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_29
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 990
+        width: 29
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00da502b3a491b930800000000000000
+      internalID: 4157267361826974976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_30
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 985
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e7452b164f00120800000000000000
+      internalID: 2378169303692508755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_31
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 1008
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca544f47e4fd7df0800000000000000
+      internalID: -180719135720449338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_32
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 982
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a1db3bdc070a220800000000000000
+      internalID: 2495118222349376005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_33
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 961
+        width: 100
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 354c4a6faf6719ca0800000000000000
+      internalID: -6011893207311006637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_34
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 969
+        width: 63
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db06221b653efe4d0800000000000000
+      internalID: -3103011656756469571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_35
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 969
+        width: 63
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f5140a43a451aa30800000000000000
+      internalID: 4224750985748420081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_36
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 969
+        width: 68
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8986423588512b80800000000000000
+      internalID: -8421352499108738676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_37
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 992
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 341db59d47a936410800000000000000
+      internalID: 1469187730106470723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_38
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 988
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed475bc579f35320800000000000000
+      internalID: 2545652498712448483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_39
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 987
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9736292633a5bb600800000000000000
+      internalID: 485080561616053113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_40
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 967
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f18052289defcfe80800000000000000
+      internalID: -8143353816047876065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_41
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 980
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93752dd4b386cd310800000000000000
+      internalID: 1431133385514964793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_42
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 955
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9109a49739b77bc00800000000000000
+      internalID: 916336922518523929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_43
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 978
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a07bb1c7f945792d0800000000000000
+      internalID: -3272053560302651638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_44
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 973
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7b13331612233000800000000000000
+      internalID: 14392702018984829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_45
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 961
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28170558629b96ed0800000000000000
+      internalID: -2420199749638393470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_46
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 945
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9d2b976bb9a83940800000000000000
+      internalID: 5276153585826737566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_47
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 959
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c835c11def1d88740800000000000000
+      internalID: 5154600665885725580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_48
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 955
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f82fccf209eed8010800000000000000
+      internalID: 1192871779367711375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_49
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 947
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb397deb6841e4b70800000000000000
+      internalID: 8885061683808539579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_50
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 945
+        width: 24
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 597ad4224753336d0800000000000000
+      internalID: -3012004952872736875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_51
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 945
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb3f6d772924af20800000000000000
+      internalID: 3432914065548065735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_52
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 941
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b00e58f3b9e58cf00800000000000000
+      internalID: 1137262926789730315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_53
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 931
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6491dbd207021a2a0800000000000000
+      internalID: -6728060702139016890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_54
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 930
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64420ca4e94cbba30800000000000000
+      internalID: 4232192458982696006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_55
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 915
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd81af3c37e710220800000000000000
+      internalID: 2450378707940546780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_56
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 909
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0796bca31ac8f8e00800000000000000
+      internalID: 1049211862304647536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_57
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 35
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d19088b4b8470cde0800000000000000
+      internalID: -1314922949575702243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_58
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 37
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a97883a78c7b800800000000000000
+      internalID: 628191100301449887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_59
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 15
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b54b3b3c71fb53b00800000000000000
+      internalID: 807761816971359323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BookBox_60
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 11
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b89b47da3d6ede50800000000000000
+      internalID: 6836021383882578099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BookBox_0: 9073482814128833471
+      BookBox_1: -1786526630006490879
+      BookBox_10: -1265539676321332309
+      BookBox_11: 3761530617988951559
+      BookBox_12: -6862864559700160614
+      BookBox_13: -4243720904486868323
+      BookBox_14: 337915031544087031
+      BookBox_15: 1136235575039936938
+      BookBox_16: -6722108539772383784
+      BookBox_17: 7750282817907256695
+      BookBox_18: -5245090875560706537
+      BookBox_19: -3351454827501851460
+      BookBox_2: 3865487995970832298
+      BookBox_20: -5390769989328979707
+      BookBox_21: 2027298002324701603
+      BookBox_22: -9014396115075526932
+      BookBox_23: 7335912719712333422
+      BookBox_24: 4652269672984090149
+      BookBox_25: -770636057686753602
+      BookBox_26: -1066449069094298800
+      BookBox_27: 7940228920795629611
+      BookBox_28: 6506634189047994693
+      BookBox_29: 4157267361826974976
+      BookBox_3: -5975886764288222216
+      BookBox_30: 2378169303692508755
+      BookBox_31: -180719135720449338
+      BookBox_32: 2495118222349376005
+      BookBox_33: -6011893207311006637
+      BookBox_34: -3103011656756469571
+      BookBox_35: 4224750985748420081
+      BookBox_36: -8421352499108738676
+      BookBox_37: 1469187730106470723
+      BookBox_38: 2545652498712448483
+      BookBox_39: 485080561616053113
+      BookBox_4: 5073852119613632775
+      BookBox_40: -8143353816047876065
+      BookBox_41: 1431133385514964793
+      BookBox_42: 916336922518523929
+      BookBox_43: -3272053560302651638
+      BookBox_44: 14392702018984829
+      BookBox_45: -2420199749638393470
+      BookBox_46: 5276153585826737566
+      BookBox_47: 5154600665885725580
+      BookBox_48: 1192871779367711375
+      BookBox_49: 8885061683808539579
+      BookBox_5: 4034875040608382249
+      BookBox_50: -3012004952872736875
+      BookBox_51: 3432914065548065735
+      BookBox_52: 1137262926789730315
+      BookBox_53: -6728060702139016890
+      BookBox_54: 4232192458982696006
+      BookBox_55: 2450378707940546780
+      BookBox_56: 1049211862304647536
+      BookBox_57: -1314922949575702243
+      BookBox_58: 628191100301449887
+      BookBox_59: 807761816971359323
+      BookBox_6: 8724883659716120244
+      BookBox_60: 6836021383882578099
+      BookBox_7: -7676209285167866819
+      BookBox_8: -8327389678218183719
+      BookBox_9: -6349673100978985847
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
