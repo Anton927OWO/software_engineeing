@@ -18,6 +18,7 @@ Unity **6000.3.19f1**。開啟 `Assets/Levels/Train/L_Train.unity` 按 Play，�
 | 欄位 | 用法 |
 | --- | --- |
 | id | 非空且唯一；同 ID 的重複資料只採第一筆 |
+| station | 百年起點／校園記憶／考古發現／噶瑪蘭文化／知識終點；舊資料留空時顯示「知識車站」 |
 | prompt | 題目 |
 | options | 恰好三個不同且非空選項 |
 | correctIndex | 正解索引：0=A、1=B、2=C |
@@ -27,14 +28,7 @@ Unity **6000.3.19f1**。開啟 `Assets/Levels/Train/L_Train.unity` 按 Play，�
 
 格式錯誤的題目會略過；沒有有效題目時開始後安全失敗。正式題庫請維持至少十題。`TrainQuestions.seed.json` 僅用於首次生成缺少的題庫，不會覆蓋 Inspector 已編輯的 asset。
 
-預設題目於 **2026-10-26（Asia/Taipei）**逐題對照以下官方資料：
-
-| 題目 ID | 官方來源與支持內容 |
-| --- | --- |
-| history-1926、history-name、history-1946、history-1967、history-1969、history-1988、history-1998、history-2003 | [國立宜蘭大學｜校史](https://www.niu.edu.tw/p/412-1000-1049.php)：創校及歷次改制／校名；西元年份由民國年加 1911 換算 |
-| motto | [國立宜蘭大學｜校訓](https://www.niu.edu.tw/p/412-1000-1310.php)：篤學、力行、敬業、樂群 |
-| location、station | [國立宜蘭大學｜交通位置](https://www.niu.edu.tw/p/412-1000-1052.php)：校本部城市及台鐵到站指引 |
-| archaeology | [宜大圖資館｜校史緣起](https://lic.niu.edu.tw/p/412-1010-2275.php)：校園遺址名稱 |
+預設 12 題於 **2026-10-29（Asia/Taipei）**重新查核，涵蓋五主題，各至少兩題；詳見 [逐題來源與教育目標](來源查核.md)。題幹、選項與解釋在 `TrainQuestions.asset` 和首次生成 seed 保持一致。查核範圍為官方頁面支持的事實，不把 URL 格式測試視為史實查核。
 
 「校史車站」為關卡情境，未宣稱校內存在實際鐵道或車站。題目與解說是依來源重新撰寫。
 

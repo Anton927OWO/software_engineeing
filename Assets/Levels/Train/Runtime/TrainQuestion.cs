@@ -7,6 +7,8 @@ namespace XunJiYiDa.Levels.Train
     public sealed class TrainQuestion
     {
         public string id;
+        public string station;
+        public string StationName => string.IsNullOrWhiteSpace(station) ? "知識車站" : station;
         public string prompt;
         public string[] options = new string[3];
         public int correctIndex;
@@ -23,6 +25,6 @@ namespace XunJiYiDa.Levels.Train
         public string VerificationLabel => verified && Uri.TryCreate(sourceUrl, UriKind.Absolute, out var uri) &&
             uri.Scheme == "https" && !string.IsNullOrWhiteSpace(verifiedOn) ? "已查核 " + verifiedOn : "待驗證";
 
-        public string KnowledgeText => $"正確答案：{options[correctIndex]}\n{explanation}\n\n來源：{sourceTitle}\n{sourceUrl}\n{VerificationLabel}";
+        public string KnowledgeText => $"主題：{StationName}\n正確答案：{options[correctIndex]}\n{explanation}\n\n來源：{sourceTitle}\n{sourceUrl}\n{VerificationLabel}";
     }
 }

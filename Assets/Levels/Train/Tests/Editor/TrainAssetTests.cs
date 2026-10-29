@@ -37,9 +37,43 @@ namespace XunJiYiDa.Levels.Train.Tests
                 Assert.That(q.FindPropertyRelative("sourceUrl").stringValue, Does.StartWith("https://"));
                 Assert.That(q.FindPropertyRelative("correctIndex").intValue, Is.InRange(0, 2));
                 Assert.That(q.FindPropertyRelative("verified").boolValue, Is.True);
-                Assert.That(q.FindPropertyRelative("verifiedOn").stringValue, Is.EqualTo("2026-10-26"));
+                Assert.That(q.FindPropertyRelative("verifiedOn").stringValue, Is.EqualTo("2026-10-29"));
                 Assert.That(q.FindPropertyRelative("sourceUrl").stringValue, Does.Contain(".niu.edu.tw/"));
             }
+        }
+
+        // Catches a missing topic, a topic with no alternatives, or loss of an explanation/source.
+        [Test]
+        public void ShippedBankCoversFiveThemesWithExplainedVerifiedAlternatives()
+        {
+            var bank = AssetDatabase.LoadAssetAtPath<TrainQuestionBank>("Assets/Levels/Train/Data/TrainQuestions.asset");
+            var field = typeof(TrainQuestion).GetField("station");
+            Assert.That(field, Is.Not.Null, "Every question needs a teaching theme / station.");
+            string[] stations = { "百年起點", "校園記憶", "考古發現", "噶瑪蘭文化", "知識終點" };
+            foreach (var station in stations)
+                Assert.That(bank.questions.Count(q => (string)field.GetValue(q) == station), Is.GreaterThanOrEqualTo(2), station);
+            foreach (var q in bank.questions)
+            {
+                Assert.That(stations, Does.Contain((string)field.GetValue(q)), q.id);
+                Assert.That(q.explanation, Is.Not.Null.And.Not.Empty, q.id);
+                Assert.That(q.explanation.Length, Is.InRange(10, 65), "One readable reason: " + q.id);
+                Assert.That(q.sourceTitle, Is.Not.Null.And.Not.Empty, q.id);
+                var url = new System.Uri(q.sourceUrl);
+                Assert.That(url.Scheme, Is.EqualTo("https"));
+                Assert.That(url.Host.EndsWith(".niu.edu.tw", System.StringComparison.Ordinal), Is.True, q.id);
+            }
+        }
+
+        [System.Serializable] private sealed class Seed { public TrainQuestion[] questions; }
+
+        [Test]
+        public void FirstGenerationSeedMatchesEveryShippedQuestion()
+        {
+            var bank = AssetDatabase.LoadAssetAtPath<TrainQuestionBank>("Assets/Levels/Train/Data/TrainQuestions.asset");
+            var seed = JsonUtility.FromJson<Seed>(System.IO.File.ReadAllText("Assets/Levels/Train/Data/TrainQuestions.seed.json"));
+            Assert.That(seed.questions.Length, Is.EqualTo(bank.questions.Length));
+            for (int i = 0; i < bank.questions.Length; i++)
+                Assert.That(JsonUtility.ToJson(seed.questions[i]), Is.EqualTo(JsonUtility.ToJson(bank.questions[i])));
         }
 
         [Test]

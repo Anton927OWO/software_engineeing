@@ -13,148 +13,159 @@ MonoBehaviour:
   m_Name: TrainQuestions
   m_EditorClassIdentifier: XunJiYiDa.Levels.Train::XunJiYiDa.Levels.Train.TrainQuestionBank
   questions:
-  - id: history-1926
-    prompt: "\u5B9C\u862D\u5927\u5B78\u5275\u6821\u65BC\u897F\u5143\u54EA\u4E00\u5E74\uFF1F"
+  - id: "history-1926"
+    station: "百年起點"
+    prompt: "宜蘭大學創校於西元哪一年？"
     options:
-    - "1926 \u5E74"
-    - "1956 \u5E74"
-    - "2003 \u5E74"
+    - "1926 年"
+    - "1956 年"
+    - "2003 年"
     correctIndex: 0
-    explanation: "\u5275\u6821\u6642\u9593\u70BA\u6C11\u570B\u5341\u4E94\u5E74\uFF0C\u63DB\u7B97\u897F\u5143\u70BA
-      1926 \u5E74\u3002"
-    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
-    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    explanation: "民國十五年就是 1926 年，這是宜大百年故事的起點。"
+    sourceTitle: "國立宜蘭大學｜校史"
+    sourceUrl: "https://www.niu.edu.tw/p/412-1000-1049.php"
     verified: 1
-    verifiedOn: 2026-10-26
-  - id: history-name
-    prompt: "\u5B9C\u5927\u5275\u6821\u6642\u7684\u6821\u540D\u662F\u54EA\u4E00\u500B\uFF1F"
+    verifiedOn: "2026-10-29"
+  - id: "history-name"
+    station: "百年起點"
+    prompt: "宜大創校時，以哪個校名展開農林教育？"
     options:
-    - "\u570B\u7ACB\u5B9C\u862D\u6280\u8853\u5B78\u9662"
-    - "\u53F0\u5317\u5DDE\u7ACB\u5B9C\u862D\u8FB2\u6797\u5B78\u6821"
-    - "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78"
+    - "國立宜蘭技術學院"
+    - "台北州立宜蘭農林學校"
+    - "國立宜蘭大學"
     correctIndex: 1
-    explanation: "\u5275\u6821\u6642\u4EE5\u8FB2\u6797\u6559\u80B2\u70BA\u51FA\u767C\u9EDE\u3002"
-    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
-    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    explanation: "創校校名是台北州立宜蘭農林學校，農林是辦學起點。"
+    sourceTitle: "國立宜蘭大學｜校史"
+    sourceUrl: "https://www.niu.edu.tw/p/412-1000-1049.php"
     verified: 1
-    verifiedOn: 2026-10-26
-  - id: history-1946
-    prompt: "\u6C11\u570B\u4E09\u5341\u4E94\u5E74\uFF0C\u5B78\u6821\u6B63\u540D\u70BA\u4EC0\u9EBC\uFF1F"
+    verifiedOn: "2026-10-29"
+  - id: "memory-functions"
+    station: "校園記憶"
+    prompt: "宜大記憶庫整合了哪三種功能？"
     options:
-    - "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78"
-    - "\u5B9C\u862D\u9AD8\u7D1A\u5DE5\u696D\u5B78\u6821"
-    - "\u53F0\u7063\u7701\u7ACB\u5B9C\u862D\u8FB2\u696D\u8077\u696D\u5B78\u6821"
+    - "車站、郵局、商店"
+    - "餐廳、宿舍、體育館"
+    - "圖書館、博物館、檔案館"
     correctIndex: 2
-    explanation: "\u5B98\u65B9\u6821\u53F2\u8A18\u8F09\u6C11\u570B\u4E09\u5341\u4E94\u5E74\u7684\u6821\u540D\u70BA\u8FB2\u696D\u8077\u696D\u5B78\u6821\u3002"
-    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
-    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    explanation: "記憶庫結合閱讀、文物展示與檔案保存，讓校園記憶相連。"
+    sourceTitle: "宜大圖資館｜宜大記憶庫"
+    sourceUrl: "https://lic.niu.edu.tw/p/404-1010-63587.php"
     verified: 1
-    verifiedOn: 2026-10-26
-  - id: history-1967
-    prompt: "\u6C11\u570B\u4E94\u5341\u516D\u5E74\u7684\u6821\u540D\u589E\u52A0\u4E86\u54EA\u500B\u5B57\uFF0C\u6210\u70BA\u300C\u8FB2\u5DE5\u8077\u696D\u5B78\u6821\u300D\uFF1F"
+    verifiedOn: "2026-10-29"
+  - id: "memory-stories"
+    station: "校園記憶"
+    prompt: "哪一項是宜大記憶庫保存與呈現的內容？"
     options:
-    - "\u5DE5"
-    - "\u5546"
-    - "\u91AB"
+    - "校園地景、師生物件與故事"
+    - "只有本週考試答案"
+    - "只有列車班次"
     correctIndex: 0
-    explanation: "\u6821\u540D\u7531\u8FB2\u696D\u8D70\u5411\u8FB2\u5DE5\uFF0C\u53CD\u6620\u6559\u80B2\u9818\u57DF\u7684\u8B8A\u5316\u3002"
-    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
-    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    explanation: "記憶庫以地景、物件與故事呈現學校過去的生活樣貌。"
+    sourceTitle: "宜大圖資館｜宜大記憶庫"
+    sourceUrl: "https://lic.niu.edu.tw/p/404-1010-63587.php"
     verified: 1
-    verifiedOn: 2026-10-26
-  - id: history-1969
-    prompt: "\u6C11\u570B\u4E94\u5341\u516B\u5E74\uFF0C\u6821\u540D\u6539\u70BA\u54EA\u4E00\u500B\uFF1F"
+    verifiedOn: "2026-10-29"
+  - id: "archaeology"
+    station: "考古發現"
+    prompt: "校園遺址沿用學校舊名，列冊稱作什麼？"
     options:
-    - "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78"
-    - "\u53F0\u7063\u7701\u7ACB\u5B9C\u862D\u9AD8\u7D1A\u8FB2\u5DE5\u8077\u696D\u5B78\u6821"
-    - "\u570B\u7ACB\u5B9C\u862D\u6280\u8853\u5B78\u9662"
+    - "卑南遺址"
+    - "宜蘭農校遺址"
+    - "圓山遺址"
     correctIndex: 1
-    explanation: "\u9019\u4E00\u968E\u6BB5\u7684\u6B63\u5F0F\u6821\u540D\u5305\u542B\u300C\u9AD8\u7D1A\u8FB2\u5DE5\u8077\u696D\u5B78\u6821\u300D\u3002"
-    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
-    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    explanation: "宜蘭農校遺址沿用學校舊名，連結了校園與地下的歷史。"
+    sourceTitle: "宜大圖資館｜緣起"
+    sourceUrl: "https://lic.niu.edu.tw/p/412-1010-2275.php"
     verified: 1
-    verifiedOn: 2026-10-26
-  - id: history-1988
-    prompt: "\u6C11\u570B\u4E03\u5341\u4E03\u5E74\uFF0C\u5B9C\u5927\u6539\u5236\u70BA\u54EA\u7A2E\u5B78\u6821\uFF1F"
+    verifiedOn: "2026-10-29"
+  - id: "archaeology-water"
+    station: "考古發現"
+    prompt: "宜蘭農校遺址的木質文物，為何能部分保存？"
     options:
-    - "\u5927\u5B78"
-    - "\u6280\u8853\u5B78\u9662"
-    - "\u8FB2\u5DE5\u5C08\u79D1\u5B78\u6821"
+    - "因為全都由金屬製成"
+    - "因為一直放在乾燥書架"
+    - "地下水豐沛，形成泡水環境"
     correctIndex: 2
-    explanation: "\u6C11\u570B\u4E03\u5341\u4E03\u5E74\u6539\u5236\u70BA\u570B\u7ACB\u5B9C\u862D\u8FB2\u5DE5\u5C08\u79D1\u5B78\u6821\u3002"
-    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
-    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    explanation: "宜蘭地下水豐沛，泡水環境讓部分木質文物得以保存。"
+    sourceTitle: "宜大圖資館｜出土文物"
+    sourceUrl: "https://lic.niu.edu.tw/p/412-1010-6107.php"
     verified: 1
-    verifiedOn: 2026-10-26
-  - id: history-1998
-    prompt: "\u6C11\u570B\u516B\u5341\u4E03\u5E74\uFF0C\u5B78\u6821\u5347\u683C\u5F8C\u7684\u540D\u7A31\u662F\uFF1F"
+    verifiedOn: "2026-10-29"
+  - id: "archaeology-inference"
+    station: "考古發現"
+    prompt: "官方對出土木鏟用途的說法，哪項最準確？"
     options:
-    - "\u570B\u7ACB\u5B9C\u862D\u6280\u8853\u5B78\u9662"
-    - "\u570B\u7ACB\u5B9C\u862D\u5E2B\u7BC4\u5B78\u9662"
-    - "\u570B\u7ACB\u5B9C\u862D\u91AB\u5B78\u9662"
+    - "推測為農具，尚非確定用途"
+    - "已確定是祭祀法器"
+    - "已確定是鐵路工具"
     correctIndex: 0
-    explanation: "\u5C08\u79D1\u968E\u6BB5\u4E4B\u5F8C\uFF0C\u5B78\u6821\u5347\u683C\u70BA\u6280\u8853\u5B78\u9662\u3002"
-    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
-    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    explanation: "官方僅推測木鏟是農具，推測不能當成已確定的用途。"
+    sourceTitle: "宜大圖資館｜出土文物"
+    sourceUrl: "https://lic.niu.edu.tw/p/412-1010-6107.php"
     verified: 1
-    verifiedOn: 2026-10-26
-  - id: history-2003
-    prompt: "\u5B78\u6821\u5728\u54EA\u4E00\u5E74\u66F4\u540D\u70BA\u300C\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\u300D\uFF1F"
+    verifiedOn: "2026-10-29"
+  - id: "kavalan-name"
+    station: "噶瑪蘭文化"
+    prompt: "依圖資館介紹，Kavalan 的意思是？"
     options:
-    - "1988 \u5E74"
-    - "2003 \u5E74"
-    - "1998 \u5E74"
+    - "居住在高山的人"
+    - "居住在平原的人"
+    - "駕駛列車的人"
     correctIndex: 1
-    explanation: "\u6C11\u570B\u4E5D\u5341\u4E8C\u5E74\u5373\u897F\u5143 2003 \u5E74\u3002"
-    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u53F2"
-    sourceUrl: https://www.niu.edu.tw/p/412-1000-1049.php
+    explanation: "Kavalan 指居住在平原的人，連結噶瑪蘭與蘭陽平原。"
+    sourceTitle: "宜大圖資館｜噶瑪蘭族簡介"
+    sourceUrl: "https://lic.niu.edu.tw/p/412-1010-6108.php"
     verified: 1
-    verifiedOn: 2026-10-26
-  - id: motto
-    prompt: "\u54EA\u4E00\u7D44\u662F\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\u7684\u6821\u8A13\uFF1F"
+    verifiedOn: "2026-10-29"
+  - id: "kavalan-weaving"
+    station: "噶瑪蘭文化"
+    prompt: "噶瑪蘭族的香蕉絲織布，使用哪種材料？"
     options:
-    - "\u81EA\u7531\u3001\u5E73\u7B49\u3001\u535A\u611B\u3001\u548C\u5E73"
-    - "\u8AA0\u5BE6\u3001\u52C7\u6562\u3001\u7BC0\u5109\u3001\u5FCD\u8010"
-    - "\u7BE4\u5B78\u3001\u529B\u884C\u3001\u656C\u696D\u3001\u6A02\u7FA4"
+    - "銅質金屬線"
+    - "玻璃纖維"
+    - "香蕉纖維"
     correctIndex: 2
-    explanation: "\u6821\u8A13\u9F13\u52F5\u5B78\u7FD2\u3001\u5BE6\u8E10\u3001\u656C\u91CD\u5C08\u696D\u8207\u7FA4\u9AD4\u5408\u4F5C\u3002"
-    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u6821\u8A13"
-    sourceUrl: https://www.niu.edu.tw/p/412-1000-1310.php
+    explanation: "香蕉絲織布取用香蕉纖維，是噶瑪蘭族重要的民族工藝。"
+    sourceTitle: "宜大圖資館｜噶瑪蘭族簡介"
+    sourceUrl: "https://lic.niu.edu.tw/p/412-1010-6108.php"
     verified: 1
-    verifiedOn: 2026-10-26
-  - id: location
-    prompt: "\u5B9C\u862D\u5927\u5B78\u6821\u672C\u90E8\u4F4D\u65BC\u54EA\u500B\u57CE\u5E02\uFF1F"
+    verifiedOn: "2026-10-29"
+  - id: "kavalan-corridor"
+    station: "噶瑪蘭文化"
+    prompt: "文化廊道以哪些元素，讓人認識噶瑪蘭生活？"
     options:
-    - "\u5B9C\u862D\u5E02"
-    - "\u7F85\u6771\u93AE"
-    - "\u82B1\u84EE\u5E02"
+    - "家屋、漁獵、工藝與植物"
+    - "列車時刻與車票價格"
+    - "遊樂設施身高限制"
     correctIndex: 0
-    explanation: "\u5B98\u65B9\u4EA4\u901A\u4F4D\u7F6E\u9801\u8A18\u8F09\u6821\u672C\u90E8\u4F4D\u65BC\u5B9C\u862D\u5E02\u3002"
-    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u4EA4\u901A\u4F4D\u7F6E"
-    sourceUrl: https://www.niu.edu.tw/p/412-1000-1052.php
+    explanation: "廊道把家屋、漁獵、工藝與植物融入校園，呈現生活文化。"
+    sourceTitle: "宜大圖資館｜噶瑪蘭文化廊道"
+    sourceUrl: "https://lic.niu.edu.tw/p/404-1010-63584.php"
     verified: 1
-    verifiedOn: 2026-10-26
-  - id: station
-    prompt: "\u4F9D\u5B9C\u5927\u5B98\u65B9\u4EA4\u901A\u6307\u5F15\uFF0C\u642D\u53F0\u9435\u61C9\u5728\u54EA\u4E00\u7AD9\u4E0B\u8ECA\u524D\u5F80\u6821\u672C\u90E8\uFF1F"
+    verifiedOn: "2026-10-29"
+  - id: "history-2003"
+    station: "知識終點"
+    prompt: "學校在哪一年更名為「國立宜蘭大學」？"
     options:
-    - "\u51AC\u5C71\u7AD9"
-    - "\u5B9C\u862D\u7AD9"
-    - "\u7901\u6EAA\u7AD9"
+    - "1988 年"
+    - "2003 年"
+    - "1998 年"
     correctIndex: 1
-    explanation: "\u5B98\u65B9\u4EA4\u901A\u6307\u5F15\u5EFA\u8B70\u642D\u53F0\u9435\u81F3\u5B9C\u862D\u706B\u8ECA\u7AD9\uFF0C\u518D\u8F49\u4E58\u6216\u6B65\u884C\u3002"
-    sourceTitle: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\uFF5C\u4EA4\u901A\u4F4D\u7F6E"
-    sourceUrl: https://www.niu.edu.tw/p/412-1000-1052.php
+    explanation: "民國九十二年是 2003 年，學校在這一年更名為大學。"
+    sourceTitle: "國立宜蘭大學｜校史"
+    sourceUrl: "https://www.niu.edu.tw/p/412-1000-1049.php"
     verified: 1
-    verifiedOn: 2026-10-26
-  - id: archaeology
-    prompt: "\u6821\u5712\u6240\u5728\u5730\u7684\u8003\u53E4\u907A\u5740\uFF0C\u6CBF\u7528\u5B78\u6821\u820A\u540D\u5217\u518A\u70BA\u4EC0\u9EBC\uFF1F"
+    verifiedOn: "2026-10-29"
+  - id: "museum-replicas"
+    station: "知識終點"
+    prompt: "參觀萬斌廳文化層展區，應如何理解展示？"
     options:
-    - "\u5351\u5357\u907A\u5740"
-    - "\u5713\u5C71\u907A\u5740"
-    - "\u5B9C\u862D\u8FB2\u6821\u907A\u5740"
+    - "每件展示都保證是出土原件"
+    - "文物皆無考古資料可查"
+    - "以仿真復刻結合圖文呈現遺址"
     correctIndex: 2
-    explanation: "\u5716\u8CC7\u9928\u6821\u53F2\u8CC7\u6599\u8AAA\u660E\uFF0C\u9019\u8655\u6821\u5712\u907A\u5740\u6CBF\u7528\u5B78\u6821\u820A\u540D\u3002"
-    sourceTitle: "\u5B9C\u5927\u5716\u8CC7\u9928\uFF5C\u6821\u53F2\u7DE3\u8D77"
-    sourceUrl: https://lic.niu.edu.tw/p/412-1010-2275.php
+    explanation: "文化層以仿真復刻配合圖文展示，不能將復刻品當成原件。"
+    sourceTitle: "宜大圖資館｜宜蘭農校遺址文化層"
+    sourceUrl: "https://lic.niu.edu.tw/p/404-1010-63582.php"
     verified: 1
-    verifiedOn: 2026-10-26
+    verifiedOn: "2026-10-29"
