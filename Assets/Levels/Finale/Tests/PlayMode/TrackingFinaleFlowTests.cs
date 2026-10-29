@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using NUnit.Framework;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
@@ -23,6 +24,19 @@ namespace XunJiYiDa.Levels.Finale.Tests
             var finale = root.GetComponentInChildren<FinaleLevelController>(true);
             Assert.That(finale.AcquiredArtifactIds, Is.EqualTo(new[] { "artifact-05", "artifact-06", "artifact-01" }),
                 "The hint must reflect this run, rather than standalone sample artifacts.");
+        }
+
+        [UnityTest]
+        public IEnumerator IncompleteOfficialInventoryMarksOnlyFilledItemsAsTestData()
+        {
+            yield return LoadFinale(new[] { TrackingNIU.ArtifactId.GoldenCarp });
+            var root = loaded.GetRootGameObjects().Single(g => g.GetComponent<SharedLevelController>() != null);
+            root.GetComponentsInChildren<SharedContentPanel>(true).Single(p => p.name == "Introduction").PrimaryButton.onClick.Invoke();
+            var labels = root.GetComponentsInChildren<TMP_Text>(true);
+            Assert.That(labels.Single(t => t.name == "ArtifactName0").text, Does.Not.Contain("測試"));
+            Assert.That(labels.Single(t => t.name == "ArtifactName1").text, Does.Contain("測試補足"));
+            Assert.That(labels.Single(t => t.name == "ArtifactName2").text, Does.Contain("測試補足"));
+            Assert.That(labels.Single(t => t.name == "AcquiredSummary").text, Does.Contain("資料不足"));
         }
 
         [UnityTest]
@@ -49,12 +63,12 @@ namespace XunJiYiDa.Levels.Finale.Tests
             Assert.That(TeamSession.Score.TimeBonus, Is.Zero);
         }
 
-        private IEnumerator LoadFinale()
+        private IEnumerator LoadFinale(TrackingNIU.ArtifactId[] inventory = null)
         {
             ClearSession();
             previous = SceneManager.GetActiveScene();
             var context = new TrackingNIU.LevelContext(TrackingNIU.LevelCatalog.Get(TrackingNIU.LevelId.Finale),
-                new[] { TrackingNIU.ArtifactId.WoodenDisc, TrackingNIU.ArtifactId.AgateBead, TrackingNIU.ArtifactId.GoldenCarp });
+                inventory ?? new[] { TrackingNIU.ArtifactId.WoodenDisc, TrackingNIU.ArtifactId.AgateBead, TrackingNIU.ArtifactId.GoldenCarp });
             TeamSession.Begin(context, null);
             const string path = "Assets/Levels/Finale/L_Finale.unity";
             yield return UnityEditor.SceneManagement.EditorSceneManager.LoadSceneAsyncInPlayMode(path,

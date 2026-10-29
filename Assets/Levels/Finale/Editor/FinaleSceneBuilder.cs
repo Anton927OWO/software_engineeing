@@ -227,6 +227,7 @@ namespace XunJiYiDa.Levels.Finale.Editor
             Place(knowledgeBody.rectTransform, new Vector2(-210, -5), new Vector2(770, 450));
             PrefabUtility.RecordPrefabInstancePropertyModifications(knowledgeBody);
             PrefabUtility.RecordPrefabInstancePropertyModifications(knowledgeBody.rectTransform);
+            FinaleScenePolish.ConfigureInventory(root);
         }
 
         private static FinaleCardView CreateCard(Transform parent, TMP_FontAsset font, int index)

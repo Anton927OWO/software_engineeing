@@ -36,6 +36,8 @@ namespace XunJiYiDa.Levels.Finale
         [SerializeField] private Button introductionButton;
         [SerializeField] private Button knowledgeButton;
         [SerializeField] private Button restartButton;
+        [SerializeField] private TMP_Text hintTitle;
+        [SerializeField] private TMP_Text acquiredSummary;
         [SerializeField] private GameObject hintPanel;
         [SerializeField] private Image[] hintImages;
         [SerializeField] private TMP_Text[] hintLabels;
@@ -100,11 +102,14 @@ namespace XunJiYiDa.Levels.Finale
             if (state != LevelState.Running || !awaitingHint) return;
             awaitingHint = false;
             acquiredIds = artifactSource.Capture();
+            hintTitle.text = artifactSource.InventoryLabel;
+            acquiredSummary.text = artifactSource.InventoryLabel;
             for (int i = 0; i < acquiredIds.Length; i++)
             {
                 var artifact = Array.Find(artifacts, item => item.id == acquiredIds[i]);
                 hintImages[i].sprite = artifact.icon;
-                hintLabels[i].text = artifact.title;
+                hintLabels[i].text = artifactSource.LabelArtifact(artifact.id, artifact.title);
+                acquiredSummary.text += "\n" + hintLabels[i].text;
                 controller.CollectArtifact(acquiredIds[i]);
             }
             hintElapsed = 0;
@@ -134,6 +139,7 @@ namespace XunJiYiDa.Levels.Finale
             StopAllCoroutines();
             busy = false; awaitingHint = true; hintElapsed = 0; first = -1;
             acquiredIds = Array.Empty<string>();
+            acquiredSummary.text = "本局文物\n開始後顯示本局的三件文物";
             hintPanel.SetActive(false);
             Board = new FinaleMemoryBoard(UnityEngine.Random.Range(0, int.MaxValue));
             for (int i = 0; i < cards.Length; i++) cards[i].ResetCard(artifacts[Board.ArtifactAt(i)].face, cardBack);

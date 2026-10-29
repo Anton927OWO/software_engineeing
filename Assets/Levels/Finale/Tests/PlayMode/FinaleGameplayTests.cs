@@ -82,6 +82,23 @@ namespace XunJiYiDa.Levels.Finale.Tests
             .First(i => finale.Board.ArtifactAt(i) != finale.Board.ArtifactAt(index));
 
         [UnityTest]
+        public IEnumerator StandaloneHintAndInventoryClearlyMarkTestData()
+        {
+            ConfirmIntroduction();
+            Assert.That(Safe.Find("FinaleView/AcquiredArtifactHint/HintCard/Title").GetComponent<TMP_Text>().text,
+                Does.Contain("測試資料"));
+            for (int i = 0; i < 3; i++)
+                Assert.That(Safe.Find("FinaleView/AcquiredArtifactHint/HintCard/ArtifactName" + i).GetComponent<TMP_Text>().text,
+                    Does.Contain("測試"));
+            yield return WaitUntilIdle();
+            var summary = Safe.Find("FinaleView/GuideCard/AcquiredSummary");
+            Assert.That(summary, Is.Not.Null, "The three collected artifacts must remain readable after the short hint.");
+            string text = summary.GetComponent<TMP_Text>().text;
+            Assert.That(text, Does.Contain("測試資料").And.Contain("金鯉魚").And.Contain("幾何印紋陶罐").And.Contain("瑪瑙珠"));
+            AssertVisibleTextFits();
+        }
+
+        [UnityTest]
         public IEnumerator HintLastsTwoSecondsWithoutSpendingCountdownAndHonorsPause()
         {
             Assert.That(finale.TryFlip(0), Is.False);

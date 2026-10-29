@@ -19,10 +19,20 @@ namespace XunJiYiDa.Levels.Finale
         [Tooltip("Standalone test IDs. Valid IDs are artifact-01 through artifact-06; three distinct IDs are used.")]
         [SerializeField] private string[] testArtifactIds = { "artifact-01", "artifact-03", "artifact-06" };
 
+        private readonly HashSet<string> fallbackIds = new HashSet<string>();
+        public bool IsStandaloneTest { get; private set; }
+        public bool HasFallbackData => fallbackIds.Count > 0;
+        public string InventoryLabel => IsStandaloneTest ? "本局文物｜測試資料" :
+            HasFallbackData ? "本局文物｜資料不足・測試補足" : "本局已收集的三件文物";
+        public string LabelArtifact(string id, string title) => title +
+            (IsStandaloneTest ? "〔測試〕" : fallbackIds.Contains(id) ? "〔測試補足〕" : "");
+
         public string[] Capture()
         {
+            IsStandaloneTest = !TrackingArtifactMap.HasFinaleContext || !TrackingArtifactMap.IsOfficialRun;
+            fallbackIds.Clear();
             if (TrackingArtifactMap.HasFinaleContext && TrackingArtifactMap.IsOfficialRun)
-                return ResolveIds(TrackingArtifactMap.CurrentFinaleArtifacts(), testArtifactIds);
+                return ResolveCapture(TrackingArtifactMap.CurrentFinaleArtifacts());
             MonoBehaviour candidate = source;
             if (candidate == null)
             {
@@ -41,14 +51,24 @@ namespace XunJiYiDa.Levels.Finale
                     if (candidate is IFinaleArtifactSource provider) ids = provider.GetFinaleArtifactIds();
                     else ids = ReadGameManager(candidate);
                     // Enumerate inside the try: a lazy provider can also throw.
-                    return ResolveIds(ids, testArtifactIds);
+                    return ResolveCapture(ids);
                 }
                 catch (Exception exception)
                 {
                     Debug.LogWarning("Finale could not read artifact IDs; using configured test IDs. " + exception.Message, this);
                 }
             }
-            return ResolveIds(TrackingArtifactMap.HasFinaleContext ? TrackingArtifactMap.CurrentFinaleArtifacts() : null, testArtifactIds);
+            return ResolveCapture(TrackingArtifactMap.HasFinaleContext ? TrackingArtifactMap.CurrentFinaleArtifacts() : null);
+        }
+
+        private string[] ResolveCapture(IEnumerable<string> collected)
+        {
+            var actual = new List<string>(3);
+            Append(collected, actual);
+            var resolved = ResolveIds(actual, testArtifactIds);
+            foreach (string id in resolved)
+                if (!actual.Contains(id)) fallbackIds.Add(id);
+            return resolved;
         }
 
         private static IEnumerable<string> ReadGameManager(MonoBehaviour manager)
