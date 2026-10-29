@@ -106,6 +106,20 @@ namespace XunJiYiDa.Levels.Finale.Tests
         }
 
         [Test]
+        public void UnverifiedArtifactDoesNotPublishItsUnconfirmedFactOrContext()
+        {
+            var fact = new FinaleArtifactFact
+            {
+                id = "artifact-04", summary = "未確認的用途宣稱", knowledge = "未確認的詳細史實",
+                context = "未確認的校史宣稱", memoryCue = "長柄與寬面", verificationStatus = "PendingVerification"
+            };
+            Assert.That(fact.IsVerified, Is.False);
+            Assert.That(fact.Summary, Does.Contain("待查證").And.Not.Contain("用途宣稱"));
+            Assert.That(fact.KnowledgeBody, Does.Contain("圖像觀察").And.Contain("長柄與寬面")
+                .And.Not.Contain("詳細史實").And.Not.Contain("校史宣稱"));
+        }
+
+        [Test]
         public void SourceIdsArePrioritizedTrimmedDeduplicatedAndLimitedToThree()
         {
             Assert.That(FinaleArtifactSource.ResolveIds(

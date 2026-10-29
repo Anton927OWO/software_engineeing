@@ -7,13 +7,16 @@ finale_unity_editor="${FINALE_UNITY_EDITOR:-/Applications/Unity/Hub/Editor/6000.
 finale_reports="$finale_project_root/Assets/Levels/Finale/Verification"
 finale_logs="$(mktemp -d /tmp/finale-verification.XXXXXX)"
 mkdir -p "$finale_reports"
+finale_unity_args=(-batchmode -projectPath "$finale_project_root")
+if [[ "${FINALE_GRAPHICS:-0}" != "1" ]]; then finale_unity_args+=(-nographics); fi
+printf 'Unity verification logs: %s\n' "$finale_logs"
 
-"$finale_unity_editor" -batchmode -nographics -projectPath "$finale_project_root" \
+"$finale_unity_editor" "${finale_unity_args[@]}" \
   -runTests -testPlatform PlayMode \
   -assemblyNames 'XunJiYiDa.Levels.Finale.PlayMode.Tests;XunJiYiDa.Levels.Shared.PlayMode.Tests' \
   -testResults "$finale_reports/AllPlayMode.xml" -logFile "$finale_logs/play.log"
 
-"$finale_unity_editor" -batchmode -nographics -projectPath "$finale_project_root" \
+"$finale_unity_editor" "${finale_unity_args[@]}" \
   -runTests -testPlatform EditMode \
   -assemblyNames 'XunJiYiDa.Levels.Finale.Editor.Tests;XunJiYiDa.Levels.Shared.Editor.Tests' \
   -testResults "$finale_reports/AllEditMode.xml" -logFile "$finale_logs/edit.log"
