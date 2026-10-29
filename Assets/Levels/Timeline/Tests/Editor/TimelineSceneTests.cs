@@ -34,6 +34,50 @@ namespace XunJiYiDa.Levels.Timeline.Tests
         }
 
         [Test]
+        public void CardsHaveDistinctEraTreatmentsAndRetainArtworkAndTimeline()
+        {
+            var scene = EditorSceneManager.OpenScene(ScenePath, OpenSceneMode.Additive);
+            try
+            {
+                var objects = scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Transform>(true)).ToArray();
+                var treatments = new System.Collections.Generic.HashSet<Color>();
+                foreach (int year in new[] { 1926, 1946, 1988, 1998, 2003 })
+                {
+                    var card = objects.Single(t => t.name == "Card_" + year);
+                    Assert.That(card.Find("EraBand"), Is.Not.Null, "Each era needs a visible accent.");
+                    Assert.That(card.Find("EraMark"), Is.Not.Null, "Use shape as well as colour.");
+                    treatments.Add(card.GetComponent<UnityEngine.UI.Image>().color);
+                    Assert.That(card.Find("SchoolArtwork/Illustration").GetComponent<UnityEngine.UI.Image>().sprite, Is.Not.Null);
+                    Assert.That(objects.Single(t => t.name == "Year_" + year).GetComponent<TMP_Text>().text, Is.EqualTo(year.ToString()));
+                }
+                Assert.That(treatments.Count, Is.EqualTo(5));
+                Assert.That(objects.Single(t => t.name == "TimelineTrack").gameObject.activeSelf, Is.True);
+                Assert.That(objects.Single(t => t.name == "Feedback").GetComponent<TMP_Text>().fontSize, Is.GreaterThanOrEqualTo(26));
+            }
+            finally { EditorSceneManager.CloseScene(scene, true); }
+        }
+
+        [Test]
+        public void EveryHistoryFactAndCulturalConnectionHasAnOfficialSource()
+        {
+            var stages = TimelineHistory.Stages;
+            Assert.That(stages.Select(e => e.Year), Is.EqualTo(new[] { 1926, 1946, 1988, 1998, 2003 }));
+            foreach (var stage in stages)
+            {
+                foreach (var url in new[] { stage.SourceUrl, stage.ConnectionSourceUrl })
+                {
+                    Assert.That(System.Uri.TryCreate(url, System.UriKind.Absolute, out var uri), Is.True);
+                    Assert.That(uri.Scheme, Is.EqualTo("https"));
+                    Assert.That(uri.Host == "niu.edu.tw" || uri.Host.EndsWith(".niu.edu.tw"), Is.True);
+                }
+                Assert.That(stage.Change, Is.Not.Empty);
+                Assert.That(stage.Connection, Is.Not.Empty);
+                Assert.That(stage.Summary, Does.Contain("非當年事件"), "Do not backdate present-day cultural connections.");
+            }
+            Assert.That(TimelineHistory.ScopeNote, Does.Contain("1967").And.Contain("1969"));
+        }
+
+        [Test]
         public void DeliveredSceneHasSharedPrefabFiveCardsFiveSlotsAndChineseFont()
         {
             Assert.That(File.Exists(ScenePath), Is.True, "Editor generator must deliver a saved Unity scene.");

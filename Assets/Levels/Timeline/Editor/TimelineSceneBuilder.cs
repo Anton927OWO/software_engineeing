@@ -72,6 +72,7 @@ namespace XunJiYiDa.Levels.Timeline.Editor
                 Set(controller, "definition", definition);
                 PrefabUtility.RecordPrefabInstancePropertyModifications(controller);
                 Populate(sharedRoot, font);
+                TimelineQualityUpgrade.ApplyPresentation(scene);
                 if (!EditorSceneManager.SaveScene(scene, ScenePath)) throw new IOException("Failed to save " + ScenePath);
                 Debug.Log("Timeline scene generated with five cards and five slots: " + ScenePath);
             }
@@ -108,10 +109,7 @@ namespace XunJiYiDa.Levels.Timeline.Editor
             so.FindProperty("mistakeLimit").intValue = 0;
             so.FindProperty("showIntroduction").boolValue = true;
             so.FindProperty("introductionTitle").stringValue = "百年軌跡｜校史時光廊";
-            so.FindProperty("introductionBody").stringValue =
-                "校史時光廊記錄宜大從農林學校，\n走向綜合大學的百年足跡。\n\n" +
-                "45 秒內，將五張學制卡拖到對應年份。\n放對固定；放錯彈回並記錄失誤。\n五張全對即通關，失誤不限次數。\n" +
-                "閱讀知識卡與暫停期間不扣時間。\n按「開始探索」後開始倒數。";
+            so.FindProperty("introductionBody").stringValue = TimelineQualityUpgrade.IntroductionBody;
             so.FindProperty("introductionImage").objectReferenceValue = Sprite(SchoolSprites[0]);
             so.ApplyModifiedPropertiesWithoutUndo();
             AssetDatabase.SaveAssetIfDirty(definition);
