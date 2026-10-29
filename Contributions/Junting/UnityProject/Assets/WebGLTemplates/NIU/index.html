@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>{{{ PRODUCT_NAME }}}</title>
+<style>html,body{margin:0;width:100%;height:100%;background:#162a22;font-family:system-ui;color:#fbf8f2}#game{position:absolute;width:100%;height:100%;display:block;touch-action:none}#loading{position:absolute;inset:0;display:grid;place-content:center;text-align:center;pointer-events:none}progress{width:300px}#error{max-width:700px;line-height:1.7;white-space:pre-wrap}</style></head>
+<body><canvas id="game" width="1920" height="1080" tabindex="0" aria-label="尋跡宜大 Unity 遊戲"></canvas><div id="loading"><h1>尋跡宜大</h1><p id="status">正在準備校園探索…</p><progress id="progress" max="1" value="0"></progress><p id="error"></p></div>
+<script>
+var canvas=document.getElementById('game');var config={dataUrl:'Build/{{{ DATA_FILENAME }}}',frameworkUrl:'Build/{{{ FRAMEWORK_FILENAME }}}',codeUrl:'Build/{{{ CODE_FILENAME }}}',autoSyncPersistentDataPath:true,streamingAssetsUrl:'StreamingAssets',companyName:{{{ JSON.stringify(COMPANY_NAME) }}},productName:{{{ JSON.stringify(PRODUCT_NAME) }}},productVersion:{{{ JSON.stringify(PRODUCT_VERSION) }}}};
+var script=document.createElement('script');script.src='Build/{{{ LOADER_FILENAME }}}';script.onerror=()=>document.getElementById('error').textContent='載入失敗。請使用 HTTP 伺服器開啟完整 Build 資料夾，避免以 file:// 開啟。';script.onload=()=>createUnityInstance(canvas,config,p=>document.getElementById('progress').value=p).then(instance=>{window.unityInstance=instance;document.getElementById('loading').style.display='none';canvas.focus();window.dispatchEvent(new Event('niu:ready'));}).catch(error=>{document.getElementById('error').textContent=String(error)});document.body.appendChild(script);
+window.addEventListener('niu:level-complete',e=>console.info('NIU_COMPLETE '+JSON.stringify(e.detail)));
+window.addEventListener('niu:level-failed',e=>console.info('NIU_FAILED '+JSON.stringify(e.detail)));
+</script></body></html>

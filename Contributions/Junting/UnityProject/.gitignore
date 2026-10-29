@@ -1,0 +1,10 @@
+# Unity build/cache files are local and are not needed by teammates.
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+.codex-*
+.smoke-*
+*.csproj
+*.sln
