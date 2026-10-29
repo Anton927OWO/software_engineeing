@@ -38,6 +38,7 @@ namespace XunJiYiDa.Levels.Finale
         [SerializeField] private Button restartButton;
         [SerializeField] private TMP_Text hintTitle;
         [SerializeField] private TMP_Text acquiredSummary;
+        [SerializeField] private TMP_Text learningNote;
         [SerializeField] private GameObject hintPanel;
         [SerializeField] private Image[] hintImages;
         [SerializeField] private TMP_Text[] hintLabels;
@@ -144,7 +145,8 @@ namespace XunJiYiDa.Levels.Finale
             Board = new FinaleMemoryBoard(UnityEngine.Random.Range(0, int.MaxValue));
             for (int i = 0; i < cards.Length; i++) cards[i].ResetCard(artifacts[Board.ArtifactAt(i)].face, cardBack);
             progress.text = "記憶拼圖　0 / 6";
-            feedback.text = "準備好後，開始找回文物記憶。";
+            feedback.text = "每次翻兩張；配對成功就能學到一句文物知識。";
+            learningNote.text = "邊配對，邊認識文物\n配對後在這裡留下新發現。\n圖像為示意圖。";
             RefreshInteractivity();
         }
 
@@ -178,18 +180,23 @@ namespace XunJiYiDa.Levels.Finale
                 cards[previous].SetMatched(true); cards[index].SetMatched(true);
                 audioPlayer?.PlayCorrect();
                 progress.text = $"記憶拼圖　{Board.MatchedPairs} / 6";
-                feedback.text = "記憶連結成功：" + artifacts[Board.ArtifactAt(index)].title;
+                var artifact = artifacts[Board.ArtifactAt(index)];
+                var fact = facts.Find(artifact.id);
+                feedback.text = "配對成功｜" + artifact.title + "。金框會保留，繼續找下一組。";
+                learningNote.text = (fact.IsVerified ? "剛剛學到｜已核對官方來源" : "剛剛學到｜待查證") + "\n" + fact.Summary + (fact.IsVerified ? "\n" + fact.context : "");
                 first = -1; busy = false;
                 if (Board.IsComplete) controller.Succeed();
             }
             else
             {
-                feedback.text = "再看清楚，0.8 秒後翻回。";
+                string comparison = "比較線索｜" + facts.Find(artifacts[Board.ArtifactAt(previous)].id).memoryCue +
+                    "／" + facts.Find(artifacts[Board.ArtifactAt(index)].id).memoryCue;
+                feedback.text = comparison + "\n0.8 秒後翻回，記住它們的位置。";
                 yield return WaitForRunningSeconds(MismatchSeconds);
                 yield return Flip(cards[previous], cards[index], false);
                 Board.ResolvePair();
                 first = -1; busy = false;
-                feedback.text = "記住剛才的位置，再試一次。";
+                feedback.text = comparison + "\n兩張已翻回，再試著找相同的形狀。";
             }
         }
 

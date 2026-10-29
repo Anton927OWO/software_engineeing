@@ -81,7 +81,7 @@ namespace XunJiYiDa.Levels.Finale.Editor
             so.FindProperty("showIntroduction").boolValue = true;
             so.FindProperty("introductionTitle").stringValue = "終章空間｜找回文物記憶";
             so.FindProperty("introductionBody").stringValue =
-                "走進文物展示空間，透過形狀、材質與紋樣，把探索的記憶連結起來。\n\n開始時先用 2 秒記住本局取得的三件文物，提示結束後才開始 90 秒倒數。\n\n牌桌共有 4 × 3 張牌、六種文物各兩張。每次翻兩張；相同就保留並亮起金框，不同則等待 0.8 秒翻回並記錄一次失誤。完成六組即可通關。\n\n可閱讀知識卡、暫停或重新開始；閱讀與暫停時不扣時間。圖像為文物示意圖。";
+                "先看本局的三件文物；2 秒提示不扣時間。\n\n90 秒內完成六組配對。相同文物保留金框；不同則在 0.8 秒後翻回並記錄一次失誤。\n\n配對時認識文物，通關後可點圖鑑查看來源。閱讀與暫停不扣時間。圖像為示意。";
             so.FindProperty("introductionImage").objectReferenceValue = Sprite("Artifact_01");
             so.ApplyModifiedPropertiesWithoutUndo();
             AssetDatabase.CreateAsset(definition, DefinitionPath);
@@ -228,6 +228,7 @@ namespace XunJiYiDa.Levels.Finale.Editor
             PrefabUtility.RecordPrefabInstancePropertyModifications(knowledgeBody);
             PrefabUtility.RecordPrefabInstancePropertyModifications(knowledgeBody.rectTransform);
             FinaleScenePolish.ConfigureInventory(root);
+            FinaleScenePolish.ConfigureLearning(root);
         }
 
         private static FinaleCardView CreateCard(Transform parent, TMP_FontAsset font, int index)

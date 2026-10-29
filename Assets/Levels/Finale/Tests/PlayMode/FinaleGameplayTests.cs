@@ -99,6 +99,40 @@ namespace XunJiYiDa.Levels.Finale.Tests
         }
 
         [UnityTest]
+        public IEnumerator MatchingTeachesWithoutPausingOrBlockingTheNextFlip()
+        {
+            yield return Begin();
+            var pair = Enumerable.Range(0, 12).Where(i => finale.Board.ArtifactAt(i) == 0).ToArray();
+            yield return Flip(pair[0]); yield return Flip(pair[1]);
+            var note = Safe.Find("FinaleView/GuideCard/LearningNote");
+            Assert.That(note, Is.Not.Null, "Matched artifacts need a nonmodal knowledge sentence.");
+            var text = note.GetComponent<TMP_Text>();
+            Assert.That(text.text, Does.Contain("銅線").And.Contain("已核對").And.Contain("宜大記憶庫"));
+            Assert.That(shared.CanInteract, Is.True);
+            Assert.That(Panel("KnowledgeCard").gameObject.activeSelf, Is.False);
+            string learned = text.text;
+            int next = Enumerable.Range(0, 12).First(i => !finale.Board.IsFaceUp(i));
+            Assert.That(finale.TryFlip(next), Is.True);
+            Assert.That(text.text, Is.EqualTo(learned), "The next input must not erase the fact before it can be read.");
+            yield return WaitUntilIdle();
+            AssertVisibleTextFits();
+        }
+
+        [UnityTest]
+        public IEnumerator MismatchGivesSpecificComparisonCuesWithoutChangingTheWaitOrRules()
+        {
+            yield return Begin();
+            int first = Enumerable.Range(0, 12).First(i => finale.Board.ArtifactAt(i) == 0);
+            int other = Enumerable.Range(0, 12).First(i => finale.Board.ArtifactAt(i) == 2);
+            yield return Flip(first); yield return Flip(other);
+            string text = Safe.Find("FinaleView/Feedback").GetComponent<TMP_Text>().text;
+            Assert.That(text, Does.Contain("魚形輪廓").And.Contain("罐身"));
+            Assert.That(finale.Board.IsFaceUp(first) || finale.Board.IsFaceUp(other), Is.False);
+            Assert.That(shared.Session.MistakeCount, Is.EqualTo(1));
+            AssertVisibleTextFits();
+        }
+
+        [UnityTest]
         public IEnumerator HintLastsTwoSecondsWithoutSpendingCountdownAndHonorsPause()
         {
             Assert.That(finale.TryFlip(0), Is.False);
@@ -228,7 +262,7 @@ namespace XunJiYiDa.Levels.Finale.Tests
             shared.Pause(); Panel("KnowledgeCard").PrimaryButton.onClick.Invoke();
             Assert.That(shared.CanInteract, Is.False);
             shared.Resume();
-            Control("FinaleView/GuideCard/SpaceIntroduction").onClick.Invoke();
+            finale.ShowSpaceIntroduction();
             Assert.That(Panel("Introduction").gameObject.activeSelf, Is.True);
             Assert.That(shared.CanInteract, Is.False);
             ConfirmIntroduction();
@@ -351,7 +385,8 @@ namespace XunJiYiDa.Levels.Finale.Tests
             {
                 text.ForceMeshUpdate();
                 Assert.That(text.isTextOverflowing, Is.False,
-                    text.transform.parent.name + "/" + text.name + " must display the complete text: " + text.text);
+                    text.transform.parent.name + "/" + text.name + " preferred height " + text.preferredHeight +
+                    " in " + text.rectTransform.rect.height + " must display the complete text: " + text.text);
             }
         }
 #endif

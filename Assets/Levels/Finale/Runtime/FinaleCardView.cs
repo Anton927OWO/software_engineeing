@@ -13,6 +13,7 @@ namespace XunJiYiDa.Levels.Finale
         [SerializeField] private Image artwork;
         [SerializeField] private GameObject goldFrame;
         [SerializeField] private TMP_Text matchedLabel;
+        [SerializeField] private GameObject matchedBadge;
         private Sprite front;
         private Sprite back;
         private UnityAction click;
@@ -44,6 +45,7 @@ namespace XunJiYiDa.Levels.Finale
         {
             goldFrame.SetActive(value);
             matchedLabel.gameObject.SetActive(value);
+            if (matchedBadge != null) matchedBadge.SetActive(value);
         }
 
         public void SetFlipScale(float x) => visual.localScale = new Vector3(x, 1, 1);
