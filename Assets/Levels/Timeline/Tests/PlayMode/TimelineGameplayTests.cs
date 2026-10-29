@@ -300,6 +300,46 @@ namespace XunJiYiDa.Levels.Timeline.Tests
             }
         }
 
+        [UnityTest]
+        public IEnumerator CorrectPlacementTeachesEachEraImmediately()
+        {
+            Begin();
+            var changes = new[]
+            {
+                "1926｜創立臺北州立宜蘭農林學校，開啟農林教育。",
+                "1946｜更名為臺灣省立宜蘭農業職業學校。",
+                "1988｜改制為國立宜蘭農工專科學校，進入專科階段。",
+                "1998｜升格為國立宜蘭技術學院，從專科走向學院。",
+                "2003｜更名為國立宜蘭大學，邁入大學階段。"
+            };
+            for (int i = 0; i < years.Length; i++)
+            {
+                Drag(years[i], years[i]);
+                Assert.That(GameObject("Feedback").GetComponent<TMPro.TMP_Text>().text, Is.EqualTo(changes[i]));
+                if (i == 0) Capture("correct-history");
+            }
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator WrongPlacementGivesDifferentLearningCluesWithoutAnAnswerYear()
+        {
+            Begin();
+            var clues = new HashSet<string>();
+            for (int i = 0; i < years.Length; i++)
+            {
+                Drag(years[i], years[(i + 1) % years.Length]);
+                string clue = GameObject("Feedback").GetComponent<TMPro.TMP_Text>().text;
+                Assert.That(clue, Does.StartWith("線索｜"));
+                Assert.That(clue, Does.Not.Match("[0-9]"), "The clue must not give the answer year or slot number.");
+                Assert.That(clue.Length, Is.LessThanOrEqualTo(48));
+                Assert.That(clues.Add(clue), Is.True, "Give a clue about this card's educational stage.");
+                Assert.That(controller.Session.MistakeCount, Is.EqualTo(i + 1));
+                if (i == 0) Capture("wrong-clue");
+                yield return new WaitForSecondsRealtime(0.25f);
+            }
+        }
+
         private void Begin() => Panel("Introduction").PrimaryButton.onClick.Invoke();
         private T Find<T>() where T : Component => scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<T>(true)).Single();
         private GameObject GameObject(string name) => scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Transform>(true)).Single(t => t.name == name).gameObject;

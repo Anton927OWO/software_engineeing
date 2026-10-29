@@ -56,7 +56,7 @@ namespace XunJiYiDa.Levels.Timeline
             placed++;
             audioPlayer?.PlayCorrect();
             progress.text = $"已定位 {placed} / 5";
-            feedback.text = "定位正確！繼續拼回宜大的百年軌跡。";
+            feedback.text = TimelineHistory.Stages[card.TargetIndex].Feedback;
             if (placed == cards.Length) controller.Succeed();
         }
 
@@ -66,7 +66,7 @@ namespace XunJiYiDa.Levels.Timeline
             // End the gesture before counting: OnDrop followed by OnEndDrag must count only once.
             card.BounceHome();
             controller.RecordMistake();
-            feedback.text = "尚未對上這個年份，卡片已返回；再試一次！";
+            feedback.text = "線索｜" + TimelineHistory.Stages[card.TargetIndex].Clue;
         }
 
         private void ResetAttempt()
