@@ -48,7 +48,7 @@ namespace XunJiYiDa.Levels.Train.Editor
                 so.FindProperty("durationSeconds").floatValue = 60;
                 so.FindProperty("mistakeLimit").intValue = 0;
                 so.FindProperty("introductionTitle").stringValue = "知識列車｜校史車站";
-                so.FindProperty("introductionBody").stringValue = "歡迎來到校史知識車站。列車將帶你認識宜大的成長足跡。\n\n在 60 秒內回答三選一題目，答對接上一節車廂，集滿五節並開出畫面即可通關。\n答錯會顯示正解一秒並記錄失誤；同一輪題目不重複。時間到或題盡未達標就挑戰失敗。\n\n知識卡可閱讀解說與官方來源；介紹、知識卡及暫停時不扣秒。接車與出站動畫仍計時，請把握時間！";
+                so.FindProperty("introductionBody").stringValue = "60 秒內答對五題，接滿五節車廂並出站。\n答錯不扣車廂；正解與原因會留在回饋區，可開「知識卡／來源」暫停細讀。\n\n時間到或題庫用完即失敗；接車與出站仍計時。\n介紹、知識卡與暫停不扣秒；暫停面板可重新開始。";
                 so.FindProperty("showIntroduction").boolValue = true;
                 so.ApplyModifiedPropertiesWithoutUndo();
                 AssetDatabase.CreateAsset(definition, Root + "/Data/TrainLevel.asset");
@@ -59,8 +59,8 @@ namespace XunJiYiDa.Levels.Train.Editor
                 throw new IOException("無法複製 Train 專用字型。");
             var font = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(fontPath);
             string characters = definition.IntroductionTitle + definition.IntroductionBody +
-                "知識車站已連接節車廂資料來源已查核待驗證知識車票正確答案題庫沒有可用題目請編輯答對了答錯了連接中五節集滿出發時間已到下次再挑戰題目用完知識列車已出站選出正確答案讓知識成為前進的動力空間介紹知識卡來源每答完一題可在此閱讀正解與解說本題" +
-                string.Concat(bank.questions.Select(q => q.prompt + string.Concat(q.options) + q.explanation + q.sourceTitle + q.sourceUrl + q.verifiedOn));
+                "百年起點校園記憶考古發現噶瑪蘭文化知識終點上一題再想想正解玩法答完可開知識卡細讀重新開始再探索知識車站已連接節車廂資料來源已查核待驗證知識車票正確答案題庫沒有可用題目請編輯答對了答錯了連接中五節集滿出發時間已到下次再挑戰題目用完知識列車已出站選出正確答案讓知識成為前進的動力空間介紹知識卡來源每答完一題可在此閱讀正解與解說本題" +
+                string.Concat(bank.questions.Select(q => q.station + q.prompt + string.Concat(q.options) + q.explanation + q.sourceTitle + q.sourceUrl + q.verifiedOn));
             font.TryAddCharacters(characters, out string missing);
             if (!string.IsNullOrEmpty(missing)) Debug.LogWarning("Train 字型未收錄：" + missing);
             AssetDatabase.SaveAssetIfDirty(font);
@@ -157,26 +157,29 @@ namespace XunJiYiDa.Levels.Train.Editor
             var card = Picture("QuestionCard", safe, SharedSprite("Panel_Cream"), new Vector2(0, 115), new Vector2(1610, 540));
             card.type = Image.Type.Sliced;
             var number = Text("QuestionNumber", card.transform, font, "知識車站", 25, new Vector2(-410, 205), new Vector2(650, 46), TextAlignmentOptions.MidlineLeft);
-            var instruction = Text("Goal", card.transform, font, "60 秒・五節車廂・一段校史旅程", 23, new Vector2(425, 205), new Vector2(650, 46));
+            var instruction = Text("Goal", card.transform, font, "60 秒・答對五題・接滿車廂", 23, new Vector2(425, 205), new Vector2(650, 46));
             instruction.color = new Color32(125, 92, 48, 255);
             var question = Text("Prompt", card.transform, font, "準備出發", 38, new Vector2(0, 130), new Vector2(1450, 100));
             var choices = new Button[3];
             for (int i = 0; i < 3; i++) choices[i] = Button("Choice" + i, card.transform, font,
                 ((char)('A' + i)).ToString(), new Vector2(0, 28 - i * 89), new Vector2(1420, 76), 29);
-            var source = Text("Source", card.transform, font, "資料來源", 20, new Vector2(0, -220), new Vector2(1450, 45));
-            var feedback = Text("Feedback", safe, font, "", 28, new Vector2(190, -195), new Vector2(1260, 65));
+            var source = Text("Source", card.transform, font, "資料來源", 22, new Vector2(0, -220), new Vector2(1450, 45));
+            var feedback = Text("Feedback", safe, font, "", 26, new Vector2(190, -210), new Vector2(1260, 100));
             var progress = Text("Progress", safe, font, "已連接　0 / 5 節車廂", 25, new Vector2(-610, -195), new Vector2(450, 65));
             var trainRoot = Rect("Train", safe);
             Place(trainRoot, new Vector2(0, -330), new Vector2(1750, 200));
             Picture("Locomotive", trainRoot, Sprite("Locomotive"), new Vector2(-650, 0), new Vector2(270, 145));
             var carriages = new RectTransform[5];
+            var stations = new TMP_Text[5];
             for (int i = 0; i < carriages.Length; i++)
             {
                 carriages[i] = Picture("Carriage" + (i + 1), trainRoot, Sprite("Carriage"),
                     new Vector2(-380 + i * 235, -10), new Vector2(224, 125)).rectTransform;
+                stations[i] = Text("StationLabel", carriages[i], font, "", 22,
+                    new Vector2(0, 5), new Vector2(215, 65));
                 carriages[i].gameObject.SetActive(false);
             }
-            var intro = Button("SpaceIntroduction", safe, font, "空間介紹", new Vector2(-630, -490), new Vector2(310, 72), 27);
+            var intro = Button("SpaceIntroduction", safe, font, "玩法", new Vector2(-630, -490), new Vector2(310, 72), 27);
             var knowledge = Button("Knowledge", safe, font, "知識卡／來源", new Vector2(-245, -490), new Vector2(390, 72), 27);
             Text("OperationHint", safe, font, "滑鼠點選 A／B／C　｜　Escape 暫停　｜　暫停面板可重新開始", 22,
                 new Vector2(490, -490), new Vector2(950, 65));
@@ -188,7 +191,7 @@ namespace XunJiYiDa.Levels.Train.Editor
             Set(logic, "prompt", question); Set(logic, "source", source);
             Set(logic, "feedback", feedback); Set(logic, "progress", progress);
             Set(logic, "introductionButton", intro); Set(logic, "knowledgeButton", knowledge);
-            Set(logic, "trainRoot", trainRoot); SetArray(logic, "choices", choices); SetArray(logic, "carriageViews", carriages);
+            Set(logic, "trainRoot", trainRoot); SetArray(logic, "choices", choices); SetArray(logic, "carriageViews", carriages); SetArray(logic, "carriageStations", stations);
         }
 
         private static void ConfigureCanvas(RectTransform rect, int order, bool raycasts)

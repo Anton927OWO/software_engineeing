@@ -24,6 +24,7 @@ namespace XunJiYiDa.Levels.Train
         [SerializeField] private Button knowledgeButton;
         [SerializeField] private RectTransform trainRoot;
         [SerializeField] private RectTransform[] carriageViews;
+        [SerializeField] private TMP_Text[] carriageStations;
         private UnityAction[] answerActions;
         private TrainQuestion lastAnswered;
         private int attempt;
@@ -61,6 +62,7 @@ namespace XunJiYiDa.Levels.Train
                 unchecked(Environment.TickCount + ++attempt * 7919));
             lastAnswered = null;
             renderedQuestion = null;
+            foreach (var label in carriageStations) label.text = "";
             trainRoot.anchoredPosition = new Vector2(0, -330);
             Render();
         }
@@ -75,7 +77,11 @@ namespace XunJiYiDa.Levels.Train
         {
             if (!shared.CanInteract || !Round.Submit(index)) return;
             lastAnswered = Round.Current;
-            if (Round.LastWasCorrect) audioPlayer.PlayCorrect();
+            if (Round.LastWasCorrect)
+            {
+                carriageStations[Round.Carriages - 1].text = $"{Round.Carriages:00}\n{lastAnswered.StationName}";
+                audioPlayer.PlayCorrect();
+            }
             // Shared.RecordMistake's sound is not used by the pure round, so play once here.
             else audioPlayer.PlayWrong();
             Render();
@@ -92,7 +98,7 @@ namespace XunJiYiDa.Levels.Train
         {
             if (!shared.CanInteract) return;
             if (lastAnswered != null)
-                sharedUI.ShowKnowledgeCard("知識車票｜" + lastAnswered.id, lastAnswered.KnowledgeText);
+                sharedUI.ShowKnowledgeCard("知識車票｜" + lastAnswered.StationName, lastAnswered.KnowledgeText);
             else if (Round.Current != null)
                 sharedUI.ShowKnowledgeCard("知識車票｜資料來源", "每答完一題，可在此閱讀正解與解說。\n\n本題來源：" +
                     Round.Current.sourceTitle + "\n" + Round.Current.sourceUrl + "\n" + Round.Current.VerificationLabel);
@@ -110,7 +116,7 @@ namespace XunJiYiDa.Levels.Train
                     choices[i].GetComponentInChildren<TMP_Text>().text = $"{(char)('A' + i)}　{q.options[i]}";
             }
             if (q == null) { prompt.text = "題庫沒有可用題目，請編輯 TrainQuestions。"; source.text = ""; }
-            questionNumber.text = $"知識車站　{Mathf.Min(Round.AnsweredCount + (Round.Phase == TrainPhase.Asking ? 1 : 0), Round.QuestionCount):00} / {Round.QuestionCount:00}";
+            questionNumber.text = $"{q?.StationName ?? "知識車站"}　{Mathf.Min(Round.AnsweredCount + (Round.Phase == TrainPhase.Asking ? 1 : 0), Round.QuestionCount):00} / {Round.QuestionCount:00}";
             progress.text = $"已連接　{Round.Carriages} / {TrainRound.TargetCarriages} 節車廂";
             bool answering = shared.CanInteract && Round.Phase == TrainPhase.Asking && q != null;
             introductionButton.interactable = knowledgeButton.interactable = shared.CanInteract;
@@ -118,18 +124,26 @@ namespace XunJiYiDa.Levels.Train
             {
                 choices[i].interactable = answering;
                 var image = choices[i].GetComponent<Image>();
-                image.color = Round.Phase == TrainPhase.Revealing && q != null ?
+                image.color = (Round.Phase == TrainPhase.Revealing || Round.Phase == TrainPhase.Coupling) && q != null ?
                     i == q.correctIndex ? new Color32(40, 135, 84, 255) :
                     i == Round.SelectedIndex ? new Color32(157, 53, 43, 255) : new Color32(91, 108, 99, 255)
                     : new Color32(40, 91, 70, 255);
             }
-            feedback.color = Round.Phase == TrainPhase.Revealing ? new Color32(157, 53, 43, 255) : new Color32(31, 58, 46, 255);
-            feedback.text = Round.Phase == TrainPhase.Revealing && q != null ? "答錯了！正確答案：" + q.options[q.correctIndex] :
-                Round.Phase == TrainPhase.Coupling ? "答對了！車廂連接中……" :
-                Round.Phase == TrainPhase.Departing ? "五節集滿！知識列車出發……" :
-                shared.Session.Result != null ? shared.Session.Result.Success ? "知識列車已出站！" :
-                    shared.Session.RemainingTime <= 0 ? "時間已到，下次再挑戰！" : "題目已用完，下次再挑戰！" :
-                "選出正確答案，讓知識成為前進的動力。";
+            feedback.color = lastAnswered != null && !Round.LastWasCorrect ?
+                new Color32(157, 53, 43, 255) : new Color32(31, 58, 46, 255);
+            if (shared.Session.Result != null)
+                feedback.text = shared.Session.Result.Success ? "知識列車已出站！" :
+                    shared.Session.RemainingTime <= 0 ? "時間已到，可重新開始再探索。" : "題目已用完，可重新開始再探索。";
+            else if (Round.Phase == TrainPhase.Departing)
+                feedback.text = "五節集滿！知識列車出發……\n" + lastAnswered.explanation;
+            else if (lastAnswered != null)
+            {
+                string status = Round.LastWasCorrect ? "答對了！" : "再想想｜正解：" + lastAnswered.options[lastAnswered.correctIndex];
+                // Keep the explanation through the next question so the one-second lock is not a reading deadline.
+                feedback.text = (Round.Phase == TrainPhase.Asking ? "上一題｜" : "") + status +
+                    "\n" + lastAnswered.explanation;
+            }
+            else feedback.text = "選一個答案接車廂；答完可開知識卡細讀。";
 
             float departure = Round.Phase == TrainPhase.Departing ? Round.PhaseProgress :
                 shared.Session.Result != null && shared.Session.Result.Success ? 1 : 0;

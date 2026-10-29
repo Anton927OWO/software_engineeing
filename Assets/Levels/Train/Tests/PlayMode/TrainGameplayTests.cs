@@ -95,7 +95,14 @@ namespace XunJiYiDa.Levels.Train.Tests
             Assert.That(shared.Session.ArtifactIds, Is.Empty);
             Assert.That(shared.Session.RemainingTime, Is.EqualTo(60));
             Assert.That(Panel("Introduction").gameObject.activeSelf, Is.True);
-            for (int i = 1; i <= 5; i++) Assert.That(Find<RectTransform>("Carriage" + i).gameObject.activeSelf, Is.False);
+            for (int i = 1; i <= 5; i++)
+            {
+                var carriage = Find<RectTransform>("Carriage" + i);
+                Assert.That(carriage.gameObject.activeSelf, Is.False);
+                var station = carriage.GetComponentInChildren<TMP_Text>(true);
+                Assert.That(station, Is.Not.Null);
+                Assert.That(station.text, Is.Empty, "Retry clears earned station labels.");
+            }
         }
 
         [UnityTest]
@@ -104,9 +111,21 @@ namespace XunJiYiDa.Levels.Train.Tests
             Begin(); yield return null;
             int completed = 0; shared.Completed += _ => completed++;
             var root = Find<RectTransform>("Train");
+            var earnedStations = new System.Collections.Generic.List<string>();
             for (int i = 0; i < 5; i++)
             {
+                earnedStations.Add(train.Round.Current.StationName);
                 Click(Find<Button>("Choice" + train.Round.Current.correctIndex));
+                for (int c = 0; c <= i; c++)
+                {
+                    var station = Find<RectTransform>("Carriage" + (c + 1)).GetComponentInChildren<TMP_Text>();
+                    Assert.That(station, Is.Not.Null, "Earned carriages need a readable station name.");
+                    Assert.That(station.text, Does.Contain(earnedStations[c]));
+                    Assert.That(station.text, Does.Contain((c + 1).ToString()));
+                    station.ForceMeshUpdate();
+                    Assert.That(station.isTextOverflowing, Is.False);
+                }
+                Assert.That(Find<TMP_Text>("Feedback").text, Does.Contain(train.Round.Current.explanation));
                 Assert.That(shared.Session.Result, Is.Null);
                 Assert.That(train.Round.Carriages, Is.EqualTo(i + 1));
                 if (i == 0)
@@ -121,6 +140,8 @@ namespace XunJiYiDa.Levels.Train.Tests
                 while (train.Round.Phase == TrainPhase.Coupling && Time.realtimeSinceStartup < guard) yield return null;
                 Assert.That(train.Round.Phase, Is.EqualTo(i == 4 ? TrainPhase.Departing : TrainPhase.Asking));
             }
+            Assert.That(Find<TMP_Text>("Feedback").text, Does.Contain(train.Round.Current.explanation),
+                "The fifth reason must remain readable during departure.");
             Capture("five-carriages");
             Assert.That(shared.Session.Result, Is.Null);
             yield return new WaitForSecondsRealtime(0.5f);
@@ -149,6 +170,7 @@ namespace XunJiYiDa.Levels.Train.Tests
             Click(Find<Button>("Choice" + ((q.correctIndex + 1) % 3)));
             Capture("wrong-answer");
             Assert.That(Find<TMP_Text>("Feedback").text, Does.Contain(q.options[q.correctIndex]));
+            Assert.That(Find<TMP_Text>("Feedback").text, Does.Contain(q.explanation), "A mistake must teach a reason immediately.");
             Assert.That(shared.Session.MistakeCount, Is.EqualTo(1));
             train.SubmitAnswer(q.correctIndex);
             Assert.That(train.Round.Carriages, Is.Zero);
@@ -165,6 +187,8 @@ namespace XunJiYiDa.Levels.Train.Tests
             float guard = Time.realtimeSinceStartup + 2;
             while (train.Round.Phase != TrainPhase.Asking && Time.realtimeSinceStartup < guard) yield return null;
             Assert.That(train.Round.Current.id, Is.Not.EqualTo(q.id));
+            Assert.That(Find<TMP_Text>("Feedback").text, Does.Contain(q.explanation), "Keep the reason readable while the next question is available.");
+            Assert.That(Find<TMP_Text>("QuestionNumber").text, Does.Contain(train.Round.Current.StationName));
         }
 
         [UnityTest]
@@ -198,6 +222,10 @@ namespace XunJiYiDa.Levels.Train.Tests
                 var q = train.Round.Current;
                 Assert.That(ids.Add(q.id), Is.True);
                 Click(Find<Button>("Choice" + ((q.correctIndex + 1) % 3)));
+                var feedback = Find<TMP_Text>("Feedback");
+                Assert.That(feedback.text, Does.Contain(q.explanation));
+                Canvas.ForceUpdateCanvases(); feedback.ForceMeshUpdate();
+                Assert.That(feedback.isTextOverflowing, Is.False, q.id);
                 // Boundary logic is covered with exact deltas in EditMode; this exercises scene wiring.
                 train.Round.Advance(1);
                 yield return null;
