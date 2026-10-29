@@ -229,6 +229,7 @@ namespace XunJiYiDa.Levels.Finale.Editor
             PrefabUtility.RecordPrefabInstancePropertyModifications(knowledgeBody.rectTransform);
             FinaleScenePolish.ConfigureInventory(root);
             FinaleScenePolish.ConfigureLearning(root);
+            FinaleScenePolish.ConfigureGallery(root);
         }
 
         private static FinaleCardView CreateCard(Transform parent, TMP_FontAsset font, int index)

@@ -133,6 +133,65 @@ namespace XunJiYiDa.Levels.Finale.Tests
         }
 
         [UnityTest]
+        public IEnumerator SuccessUnlocksSixClickableCatalogEntriesAndRetryHidesThem()
+        {
+            Capture("introduction");
+            ConfirmIntroduction();
+            Capture("inventory");
+            yield return WaitUntilIdle();
+            Capture("board");
+            for (int artifact = 0; artifact < 6; artifact++)
+            {
+                var pair = Enumerable.Range(0, 12).Where(i => finale.Board.ArtifactAt(i) == artifact).ToArray();
+                yield return Flip(pair[0]); yield return Flip(pair[1]);
+                if (artifact == 0) { yield return null; Capture("matched"); }
+            }
+            var gallery = Safe.Find("ResultOverlay/ResultCard/ArtifactGallery");
+            Assert.That(gallery, Is.Not.Null, "Successful results must expose the six artifact entries.");
+            Assert.That(gallery.gameObject.activeInHierarchy, Is.True);
+            yield return null; // Let newly enabled UI graphics enter the canvas rebuild and raycast registry.
+            string[] evidence = { "銅線", "閉眼人臉", "蘭陽平原", "推測", "同心圓", "六角管形" };
+            for (int i = 0; i < 6; i++)
+            {
+                var button = gallery.Find("Artifact" + i).GetComponent<Button>();
+                Assert.That(button.interactable, Is.True);
+                ClickByRaycast(button);
+                var detail = gallery.Find("Description").GetComponent<TMP_Text>();
+                Assert.That(detail.text, Does.Contain(evidence[i]).And.Contain("已核對").And.Contain("2026-10-29"));
+                Assert.That(gallery.Find("ArtifactSource").GetComponent<Button>().interactable, Is.True);
+                Assert.That(gallery.Find("ContextSource").GetComponent<Button>().interactable, Is.True);
+                AssertVisibleTextFits();
+                Capture("catalog-" + i);
+                yield return null;
+            }
+            AssertRaycastTarget(gallery.Find("ArtifactSource").GetComponent<Button>());
+            AssertRaycastTarget(gallery.Find("ContextSource").GetComponent<Button>());
+            root.SetActive(false); yield return null; root.SetActive(true); yield return null;
+            Assert.That(gallery.gameObject.activeInHierarchy, Is.True);
+            ClickByRaycast(gallery.Find("Artifact0").GetComponent<Button>());
+            Assert.That(gallery.Find("Description").GetComponent<TMP_Text>().text, Does.Contain("銅線"));
+            Assert.That(completed, Is.EqualTo(1));
+            Control("ResultOverlay/ResultCard/Retry").onClick.Invoke();
+            Assert.That(gallery.gameObject.activeSelf, Is.False);
+            Assert.That(shared.Session.State, Is.EqualTo(LevelState.Ready));
+            Assert.That(((RectTransform)Safe.Find("ResultOverlay/ResultCard")).sizeDelta, Is.EqualTo(new Vector2(1000, 760)));
+        }
+
+        [UnityTest]
+        public IEnumerator FailureKeepsTheOriginalResultLayoutWithoutUnlockingCatalog()
+        {
+            yield return Begin();
+            shared.Session.Tick(90);
+            var gallery = Safe.Find("ResultOverlay/ResultCard/ArtifactGallery");
+            Assert.That(gallery, Is.Not.Null);
+            Assert.That(gallery.gameObject.activeSelf, Is.False);
+            Assert.That(((RectTransform)Safe.Find("ResultOverlay/ResultCard")).sizeDelta, Is.EqualTo(new Vector2(1000, 760)));
+            Assert.That(relay.LastResult.Success, Is.False);
+            AssertVisibleTextFits();
+            Capture("failure");
+        }
+
+        [UnityTest]
         public IEnumerator HintLastsTwoSecondsWithoutSpendingCountdownAndHonorsPause()
         {
             Assert.That(finale.TryFlip(0), Is.False);
@@ -376,6 +435,71 @@ namespace XunJiYiDa.Levels.Finale.Tests
                 yield return Flip(pair[1]);
             }
             AssertVisibleTextFits();
+        }
+
+        private void ClickByRaycast(Button button)
+        {
+            var pointer = AssertRaycastTarget(button);
+            ExecuteEvents.Execute(button.gameObject, pointer, ExecuteEvents.pointerClickHandler);
+        }
+
+        private PointerEventData AssertRaycastTarget(Button button)
+        {
+            Canvas.ForceUpdateCanvases();
+            var pointer = new PointerEventData(EventSystem.current)
+            {
+                button = PointerEventData.InputButton.Left,
+                position = RectTransformUtility.WorldToScreenPoint(null, button.transform.position)
+            };
+            var hits = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointer, hits);
+            Assert.That(hits, Is.Not.Empty, button.name + " must receive pointer input at " + pointer.position +
+                " in " + Screen.width + "x" + Screen.height + "; canvas=" + root.GetComponentInChildren<Canvas>().renderMode +
+                "; graphic depth=" + button.GetComponent<Image>().depth);
+            Assert.That(ExecuteEvents.GetEventHandler<IPointerClickHandler>(hits[0].gameObject), Is.EqualTo(button.gameObject),
+                button.name + " must not be blocked by another UI element.");
+            return pointer;
+        }
+
+        private void Capture(string name)
+        {
+            string directory = System.Environment.GetEnvironmentVariable("FINALE_SCREENSHOT_DIR");
+            if (string.IsNullOrEmpty(directory) || SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null) return;
+            System.IO.Directory.CreateDirectory(directory);
+            var camera = scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Camera>()).Single();
+            var canvas = root.GetComponentInChildren<Canvas>();
+            var mode = canvas.renderMode;
+            var worldCamera = canvas.worldCamera;
+            float previousPlaneDistance = canvas.planeDistance;
+            var previousTarget = camera.targetTexture;
+            var previousActive = RenderTexture.active;
+            var target = new RenderTexture(1920, 1080, 24, RenderTextureFormat.ARGB32);
+            var pixels = new Texture2D(1920, 1080, TextureFormat.RGB24, false);
+            try
+            {
+                canvas.renderMode = RenderMode.ScreenSpaceCamera;
+                canvas.worldCamera = camera;
+                canvas.planeDistance = 1;
+                camera.targetTexture = target;
+                Canvas.ForceUpdateCanvases();
+                var request = new UnityEngine.Rendering.RenderPipeline.StandardRequest { destination = target };
+                UnityEngine.Rendering.RenderPipeline.SubmitRenderRequest(camera, request);
+                RenderTexture.active = target;
+                pixels.ReadPixels(new Rect(0, 0, 1920, 1080), 0, 0);
+                pixels.Apply();
+                System.IO.File.WriteAllBytes(System.IO.Path.Combine(directory, name + ".png"), pixels.EncodeToPNG());
+            }
+            finally
+            {
+                RenderTexture.active = previousActive;
+                camera.targetTexture = previousTarget;
+                canvas.renderMode = mode;
+                canvas.worldCamera = worldCamera;
+                canvas.planeDistance = previousPlaneDistance;
+                target.Release();
+                Object.DestroyImmediate(target);
+                Object.DestroyImmediate(pixels);
+            }
         }
 
         private void AssertVisibleTextFits()

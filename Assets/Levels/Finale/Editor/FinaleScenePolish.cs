@@ -14,6 +14,7 @@ namespace XunJiYiDa.Levels.Finale.Editor
     {
         public static void UpgradeInventory() => EditScene(ConfigureInventory);
         public static void UpgradeLearning() => EditScene(ConfigureLearning);
+        public static void UpgradeGallery() => EditScene(ConfigureGallery);
 
         private static void EditScene(Action<GameObject> edit)
         {
@@ -97,6 +98,81 @@ namespace XunJiYiDa.Levels.Finale.Editor
                 Bind(card, "matchedBadge", badge.gameObject);
                 badge.gameObject.SetActive(false);
             }
+        }
+
+        public static void ConfigureGallery(GameObject root)
+        {
+            var safe = root.GetComponentInChildren<Canvas>(true).transform.Find("SafeArea");
+            var card = safe.Find("ResultOverlay/ResultCard");
+            if (card.Find("ArtifactGallery") != null) return;
+            var template = safe.Find("FinaleView/GuideCard/AcquiredSummary").GetComponent<TMP_Text>();
+            var galleryRoot = new GameObject("ArtifactGallery", typeof(RectTransform));
+            galleryRoot.layer = 5;
+            galleryRoot.transform.SetParent(card, false);
+            Place((RectTransform)galleryRoot.transform, 0, -50, 1000, 640);
+            var gallery = galleryRoot.AddComponent<FinaleArtifactGallery>();
+            var heading = GalleryText("Heading", galleryRoot.transform, template, "文物圖鑑｜點選六件文物，查看知識與來源", 26);
+            Place(heading.rectTransform, 0, 240, 1000, 44);
+            var buttons = new Button[6]; var images = new Image[6]; var labels = new TMP_Text[6];
+            for (int i = 0; i < 6; i++)
+            {
+                var background = CreateImage("Artifact" + i, galleryRoot.transform, new Color32(247, 241, 226, 255));
+                background.raycastTarget = true;
+                Place(background.rectTransform, (i - 2.5f) * 164, 120, 148, 170);
+                buttons[i] = background.gameObject.AddComponent<Button>(); buttons[i].targetGraphic = background;
+                images[i] = CreateImage("Icon", background.transform, Color.white);
+                images[i].preserveAspect = true;
+                Place(images[i].rectTransform, 0, 32, 100, 88);
+                labels[i] = GalleryText("Label", background.transform, template, "文物", 21);
+                Place(labels[i].rectTransform, 0, -45, 146, 64);
+            }
+            var selectedIcon = CreateImage("SelectedIcon", galleryRoot.transform, Color.white);
+            selectedIcon.preserveAspect = true;
+            Place(selectedIcon.rectTransform, -370, -125, 210, 210);
+            var title = GalleryText("SelectedTitle", galleryRoot.transform, template, "文物", 26);
+            title.alignment = TextAlignmentOptions.Left;
+            Place(title.rectTransform, 120, 10, 700, 48);
+            var body = GalleryText("Description", galleryRoot.transform, template, "", 22);
+            body.alignment = TextAlignmentOptions.TopLeft;
+            Place(body.rectTransform, 120, -140, 700, 236);
+            var artifactSource = GallerySource("ArtifactSource", galleryRoot.transform, template, "開啟文物來源（官方）", -240);
+            var contextSource = GallerySource("ContextSource", galleryRoot.transform, template, "開啟校史與文化來源（官方）", 240);
+            Bind(gallery, "selectedIcon", selectedIcon); Bind(gallery, "selectedTitle", title); Bind(gallery, "description", body);
+            Bind(gallery, "artifactSourceButton", artifactSource); Bind(gallery, "contextSourceButton", contextSource);
+            Bind(gallery, "resultCard", card); Bind(gallery, "resultTitle", card.Find("Title").GetComponent<TMP_Text>());
+            Bind(gallery, "resultBody", card.Find("Body").GetComponent<TMP_Text>());
+            Bind(gallery, "retry", card.Find("Retry")); Bind(gallery, "continueButton", card.Find("ContinueToMap"));
+            BindArray(gallery, "entries", buttons); BindArray(gallery, "icons", images); BindArray(gallery, "labels", labels);
+            Bind(root.GetComponentInChildren<FinaleLevelController>(true), "gallery", gallery);
+            galleryRoot.SetActive(false);
+        }
+
+        private static TMP_Text GalleryText(string name, Transform parent, TMP_Text template, string value, float size)
+        {
+            var text = UnityEngine.Object.Instantiate(template, parent);
+            text.name = name; text.text = value; text.fontSize = size;
+            text.alignment = TextAlignmentOptions.Center;
+            return text;
+        }
+
+        private static Button GallerySource(string name, Transform parent, TMP_Text template, string value, float x)
+        {
+            var background = CreateImage(name, parent, new Color32(31, 58, 46, 255));
+            background.raycastTarget = true;
+            Place(background.rectTransform, x, -295, 440, 44);
+            var button = background.gameObject.AddComponent<Button>(); button.targetGraphic = background;
+            var label = GalleryText("Label", background.transform, template, value, 22);
+            label.color = new Color32(251, 248, 242, 255);
+            Place(label.rectTransform, 0, 0, 432, 44);
+            return button;
+        }
+
+        private static void BindArray(UnityEngine.Object target, string field, UnityEngine.Object[] values)
+        {
+            var data = new SerializedObject(target); var array = data.FindProperty(field);
+            array.arraySize = values.Length;
+            for (int i = 0; i < values.Length; i++) array.GetArrayElementAtIndex(i).objectReferenceValue = values[i];
+            data.ApplyModifiedPropertiesWithoutUndo();
         }
 
         private static Image CreateImage(string name, Transform parent, Color color)

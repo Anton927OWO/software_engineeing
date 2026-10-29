@@ -27,6 +27,8 @@ namespace XunJiYiDa.Levels.Finale
         [SerializeField] private SharedAudioPlayer audioPlayer;
         [SerializeField] private FinaleArtifactSource artifactSource;
         [SerializeField] private TextAsset artifactFacts;
+        [SerializeField] private FinaleArtifactGallery gallery;
+        private int lastMatchedArtifact;
         [SerializeField] private FinaleArtifact[] artifacts;
         private FinaleArtifactCatalog facts;
         [SerializeField] private Sprite cardBack;
@@ -59,6 +61,7 @@ namespace XunJiYiDa.Levels.Finale
         private void Awake()
         {
             facts = JsonUtility.FromJson<FinaleArtifactCatalog>(artifactFacts.text);
+            gallery.Initialize(artifacts, facts);
             for (int i = 0; i < cards.Length; i++) cards[i].Bind(i, index => TryFlip(index));
             ResetAttempt();
         }
@@ -138,6 +141,8 @@ namespace XunJiYiDa.Levels.Finale
         private void ResetAttempt()
         {
             StopAllCoroutines();
+            gallery.Hide();
+            lastMatchedArtifact = 0;
             busy = false; awaitingHint = true; hintElapsed = 0; first = -1;
             acquiredIds = Array.Empty<string>();
             acquiredSummary.text = "本局文物\n開始後顯示本局的三件文物";
@@ -180,7 +185,8 @@ namespace XunJiYiDa.Levels.Finale
                 cards[previous].SetMatched(true); cards[index].SetMatched(true);
                 audioPlayer?.PlayCorrect();
                 progress.text = $"記憶拼圖　{Board.MatchedPairs} / 6";
-                var artifact = artifacts[Board.ArtifactAt(index)];
+                lastMatchedArtifact = Board.ArtifactAt(index);
+                var artifact = artifacts[lastMatchedArtifact];
                 var fact = facts.Find(artifact.id);
                 feedback.text = "配對成功｜" + artifact.title + "。金框會保留，繼續找下一組。";
                 learningNote.text = (fact.IsVerified ? "剛剛學到｜已核對官方來源" : "剛剛學到｜待查證") + "\n" + fact.Summary + (fact.IsVerified ? "\n" + fact.context : "");
@@ -254,6 +260,8 @@ namespace XunJiYiDa.Levels.Finale
             busy = false;
             hintPanel.SetActive(false);
             foreach (var card in cards) card.SetFlipScale(1);
+            if (result.Success) gallery.Show(lastMatchedArtifact);
+            else gallery.Hide();
             feedback.text = result.Success ? "六組文物的記憶，都已找回。" : "時間到了，下次再找回完整的記憶。";
             RefreshInteractivity();
         }
