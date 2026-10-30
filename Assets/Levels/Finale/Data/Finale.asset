@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865d994775624314aeaddbd29276fdfb, type: 3}
+  m_Name: Finale
+  m_EditorClassIdentifier: XunJiYiDa.Levels.Shared::XunJiYiDa.Levels.Shared.SharedLevelDefinition
+  levelId: Finale
+  displayName: "\u7D42\u7AE0\uFF5C\u6587\u7269\u8A18\u61B6\u7FFB\u724C"
+  durationSeconds: 90
+  mistakeLimit: 0
+  introductionTitle: "\u7D42\u7AE0\u7A7A\u9593\uFF5C\u627E\u56DE\u6587\u7269\u8A18\u61B6"
+  introductionBody: "先看本局的三件文物；2 秒提示不扣時間。\n\n90 秒內完成六組配對。相同文物保留金框；不同則在 0.8 秒後翻回並記錄一次失誤。\n\n配對時認識文物，通關後可點圖鑑查看來源。閱讀與暫停不扣時間。圖像為示意。"
+  introductionImage: {fileID: 290658076908743098, guid: 847e17a6ad766492eb2a4fed84278210, type: 3}
+  showIntroduction: 1

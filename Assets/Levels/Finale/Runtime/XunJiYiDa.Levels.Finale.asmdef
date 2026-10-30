@@ -1,0 +1,11 @@
+{
+  "name": "XunJiYiDa.Levels.Finale",
+  "rootNamespace": "XunJiYiDa.Levels.Finale",
+  "references": [
+    "XunJiYiDa.Levels.Shared.Core",
+    "XunJiYiDa.Levels.Shared",
+    "Unity.TextMeshPro",
+    "UnityEngine.UI",
+    "XunJiYiDa.Levels.Integration"
+  ]
+}

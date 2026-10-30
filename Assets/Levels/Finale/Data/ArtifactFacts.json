@@ -1,0 +1,70 @@
+{
+  "items": [
+    {
+      "id": "artifact-01",
+      "summary": "金鯉魚是魚形金屬編物，以銅線纏繞製成。",
+      "knowledge": "金鯉魚是魚形金屬編物，以銅線纏繞製成。\n「金鯉魚」是俗稱，不能只憑名稱判斷材質。",
+      "memoryCue": "魚形輪廓與編織線條",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
+      "verificationStatus": "VerifiedOfficialSource",
+      "verifiedOn": "2026-10-29",
+      "context": "宜大記憶庫整合圖書館、博物館與檔案館的功能。",
+      "contextSourceUrl": "https://lic.niu.edu.tw/p/412-1010-6105.php"
+    },
+    {
+      "id": "artifact-02",
+      "summary": "壓印紋飾金箔片帶有閉眼人臉的模樣。",
+      "knowledge": "壓印紋飾金箔片帶有閉眼人臉的模樣。\n官方記錄指出，這類金箔片發現於墓葬中。",
+      "memoryCue": "薄片輪廓",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
+      "verificationStatus": "VerifiedOfficialSource",
+      "verifiedOn": "2026-10-29",
+      "context": "1926 年宜蘭農林學校建校時即發現遺址。",
+      "contextSourceUrl": "https://lic.niu.edu.tw/p/412-1010-6106.php"
+    },
+    {
+      "id": "artifact-03",
+      "summary": "幾何印紋陶罐使用蘭陽平原的黏土，以手捏塑製作。",
+      "knowledge": "幾何印紋陶罐使用蘭陽平原的黏土，以手捏塑製作。\n官方記錄提到，遺址發現超過 25 種幾何紋飾。",
+      "memoryCue": "罐身與重複紋樣",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
+      "verificationStatus": "VerifiedOfficialSource",
+      "verifiedOn": "2026-10-29",
+      "context": "宜蘭農校遺址出土文物包含噶瑪蘭文化的生活記憶。",
+      "contextSourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php"
+    },
+    {
+      "id": "artifact-04",
+      "summary": "木鏟因遺址特殊環境得以保存，官方推測它可能是農具。",
+      "knowledge": "木鏟因遺址特殊環境得以保存，官方推測它可能是農具。\n「推測」不是已確定的用途；閱讀文物資料時要保留這個差別。",
+      "memoryCue": "長柄與寬鏟面",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
+      "verificationStatus": "VerifiedOfficialSource",
+      "verifiedOn": "2026-10-29",
+      "context": "宜大記憶庫整合圖書館、博物館與檔案館的功能。",
+      "contextSourceUrl": "https://lic.niu.edu.tw/p/412-1010-6105.php"
+    },
+    {
+      "id": "artifact-05",
+      "summary": "木質圓形雕板正面刻有兩道帶狀同心圓折線紋。",
+      "knowledge": "木質圓形雕板正面刻有兩道帶狀同心圓折線紋。\n目前引用的官方資料未說明其用途，不能由形狀自行斷定。",
+      "memoryCue": "圓形外框與雕紋",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
+      "verificationStatus": "VerifiedOfficialSource",
+      "verifiedOn": "2026-10-29",
+      "context": "1926 年宜蘭農林學校建校時即發現遺址。",
+      "contextSourceUrl": "https://lic.niu.edu.tw/p/412-1010-6106.php"
+    },
+    {
+      "id": "artifact-06",
+      "summary": "宜蘭農校遺址出土的瑪瑙珠，以六角管形最多。",
+      "knowledge": "宜蘭農校遺址出土的瑪瑙珠，以六角管形最多。\n示意圖的圓珠外形不能代表所有真實出土珠飾。",
+      "memoryCue": "珠飾的排列與色澤",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
+      "verificationStatus": "VerifiedOfficialSource",
+      "verifiedOn": "2026-10-29",
+      "context": "宜蘭農校遺址出土文物包含噶瑪蘭文化的生活記憶。",
+      "contextSourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php"
+    }
+  ]
+}

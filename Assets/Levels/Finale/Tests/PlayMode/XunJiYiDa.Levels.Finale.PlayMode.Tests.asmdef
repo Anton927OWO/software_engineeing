@@ -1,0 +1,15 @@
+{
+  "name": "XunJiYiDa.Levels.Finale.PlayMode.Tests",
+  "references": [
+    "XunJiYiDa.Levels.Finale",
+    "XunJiYiDa.Levels.Shared.Core",
+    "XunJiYiDa.Levels.Shared",
+    "Unity.TextMeshPro",
+    "UnityEngine.UI",
+    "Unity.InputSystem",
+    "TrackingNIU.Common"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

@@ -1,0 +1,141 @@
+using System.IO;
+using System.Linq;
+using NUnit.Framework;
+using TMPro;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
+using UnityEngine.UI;
+using XunJiYiDa.Levels.Finale.Editor;
+using XunJiYiDa.Levels.Shared;
+
+namespace XunJiYiDa.Levels.Finale.Tests
+{
+    public sealed class FinaleSceneTests
+    {
+        [Test]
+        public void FinaleSceneIsASavedUnityScene()
+        {
+            Assert.That(AssetDatabase.LoadAssetAtPath<SceneAsset>("Assets/Levels/Finale/L_Finale.unity"),
+                Is.Not.Null, "The playable Finale scene must be generated and saved by the Editor tool.");
+        }
+
+        [Test]
+        public void SavedSceneHasLinkedSharedPrefabAssignedReferencesAndFourByThreeGrid()
+        {
+            var scene = EditorSceneManager.OpenPreviewScene(FinaleSceneBuilder.ScenePath);
+            try
+            {
+                var roots = scene.GetRootGameObjects();
+                var components = roots.SelectMany(go => go.GetComponentsInChildren<Component>(true)).ToArray();
+                Assert.That(components.OfType<Camera>().Count(), Is.EqualTo(1));
+                Assert.That(components.OfType<AudioListener>().Count(), Is.EqualTo(1));
+                Assert.That(components.OfType<EventSystem>().Count(), Is.EqualTo(1));
+                Assert.That(components.OfType<InputSystemUIInputModule>().Count(), Is.EqualTo(1));
+                var shared = components.OfType<SharedLevelController>().Single();
+                Assert.That(PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(shared.gameObject),
+                    Is.EqualTo("Assets/Levels/Shared/Prefabs/SharedLevelRoot.prefab"));
+                Assert.That(shared.Definition.LevelId, Is.EqualTo("Finale"));
+                Assert.That(shared.Definition.CreateSession().RemainingTime, Is.EqualTo(90));
+                Assert.That(shared.Definition.MistakeLimit, Is.Zero);
+                Assert.That(shared.Definition.ShowIntroduction, Is.True);
+                Assert.That(components.OfType<SharedLevelUI>().Count(), Is.EqualTo(1));
+                Assert.That(components.OfType<LevelResultRelay>().Count(), Is.EqualTo(1));
+                var grid = components.OfType<GridLayoutGroup>().Single();
+                Assert.That(grid.constraintCount, Is.EqualTo(4));
+                Assert.That(grid.GetComponentsInChildren<FinaleCardView>(true).Length, Is.EqualTo(12));
+                foreach (var behaviour in components.OfType<MonoBehaviour>())
+                {
+                    if (!(behaviour is FinaleLevelController || behaviour is FinaleCardView)) continue;
+                    var property = new SerializedObject(behaviour).GetIterator();
+                    while (property.NextVisible(true))
+                        if (property.propertyType == SerializedPropertyType.ObjectReference && property.name != "m_Script")
+                            Assert.That(property.objectReferenceValue, Is.Not.Null, behaviour.name + ": " + property.propertyPath);
+                }
+                foreach (var text in components.OfType<TMP_Text>())
+                    Assert.That(AssetDatabase.GetAssetPath(text.font), Is.EqualTo(FinaleSceneBuilder.FontPath));
+            }
+            finally { EditorSceneManager.ClosePreviewScene(scene); }
+        }
+
+        [Test]
+        public void BuilderIsIdempotentAndLeavesSharedAndBuildSettingsUntouched()
+        {
+            string[] paths = {
+                FinaleSceneBuilder.ScenePath, FinaleSceneBuilder.DefinitionPath,
+                "Assets/Levels/Shared/Prefabs/SharedLevelRoot.prefab",
+                "Assets/Levels/Shared/Fonts/NotoSansTC-Regular SDF.asset",
+                "ProjectSettings/EditorBuildSettings.asset", "Packages/manifest.json"
+            };
+            var before = paths.Select(File.ReadAllBytes).ToArray();
+            FinaleSceneBuilder.Build();
+            for (int i = 0; i < paths.Length; i++) Assert.That(File.ReadAllBytes(paths[i]), Is.EqualTo(before[i]), paths[i]);
+        }
+
+        [Test]
+        public void SavedSceneBindsSixSourcedArtifactFacts()
+        {
+            var scene = EditorSceneManager.OpenPreviewScene(FinaleSceneBuilder.ScenePath);
+            try
+            {
+                var finale = scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<FinaleLevelController>(true)).Single();
+                var data = new SerializedObject(finale).FindProperty("artifactFacts");
+                Assert.That(data, Is.Not.Null, "The scene must bind the source-backed artifact catalog.");
+                var asset = data.objectReferenceValue as TextAsset;
+                Assert.That(asset, Is.Not.Null);
+                var catalog = JsonUtility.FromJson<FinaleArtifactCatalog>(asset.text);
+                Assert.That(catalog.items.Length, Is.EqualTo(6));
+                Assert.That(catalog.items.Select(f => f.id).OrderBy(id => id),
+                    Is.EqualTo(Enumerable.Range(1, 6).Select(i => $"artifact-{i:00}")));
+                foreach (var fact in catalog.items)
+                {
+                    Assert.That(fact.sourceUrl, Is.EqualTo("https://lic.niu.edu.tw/p/412-1010-6107.php"), fact.id);
+                    Assert.That(fact.verificationStatus, Is.EqualTo("VerifiedOfficialSource"), fact.id);
+                    Assert.That(fact.verifiedOn, Is.EqualTo("2026-10-29"), fact.id);
+                    Assert.That(fact.summary.Length, Is.InRange(1, 52), fact.id + " must be readable during play.");
+                    Assert.That(fact.memoryCue, Is.Not.Empty, fact.id);
+                    Assert.That(fact.knowledge, Does.Contain(fact.summary), fact.id);
+                    Assert.That(fact.contextSourceUrl, Does.StartWith("https://lic.niu.edu.tw/"), fact.id);
+                    Assert.That(fact.context, Is.Not.Empty, fact.id);
+                }
+                Assert.That(catalog.items.Single(f => f.id == "artifact-04").knowledge, Does.Contain("推測"));
+            }
+            finally { EditorSceneManager.ClosePreviewScene(scene); }
+        }
+
+        [Test]
+        public void UnverifiedArtifactDoesNotPublishItsUnconfirmedFactOrContext()
+        {
+            var fact = new FinaleArtifactFact
+            {
+                id = "artifact-04", summary = "未確認的用途宣稱", knowledge = "未確認的詳細史實",
+                context = "未確認的校史宣稱", memoryCue = "長柄與寬面", verificationStatus = "PendingVerification"
+            };
+            Assert.That(fact.IsVerified, Is.False);
+            Assert.That(fact.Summary, Does.Contain("待查證").And.Not.Contain("用途宣稱"));
+            Assert.That(fact.KnowledgeBody, Does.Contain("圖像觀察").And.Contain("長柄與寬面")
+                .And.Not.Contain("詳細史實").And.Not.Contain("校史宣稱"));
+        }
+
+        [Test]
+        public void SourceIdsArePrioritizedTrimmedDeduplicatedAndLimitedToThree()
+        {
+            Assert.That(FinaleArtifactSource.ResolveIds(
+                new[] { " artifact-06 ", "artifact-06", null, "unknown", "artifact-04", "artifact-02", "artifact-01" },
+                new[] { "artifact-01", "artifact-03", "artifact-05" }),
+                Is.EqualTo(new[] { "artifact-06", "artifact-04", "artifact-02" }));
+        }
+
+        [Test]
+        public void MissingOrMalformedSourceUsesValidConfigurableFallback()
+        {
+            Assert.That(FinaleArtifactSource.ResolveIds(null, new[] { "artifact-05", "artifact-02", "artifact-04" }),
+                Is.EqualTo(new[] { "artifact-05", "artifact-02", "artifact-04" }));
+            Assert.That(FinaleArtifactSource.ResolveIds(new[] { "artifact-00", "artifact-07", "ARTIFACT-01", "" },
+                new[] { "artifact-03", "artifact-03", "unknown" }),
+                Is.EqualTo(new[] { "artifact-03", "artifact-01", "artifact-02" }));
+        }
+    }
+}
