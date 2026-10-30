@@ -20,18 +20,11 @@
 - EventSystem 改用 Input System 的 `InputSystemUIInputModule`；字型改用 `Shared/Fonts/NotoSansTC-Regular SDF`。
 - 未移植：WebGL 橋接（`WebBridge`、`NIU.jslib`、WebGL 範本）、原專案的編輯器建置工具。
 
-## 待補素材
+## 素材
 
-原分支的圖片與音效存在 Git LFS，但 LFS 物件沒有上傳到 GitHub（下載回 404）。缺檔時程式會自動改用替代素材：
+`Resources/Junting/` 放峻廷原版的實景照片（`library.jpg`、`corridor.jpg`）、鹿剪影（`deer.png`）、圓角底圖（`rounded.png`）；`Resources/Junting/Audio/` 放 12 個原創合成音效與兩首 BGM（CC0）。來源取自 `codex/team-junting` 的 `d68aa7d`，GUID 已重新產生，避免與原分支衝突。授權見 `素材來源與授權.csv`。
 
-| 原檔（放到 `Resources/Junting/`） | 目前替代 |
-|---|---|
-| `library.jpg`、`corridor.jpg` | 介紹頁顯示「實景照片待補」 |
-| `deer.png` | 棕色圓形「鹿」字 |
-| `rounded.png` | `Shared/Sprites/Panel_Cream.png` |
-| `Audio/*.wav`（16 個音效與兩首 BGM） | Scene 上 `fallbackClips` 指定的共用 UI 音效與 `Common/audio` 的 BGM |
-
-原作者在原機器執行 `git lfs push --all se codex/team-junting` 後，把檔案用原檔名放回上表位置即可，程式不用改。授權見 `素材來源與授權.csv`。
+Scene 上的 `fallbackClips` 只在 Resources 缺檔時使用。文物插圖沿用終章的 `Artifact_0N.png`，所以沒有搬 `pot.png`、`paddle.png`；原版未使用的 `ending.wav` 也沒有搬。
 
 ## 測試
 
