@@ -1,0 +1,6 @@
+{
+  "name": "XunJiYiDa.Levels.Timeline.Editor",
+  "rootNamespace": "XunJiYiDa.Levels.Timeline.Editor",
+  "references": ["XunJiYiDa.Levels.Timeline", "XunJiYiDa.Levels.Shared", "XunJiYiDa.Levels.Shared.Core", "Unity.TextMeshPro", "UnityEngine.UI", "Unity.InputSystem"],
+  "includePlatforms": ["Editor"]
+}
