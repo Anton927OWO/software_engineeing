@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424b6f1b5a394dc994c348b81cc96e14, type: 3}
+  m_Name: SharedAudioLibrary
+  m_EditorClassIdentifier: XunJiYiDa.Levels.Shared::XunJiYiDa.Levels.Shared.SharedAudioLibrary
+  entries:
+  - sound: 0
+    clip: {fileID: 8300000, guid: 5e6a13f147c324869b1ca68bb1019814, type: 3}
+    volume: 0.8
+  - sound: 1
+    clip: {fileID: 8300000, guid: af42f5782b0da4b97bc3e6265fc66917, type: 3}
+    volume: 0.8
+  - sound: 2
+    clip: {fileID: 8300000, guid: 5838a2f39ff29477c83b454e40a47691, type: 3}
+    volume: 0.8
+  - sound: 3
+    clip: {fileID: 8300000, guid: 4d0fd3bb83b384d35b5292b6f009c864, type: 3}
+    volume: 0.8
+  - sound: 4
+    clip: {fileID: 8300000, guid: 76d82d9e714514948aaded93e38bda22, type: 3}
+    volume: 0.35

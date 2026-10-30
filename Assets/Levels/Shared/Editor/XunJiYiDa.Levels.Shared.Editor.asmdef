@@ -1,0 +1,14 @@
+{
+  "name": "XunJiYiDa.Levels.Shared.Editor",
+  "rootNamespace": "XunJiYiDa.Levels.Shared.Editor",
+  "references": [
+    "XunJiYiDa.Levels.Shared.Core",
+    "XunJiYiDa.Levels.Shared",
+    "Unity.TextMeshPro",
+    "UnityEngine.UI",
+    "Unity.InputSystem"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}

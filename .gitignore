@@ -112,3 +112,20 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# Local secrets and private signing material
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.p12
+*.pfx
+*.key
+*.keystore
+*.jks
+.git-credentials
+credentials.json
+secrets.json
+# Local Unity verification output
+**/Verification/*.xml

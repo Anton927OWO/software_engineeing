@@ -1,0 +1,3 @@
+Assets/Common/Audio/Resources/Audio 的音樂與音效，為本交付以數學波形與原創旋律程式合成，無取樣第三方錄音。作者將這些 WAV 與產生程式中的原創音樂內容以 CC0 1.0 公眾領域貢獻宣告提供。
+CC0 說明：https://creativecommons.org/publicdomain/zero/1.0/
+本宣告不包含專案內的官方照片、Noto 字型與 Unity 套件；它們各自依原權利與授權條件提供。

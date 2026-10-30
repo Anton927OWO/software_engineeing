@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="14" result="Skipped:Ignored" total="14" passed="13" failed="0" inconclusive="0" skipped="1" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-29 12:36:48Z" end-time="2026-10-29 12:37:00Z" duration="11.9349031">
+  <test-suite type="TestSuite" id="1037" name="Tracking_NIU" fullname="Tracking_NIU" runstate="Runnable" testcasecount="14" result="Skipped" label="Ignored" start-time="2026-10-29 12:36:48Z" end-time="2026-10-29 12:37:00Z" duration="11.934903" total="14" passed="13" failed="0" inconclusive="0" skipped="1" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <reason>
+      <message><![CDATA[One or more child tests were ignored]]></message>
+    </reason>
+    <test-suite type="Assembly" id="1011" name="XunJiYiDa.Levels.Integration.PlayMode.Tests.dll" fullname="/private/tmp/niu-train-quality/Library/ScriptAssemblies/XunJiYiDa.Levels.Integration.PlayMode.Tests.dll" runstate="Runnable" testcasecount="5" result="Skipped" label="Ignored" start-time="2026-10-29 12:36:48Z" end-time="2026-10-29 12:36:49Z" duration="1.534927" total="5" passed="4" failed="0" inconclusive="0" skipped="1" asserts="0">
+      <properties>
+        <property name="_PID" value="63517" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <reason>
+        <message><![CDATA[One or more child tests were ignored]]></message>
+      </reason>
+      <test-suite type="TestSuite" id="1012" name="XunJiYiDa" fullname="XunJiYiDa" runstate="Runnable" testcasecount="5" result="Skipped" label="Ignored" start-time="2026-10-29 12:36:48Z" end-time="2026-10-29 12:36:49Z" duration="1.534447" total="5" passed="4" failed="0" inconclusive="0" skipped="1" asserts="0">
+        <properties />
+        <reason>
+          <message><![CDATA[One or more child tests were ignored]]></message>
+        </reason>
+        <test-suite type="TestSuite" id="1013" name="Levels" fullname="XunJiYiDa.Levels" runstate="Runnable" testcasecount="5" result="Skipped" label="Ignored" start-time="2026-10-29 12:36:48Z" end-time="2026-10-29 12:36:49Z" duration="1.534173" total="5" passed="4" failed="0" inconclusive="0" skipped="1" asserts="0">
+          <properties />
+          <reason>
+            <message><![CDATA[One or more child tests were ignored]]></message>
+          </reason>
+          <test-suite type="TestSuite" id="1014" name="Integration" fullname="XunJiYiDa.Levels.Integration" runstate="Runnable" testcasecount="5" result="Skipped" label="Ignored" start-time="2026-10-29 12:36:48Z" end-time="2026-10-29 12:36:49Z" duration="1.533897" total="5" passed="4" failed="0" inconclusive="0" skipped="1" asserts="0">
+            <properties />
+            <reason>
+              <message><![CDATA[One or more child tests were ignored]]></message>
+            </reason>
+            <test-suite type="TestSuite" id="1015" name="Tests" fullname="XunJiYiDa.Levels.Integration.Tests" runstate="Runnable" testcasecount="5" result="Skipped" label="Ignored" start-time="2026-10-29 12:36:48Z" end-time="2026-10-29 12:36:49Z" duration="1.533601" total="5" passed="4" failed="0" inconclusive="0" skipped="1" asserts="0">
+              <properties />
+              <reason>
+                <message><![CDATA[One or more child tests were ignored]]></message>
+              </reason>
+              <test-suite type="TestFixture" id="1004" name="TrackingGameManagerFlowTests" fullname="XunJiYiDa.Levels.Integration.Tests.TrackingGameManagerFlowTests" classname="XunJiYiDa.Levels.Integration.Tests.TrackingGameManagerFlowTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-29 12:36:48Z" end-time="2026-10-29 12:36:49Z" duration="1.473382" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1005" name="OfficialRetryPreservesManagerCallbackAndReturnsToLibraryMap" fullname="XunJiYiDa.Levels.Integration.Tests.TrackingGameManagerFlowTests.OfficialRetryPreservesManagerCallbackAndReturnsToLibraryMap" methodname="OfficialRetryPreservesManagerCallbackAndReturnsToLibraryMap" classname="XunJiYiDa.Levels.Integration.Tests.TrackingGameManagerFlowTests" runstate="Runnable" seed="1692170895" result="Passed" start-time="2026-10-29 12:36:48Z" end-time="2026-10-29 12:36:49Z" duration="1.463819" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[GameManager] 新的一局｜館內：考古小隊、百年軌跡｜戶外：地層解碼
+[GameManager] 完成 Prologue｜通關｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜不計分｜目前總分 0｜階段 Indoor
+[GameManager] 新的一局｜館內：書海尋寶、百年軌跡｜戶外：地層解碼
+[GameManager] 完成 Prologue｜通關｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜不計分｜目前總分 0｜階段 Indoor
+[GameManager] 新的一局｜館內：考古小隊、知識列車｜戶外：地層解碼
+[GameManager] 完成 Prologue｜通關｜剩餘 0.0 秒｜失誤 0 次｜文物 ｜不計分｜目前總分 0｜階段 Indoor
+[GameManager] 完成 Train｜通關｜剩餘 60.0 秒｜失誤 0 次｜文物 瑪瑙珠｜基礎 1000＋時間 500－失誤 0＝1500｜目前總分 1500｜階段 Indoor
+]]></output>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1006" name="TrackingLevelFlowTests" fullname="XunJiYiDa.Levels.Integration.Tests.TrackingLevelFlowTests" classname="XunJiYiDa.Levels.Integration.Tests.TrackingLevelFlowTests" runstate="Runnable" testcasecount="4" result="Skipped" label="Ignored" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:49Z" duration="0.059265" total="4" passed="3" failed="0" inconclusive="0" skipped="1" asserts="0">
+                <properties />
+                <reason>
+                  <message><![CDATA[One or more child tests were ignored]]></message>
+                </reason>
+                <test-case id="1010" name="FoundationDoesNotCreateOrReplaceTeamContext" fullname="XunJiYiDa.Levels.Integration.Tests.TrackingLevelFlowTests.FoundationDoesNotCreateOrReplaceTeamContext" methodname="FoundationDoesNotCreateOrReplaceTeamContext" classname="XunJiYiDa.Levels.Integration.Tests.TrackingLevelFlowTests" runstate="Runnable" seed="680321807" result="Passed" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:49Z" duration="0.020434" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1009" name="StandaloneCanRetryAfterContinue" fullname="XunJiYiDa.Levels.Integration.Tests.TrackingLevelFlowTests.StandaloneCanRetryAfterContinue" methodname="StandaloneCanRetryAfterContinue" classname="XunJiYiDa.Levels.Integration.Tests.TrackingLevelFlowTests" runstate="Runnable" seed="1313065073" result="Passed" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:49Z" duration="0.018664" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 IntegrationTestCleanup，但 Level Id 對應的是 L_Train，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：知識列車（Train）｜限時 60 秒｜文物 瑪瑙珠
+[測試] 關卡結束：Train｜通關｜剩餘 60.0 秒｜失誤 0 次｜文物 瑪瑙珠
+[測試] 得分：基礎 1000＋時間 500－失誤 0＝1500
+[測試] 關卡結束：Train｜通關｜剩餘 60.0 秒｜失誤 0 次｜文物 瑪瑙珠
+[測試] 得分：基礎 1000＋時間 500－失誤 0＝1500
+]]></output>
+                </test-case>
+                <test-case id="1008" name="StandaloneRetryClearsReportedScoreAndReportsFreshAttempt" fullname="XunJiYiDa.Levels.Integration.Tests.TrackingLevelFlowTests.StandaloneRetryClearsReportedScoreAndReportsFreshAttempt" methodname="StandaloneRetryClearsReportedScoreAndReportsFreshAttempt" classname="XunJiYiDa.Levels.Integration.Tests.TrackingLevelFlowTests" runstate="Runnable" seed="1468895193" result="Passed" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:49Z" duration="0.016724" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 IntegrationTestCleanup，但 Level Id 對應的是 L_Train，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：知識列車（Train）｜限時 60 秒｜文物 瑪瑙珠
+[測試] 關卡結束：Train｜通關｜剩餘 60.0 秒｜失誤 1 次｜文物 瑪瑙珠
+[測試] 得分：基礎 1000＋時間 500－失誤 30＝1470
+[測試] 關卡結束：Train｜失敗｜剩餘 60.0 秒｜失誤 0 次｜文物 瑪瑙珠
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1007" name="TimelineReportsTeamScoreAndLeavesOnlyAfterContinue" fullname="XunJiYiDa.Levels.Integration.Tests.TrackingLevelFlowTests.TimelineReportsTeamScoreAndLeavesOnlyAfterContinue" methodname="TimelineReportsTeamScoreAndLeavesOnlyAfterContinue" classname="XunJiYiDa.Levels.Integration.Tests.TrackingLevelFlowTests" runstate="Runnable" seed="1352262524" result="Skipped" label="Ignored" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:49Z" duration="0.002142" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <reason>
+                    <message><![CDATA[This branch does not include Timeline.]]></message>
+                  </reason>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1021" name="XunJiYiDa.Levels.Shared.PlayMode.Tests.dll" fullname="/private/tmp/niu-train-quality/Library/ScriptAssemblies/XunJiYiDa.Levels.Shared.PlayMode.Tests.dll" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:51Z" duration="1.083857" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="63517" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1022" name="XunJiYiDa" fullname="XunJiYiDa" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:51Z" duration="1.083603" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1023" name="Levels" fullname="XunJiYiDa.Levels" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:51Z" duration="1.083437" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1024" name="Shared" fullname="XunJiYiDa.Levels.Shared" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:51Z" duration="1.083145" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1025" name="Tests" fullname="XunJiYiDa.Levels.Shared.Tests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:51Z" duration="1.082866" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1016" name="SharedLifecycleTests" fullname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" classname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:51Z" duration="1.082558" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1020" name="DisablingControllerRestoresPreviousWorldTimeScale" fullname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests.DisablingControllerRestoresPreviousWorldTimeScale" methodname="DisablingControllerRestoresPreviousWorldTimeScale" classname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" runstate="Runnable" seed="886123898" result="Passed" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:49Z" duration="0.001506" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1017" name="FoundationSceneSupportsKnowledgePauseAndRetry" fullname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests.FoundationSceneSupportsKnowledgePauseAndRetry" methodname="FoundationSceneSupportsKnowledgePauseAndRetry" classname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" runstate="Runnable" seed="613640282" result="Passed" start-time="2026-10-29 12:36:49Z" end-time="2026-10-29 12:36:51Z" duration="1.068498" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1019" name="MinigameTrapsNavigationWhileItsClockContinuesAndRetryClearsResult" fullname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests.MinigameTrapsNavigationWhileItsClockContinuesAndRetryClearsResult" methodname="MinigameTrapsNavigationWhileItsClockContinuesAndRetryClearsResult" classname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" runstate="Runnable" seed="607676013" result="Passed" start-time="2026-10-29 12:36:51Z" end-time="2026-10-29 12:36:51Z" duration="0.007912" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+There are no audio listeners in the scene. Please ensure there is always one audio listener in the scene
+]]></output>
+                </test-case>
+                <test-case id="1018" name="ReenablingRootKeepsIntroductionAndItsStartAction" fullname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests.ReenablingRootKeepsIntroductionAndItsStartAction" methodname="ReenablingRootKeepsIntroductionAndItsStartAction" classname="XunJiYiDa.Levels.Shared.Tests.SharedLifecycleTests" runstate="Runnable" seed="378504808" result="Passed" start-time="2026-10-29 12:36:51Z" end-time="2026-10-29 12:36:51Z" duration="0.003659" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1032" name="XunJiYiDa.Levels.Train.PlayMode.Tests.dll" fullname="/private/tmp/niu-train-quality/Library/ScriptAssemblies/XunJiYiDa.Levels.Train.PlayMode.Tests.dll" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-29 12:36:51Z" end-time="2026-10-29 12:37:00Z" duration="9.310545" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="63517" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1033" name="XunJiYiDa" fullname="XunJiYiDa" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-29 12:36:51Z" end-time="2026-10-29 12:37:00Z" duration="9.310146" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1034" name="Levels" fullname="XunJiYiDa.Levels" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-29 12:36:51Z" end-time="2026-10-29 12:37:00Z" duration="9.309857" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1035" name="Train" fullname="XunJiYiDa.Levels.Train" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-29 12:36:51Z" end-time="2026-10-29 12:37:00Z" duration="9.309632" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1036" name="Tests" fullname="XunJiYiDa.Levels.Train.Tests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-29 12:36:51Z" end-time="2026-10-29 12:37:00Z" duration="9.309361" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1026" name="TrainGameplayTests" fullname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests" classname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-29 12:36:51Z" end-time="2026-10-29 12:37:00Z" duration="9.309047" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1031" name="ExhaustingEveryQuestionThroughButtonsReportsFailure" fullname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests.ExhaustingEveryQuestionThroughButtonsReportsFailure" methodname="ExhaustingEveryQuestionThroughButtonsReportsFailure" classname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests" runstate="Runnable" seed="254186222" result="Passed" start-time="2026-10-29 12:36:51Z" end-time="2026-10-29 12:36:51Z" duration="0.026198" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 IntegrationTestCleanup，但 Level Id 對應的是 L_Train，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：知識列車（Train）｜限時 60 秒｜文物 瑪瑙珠
+[測試] 關卡結束：Train｜失敗｜剩餘 60.0 秒｜失誤 12 次｜文物 瑪瑙珠
+[測試] 得分：基礎 0＋時間 0－失誤 360＝0
+]]></output>
+                </test-case>
+                <test-case id="1028" name="FiveCorrectButtonAnswersAnimateOutThenRelayOneSuccess" fullname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests.FiveCorrectButtonAnswersAnimateOutThenRelayOneSuccess" methodname="FiveCorrectButtonAnswersAnimateOutThenRelayOneSuccess" classname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests" runstate="Runnable" seed="396175280" result="Passed" start-time="2026-10-29 12:36:51Z" end-time="2026-10-29 12:36:58Z" duration="7.250852" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 IntegrationTestCleanup，但 Level Id 對應的是 L_Train，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：知識列車（Train）｜限時 60 秒｜文物 瑪瑙珠
+[測試] 關卡結束：Train｜通關｜剩餘 54.3 秒｜失誤 0 次｜文物 瑪瑙珠
+[測試] 得分：基礎 1000＋時間 452－失誤 0＝1452
+]]></output>
+                </test-case>
+                <test-case id="1027" name="IntroductionKnowledgePauseAndRetryUseSharedUIAndFreezeTime" fullname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests.IntroductionKnowledgePauseAndRetryUseSharedUIAndFreezeTime" methodname="IntroductionKnowledgePauseAndRetryUseSharedUIAndFreezeTime" classname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests" runstate="Runnable" seed="411960658" result="Passed" start-time="2026-10-29 12:36:58Z" end-time="2026-10-29 12:36:59Z" duration="0.733712" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 IntegrationTestCleanup，但 Level Id 對應的是 L_Train，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：知識列車（Train）｜限時 60 秒｜文物 瑪瑙珠
+[測試] 關卡結束：Train｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 瑪瑙珠
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+[測試] 關卡結束：Train｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 瑪瑙珠
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1030" name="TimeoutRelaysFailureAndResultRetryResetsEverything" fullname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests.TimeoutRelaysFailureAndResultRetryResetsEverything" methodname="TimeoutRelaysFailureAndResultRetryResetsEverything" classname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests" runstate="Runnable" seed="844218020" result="Passed" start-time="2026-10-29 12:36:59Z" end-time="2026-10-29 12:36:59Z" duration="0.077146" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 IntegrationTestCleanup，但 Level Id 對應的是 L_Train，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：知識列車（Train）｜限時 60 秒｜文物 瑪瑙珠
+[測試] 關卡結束：Train｜失敗｜剩餘 0.0 秒｜失誤 1 次｜文物 瑪瑙珠
+[測試] 得分：基礎 0＋時間 0－失誤 30＝0
+[測試] 關卡結束：Train｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 瑪瑙珠
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+]]></output>
+                </test-case>
+                <test-case id="1029" name="WrongAnswerShowsCorrectAnswerForASecondAndKnowledgeIncludesSource" fullname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests.WrongAnswerShowsCorrectAnswerForASecondAndKnowledgeIncludesSource" methodname="WrongAnswerShowsCorrectAnswerForASecondAndKnowledgeIncludesSource" classname="XunJiYiDa.Levels.Train.Tests.TrainGameplayTests" runstate="Runnable" seed="1381872105" result="Passed" start-time="2026-10-29 12:36:59Z" end-time="2026-10-29 12:37:00Z" duration="1.219559" asserts="0">
+                  <properties>
+                    <property name="_JOINTYPE" value="UnityCombinatorial" />
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[[測試] Scene 名稱是 IntegrationTestCleanup，但 Level Id 對應的是 L_Train，請確認 Level Id 是否選對。
+[測試] 以預設設定開始：知識列車（Train）｜限時 60 秒｜文物 瑪瑙珠
+[測試] 關卡結束：Train｜失敗｜剩餘 0.0 秒｜失誤 0 次｜文物 瑪瑙珠
+[測試] 得分：基礎 0＋時間 0－失誤 0＝0
+Saving results to: /Users/testarossa/Library/Application Support/DefaultCompany/Tracking_NIU/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

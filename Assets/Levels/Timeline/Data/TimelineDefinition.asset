@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865d994775624314aeaddbd29276fdfb, type: 3}
+  m_Name: TimelineDefinition
+  m_EditorClassIdentifier: XunJiYiDa.Levels.Shared::XunJiYiDa.Levels.Shared.SharedLevelDefinition
+  levelId: Timeline
+  displayName: "\u5C0B\u8DE1\u5B9C\u5927\uFF5C\u767E\u5E74\u8ECC\u8DE1"
+  durationSeconds: 45
+  mistakeLimit: 0
+  introductionTitle: "\u767E\u5E74\u8ECC\u8DE1\uFF5C\u6821\u53F2\u6642\u5149\u5ECA"
+  introductionBody: "\u627E\u51FA\u5B9C\u5927\u5B78\u5236\u8B8A\u5316\u7684\u4E94\u500B\u7BC0\u9EDE\u3002\n\n\u5012\u6578\u5167\u653E\u5C0D\u4E94\u5F35\u5361\u5373\u53EF\u901A\u95DC\uFF1B\u932F\u653E\u53EF\u518D\u8A66\uFF0C\u4E26\u8A18\u9304\u5931\u8AA4\u3002\n\u958B\u555F\u300C\u5E74\u4EE3\u63D0\u793A\u300D\u53EF\u67E5\u95B1\u6821\u53F2\uFF1B\u95B1\u8B80\u8207\u66AB\u505C\u671F\u9593\u4E0D\u6263\u6642\u9593\u3002"
+  introductionImage: {fileID: 21300000, guid: 322a47ff36c9847498b72b7ec32b6bca, type: 3}
+  showIntroduction: 1

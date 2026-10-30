@@ -17,6 +17,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map_Campus.unity
     guid: 3259654dc8ef8834793b2eb724e972d6
+  - enabled: 1
+    path: Assets/Levels/Train/L_Train.unity
+    guid: 676b4d0c7949e464ca0dbc56f079cd86
+  - enabled: 1
+    path: Assets/Levels/Timeline/L_Timeline.unity
+    guid: 4b31a7b7c04794f689a42de32cc52b4a
+  - enabled: 1
+    path: Assets/Levels/Finale/L_Finale.unity
+    guid: b2b97a0ca304e478eb5174f08f6126eb
+  - enabled: 1
+    path: Assets/Levels/Junting/L_Bookshelf.unity
+    guid: c4246c19af614f5cb796cf58fd4658af
+  - enabled: 1
+    path: Assets/Levels/Junting/L_Deer.unity
+    guid: 104f462ec74b4341916ddea5bb234888
+  - enabled: 1
+    path: Assets/Levels/Prologue/L_Prologue.unity
+    guid: f0e570cdd5858014ead8ff5630a9da20
+  - enabled: 1
+    path: Assets/Levels/Dig/L_Dig.unity
+    guid: ade4cf6b4a55ca342836197da580a6cc
+  - enabled: 1
+    path: Assets/Levels/Strata/L_Strata.unity
+    guid: ba8b8de80bd6d4c41ac07372410881c5
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

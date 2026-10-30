@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7574c6305da453a9babb82fbf3ed152, type: 3}
+  m_Name: StrataKnowledgeCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::StrataKnowledgeCatalog
+  entries:
+  - id: brick_fragment
+    title: "磚瓦殘片"
+    image: {fileID: 21300000, guid: 351114fc14c2eee45a886d95bd7857ca, type: 3}
+    body: "表土層常見磚瓦等近代遺留。\n堆積土層也可能發現零星陶片、瓦片與玻璃珠。\n文物遺留能幫助我們認識過去的生活與活動。"
+    source: "國立宜蘭大學圖書資訊館｜宜蘭農校遺址\nhttps://lic.niu.edu.tw/p/404-1010-71228.php\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"
+  - id: glass_bead
+    title: "玻璃珠"
+    image: {fileID: 21300000, guid: 3e7b6d6117ea1ff43a2a675315552b90, type: 3}
+    body: "玻璃珠是舊社文化時期常見的裝飾品之一。\n宜蘭農校遺址也出土過各式珠飾。\n這些文物反映了當時人們的裝飾文化與交流活動。"
+    source: "國立宜蘭大學圖書資訊館｜宜蘭農校遺址\nhttps://lic.niu.edu.tw/p/404-1010-71228.php\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"
+  - id: pottery_fragment
+    title: "印紋陶片"
+    image: {fileID: 21300000, guid: a8857569cc320234b8dd2ea793c4a3bb, type: 3}
+    body: "印紋陶器是舊社文化具有代表性的文物。\n陶器表面的紋飾展現當時的製陶技術與生活文化。\n透過陶片可以更了解當時人們的日常生活。"
+    source: "國立宜蘭大學圖書資訊館｜宜蘭農校遺址\nhttps://lic.niu.edu.tw/p/404-1010-71228.php\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"

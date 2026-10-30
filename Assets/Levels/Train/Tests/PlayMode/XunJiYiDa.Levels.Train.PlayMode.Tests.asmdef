@@ -1,0 +1,5 @@
+{
+  "name": "XunJiYiDa.Levels.Train.PlayMode.Tests",
+  "references": ["XunJiYiDa.Levels.Train", "XunJiYiDa.Levels.Shared", "XunJiYiDa.Levels.Shared.Core", "Unity.TextMeshPro", "UnityEngine.UI", "Unity.InputSystem"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}

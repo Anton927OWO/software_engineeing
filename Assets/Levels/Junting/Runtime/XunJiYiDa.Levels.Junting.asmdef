@@ -1,0 +1,5 @@
+{
+  "name": "XunJiYiDa.Levels.Junting",
+  "rootNamespace": "XunJiYiDa.Levels.Junting",
+  "references": ["TrackingNIU.Common", "XunJiYiDa.Levels.Integration", "Unity.TextMeshPro", "UnityEngine.UI", "Unity.InputSystem"]
+}

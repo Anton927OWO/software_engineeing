@@ -1,0 +1,5 @@
+{
+  "name": "XunJiYiDa.Levels.Integration",
+  "rootNamespace": "XunJiYiDa.Levels.Integration",
+  "references": ["TrackingNIU.Common", "XunJiYiDa.Levels.Shared", "XunJiYiDa.Levels.Shared.Core"]
+}

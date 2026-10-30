@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865d994775624314aeaddbd29276fdfb, type: 3}
+  m_Name: TrainLevel
+  m_EditorClassIdentifier: XunJiYiDa.Levels.Shared::XunJiYiDa.Levels.Shared.SharedLevelDefinition
+  levelId: Train
+  displayName: "\u5C0B\u8DE1\u5B9C\u5927\uFF5C\u77E5\u8B58\u5217\u8ECA"
+  durationSeconds: 60
+  mistakeLimit: 0
+  introductionTitle: "\u77E5\u8B58\u5217\u8ECA\uFF5C\u6821\u53F2\u8ECA\u7AD9"
+  introductionBody: "60 秒內答對五題，接滿五節車廂並出站。\n答錯不扣車廂；正解與原因會留在回饋區，可開「知識卡／來源」暫停細讀。\n\n時間到或題庫用完即失敗；接車與出站仍計時。\n介紹、知識卡與暫停不扣秒；暫停面板可重新開始。"
+  introductionImage: {fileID: 0}
+  showIntroduction: 1

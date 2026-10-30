@@ -1,0 +1,6 @@
+{
+  "name": "XunJiYiDa.Levels.Junting.Editor.Tests",
+  "references": ["XunJiYiDa.Levels.Junting", "TrackingNIU.Common"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}
