@@ -122,6 +122,7 @@ namespace XunJiYiDa.Levels.Junting {
   void Update(){Fit();if(round==null||!CanPlay)return;round.Tick(Time.unscaledDeltaTime);if(round.stage==RoundState.Stage.Failed){Fail("時間到了，尚未完成本關挑戰。");return;}int sec=Mathf.CeilToInt(round.remaining);if(sec!=lastSecond){if(sec<=10&&sec>0)audioBus.Play("countdown");lastSecond=sec;}if(level.id=="deer"&&board.released){stepClock+=Time.unscaledDeltaTime;while(stepClock>=.45f&&CanPlay){stepClock-=.45f;int before=board.arrived;board.Step();audioBus.Play("hoof");if(board.arrived>before){targetFlash=.55f;audioBus.Play("arrive");Hint("鹿已進入草澤！");}RepaintBoard();if(board.escaped){Fail("鹿群離開地圖了。調整擋板位置後再挑戰。");break;}if(board.arrived==3){FinishGame();break;}}}if(CanPlay){if(level.id=="deer")AnimateDeer();UpdateHud();}}
   void OnApplicationFocus(bool focus){if(PauseWhenUnfocused&&!focus&&CanPlay)ShowPause();}
   void OnApplicationPause(bool paused){if(PauseWhenUnfocused&&paused&&CanPlay)ShowPause();}
-  void OnDestroy(){if(canvas)Destroy(canvas.gameObject);}
+  // 單獨測試中途停止時，結束本次 Session，避免殘留到下一次 Play 或測試。
+  void OnDestroy(){if(canvas)Destroy(canvas.gameObject);if(context==null||!context.IsTestRun||!ReferenceEquals(TeamSession.Current,context))return;if(!TeamSession.HasReported)TeamSession.Report(new TrackingNIU.LevelResult());TeamSession.Exit();}
  }
 }
