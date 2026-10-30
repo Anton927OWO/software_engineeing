@@ -1,0 +1,5 @@
+{
+  "name": "XunJiYiDa.Levels.Integration.Editor",
+  "references": ["TrackingNIU.Common", "XunJiYiDa.Levels.Integration", "XunJiYiDa.Levels.Shared", "XunJiYiDa.Levels.Shared.Core", "Unity.TextMeshPro", "UnityEngine.UI"],
+  "includePlatforms": ["Editor"]
+}

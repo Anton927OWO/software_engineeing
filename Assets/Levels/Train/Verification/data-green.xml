@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="79" result="Passed" total="79" passed="79" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:34Z" duration="0.810812">
+  <test-suite type="TestSuite" id="1000" name="Tracking_NIU" fullname="Tracking_NIU" runstate="Runnable" testcasecount="79" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:34Z" duration="0.810812" total="79" passed="79" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1044" name="TrackingNIU.Common.Tests.dll" fullname="/private/tmp/niu-train-quality/Library/ScriptAssemblies/TrackingNIU.Common.Tests.dll" runstate="Runnable" testcasecount="38" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:34Z" duration="0.029233" total="38" passed="38" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="65264" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1045" name="TrackingNIU" fullname="TrackingNIU" runstate="Runnable" testcasecount="38" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:34Z" duration="0.029098" total="38" passed="38" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1046" name="Tests" fullname="TrackingNIU.Tests" runstate="Runnable" testcasecount="38" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:34Z" duration="0.029025" total="38" passed="38" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1007" name="GameRunTests" fullname="TrackingNIU.Tests.GameRunTests" classname="TrackingNIU.Tests.GameRunTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:33Z" duration="0.017282" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1014" name="CompletedLevel_CannotBePlayedAgain" fullname="TrackingNIU.Tests.GameRunTests.CompletedLevel_CannotBePlayedAgain" methodname="CompletedLevel_CannotBePlayedAgain" classname="TrackingNIU.Tests.GameRunTests" runstate="Runnable" seed="1140349647" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:33Z" duration="0.006142" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1015" name="CurrentMap_FollowsPhase_LibraryCampusLibrary" fullname="TrackingNIU.Tests.GameRunTests.CurrentMap_FollowsPhase_LibraryCampusLibrary" methodname="CurrentMap_FollowsPhase_LibraryCampusLibrary" classname="TrackingNIU.Tests.GameRunTests" runstate="Runnable" seed="451016766" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:33Z" duration="0.001869" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1013" name="FailedLevel_StillAdvances_AndGivesArtifact" fullname="TrackingNIU.Tests.GameRunTests.FailedLevel_StillAdvances_AndGivesArtifact" methodname="FailedLevel_StillAdvances_AndGivesArtifact" classname="TrackingNIU.Tests.GameRunTests" runstate="Runnable" seed="599572098" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:33Z" duration="0.000547" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1012" name="FullRun_ReachesFinished_With3Artifacts_AndMaxScore" fullname="TrackingNIU.Tests.GameRunTests.FullRun_ReachesFinished_With3Artifacts_AndMaxScore" methodname="FullRun_ReachesFinished_With3Artifacts_AndMaxScore" classname="TrackingNIU.Tests.GameRunTests" runstate="Runnable" seed="784390980" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:33Z" duration="0.001316" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1016" name="GetMap_OutdoorLevelsOnCampus" fullname="TrackingNIU.Tests.GameRunTests.GetMap_OutdoorLevelsOnCampus" methodname="GetMap_OutdoorLevelsOnCampus" classname="TrackingNIU.Tests.GameRunTests" runstate="Runnable" seed="928605917" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:33Z" duration="0.000169" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1010" name="IndoorLevels_AvailableAfterPrologue_InAnyOrder" fullname="TrackingNIU.Tests.GameRunTests.IndoorLevels_AvailableAfterPrologue_InAnyOrder" methodname="IndoorLevels_AvailableAfterPrologue_InAnyOrder" classname="TrackingNIU.Tests.GameRunTests" runstate="Runnable" seed="1089177273" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:33Z" duration="0.000403" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1008" name="NewRun_Draws2Indoor_1Outdoor_StartsAtPrologue" fullname="TrackingNIU.Tests.GameRunTests.NewRun_Draws2Indoor_1Outdoor_StartsAtPrologue" methodname="NewRun_Draws2Indoor_1Outdoor_StartsAtPrologue" classname="TrackingNIU.Tests.GameRunTests" runstate="Runnable" seed="2141377968" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:33Z" duration="0.000093" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1009" name="SameSeed_SameDraw_DifferentRunsVary" fullname="TrackingNIU.Tests.GameRunTests.SameSeed_SameDraw_DifferentRunsVary" methodname="SameSeed_SameDraw_DifferentRunsVary" classname="TrackingNIU.Tests.GameRunTests" runstate="Runnable" seed="1951091766" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:33Z" duration="0.000852" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1011" name="UndrawnLevel_IsNotInRun_AndCannotBeCompleted" fullname="TrackingNIU.Tests.GameRunTests.UndrawnLevel_IsNotInRun_AndCannotBeCompleted" methodname="UndrawnLevel_IsNotInRun_AndCannotBeCompleted" classname="TrackingNIU.Tests.GameRunTests" runstate="Runnable" seed="1217486561" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:33Z" duration="0.000478" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1001" name="LevelDrawTests" fullname="TrackingNIU.Tests.LevelDrawTests" classname="TrackingNIU.Tests.LevelDrawTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:34Z" duration="0.005183" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1005" name="Draw_CoversEveryPair" fullname="TrackingNIU.Tests.LevelDrawTests.Draw_CoversEveryPair" methodname="Draw_CoversEveryPair" classname="TrackingNIU.Tests.LevelDrawTests" runstate="Runnable" seed="995713947" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:33Z" duration="0.001899" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1006" name="Draw_MoreThanPool_Throws" fullname="TrackingNIU.Tests.LevelDrawTests.Draw_MoreThanPool_Throws" methodname="Draw_MoreThanPool_Throws" classname="TrackingNIU.Tests.LevelDrawTests" runstate="Runnable" seed="802481919" result="Passed" start-time="2026-10-29 12:38:33Z" end-time="2026-10-29 12:38:34Z" duration="0.000159" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1004" name="Draw_ReturnsDistinctLevelsFromPool" fullname="TrackingNIU.Tests.LevelDrawTests.Draw_ReturnsDistinctLevelsFromPool" methodname="Draw_ReturnsDistinctLevelsFromPool" classname="TrackingNIU.Tests.LevelDrawTests" runstate="Runnable" seed="1783396567" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.002314" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1003" name="FinalsIndoorPool_AddsCollage" fullname="TrackingNIU.Tests.LevelDrawTests.FinalsIndoorPool_AddsCollage" methodname="FinalsIndoorPool_AddsCollage" classname="TrackingNIU.Tests.LevelDrawTests" runstate="Runnable" seed="437686514" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000058" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="MidtermPools_AreIndoor4_Outdoor2" fullname="TrackingNIU.Tests.LevelDrawTests.MidtermPools_AreIndoor4_Outdoor2" methodname="MidtermPools_AreIndoor4_Outdoor2" classname="TrackingNIU.Tests.LevelDrawTests" runstate="Runnable" seed="697666931" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000115" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1017" name="LevelSessionTests" fullname="TrackingNIU.Tests.LevelSessionTests" classname="TrackingNIU.Tests.LevelSessionTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.003691" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1022" name="Exit_BeforeReport_IsRejected" fullname="TrackingNIU.Tests.LevelSessionTests.Exit_BeforeReport_IsRejected" methodname="Exit_BeforeReport_IsRejected" classname="TrackingNIU.Tests.LevelSessionTests" runstate="Runnable" seed="1763721564" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.002088" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[LevelSession] Dig 要先呼叫 Report(result) 才能 Exit。
+]]></output>
+            </test-case>
+            <test-case id="1021" name="Exit_InvokesCallbackOnce_AndEndsSession" fullname="TrackingNIU.Tests.LevelSessionTests.Exit_InvokesCallbackOnce_AndEndsSession" methodname="Exit_InvokesCallbackOnce_AndEndsSession" classname="TrackingNIU.Tests.LevelSessionTests" runstate="Runnable" seed="235366988" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000121" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1019" name="Report_ClampsInvalidValues" fullname="TrackingNIU.Tests.LevelSessionTests.Report_ClampsInvalidValues" methodname="Report_ClampsInvalidValues" classname="TrackingNIU.Tests.LevelSessionTests" runstate="Runnable" seed="76342848" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000226" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1018" name="Report_FillsLevelAndArtifact_AndReturnsScore" fullname="TrackingNIU.Tests.LevelSessionTests.Report_FillsLevelAndArtifact_AndReturnsScore" methodname="Report_FillsLevelAndArtifact_AndReturnsScore" classname="TrackingNIU.Tests.LevelSessionTests" runstate="Runnable" seed="817352589" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000132" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1020" name="Report_Twice_KeepsFirstResult" fullname="TrackingNIU.Tests.LevelSessionTests.Report_Twice_KeepsFirstResult" methodname="Report_Twice_KeepsFirstResult" classname="TrackingNIU.Tests.LevelSessionTests" runstate="Runnable" seed="568997757" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000397" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[[LevelSession] Dig 已經回報過結果，這次回報會被忽略。
+]]></output>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1023" name="ScoreCalculatorTests" fullname="TrackingNIU.Tests.ScoreCalculatorTests" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" testcasecount="19" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.002236" total="19" passed="19" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1043" name="CalculateTotal_SumsLevels" fullname="TrackingNIU.Tests.ScoreCalculatorTests.CalculateTotal_SumsLevels" methodname="CalculateTotal_SumsLevels" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="1993237247" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000262" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1029" name="FailedLevel_GetsNoClearOrTimeBonus_AndNeverNegative" fullname="TrackingNIU.Tests.ScoreCalculatorTests.FailedLevel_GetsNoClearOrTimeBonus_AndNeverNegative" methodname="FailedLevel_GetsNoClearOrTimeBonus_AndNeverNegative" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="2111396822" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000057" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1031" name="Finale_Perfect_Scores1100" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Finale_Perfect_Scores1100" methodname="Finale_Perfect_Scores1100" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="1546342005" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000035" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1030" name="Finale_ScoresPairsAndTime" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Finale_ScoresPairsAndTime" methodname="Finale_ScoresPairsAndTime" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="726729703" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000054" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1032" name="Finale_TimeOut_KeepsMatchedPairs" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Finale_TimeOut_KeepsMatchedPairs" methodname="Finale_TimeOut_KeepsMatchedPairs" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="1856920716" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000055" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1024" name="MaxTotal_MatchesPlan" fullname="TrackingNIU.Tests.ScoreCalculatorTests.MaxTotal_MatchesPlan" methodname="MaxTotal_MatchesPlan" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="93432768" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000030" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1028" name="MistakePenalty_CappedAt500" fullname="TrackingNIU.Tests.ScoreCalculatorTests.MistakePenalty_CappedAt500" methodname="MistakePenalty_CappedAt500" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="2110852489" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000038" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1027" name="MistakePenalty_UsesLevelValue" fullname="TrackingNIU.Tests.ScoreCalculatorTests.MistakePenalty_UsesLevelValue" methodname="MistakePenalty_UsesLevelValue" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="420926788" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000050" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1025" name="PerfectLevel_Scores1500" fullname="TrackingNIU.Tests.ScoreCalculatorTests.PerfectLevel_Scores1500" methodname="PerfectLevel_Scores1500" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="1442011021" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000046" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1033" name="Prologue_IsNotScored" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Prologue_IsNotScored" methodname="Prologue_IsNotScored" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="199348027" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000040" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1026" name="TimeBonus_UsesRemainingRatio" fullname="TrackingNIU.Tests.ScoreCalculatorTests.TimeBonus_UsesRemainingRatio" methodname="TimeBonus_UsesRemainingRatio" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="682113172" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000042" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-suite type="ParameterizedMethod" id="1042" name="Title_MatchesScoreRange" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Title_MatchesScoreRange" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000672" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1034" name="Title_MatchesScoreRange(5600,&quot;宜大文化守護者&quot;)" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Title_MatchesScoreRange(5600,&quot;宜大文化守護者&quot;)" methodname="Title_MatchesScoreRange" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="1935341569" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000113" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1035" name="Title_MatchesScoreRange(4800,&quot;宜大文化守護者&quot;)" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Title_MatchesScoreRange(4800,&quot;宜大文化守護者&quot;)" methodname="Title_MatchesScoreRange" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="1294102440" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000022" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1036" name="Title_MatchesScoreRange(4799,&quot;噶瑪蘭文化探索達人&quot;)" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Title_MatchesScoreRange(4799,&quot;噶瑪蘭文化探索達人&quot;)" methodname="Title_MatchesScoreRange" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="2132971150" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000031" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1037" name="Title_MatchesScoreRange(4000,&quot;噶瑪蘭文化探索達人&quot;)" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Title_MatchesScoreRange(4000,&quot;噶瑪蘭文化探索達人&quot;)" methodname="Title_MatchesScoreRange" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="1542708387" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000026" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1038" name="Title_MatchesScoreRange(3999,&quot;蘭陽探索者&quot;)" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Title_MatchesScoreRange(3999,&quot;蘭陽探索者&quot;)" methodname="Title_MatchesScoreRange" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="1442113550" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000025" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1039" name="Title_MatchesScoreRange(3200,&quot;蘭陽探索者&quot;)" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Title_MatchesScoreRange(3200,&quot;蘭陽探索者&quot;)" methodname="Title_MatchesScoreRange" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="667937557" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000028" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1040" name="Title_MatchesScoreRange(3199,&quot;宜大文化新旅人&quot;)" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Title_MatchesScoreRange(3199,&quot;宜大文化新旅人&quot;)" methodname="Title_MatchesScoreRange" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="27351832" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000020" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1041" name="Title_MatchesScoreRange(0,&quot;宜大文化新旅人&quot;)" fullname="TrackingNIU.Tests.ScoreCalculatorTests.Title_MatchesScoreRange(0,&quot;宜大文化新旅人&quot;)" methodname="Title_MatchesScoreRange" classname="TrackingNIU.Tests.ScoreCalculatorTests" runstate="Runnable" seed="1514651544" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000022" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1057" name="XunJiYiDa.Levels.Integration.Editor.Tests.dll" fullname="/private/tmp/niu-train-quality/Library/ScriptAssemblies/XunJiYiDa.Levels.Integration.Editor.Tests.dll" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.047126" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="65264" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1058" name="XunJiYiDa" fullname="XunJiYiDa" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.047033" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1059" name="Levels" fullname="XunJiYiDa.Levels" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.046983" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1060" name="Integration" fullname="XunJiYiDa.Levels.Integration" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.046897" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1061" name="Tests" fullname="XunJiYiDa.Levels.Integration.Tests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.046823" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1055" name="TrackingSetupSafetyTests" fullname="XunJiYiDa.Levels.Integration.Tests.TrackingSetupSafetyTests" classname="XunJiYiDa.Levels.Integration.Tests.TrackingSetupSafetyTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.046685" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1056" name="PrepareRejectsUnsavedSceneBeforeReplacingItsContents" fullname="XunJiYiDa.Levels.Integration.Tests.TrackingSetupSafetyTests.PrepareRejectsUnsavedSceneBeforeReplacingItsContents" methodname="PrepareRejectsUnsavedSceneBeforeReplacingItsContents" classname="XunJiYiDa.Levels.Integration.Tests.TrackingSetupSafetyTests" runstate="Runnable" seed="198697047" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.046416" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1083" name="XunJiYiDa.Levels.Shared.Editor.Tests.dll" fullname="/private/tmp/niu-train-quality/Library/ScriptAssemblies/XunJiYiDa.Levels.Shared.Editor.Tests.dll" runstate="Runnable" testcasecount="17" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.284874" total="17" passed="17" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="65264" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1084" name="XunJiYiDa" fullname="XunJiYiDa" runstate="Runnable" testcasecount="17" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.283491" total="17" passed="17" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1085" name="Levels" fullname="XunJiYiDa.Levels" runstate="Runnable" testcasecount="17" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.283409" total="17" passed="17" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1086" name="Shared" fullname="XunJiYiDa.Levels.Shared" runstate="Runnable" testcasecount="17" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.283364" total="17" passed="17" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1087" name="Tests" fullname="XunJiYiDa.Levels.Shared.Tests" runstate="Runnable" testcasecount="17" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.283302" total="17" passed="17" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1062" name="LevelSessionTests" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.003289" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1064" name="ClosingModalDoesNotCancelManualPause" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.ClosingModalDoesNotCancelManualPause" methodname="ClosingModalDoesNotCancelManualPause" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" seed="20791029" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000426" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1073" name="InvalidConfigurationIsRejected" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.InvalidConfigurationIsRejected" methodname="InvalidConfigurationIsRejected" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" seed="963933483" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000332" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1072" name="InvalidTickCannotCorruptTheClock" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.InvalidTickCannotCorruptTheClock" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000472" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1069" name="InvalidTickCannotCorruptTheClock(float.NaN)" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.InvalidTickCannotCorruptTheClock(float.NaN)" methodname="InvalidTickCannotCorruptTheClock" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" seed="1914441356" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000128" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1070" name="InvalidTickCannotCorruptTheClock(float.PositiveInfinity)" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.InvalidTickCannotCorruptTheClock(float.PositiveInfinity)" methodname="InvalidTickCannotCorruptTheClock" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" seed="1624455554" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000056" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1071" name="InvalidTickCannotCorruptTheClock(-1.0f)" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.InvalidTickCannotCorruptTheClock(-1.0f)" methodname="InvalidTickCannotCorruptTheClock" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" seed="1112700304" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000030" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1068" name="MistakeLimitFailsOnTheConfiguredAttempt" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.MistakeLimitFailsOnTheConfiguredAttempt" methodname="MistakeLimitFailsOnTheConfiguredAttempt" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" seed="439731279" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000242" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1067" name="PausedAndFinishedSessionsRejectGameplayWrites" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.PausedAndFinishedSessionsRejectGameplayWrites" methodname="PausedAndFinishedSessionsRejectGameplayWrites" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" seed="998680946" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000149" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1063" name="ReadyAndPauseDoNotConsumeTime" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.ReadyAndPauseDoNotConsumeTime" methodname="ReadyAndPauseDoNotConsumeTime" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" seed="600595924" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000061" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1066" name="ResultKeepsItsOwnDeduplicatedArtifactsAcrossRetry" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.ResultKeepsItsOwnDeduplicatedArtifactsAcrossRetry" methodname="ResultKeepsItsOwnDeduplicatedArtifactsAcrossRetry" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" seed="236177228" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000440" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1074" name="RetryFromTerminalStateWaitsUntilResultHasBeenPublished" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.RetryFromTerminalStateWaitsUntilResultHasBeenPublished" methodname="RetryFromTerminalStateWaitsUntilResultHasBeenPublished" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" seed="1105294741" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000225" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1065" name="TimeoutClampsAtZeroAndCompletesExactlyOnce" fullname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests.TimeoutClampsAtZeroAndCompletesExactlyOnce" methodname="TimeoutClampsAtZeroAndCompletesExactlyOnce" classname="XunJiYiDa.Levels.Shared.Tests.LevelSessionTests" runstate="Runnable" seed="687854606" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000156" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1075" name="SharedAssetTests" fullname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests" classname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.279873" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1082" name="BuildAllDoesNotSaveUnrelatedDirtyAssets" fullname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests.BuildAllDoesNotSaveUnrelatedDirtyAssets" methodname="BuildAllDoesNotSaveUnrelatedDirtyAssets" classname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests" runstate="Runnable" seed="1732021394" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.172956" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[尋跡宜大：共用資產已備妥。Scene: Assets/Levels/Shared/Scenes/SharedFoundation.unity
+]]></output>
+                </test-case>
+                <test-case id="1081" name="BuildAllKeepsExistingAssetsAndBuildSettings" fullname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests.BuildAllKeepsExistingAssetsAndBuildSettings" methodname="BuildAllKeepsExistingAssetsAndBuildSettings" classname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests" runstate="Runnable" seed="1029149046" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.099270" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[尋跡宜大：共用資產已備妥。Scene: Assets/Levels/Shared/Scenes/SharedFoundation.unity
+]]></output>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1079" name="GeneratorRejectsPathsOutsideShared" fullname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests.GeneratorRejectsPathsOutsideShared" classname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.005167" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1076" name="GeneratorRejectsPathsOutsideShared(&quot;Assets/Common/unsafe.unity&quot;)" fullname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests.GeneratorRejectsPathsOutsideShared(&quot;Assets/Common/unsafe.unity&quot;)" methodname="GeneratorRejectsPathsOutsideShared" classname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests" runstate="Runnable" seed="1313868914" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000262" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1077" name="GeneratorRejectsPathsOutsideShared(&quot;Assets/Levels/Shared/../Timeline/unsafe.unity&quot;)" fullname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests.GeneratorRejectsPathsOutsideShared(&quot;Assets/Levels/Shared/../Timeline/unsafe.unity&quot;)" methodname="GeneratorRejectsPathsOutsideShared" classname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests" runstate="Runnable" seed="1409683802" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000060" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1078" name="GeneratorRejectsPathsOutsideShared(&quot;Assets/Levels/SharedElse/unsafe.unity&quot;)" fullname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests.GeneratorRejectsPathsOutsideShared(&quot;Assets/Levels/SharedElse/unsafe.unity&quot;)" methodname="GeneratorRejectsPathsOutsideShared" classname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests" runstate="Runnable" seed="1326662439" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000048" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1080" name="SharedPrefabHasAssignedRuntimeReferencesAndChineseFont" fullname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests.SharedPrefabHasAssignedRuntimeReferencesAndChineseFont" methodname="SharedPrefabHasAssignedRuntimeReferencesAndChineseFont" classname="XunJiYiDa.Levels.Shared.Tests.SharedAssetTests" runstate="Runnable" seed="1052594088" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.002082" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1115" name="XunJiYiDa.Levels.Train.Editor.Tests.dll" fullname="/private/tmp/niu-train-quality/Library/ScriptAssemblies/XunJiYiDa.Levels.Train.Editor.Tests.dll" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.446794" total="23" passed="23" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="65264" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1116" name="XunJiYiDa" fullname="XunJiYiDa" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.446669" total="23" passed="23" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1117" name="Levels" fullname="XunJiYiDa.Levels" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.446628" total="23" passed="23" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1118" name="Train" fullname="XunJiYiDa.Levels.Train" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.446581" total="23" passed="23" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestSuite" id="1119" name="Tests" fullname="XunJiYiDa.Levels.Train.Tests" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.446531" total="23" passed="23" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="TestFixture" id="1088" name="TrainAssetTests" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.436085" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1090" name="EditableBankContainsAtLeastTenSourcedThreeChoiceQuestions" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.EditableBankContainsAtLeastTenSourcedThreeChoiceQuestions" methodname="EditableBankContainsAtLeastTenSourcedThreeChoiceQuestions" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="1897842586" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.001306" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1092" name="FirstGenerationSeedMatchesEveryShippedQuestion" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.FirstGenerationSeedMatchesEveryShippedQuestion" methodname="FirstGenerationSeedMatchesEveryShippedQuestion" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="8409769" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000356" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1095" name="GeneratorDoesNotSaveUnrelatedDirtyAssets" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.GeneratorDoesNotSaveUnrelatedDirtyAssets" methodname="GeneratorDoesNotSaveUnrelatedDirtyAssets" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="270570683" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.297505" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[保留既有 Train Scene 與可編輯資料。
+]]></output>
+                </test-case>
+                <test-case id="1094" name="GeneratorPreservesExistingSceneBankAndBuildSettings" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.GeneratorPreservesExistingSceneBankAndBuildSettings" methodname="GeneratorPreservesExistingSceneBankAndBuildSettings" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="1733883912" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.101817" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Train 字型未收錄：知識列車｜校史車站歡迎來到校史知識車站。列車將帶你認識宜大的成長足跡。
+
+在 60 秒內回答三選一題目，答對接上一節車廂，集滿五節並開出畫面即可通關。
+答錯會顯示正解一秒並記錄失誤；同一輪題目不重複。時間到或題盡未達標就挑戰失敗。
+
+知識卡可閱讀解說與官方來源；介紹、知識卡及暫停時不扣秒。接車與出站動畫仍計時，請把握時間！知識車站已連接節車廂資料來源已查核待驗證知識車票正確答案題庫沒有可用題目請編輯答對了答錯了連接中五節集滿出發時間已到下次再挑戰題目用完知識列車已出站選出正確答案讓知識成為前進的動力空間介紹知識卡來源每答完一題可在此閱讀正解與解說本題宜蘭大學創校於西元哪一年？1926 年1956 年2003 年民國十五年就是 1926 年，這是宜大百年故事的起點。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-29宜大創校時，以哪個校名展開農林教育？國立宜蘭技術學院台北州立宜蘭農林學校國立宜蘭大學創校校名是台北州立宜蘭農林學校，農林是辦學起點。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-29宜大記憶庫整合了哪三種功能？車站、郵局、商店餐廳、宿舍、體育館圖書館、博物館、檔案館記憶庫結合閱讀、文物展示與檔案保存，讓校園記憶相連。宜大圖資館｜宜大記憶庫https://lic.niu.edu.tw/p/404-1010-63587.php2026-10-29哪一項是宜大記憶庫保存與呈現的內容？校園地景、師生物件與故事只有本週考試答案只有列車班次記憶庫以地景、物件與故事呈現學校過去的生活樣貌。宜大圖資館｜宜大記憶庫https://lic.niu.edu.tw/p/404-1010-63587.php2026-10-29校園遺址沿用學校舊名，列冊稱作什麼？卑南遺址宜蘭農校遺址圓山遺址宜蘭農校遺址沿用學校舊名，連結了校園與地下的歷史。宜大圖資館｜緣起https://lic.niu.edu.tw/p/412-1010-2275.php2026-10-29宜蘭農校遺址的木質文物，為何能部分保存？因為全都由金屬製成因為一直放在乾燥書架地下水豐沛，形成泡水環境宜蘭地下水豐沛，泡水環境讓部分木質文物得以保存。宜大圖資館｜出土文物https://lic.niu.edu.tw/p/412-1010-6107.php2026-10-29官方對出土木鏟用途的說法，哪項最準確？推測為農具，尚非確定用途已確定是祭祀法器已確定是鐵路工具官方僅推測木鏟是農具，推測不能當成已確定的用途。宜大圖資館｜出土文物https://lic.niu.edu.tw/p/412-1010-6107.php2026-10-29依圖資館介紹，Kavalan 的意思是？居住在高山的人居住在平原的人駕駛列車的人Kavalan 指居住在平原的人，連結噶瑪蘭與蘭陽平原。宜大圖資館｜噶瑪蘭族簡介https://lic.niu.edu.tw/p/412-1010-6108.php2026-10-29噶瑪蘭族的香蕉絲織布，使用哪種材料？銅質金屬線玻璃纖維香蕉纖維香蕉絲織布取用香蕉纖維，是噶瑪蘭族重要的民族工藝。宜大圖資館｜噶瑪蘭族簡介https://lic.niu.edu.tw/p/412-1010-6108.php2026-10-29文化廊道以哪些元素，讓人認識噶瑪蘭生活？家屋、漁獵、工藝與植物列車時刻與車票價格遊樂設施身高限制廊道把家屋、漁獵、工藝與植物融入校園，呈現生活文化。宜大圖資館｜噶瑪蘭文化廊道https://lic.niu.edu.tw/p/404-1010-63584.php2026-10-29學校在哪一年更名為「國立宜蘭大學」？1988 年2003 年1998 年民國九十二年是 2003 年，學校在這一年更名為大學。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-29參觀萬斌廳文化層展區，應如何理解展示？每件展示都保證是出土原件文物皆無考古資料可查以仿真復刻結合圖文呈現遺址文化層以仿真復刻配合圖文展示，不能將復刻品當成原件。宜大圖資館｜宜蘭農校遺址文化層https://lic.niu.edu.tw/p/404-1010-63582.php2026-10-29
+保留既有 Train Scene 與可編輯資料。
+]]></output>
+                </test-case>
+                <test-case id="1089" name="SceneExistsAsNativeUnityScene" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.SceneExistsAsNativeUnityScene" methodname="SceneExistsAsNativeUnityScene" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="1425587416" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000215" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1093" name="SceneReusesSharedPrefabAndSixtySecondDefinition" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.SceneReusesSharedPrefabAndSixtySecondDefinition" methodname="SceneReusesSharedPrefabAndSixtySecondDefinition" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="1222414158" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.033399" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1091" name="ShippedBankCoversFiveThemesWithExplainedVerifiedAlternatives" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.ShippedBankCoversFiveThemesWithExplainedVerifiedAlternatives" methodname="ShippedBankCoversFiveThemesWithExplainedVerifiedAlternatives" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="1080131053" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000840" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="TestFixture" id="1096" name="TrainRoundTests" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.010262" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1097" name="DeckUsesEveryQuestionOnceAndFailsOnlyAfterLastReveal" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.DeckUsesEveryQuestionOnceAndFailsOnlyAfterLastReveal" methodname="DeckUsesEveryQuestionOnceAndFailsOnlyAfterLastReveal" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="479963480" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.001261" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1107" name="EmptyBankFailsWhenRunningWithoutCrashing" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.EmptyBankFailsWhenRunningWithoutCrashing" methodname="EmptyBankFailsWhenRunningWithoutCrashing" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="840354559" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000059" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1104" name="ExhaustedBankWithFourCarriagesFails" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.ExhaustedBankWithFourCarriagesFails" methodname="ExhaustedBankWithFourCarriagesFails" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="1210788464" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000091" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1098" name="FiveCarriagesMustCoupleThenLeaveBeforeOneSuccessResult" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.FiveCarriagesMustCoupleThenLeaveBeforeOneSuccessResult" methodname="FiveCarriagesMustCoupleThenLeaveBeforeOneSuccessResult" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="714955963" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000505" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1105" name="FiveQuestionBankCanStillWinOnItsLastQuestion" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.FiveQuestionBankCanStillWinOnItsLastQuestion" methodname="FiveQuestionBankCanStillWinOnItsLastQuestion" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="902072825" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000070" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1106" name="InvalidAndDuplicateQuestionIdsAreSkippedWithoutRepeating" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.InvalidAndDuplicateQuestionIdsAreSkippedWithoutRepeating" methodname="InvalidAndDuplicateQuestionIdsAreSkippedWithoutRepeating" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="1269159663" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000240" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-suite type="ParameterizedMethod" id="1114" name="InvalidDeltaIsRejected" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.InvalidDeltaIsRejected" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.001897" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1111" name="InvalidDeltaIsRejected(-1.0f)" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.InvalidDeltaIsRejected(-1.0f)" methodname="InvalidDeltaIsRejected" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="363152494" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000140" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1112" name="InvalidDeltaIsRejected(float.NaN)" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.InvalidDeltaIsRejected(float.NaN)" methodname="InvalidDeltaIsRejected" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="575692177" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000039" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1113" name="InvalidDeltaIsRejected(float.PositiveInfinity)" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.InvalidDeltaIsRejected(float.PositiveInfinity)" methodname="InvalidDeltaIsRejected" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="1734109645" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000040" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-suite type="ParameterizedMethod" id="1102" name="PausingFreezesBothRevealAndCoupling" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.PausingFreezesBothRevealAndCoupling" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000366" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                  <properties />
+                  <test-case id="1100" name="PausingFreezesBothRevealAndCoupling(False)" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.PausingFreezesBothRevealAndCoupling(False)" methodname="PausingFreezesBothRevealAndCoupling" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="438667346" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000197" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                  <test-case id="1101" name="PausingFreezesBothRevealAndCoupling(True)" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.PausingFreezesBothRevealAndCoupling(True)" methodname="PausingFreezesBothRevealAndCoupling" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="782843317" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000043" asserts="0">
+                    <properties>
+                      <property name="retryIteration" value="0" />
+                      <property name="repeatIteration" value="0" />
+                    </properties>
+                  </test-case>
+                </test-suite>
+                <test-case id="1108" name="ReadyPausedInvalidAndTerminalInputsCannotScore" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.ReadyPausedInvalidAndTerminalInputsCannotScore" methodname="ReadyPausedInvalidAndTerminalInputsCannotScore" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="551613634" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000116" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1109" name="RetryBuildsFreshRoundAndClearsSessionArtifactsMistakesAndResult" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.RetryBuildsFreshRoundAndClearsSessionArtifactsMistakesAndResult" methodname="RetryBuildsFreshRoundAndClearsSessionArtifactsMistakesAndResult" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="1342899636" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000147" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1103" name="TimeOutWinsEvenDuringDepartureAndDoesNotPublishTwice" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.TimeOutWinsEvenDuringDepartureAndDoesNotPublishTwice" methodname="TimeOutWinsEvenDuringDepartureAndDoesNotPublishTwice" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="1644815873" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000126" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1110" name="UnverifiedQuestionIsExplicitlyMarkedInKnowledgeCard" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.UnverifiedQuestionIsExplicitlyMarkedInKnowledgeCard" methodname="UnverifiedQuestionIsExplicitlyMarkedInKnowledgeCard" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="1199428352" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000548" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1099" name="WrongAnswerRecordsOneMistakeAndLocksForOneSecond" fullname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests.WrongAnswerRecordsOneMistakeAndLocksForOneSecond" methodname="WrongAnswerRecordsOneMistakeAndLocksForOneSecond" classname="XunJiYiDa.Levels.Train.Tests.TrainRoundTests" runstate="Runnable" seed="1174210395" result="Passed" start-time="2026-10-29 12:38:34Z" end-time="2026-10-29 12:38:34Z" duration="0.000146" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Saving results to: /Users/testarossa/Library/Application Support/DefaultCompany/Tracking_NIU/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

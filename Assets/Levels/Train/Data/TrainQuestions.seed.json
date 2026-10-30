@@ -1,0 +1,196 @@
+{
+  "questions": [
+    {
+      "id": "history-1926",
+      "station": "百年起點",
+      "prompt": "宜蘭大學創校於西元哪一年？",
+      "options": [
+        "1926 年",
+        "1956 年",
+        "2003 年"
+      ],
+      "correctIndex": 0,
+      "explanation": "民國十五年就是 1926 年，這是宜大百年故事的起點。",
+      "sourceTitle": "國立宜蘭大學｜校史",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1049.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "history-name",
+      "station": "百年起點",
+      "prompt": "宜大創校時，以哪個校名展開農林教育？",
+      "options": [
+        "國立宜蘭技術學院",
+        "台北州立宜蘭農林學校",
+        "國立宜蘭大學"
+      ],
+      "correctIndex": 1,
+      "explanation": "創校校名是台北州立宜蘭農林學校，農林是辦學起點。",
+      "sourceTitle": "國立宜蘭大學｜校史",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1049.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "memory-functions",
+      "station": "校園記憶",
+      "prompt": "宜大記憶庫整合了哪三種功能？",
+      "options": [
+        "車站、郵局、商店",
+        "餐廳、宿舍、體育館",
+        "圖書館、博物館、檔案館"
+      ],
+      "correctIndex": 2,
+      "explanation": "記憶庫結合閱讀、文物展示與檔案保存，讓校園記憶相連。",
+      "sourceTitle": "宜大圖資館｜宜大記憶庫",
+      "sourceUrl": "https://lic.niu.edu.tw/p/404-1010-63587.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "memory-stories",
+      "station": "校園記憶",
+      "prompt": "哪一項是宜大記憶庫保存與呈現的內容？",
+      "options": [
+        "校園地景、師生物件與故事",
+        "只有本週考試答案",
+        "只有列車班次"
+      ],
+      "correctIndex": 0,
+      "explanation": "記憶庫以地景、物件與故事呈現學校過去的生活樣貌。",
+      "sourceTitle": "宜大圖資館｜宜大記憶庫",
+      "sourceUrl": "https://lic.niu.edu.tw/p/404-1010-63587.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "archaeology",
+      "station": "考古發現",
+      "prompt": "校園遺址沿用學校舊名，列冊稱作什麼？",
+      "options": [
+        "卑南遺址",
+        "宜蘭農校遺址",
+        "圓山遺址"
+      ],
+      "correctIndex": 1,
+      "explanation": "宜蘭農校遺址沿用學校舊名，連結了校園與地下的歷史。",
+      "sourceTitle": "宜大圖資館｜緣起",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-2275.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "archaeology-water",
+      "station": "考古發現",
+      "prompt": "宜蘭農校遺址的木質文物，為何能部分保存？",
+      "options": [
+        "因為全都由金屬製成",
+        "因為一直放在乾燥書架",
+        "地下水豐沛，形成泡水環境"
+      ],
+      "correctIndex": 2,
+      "explanation": "宜蘭地下水豐沛，泡水環境讓部分木質文物得以保存。",
+      "sourceTitle": "宜大圖資館｜出土文物",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "archaeology-inference",
+      "station": "考古發現",
+      "prompt": "官方對出土木鏟用途的說法，哪項最準確？",
+      "options": [
+        "推測為農具，尚非確定用途",
+        "已確定是祭祀法器",
+        "已確定是鐵路工具"
+      ],
+      "correctIndex": 0,
+      "explanation": "官方僅推測木鏟是農具，推測不能當成已確定的用途。",
+      "sourceTitle": "宜大圖資館｜出土文物",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "kavalan-name",
+      "station": "噶瑪蘭文化",
+      "prompt": "依圖資館介紹，Kavalan 的意思是？",
+      "options": [
+        "居住在高山的人",
+        "居住在平原的人",
+        "駕駛列車的人"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kavalan 指居住在平原的人，連結噶瑪蘭與蘭陽平原。",
+      "sourceTitle": "宜大圖資館｜噶瑪蘭族簡介",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6108.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "kavalan-weaving",
+      "station": "噶瑪蘭文化",
+      "prompt": "噶瑪蘭族的香蕉絲織布，使用哪種材料？",
+      "options": [
+        "銅質金屬線",
+        "玻璃纖維",
+        "香蕉纖維"
+      ],
+      "correctIndex": 2,
+      "explanation": "香蕉絲織布取用香蕉纖維，是噶瑪蘭族重要的民族工藝。",
+      "sourceTitle": "宜大圖資館｜噶瑪蘭族簡介",
+      "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6108.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "kavalan-corridor",
+      "station": "噶瑪蘭文化",
+      "prompt": "文化廊道以哪些元素，讓人認識噶瑪蘭生活？",
+      "options": [
+        "家屋、漁獵、工藝與植物",
+        "列車時刻與車票價格",
+        "遊樂設施身高限制"
+      ],
+      "correctIndex": 0,
+      "explanation": "廊道把家屋、漁獵、工藝與植物融入校園，呈現生活文化。",
+      "sourceTitle": "宜大圖資館｜噶瑪蘭文化廊道",
+      "sourceUrl": "https://lic.niu.edu.tw/p/404-1010-63584.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "history-2003",
+      "station": "知識終點",
+      "prompt": "學校在哪一年更名為「國立宜蘭大學」？",
+      "options": [
+        "1988 年",
+        "2003 年",
+        "1998 年"
+      ],
+      "correctIndex": 1,
+      "explanation": "民國九十二年是 2003 年，學校在這一年更名為大學。",
+      "sourceTitle": "國立宜蘭大學｜校史",
+      "sourceUrl": "https://www.niu.edu.tw/p/412-1000-1049.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    },
+    {
+      "id": "museum-replicas",
+      "station": "知識終點",
+      "prompt": "參觀萬斌廳文化層展區，應如何理解展示？",
+      "options": [
+        "每件展示都保證是出土原件",
+        "文物皆無考古資料可查",
+        "以仿真復刻結合圖文呈現遺址"
+      ],
+      "correctIndex": 2,
+      "explanation": "文化層以仿真復刻配合圖文展示，不能將復刻品當成原件。",
+      "sourceTitle": "宜大圖資館｜宜蘭農校遺址文化層",
+      "sourceUrl": "https://lic.niu.edu.tw/p/404-1010-63582.php",
+      "verified": true,
+      "verifiedOn": "2026-10-29"
+    }
+  ]
+}

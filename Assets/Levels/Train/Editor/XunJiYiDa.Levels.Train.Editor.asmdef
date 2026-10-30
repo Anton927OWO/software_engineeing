@@ -1,0 +1,5 @@
+{
+  "name": "XunJiYiDa.Levels.Train.Editor",
+  "references": ["XunJiYiDa.Levels.Train", "XunJiYiDa.Levels.Shared", "XunJiYiDa.Levels.Shared.Core", "Unity.TextMeshPro", "UnityEngine.UI", "Unity.InputSystem"],
+  "includePlatforms": ["Editor"]
+}

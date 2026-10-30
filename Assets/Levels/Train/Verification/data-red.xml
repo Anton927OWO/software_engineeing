@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="7" result="Failed(Child)" total="7" passed="5" failed="2" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-10-29 12:37:43Z" end-time="2026-10-29 12:37:44Z" duration="0.3179215">
+  <test-suite type="TestSuite" id="1000" name="Tracking_NIU" fullname="Tracking_NIU" runstate="Runnable" testcasecount="79" result="Failed" site="Child" start-time="2026-10-29 12:37:43Z" end-time="2026-10-29 12:37:44Z" duration="0.317922" total="7" passed="5" failed="2" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1115" name="XunJiYiDa.Levels.Train.Editor.Tests.dll" fullname="/private/tmp/niu-train-quality/Library/ScriptAssemblies/XunJiYiDa.Levels.Train.Editor.Tests.dll" runstate="Runnable" testcasecount="23" result="Failed" site="Child" start-time="2026-10-29 12:37:43Z" end-time="2026-10-29 12:37:44Z" duration="0.314560" total="7" passed="5" failed="2" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="64458" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1116" name="XunJiYiDa" fullname="XunJiYiDa" runstate="Runnable" testcasecount="23" result="Failed" site="Child" start-time="2026-10-29 12:37:43Z" end-time="2026-10-29 12:37:44Z" duration="0.314416" total="7" passed="5" failed="2" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1117" name="Levels" fullname="XunJiYiDa.Levels" runstate="Runnable" testcasecount="23" result="Failed" site="Child" start-time="2026-10-29 12:37:43Z" end-time="2026-10-29 12:37:44Z" duration="0.314297" total="7" passed="5" failed="2" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestSuite" id="1118" name="Train" fullname="XunJiYiDa.Levels.Train" runstate="Runnable" testcasecount="23" result="Failed" site="Child" start-time="2026-10-29 12:37:43Z" end-time="2026-10-29 12:37:44Z" duration="0.314201" total="7" passed="5" failed="2" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestSuite" id="1119" name="Tests" fullname="XunJiYiDa.Levels.Train.Tests" runstate="Runnable" testcasecount="23" result="Failed" site="Child" start-time="2026-10-29 12:37:43Z" end-time="2026-10-29 12:37:44Z" duration="0.314085" total="7" passed="5" failed="2" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-suite type="TestFixture" id="1088" name="TrainAssetTests" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" testcasecount="7" result="Failed" site="Child" start-time="2026-10-29 12:37:43Z" end-time="2026-10-29 12:37:44Z" duration="0.313559" total="7" passed="5" failed="2" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1090" name="EditableBankContainsAtLeastTenSourcedThreeChoiceQuestions" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.EditableBankContainsAtLeastTenSourcedThreeChoiceQuestions" methodname="EditableBankContainsAtLeastTenSourcedThreeChoiceQuestions" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="135227214" result="Failed" start-time="2026-10-29 12:37:43Z" end-time="2026-10-29 12:37:43Z" duration="0.007721" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[  String lengths are both 10. Strings differ at index 9.
+  Expected: "2026-10-29"
+  But was:  "2026-10-26"
+  --------------------^
+]]></message>
+                    <stack-trace><![CDATA[at XunJiYiDa.Levels.Train.Tests.TrainAssetTests.EditableBankContainsAtLeastTenSourcedThreeChoiceQuestions () [0x000ff] in /private/tmp/niu-train-quality/Assets/Levels/Train/Tests/Editor/TrainAssetTests.cs:40
+]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1092" name="FirstGenerationSeedMatchesEveryShippedQuestion" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.FirstGenerationSeedMatchesEveryShippedQuestion" methodname="FirstGenerationSeedMatchesEveryShippedQuestion" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="1100481002" result="Passed" start-time="2026-10-29 12:37:43Z" end-time="2026-10-29 12:37:43Z" duration="0.001282" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1095" name="GeneratorDoesNotSaveUnrelatedDirtyAssets" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.GeneratorDoesNotSaveUnrelatedDirtyAssets" methodname="GeneratorDoesNotSaveUnrelatedDirtyAssets" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="1077854268" result="Passed" start-time="2026-10-29 12:37:43Z" end-time="2026-10-29 12:37:44Z" duration="0.154161" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Train 字型未收錄：知識列車｜校史車站歡迎來到校史知識車站。列車將帶你認識宜大的成長足跡。
+
+在 60 秒內回答三選一題目，答對接上一節車廂，集滿五節並開出畫面即可通關。
+答錯會顯示正解一秒並記錄失誤；同一輪題目不重複。時間到或題盡未達標就挑戰失敗。
+
+知識卡可閱讀解說與官方來源；介紹、知識卡及暫停時不扣秒。接車與出站動畫仍計時，請把握時間！知識車站已連接節車廂資料來源已查核待驗證知識車票正確答案題庫沒有可用題目請編輯答對了答錯了連接中五節集滿出發時間已到下次再挑戰題目用完知識列車已出站選出正確答案讓知識成為前進的動力空間介紹知識卡來源每答完一題可在此閱讀正解與解說本題宜蘭大學創校於西元哪一年？1926 年1956 年2003 年創校時間為民國十五年，換算西元為 1926 年。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26宜大創校時的校名是哪一個？國立宜蘭技術學院台北州立宜蘭農林學校國立宜蘭大學創校時以農林教育為出發點。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26民國三十五年，學校正名為什麼？國立宜蘭大學宜蘭高級工業學校台灣省立宜蘭農業職業學校官方校史記載民國三十五年的校名為農業職業學校。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26民國五十六年的校名增加了哪個字，成為「農工職業學校」？工商醫校名由農業走向農工，反映教育領域的變化。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26民國五十八年，校名改為哪一個？國立宜蘭大學台灣省立宜蘭高級農工職業學校國立宜蘭技術學院這一階段的正式校名包含「高級農工職業學校」。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26民國七十七年，宜大改制為哪種學校？大學技術學院農工專科學校民國七十七年改制為國立宜蘭農工專科學校。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26民國八十七年，學校升格後的名稱是？國立宜蘭技術學院國立宜蘭師範學院國立宜蘭醫學院專科階段之後，學校升格為技術學院。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26學校在哪一年更名為「國立宜蘭大學」？1988 年2003 年1998 年民國九十二年即西元 2003 年。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26哪一組是國立宜蘭大學的校訓？自由、平等、博愛、和平誠實、勇敢、節儉、忍耐篤學、力行、敬業、樂群校訓鼓勵學習、實踐、敬重專業與群體合作。國立宜蘭大學｜校訓https://www.niu.edu.tw/p/412-1000-1310.php2026-10-26宜蘭大學校本部位於哪個城市？宜蘭市羅東鎮花蓮市官方交通位置頁記載校本部位於宜蘭市。國立宜蘭大學｜交通位置https://www.niu.edu.tw/p/412-1000-1052.php2026-10-26依宜大官方交通指引，搭台鐵應在哪一站下車前往校本部？冬山站宜蘭站礁溪站官方交通指引建議搭台鐵至宜蘭火車站，再轉乘或步行。國立宜蘭大學｜交通位置https://www.niu.edu.tw/p/412-1000-1052.php2026-10-26校園所在地的考古遺址，沿用學校舊名列冊為什麼？卑南遺址圓山遺址宜蘭農校遺址圖資館校史資料說明，這處校園遺址沿用學校舊名。宜大圖資館｜校史緣起https://lic.niu.edu.tw/p/412-1010-2275.php2026-10-26
+保留既有 Train Scene 與可編輯資料。
+]]></output>
+                </test-case>
+                <test-case id="1094" name="GeneratorPreservesExistingSceneBankAndBuildSettings" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.GeneratorPreservesExistingSceneBankAndBuildSettings" methodname="GeneratorPreservesExistingSceneBankAndBuildSettings" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="2035284708" result="Passed" start-time="2026-10-29 12:37:44Z" end-time="2026-10-29 12:37:44Z" duration="0.099694" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Train 字型未收錄：知識列車｜校史車站歡迎來到校史知識車站。列車將帶你認識宜大的成長足跡。
+
+在 60 秒內回答三選一題目，答對接上一節車廂，集滿五節並開出畫面即可通關。
+答錯會顯示正解一秒並記錄失誤；同一輪題目不重複。時間到或題盡未達標就挑戰失敗。
+
+知識卡可閱讀解說與官方來源；介紹、知識卡及暫停時不扣秒。接車與出站動畫仍計時，請把握時間！知識車站已連接節車廂資料來源已查核待驗證知識車票正確答案題庫沒有可用題目請編輯答對了答錯了連接中五節集滿出發時間已到下次再挑戰題目用完知識列車已出站選出正確答案讓知識成為前進的動力空間介紹知識卡來源每答完一題可在此閱讀正解與解說本題宜蘭大學創校於西元哪一年？1926 年1956 年2003 年創校時間為民國十五年，換算西元為 1926 年。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26宜大創校時的校名是哪一個？國立宜蘭技術學院台北州立宜蘭農林學校國立宜蘭大學創校時以農林教育為出發點。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26民國三十五年，學校正名為什麼？國立宜蘭大學宜蘭高級工業學校台灣省立宜蘭農業職業學校官方校史記載民國三十五年的校名為農業職業學校。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26民國五十六年的校名增加了哪個字，成為「農工職業學校」？工商醫校名由農業走向農工，反映教育領域的變化。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26民國五十八年，校名改為哪一個？國立宜蘭大學台灣省立宜蘭高級農工職業學校國立宜蘭技術學院這一階段的正式校名包含「高級農工職業學校」。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26民國七十七年，宜大改制為哪種學校？大學技術學院農工專科學校民國七十七年改制為國立宜蘭農工專科學校。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26民國八十七年，學校升格後的名稱是？國立宜蘭技術學院國立宜蘭師範學院國立宜蘭醫學院專科階段之後，學校升格為技術學院。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26學校在哪一年更名為「國立宜蘭大學」？1988 年2003 年1998 年民國九十二年即西元 2003 年。國立宜蘭大學｜校史https://www.niu.edu.tw/p/412-1000-1049.php2026-10-26哪一組是國立宜蘭大學的校訓？自由、平等、博愛、和平誠實、勇敢、節儉、忍耐篤學、力行、敬業、樂群校訓鼓勵學習、實踐、敬重專業與群體合作。國立宜蘭大學｜校訓https://www.niu.edu.tw/p/412-1000-1310.php2026-10-26宜蘭大學校本部位於哪個城市？宜蘭市羅東鎮花蓮市官方交通位置頁記載校本部位於宜蘭市。國立宜蘭大學｜交通位置https://www.niu.edu.tw/p/412-1000-1052.php2026-10-26依宜大官方交通指引，搭台鐵應在哪一站下車前往校本部？冬山站宜蘭站礁溪站官方交通指引建議搭台鐵至宜蘭火車站，再轉乘或步行。國立宜蘭大學｜交通位置https://www.niu.edu.tw/p/412-1000-1052.php2026-10-26校園所在地的考古遺址，沿用學校舊名列冊為什麼？卑南遺址圓山遺址宜蘭農校遺址圖資館校史資料說明，這處校園遺址沿用學校舊名。宜大圖資館｜校史緣起https://lic.niu.edu.tw/p/412-1010-2275.php2026-10-26
+保留既有 Train Scene 與可編輯資料。
+]]></output>
+                </test-case>
+                <test-case id="1089" name="SceneExistsAsNativeUnityScene" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.SceneExistsAsNativeUnityScene" methodname="SceneExistsAsNativeUnityScene" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="1325860657" result="Passed" start-time="2026-10-29 12:37:44Z" end-time="2026-10-29 12:37:44Z" duration="0.000216" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1093" name="SceneReusesSharedPrefabAndSixtySecondDefinition" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.SceneReusesSharedPrefabAndSixtySecondDefinition" methodname="SceneReusesSharedPrefabAndSixtySecondDefinition" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="1994077455" result="Passed" start-time="2026-10-29 12:37:44Z" end-time="2026-10-29 12:37:44Z" duration="0.045191" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1091" name="ShippedBankCoversFiveThemesWithExplainedVerifiedAlternatives" fullname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests.ShippedBankCoversFiveThemesWithExplainedVerifiedAlternatives" methodname="ShippedBankCoversFiveThemesWithExplainedVerifiedAlternatives" classname="XunJiYiDa.Levels.Train.Tests.TrainAssetTests" runstate="Runnable" seed="1034254510" result="Failed" start-time="2026-10-29 12:37:44Z" end-time="2026-10-29 12:37:44Z" duration="0.000462" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <failure>
+                    <message><![CDATA[  Every question needs a teaching theme / station.
+  Expected: not null
+  But was:  null
+]]></message>
+                    <stack-trace><![CDATA[at XunJiYiDa.Levels.Train.Tests.TrainAssetTests.ShippedBankCoversFiveThemesWithExplainedVerifiedAlternatives () [0x0002b] in /private/tmp/niu-train-quality/Assets/Levels/Train/Tests/Editor/TrainAssetTests.cs:51
+]]></stack-trace>
+                  </failure>
+                  <output><![CDATA[Saving results to: /Users/testarossa/Library/Application Support/DefaultCompany/Tracking_NIU/TestResults.xml
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
