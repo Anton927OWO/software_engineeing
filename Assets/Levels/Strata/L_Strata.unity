@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
 OcclusionCullingSettings:
@@ -1653,6 +1653,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107000010}
   m_CullTransparentMesh: 1
+--- !u!114 &2107000014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107000010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b459e0d96a254422a47eb6b06c7ae266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StrataArtifactDrag
+  manager: {fileID: 2107000050}
+  targetLayer: 2
+  displayName: "\u73BB\u7483\u73E0"
+  placedSize: {x: 110, y: 110}
 --- !u!1 &2107000020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,38 +1745,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107000020}
   m_CullTransparentMesh: 1
---- !u!114 &2107000030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34554933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b459e0d96a254422a47eb6b06c7ae266, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StrataArtifactDrag
-  manager: {fileID: 2107000050}
-  targetLayer: 1
-  displayName: "\u78da\u7247"
-  placedSize: {x: 110, y: 110}
---- !u!114 &2107000014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107000010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b459e0d96a254422a47eb6b06c7ae266, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StrataArtifactDrag
-  manager: {fileID: 2107000050}
-  targetLayer: 2
-  displayName: "\u73bb\u7483\u73e0"
-  placedSize: {x: 110, y: 110}
 --- !u!114 &2107000024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1776,6 +1760,22 @@ MonoBehaviour:
   manager: {fileID: 2107000050}
   targetLayer: 3
   displayName: "\u9676\u7247"
+  placedSize: {x: 110, y: 110}
+--- !u!114 &2107000030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34554933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b459e0d96a254422a47eb6b06c7ae266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StrataArtifactDrag
+  manager: {fileID: 2107000050}
+  targetLayer: 1
+  displayName: "\u78DA\u7247"
   placedSize: {x: 110, y: 110}
 --- !u!114 &2107000041
 MonoBehaviour:
@@ -1892,14 +1892,6 @@ MonoBehaviour:
   onStageTwoCompleted:
     m_PersistentCalls:
       m_Calls: []
---- !u!1660057539 &9223372036854775807
-SceneRoots:
-  m_ObjectHideFlags: 0
-  m_Roots:
-  - {fileID: 44536353}
-  - {fileID: 561457340}
-  - {fileID: 1237516647}
-
 --- !u!114 &2109000000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1919,6 +1911,8 @@ MonoBehaviour:
   view: {fileID: 2109000001}
   levelAudio: {fileID: 2109000002}
   gameDuration: 60
+  integrationLevelId: L_Strata
+  rewardArtifactId: 
   onChallengeStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -1937,8 +1931,6 @@ MonoBehaviour:
   onKnowledgeRequested:
     m_PersistentCalls:
       m_Calls: []
-  integrationLevelId: L_Strata
-  rewardArtifactId: 
 --- !u!114 &2109000001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1953,19 +1945,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knowledgeCatalog: {fileID: 11400000, guid: 348f8fa343e142909c5a843b5507f8f8, type: 2}
   knowledgePages:
-  - title: "磚瓦殘片"
+  - title: "\u78DA\u74E6\u6B98\u7247"
     image: {fileID: 21300000, guid: 351114fc14c2eee45a886d95bd7857ca, type: 3}
-    body: "表土層常見磚瓦等近代遺留。\n堆積土層也可能發現零星陶片、瓦片與玻璃珠。\n文物遺留能幫助我們認識過去的生活與活動。"
-    source: "國立宜蘭大學圖書資訊館｜宜蘭農校遺址\nhttps://lic.niu.edu.tw/p/404-1010-71228.php\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"
-  - title: "玻璃珠"
+    body: "\u8868\u571F\u5C64\u5E38\u898B\u78DA\u74E6\u7B49\u8FD1\u4EE3\u907A\u7559\u3002\n\u5806\u7A4D\u571F\u5C64\u4E5F\u53EF\u80FD\u767C\u73FE\u96F6\u661F\u9676\u7247\u3001\u74E6\u7247\u8207\u73BB\u7483\u73E0\u3002\n\u6587\u7269\u907A\u7559\u80FD\u5E6B\u52A9\u6211\u5011\u8A8D\u8B58\u904E\u53BB\u7684\u751F\u6D3B\u8207\u6D3B\u52D5\u3002"
+    source: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\u5716\u66F8\u8CC7\u8A0A\u9928\uFF5C\u5B9C\u862D\u8FB2\u6821\u907A\u5740\nhttps://lic.niu.edu.tw/p/404-1010-71228.php\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"
+  - title: "\u73BB\u7483\u73E0"
     image: {fileID: 21300000, guid: 3e7b6d6117ea1ff43a2a675315552b90, type: 3}
-    body: "玻璃珠是舊社文化時期常見的裝飾品之一。\n宜蘭農校遺址也出土過各式珠飾。\n這些文物反映了當時人們的裝飾文化與交流活動。"
-    source: "國立宜蘭大學圖書資訊館｜宜蘭農校遺址\nhttps://lic.niu.edu.tw/p/404-1010-71228.php\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"
-  - title: "印紋陶片"
+    body: "\u73BB\u7483\u73E0\u662F\u820A\u793E\u6587\u5316\u6642\u671F\u5E38\u898B\u7684\u88DD\u98FE\u54C1\u4E4B\u4E00\u3002\n\u5B9C\u862D\u8FB2\u6821\u907A\u5740\u4E5F\u51FA\u571F\u904E\u5404\u5F0F\u73E0\u98FE\u3002\n\u9019\u4E9B\u6587\u7269\u53CD\u6620\u4E86\u7576\u6642\u4EBA\u5011\u7684\u88DD\u98FE\u6587\u5316\u8207\u4EA4\u6D41\u6D3B\u52D5\u3002"
+    source: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\u5716\u66F8\u8CC7\u8A0A\u9928\uFF5C\u5B9C\u862D\u8FB2\u6821\u907A\u5740\nhttps://lic.niu.edu.tw/p/404-1010-71228.php\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"
+  - title: "\u5370\u7D0B\u9676\u7247"
     image: {fileID: 21300000, guid: a8857569cc320234b8dd2ea793c4a3bb, type: 3}
-    body: "印紋陶器是舊社文化具有代表性的文物。\n陶器表面的紋飾展現當時的製陶技術與生活文化。\n透過陶片可以更了解當時人們的日常生活。"
-    source: "國立宜蘭大學圖書資訊館｜宜蘭農校遺址\nhttps://lic.niu.edu.tw/p/404-1010-71228.php\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"
-
+    body: "\u5370\u7D0B\u9676\u5668\u662F\u820A\u793E\u6587\u5316\u5177\u6709\u4EE3\u8868\u6027\u7684\u6587\u7269\u3002\n\u9676\u5668\u8868\u9762\u7684\u7D0B\u98FE\u5C55\u73FE\u7576\u6642\u7684\u88FD\u9676\u6280\u8853\u8207\u751F\u6D3B\u6587\u5316\u3002\n\u900F\u904E\u9676\u7247\u53EF\u4EE5\u66F4\u4E86\u89E3\u7576\u6642\u4EBA\u5011\u7684\u65E5\u5E38\u751F\u6D3B\u3002"
+    source: "\u570B\u7ACB\u5B9C\u862D\u5927\u5B78\u5716\u66F8\u8CC7\u8A0A\u9928\uFF5C\u5B9C\u862D\u8FB2\u6821\u907A\u5740\nhttps://lic.niu.edu.tw/p/404-1010-71228.php\nhttps://lic.niu.edu.tw/p/412-1010-2280.php"
 --- !u!114 &2109000002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1990,3 +1981,72 @@ MonoBehaviour:
   failureVolume: 0.6
   switchVolume: 0.5
   bgmVolume: 0.12
+--- !u!1 &800000001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 800000002}
+  - component: {fileID: 800000003}
+  - component: {fileID: 800000004}
+  m_Layer: 0
+  m_Name: TrackingIntegration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &800000002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800000001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &800000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2445b0e1cb18049ada290cf8104efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelId: 7
+  timeLimitOverride: 0
+  collectedArtifacts: []
+--- !u!114 &800000004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfc81e46ab94d579a1fd6d850a7dbf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  font: {fileID: 11400000, guid: ee8b358cfbceb7b4488ac394ed467bb9, type: 2}
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 44536353}
+  - {fileID: 561457340}
+  - {fileID: 1237516647}
+  - {fileID: 800000002}

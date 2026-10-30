@@ -32,6 +32,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Junting/L_Deer.unity
     guid: 104f462ec74b4341916ddea5bb234888
+  - enabled: 1
+    path: Assets/Levels/Prologue/L_Prologue.unity
+    guid: f0e570cdd5858014ead8ff5630a9da20
+  - enabled: 1
+    path: Assets/Levels/Dig/L_Dig.unity
+    guid: ade4cf6b4a55ca342836197da580a6cc
+  - enabled: 1
+    path: Assets/Levels/Strata/L_Strata.unity
+    guid: ba8b8de80bd6d4c41ac07372410881c5
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

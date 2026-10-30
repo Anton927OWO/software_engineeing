@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
 OcclusionCullingSettings:
@@ -1485,12 +1485,12 @@ MonoBehaviour:
   canvas: {fileID: 70345901}
   font: {fileID: 11400000, guid: ee8b358cfbceb7b4488ac394ed467bb9, type: 2}
   artifactCatalog: {fileID: 11400000, guid: 48f24321520346df90af3ae9c959ad18, type: 2}
+  artifactSpawner: {fileID: 1066969307}
+  integrationLevelId: L_Dig
+  rewardArtifactId: 
   onLevelCompleted:
     m_PersistentCalls:
       m_Calls: []
-  artifactSpawner: {fileID: 1066969307}
-  integrationLevelId: L_Dig
-  rewardArtifactId:
   successPanelDelay: 0.5
 --- !u!114 &2120000003
 MonoBehaviour:
@@ -1533,6 +1533,67 @@ MonoBehaviour:
   failureVolume: 0.6
   brushVolume: 0.2
   bgmVolume: 0.12
+--- !u!1 &800000001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 800000002}
+  - component: {fileID: 800000003}
+  - component: {fileID: 800000004}
+  m_Layer: 0
+  m_Name: TrackingIntegration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &800000002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800000001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &800000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2445b0e1cb18049ada290cf8104efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelId: 1
+  timeLimitOverride: 0
+  collectedArtifacts: []
+--- !u!114 &800000004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfc81e46ab94d579a1fd6d850a7dbf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  font: {fileID: 11400000, guid: ee8b358cfbceb7b4488ac394ed467bb9, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1542,3 +1603,4 @@ SceneRoots:
   - {fileID: 2021692281}
   - {fileID: 187297605}
   - {fileID: 2120000001}
+  - {fileID: 800000002}
