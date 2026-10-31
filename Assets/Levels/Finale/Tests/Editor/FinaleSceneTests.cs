@@ -129,7 +129,7 @@ namespace XunJiYiDa.Levels.Finale.Tests
                 sourceUrl = "https://lic.niu.edu.tw/p/412-1010-6107.php",
                 contextSourceUrl = "https://lic.niu.edu.tw/p/412-1010-6105.php"
             };
-            Assert.That(fact.KnowledgeBody, Does.Contain("銅線").And.Contain("校園")
+            Assert.That(fact.KnowledgeBody, Does.Contain("銅線").And.Not.Contain("校園保存著文物記憶")
                 .And.Not.Contain("已核對").And.Not.Contain("待查證").And.Not.Contain("2026-10-29")
                 .And.Not.Contain("考古測繪"));
             Assert.That(fact.KnowledgeBody, Does.Contain(fact.sourceUrl));

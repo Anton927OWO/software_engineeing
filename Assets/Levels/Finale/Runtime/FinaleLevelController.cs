@@ -189,7 +189,7 @@ namespace XunJiYiDa.Levels.Finale
                 var artifact = artifacts[lastMatchedArtifact];
                 var fact = facts.Find(artifact.id);
                 feedback.text = "配對成功｜" + artifact.title + "。金框會保留，繼續找下一組。";
-                learningNote.text = "文物小知識" + "\n" + fact.Summary + (fact.IsVerified ? "\n" + fact.context : "");
+                learningNote.text = "文物小知識\n" + fact.Summary;
                 first = -1; busy = false;
                 if (Board.IsComplete) controller.Succeed();
             }
