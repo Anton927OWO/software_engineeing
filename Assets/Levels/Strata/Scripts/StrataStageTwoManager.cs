@@ -226,7 +226,6 @@ public sealed class StrataStageTwoManager : MonoBehaviour
         string reason = "請在 Inspector 指定三題題庫。";
         questionReady = questionSet != null && questionSet.IsQuestionReady(DataQuestionIndex, out reason);
         focusFrame.gameObject.SetActive(false); // The single target preview needs no duplicate full-image focus frame.
-        enlargedPattern.enabled = false;
         targetName.gameObject.SetActive(questionReady);
         if (questionReady)
         {
@@ -234,6 +233,7 @@ public sealed class StrataStageTwoManager : MonoBehaviour
             ApplyVisual(enlargedPattern, q.artifactImage, q.focusRegion, new Vector2(620, 220));
             targetName.text = DescribePattern(q.prompt);
         }
+        enlargedPattern.enabled = false; // ApplyVisual turns it on; keep it hidden until the match is correct.
         else ShowFeedback("本題尚未就緒：" + reason, Incorrect, 1.5f);
         RefreshProgress();
         RefreshInput();
@@ -346,7 +346,7 @@ public sealed class StrataStageTwoManager : MonoBehaviour
         matchTarget.gameObject.AddComponent<StrataPatternDropTarget>().Initialize(this);
         dropCaption = Label("PatternDropCaption", matchTarget, "配對區", new Vector2(0, 172), new Vector2(620, 52), 32, Ink, true);
 
-        Label("OptionsHeading", root, "選擇相同紋飾", new Vector2(0, -180), new Vector2(1560, 48), 30, Hex("735A46"), true);
+        Label("OptionsHeading", root, "選擇符合名稱的紋飾", new Vector2(0, -180), new Vector2(1560, 48), 30, Hex("735A46"), true);
         Surface("PatternOptionsTrayCard", root, new Vector2(0, -330), new Vector2(1640, 230), Hex("FAF4E9"));
         RectTransform tray = Rect("StrataPatternOptions", root, Vector2.zero, new Vector2(1920, 1080));
         for (int i = 0; i < choices.Length; i++)

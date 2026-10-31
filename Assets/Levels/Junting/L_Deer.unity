@@ -1116,8 +1116,16 @@ MonoBehaviour:
   artifactArt:
   - artifact: 1
     image: {fileID: 2800000, guid: 847e17a6ad766492eb2a4fed84278210, type: 3}
+  - artifact: 2
+    image: {fileID: 2800000, guid: e6cd148dedac74d7b887173927586416, type: 3}
+  - artifact: 3
+    image: {fileID: 2800000, guid: e55f3ac0c03224cf190acbe3ea5f28ab, type: 3}
   - artifact: 4
     image: {fileID: 2800000, guid: a239f3cc083e84fa0a642ad136d4e1fb, type: 3}
+  - artifact: 5
+    image: {fileID: 2800000, guid: 942adfaca865249399cec46b774038b7, type: 3}
+  - artifact: 6
+    image: {fileID: 2800000, guid: 8770b2bdabcd04d5f8e186386d7a6f00, type: 3}
   fallbackClips:
   - key: click
     clip: {fileID: 8300000, guid: 5e6a13f147c324869b1ca68bb1019814, type: 3}
