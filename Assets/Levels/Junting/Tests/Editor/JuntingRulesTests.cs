@@ -19,6 +19,52 @@ namespace XunJiYiDa.Levels.Junting.Tests
         }
 
         [Test]
+        public void Shelf_RandomRoundsAreSortedWithThreeGaps_AndCanBeCompleted()
+        {
+            for (int seed = 0; seed < 30; seed++)
+            for (int stage = 0; stage < 2; stage++)
+            {
+                var shelf = new ShelfRound(seed, stage);
+                for (int i = 0; i + 1 < ShelfRound.Size; i++)
+                    Assert.Less(Book.Compare(shelf.books[i], shelf.books[i + 1]), 0, "seed " + seed + " stage " + stage);
+                var empty = System.Linq.Enumerable.ToArray(shelf.EmptySlots);
+                Assert.AreEqual(ShelfRound.Empty, empty.Length);
+                if (stage == 1)
+                    Assert.IsTrue(System.Array.TrueForAll(shelf.books, b => b.classification == shelf.books[0].classification));
+                foreach (int slot in empty) Assert.IsTrue(shelf.Place(slot, slot));
+                Assert.AreEqual(ShelfRound.Empty, shelf.Placed);
+            }
+        }
+
+        [Test]
+        public void DeerChallenges_NeedTheirBarriers_AndRocksStayFixed()
+        {
+            int[][][] solutions =
+            {
+                new[] { new[] { 5, 2 }, new[] { 9, 3 } },
+                new[] { new[] { 8, 1 }, new[] { 6, 2 }, new[] { 7, 3 } },
+                new[] { new[] { 6, 2 }, new[] { 4, 3 }, new[] { 5, 4 } },
+            };
+            Assert.AreEqual(solutions.Length, DeerMap.Challenges.Length);
+            for (int m = 0; m < solutions.Length; m++)
+            {
+                var map = DeerMap.Challenges[m];
+                var empty = new DeerBoard(map) { released = true };
+                for (int i = 0; i < 80; i++) empty.Step();
+                Assert.AreEqual(0, empty.arrived, "map " + m + " must not be won without barriers");
+
+                var board = new DeerBoard(map);
+                int rock = map.rocks[0];
+                Assert.IsFalse(board.Toggle(rock % DeerBoard.Width, rock / DeerBoard.Width), "rocks cannot be replaced");
+                foreach (var cell in solutions[m]) Assert.IsTrue(board.Toggle(cell[0], cell[1]));
+                board.released = true;
+                for (int i = 0; i < 80; i++) board.Step();
+                Assert.AreEqual(3, board.arrived, "map " + m);
+                Assert.IsFalse(board.escaped);
+            }
+        }
+
+        [Test]
         public void Book_ComparesClassificationThenAuthorThenYear()
         {
             Assert.Less(Book.Compare(new Book { classification = "25.4", author = "1234", year = 2024 }, new Book { classification = "50", author = "0001", year = 2010 }), 0);
