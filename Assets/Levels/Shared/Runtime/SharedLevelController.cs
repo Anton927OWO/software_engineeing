@@ -20,6 +20,7 @@ namespace XunJiYiDa.Levels.Shared
         private bool hasFocus = true;
         private bool applicationPaused;
         private int lastTickSecond = -1;
+        private bool musicStarted;
 
         public SharedLevelDefinition Definition => definition;
         public LevelSession Session => session ?? (session = definition != null
@@ -87,6 +88,7 @@ namespace XunJiYiDa.Levels.Shared
         {
             ui?.CloseContent();
             lastTickSecond = -1;
+            StopMusic();
             Retried?.Invoke();
             onRetried.Invoke();
             PrepareAttempt();
@@ -111,11 +113,24 @@ namespace XunJiYiDa.Levels.Shared
                 Time.timeScale = 0;
             }
             else if (!frozen) ReleaseTimeScale();
+            // Music starts with the first running frame, so the introduction stays quiet.
+            if (!frozen && !musicStarted && definition != null && definition.Music != null)
+            {
+                audioPlayer?.PlayMusic(definition.Music, definition.MusicVolume);
+                musicStarted = true;
+            }
             audioPlayer?.SetGameplayPaused(frozen);
+        }
+
+        private void StopMusic()
+        {
+            audioPlayer?.StopMusic();
+            musicStarted = false;
         }
 
         private void HandleCompleted(LevelResult result)
         {
+            StopMusic();
             audioPlayer?.Play(result.Success ? SharedSound.Victory : SharedSound.Wrong);
             Completed?.Invoke(result);
         }
@@ -141,6 +156,7 @@ namespace XunJiYiDa.Levels.Shared
                 session.Retried -= HandleRetried;
             }
             ReleaseTimeScale();
+            StopMusic();
             audioPlayer?.SetGameplayPaused(false);
         }
 

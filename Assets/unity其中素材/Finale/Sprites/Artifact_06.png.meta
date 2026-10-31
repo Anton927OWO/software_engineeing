@@ -138,10 +138,10 @@ TextureImporter:
       name: Artifact_06_0
       rect:
         serializedVersion: 2
-        x: 93
-        y: 230
-        width: 129
-        height: 129
+        x: 46
+        y: 70
+        width: 424
+        height: 397
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +160,10 @@ TextureImporter:
       name: Artifact_06_1
       rect:
         serializedVersion: 2
-        x: 214
-        y: 299
-        width: 105
-        height: 105
+        x: 46
+        y: 70
+        width: 424
+        height: 397
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +182,10 @@ TextureImporter:
       name: Artifact_06_2
       rect:
         serializedVersion: 2
-        x: 139
-        y: 110
-        width: 109
-        height: 109
+        x: 46
+        y: 70
+        width: 424
+        height: 397
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: Artifact_06_3
       rect:
         serializedVersion: 2
-        x: 262
-        y: 157
-        width: 133
-        height: 133
+        x: 46
+        y: 70
+        width: 424
+        height: 397
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

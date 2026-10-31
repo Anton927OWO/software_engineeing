@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BookDrag : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class BookDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("書箱")]
     [SerializeField] private RectTransform bookBox;
@@ -35,13 +35,6 @@ public class BookDrag : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, 
         if (!initialized || !dragging) return;
         dragging=false;
         if (!collected) ReturnToStart();
-    }
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.button!=PointerEventData.InputButton.Left || prologueManager==null ||
-            !prologueManager.IsGameplayInputEnabled) return;
-        if (gameObject.name=="Book1" && prologueManager.CurrentStep==0)
-            prologueManager.OnBookClicked();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {

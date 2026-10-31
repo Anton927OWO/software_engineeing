@@ -5,7 +5,7 @@ public sealed class StrataLevelAudio : MonoBehaviour
 {
     [SerializeField] private AudioClip buttonClick, correct, incorrect, failure, stageSwitch, levelBgm;
     [SerializeField, Range(0,1)] private float buttonVolume=.5f, correctVolume=.6f,
-        incorrectVolume=.6f, failureVolume=.6f, switchVolume=.5f, bgmVolume=.12f;
+        incorrectVolume=.6f, failureVolume=.6f, switchVolume=.5f, bgmVolume=.5f;
     private AudioSource effects, music;
     private bool suspended;
     void Awake() { EnsureSources(); }

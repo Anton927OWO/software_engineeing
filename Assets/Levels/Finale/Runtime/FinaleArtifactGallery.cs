@@ -82,9 +82,7 @@ namespace XunJiYiDa.Levels.Finale
             selected = catalog.Find(artifacts[index].id);
             selectedIcon.sprite = artifacts[index].icon;
             selectedTitle.text = artifacts[index].title;
-            description.text = selected.IsVerified
-                ? selected.knowledge + "\n" + selected.context + "\n" + selected.VerificationLabel + "\n圖像為示意，非考古測繪。"
-                : selected.KnowledgeBody;
+            description.text = selected.GalleryBody;
             artifactSourceButton.interactable = selected.IsVerified && IsWebUrl(selected.sourceUrl);
             contextSourceButton.interactable = selected.IsVerified && IsWebUrl(selected.contextSourceUrl);
             for (int i = 0; i < entries.Length; i++)

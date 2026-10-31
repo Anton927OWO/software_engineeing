@@ -23,11 +23,12 @@ namespace XunJiYiDa.Levels.Finale
         public string contextSourceUrl;
 
         public bool IsVerified => verificationStatus == "VerifiedOfficialSource";
-        public string Summary => IsVerified ? summary : "史實待查證；先觀察示意圖的形狀。";
-        public string VerificationLabel => IsVerified ? "已核對官方來源｜" + verifiedOn : "待查證";
-        public string KnowledgeBody => IsVerified
-            ? knowledge + "\n\n" + context + "\n\n" + VerificationLabel +
-                "\n文物來源：" + sourceUrl + "\n文化來源：" + contextSourceUrl + "\n圖像為示意，非考古測繪。"
-            : "史實待查證。\n圖像觀察：" + memoryCue + "\n圖像為示意，非考古測繪。";
+        public string Summary => IsVerified ? summary : "觀察輪廓與紋樣，記住這件文物的特色。";
+        public string GalleryBody => IsVerified
+            ? knowledge
+            : "仔細看看圖卡。\n辨識線索：" + memoryCue;
+        public string KnowledgeBody => GalleryBody + (IsVerified
+            ? "\n\n文物來源：" + sourceUrl + "\n文化來源：" + contextSourceUrl
+            : "");
     }
 }

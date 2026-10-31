@@ -12601,7 +12601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u908A\u914D\u5C0D\uFF0C\u908A\u8A8D\u8B58\u6587\u7269\n\u914D\u5C0D\u5F8C\u5728\u9019\u88E1\u7559\u4E0B\u65B0\u767C\u73FE\u3002\n\u5716\u50CF\u70BA\u793A\u610F\u5716\u3002"
+  m_text: "邊配對，邊認識文物\n配對後在這裡留下新發現。"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 602bbe7f8d8f545fba803fdf33991478, type: 2}
   m_sharedMaterial: {fileID: -43271464612342262, guid: 602bbe7f8d8f545fba803fdf33991478, type: 2}

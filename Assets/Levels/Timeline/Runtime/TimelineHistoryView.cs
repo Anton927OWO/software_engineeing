@@ -67,7 +67,7 @@ namespace XunJiYiDa.Levels.Timeline
         private void HandleState(LevelState state)
         {
             bool finished = state == LevelState.Succeeded || state == LevelState.Failed;
-            if (finished && !resultBrowser.activeSelf) page = lastPlaced;
+            if (finished && !resultBrowser.activeSelf) page = 0;
             resultBrowser.SetActive(finished);
             Refresh();
         }

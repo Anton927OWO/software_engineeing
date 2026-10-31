@@ -63,6 +63,12 @@ namespace TrackingNIU
                 visible = false;
             GUILayout.EndHorizontal();
 
+            GUILayout.BeginHorizontal();
+            GUILayout.Label($"文物圖鑑 {ArtifactCollection.Count} / {ArtifactCollection.All.Length}", _label, GUILayout.Width(380));
+            if (GUILayout.Button("清除圖鑑紀錄", _button, GUILayout.Height(40)))
+                ArtifactCollection.Clear();
+            GUILayout.EndHorizontal();
+
             var run = manager.Run;
             if (run != null)
                 DrawRun(manager, run);

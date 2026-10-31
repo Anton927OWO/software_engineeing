@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,9 @@ namespace TrackingNIU.EditorTools
     {
         public const float MarkerWidth = 200f;
         public const float MarkerHeight = 140f;
+
+        const string MusicPath = "Assets/Common/audio/Cakeflaps - Good Morning.ogg";
+        const string ClickSoundPath = "Assets/Common/audio/kenney_interface-sounds/Audio/click_001.ogg";
 
         public UiBuilder Ui { get; }
         public Scene Scene { get; }
@@ -97,7 +101,14 @@ namespace TrackingNIU.EditorTools
                 ("routes", ToArray(routes ?? new MapRoute[0])),
                 ("sfxSource", sfx));
 
-            int missing = UiBuilder.ValidateWiring("clickSound");
+            var music = AssetDatabase.LoadAssetAtPath<AudioClip>(MusicPath);
+            var clickSound = AssetDatabase.LoadAssetAtPath<AudioClip>(ClickSoundPath);
+            if (music != null)
+                UiBuilder.Wire(Screen, ("music", music));
+            if (clickSound != null)
+                UiBuilder.Wire(Screen, ("clickSound", clickSound));
+
+            int missing = UiBuilder.ValidateWiring("music", "clickSound");
             Ui.SaveScene(Scene, scenePath);
             if (missing == 0)
                 Debug.Log($"[場景產生器] 已產生 {scenePath}。");

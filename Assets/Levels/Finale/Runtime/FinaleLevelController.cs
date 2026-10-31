@@ -151,7 +151,7 @@ namespace XunJiYiDa.Levels.Finale
             for (int i = 0; i < cards.Length; i++) cards[i].ResetCard(artifacts[Board.ArtifactAt(i)].face, cardBack);
             progress.text = "記憶拼圖　0 / 6";
             feedback.text = "每次翻兩張；配對成功就能學到一句文物知識。";
-            learningNote.text = "邊配對，邊認識文物\n配對後在這裡留下新發現。\n圖像為示意圖。";
+            learningNote.text = "邊配對，邊認識文物\n配對後在這裡留下新發現。";
             RefreshInteractivity();
         }
 
@@ -189,7 +189,7 @@ namespace XunJiYiDa.Levels.Finale
                 var artifact = artifacts[lastMatchedArtifact];
                 var fact = facts.Find(artifact.id);
                 feedback.text = "配對成功｜" + artifact.title + "。金框會保留，繼續找下一組。";
-                learningNote.text = (fact.IsVerified ? "剛剛學到｜已核對官方來源" : "剛剛學到｜待查證") + "\n" + fact.Summary + (fact.IsVerified ? "\n" + fact.context : "");
+                learningNote.text = "文物小知識\n" + fact.Summary;
                 first = -1; busy = false;
                 if (Board.IsComplete) controller.Succeed();
             }

@@ -20,3 +20,5 @@ MonoBehaviour:
   introductionBody: "60 秒內答對五題，接滿五節車廂並出站。\n答錯不扣車廂；正解與原因會留在回饋區，可開「知識卡／來源」暫停細讀。\n\n時間到或題庫用完即失敗；接車與出站仍計時。\n介紹、知識卡與暫停不扣秒；暫停面板可重新開始。"
   introductionImage: {fileID: 0}
   showIntroduction: 1
+  music: {fileID: 8300000, guid: fc521536b2824724ac90b8545a0051d4, type: 3}
+  musicVolume: 0.15

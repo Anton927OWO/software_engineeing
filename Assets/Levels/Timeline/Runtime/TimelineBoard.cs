@@ -99,10 +99,10 @@ namespace XunJiYiDa.Levels.Timeline
             }
             previousOrder = order;
             for (int position = 0; position < order.Length; position++)
-                cards[order[position]].ResetTo(new Vector2((position - 2) * 360, -340));
+                cards[order[position]].ResetTo(new Vector2((position - 2) * 360, -380));
             foreach (var slot in slots) slot.SetOccupied(false);
             progress.text = "已定位 0 / 5";
-            feedback.text = "拖曳至年份；「年代提示」可查校史與宜大記憶庫的文化連結。";
+            feedback.text = string.Empty;
         }
 
         private void HandleState(LevelState state)

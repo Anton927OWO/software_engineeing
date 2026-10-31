@@ -5606,7 +5606,8 @@ MonoBehaviour:
   goButtonFill: {fileID: 973174695}
   goLabel: {fileID: 930781439}
   sfxSource: {fileID: 841436385}
-  clickSound: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: e81ad0492e21fbd4d9f78319c357a886, type: 3}
+  music: {fileID: 8300000, guid: 4a9da529399342b4aaf74acc48bd1248, type: 3}
 --- !u!114 &841436387
 MonoBehaviour:
   m_ObjectHideFlags: 0

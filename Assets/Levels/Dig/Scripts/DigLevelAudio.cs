@@ -16,8 +16,8 @@ public sealed class DigLevelAudio : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float damageVolume = 0.7f;
     [SerializeField, Range(0f, 1f)] private float successVolume = 0.7f;
     [SerializeField, Range(0f, 1f)] private float failureVolume = 0.6f;
-    [SerializeField, Range(0f, 1f)] private float brushVolume = 0.25f;
-    [SerializeField, Range(0f, 1f)] private float bgmVolume = 0.15f;
+    [SerializeField, Range(0f, 1f)] private float brushVolume = 1f;
+    [SerializeField, Range(0f, 1f)] private float bgmVolume = 0.32f;
     private AudioSource effects, brush, music;
     private float lastBrushMotion = -999f;
     private bool paused;

@@ -394,9 +394,8 @@ namespace XunJiYiDa.Levels.Timeline.Tests
                 Assert.That(text.isTextOverflowing, Is.False, $"{name}: font={text.fontSize}, rect={text.rectTransform.rect}, text={text.text}");
             }
             Assert.That(GameObject("ResultHistory").activeInHierarchy, Is.True);
-            Assert.That(GameObject("ResultHistoryTitle").GetComponent<TMPro.TMP_Text>().text, Does.Contain("2003"),
-                "The last correct placement must still teach its change after the result overlay opens.");
-            for (int i = 0; i < 4; i++) Button("ResultPrevious").onClick.Invoke();
+            Assert.That(GameObject("ResultHistoryTitle").GetComponent<TMPro.TMP_Text>().text, Does.Contain("1926"),
+                "The completed summary must begin at the first stage, regardless of the last placed card.");
             Assert.That(Button("ResultPrevious").interactable, Is.False);
             for (int i = 0; i < years.Length; i++)
             {
@@ -438,10 +437,14 @@ namespace XunJiYiDa.Levels.Timeline.Tests
         {
             Begin();
             Drag(1926, 1946);
+            Drag(1946, 1946);
             controller.Session.Tick(45);
             string result = relay.LastResultJson;
             Assert.That(controller.Session.State, Is.EqualTo(LevelState.Failed));
             Assert.That(GameObject("ResultHistory").activeInHierarchy, Is.True);
+            Assert.That(GameObject("ResultHistoryTitle").GetComponent<TMPro.TMP_Text>().text, Does.Contain("1926"),
+                "The timeout summary must also start at the first stage after a later card was placed.");
+            Assert.That(Button("ResultPrevious").interactable, Is.False);
             Button("ResultNext").onClick.Invoke();
             Assert.That(GameObject("ResultHistoryTitle").GetComponent<TMPro.TMP_Text>().text, Does.Contain("1946"));
             Assert.That(relay.LastResultJson, Is.EqualTo(result));
@@ -449,6 +452,31 @@ namespace XunJiYiDa.Levels.Timeline.Tests
             Assert.That(relay.LastResult.MistakeCount, Is.EqualTo(1));
             yield return null;
             Capture("failure-learning");
+        }
+
+        [UnityTest]
+        public IEnumerator ClearLayoutShowsOnlyActionFeedbackAndKeepsItBetweenTheRows()
+        {
+            Begin();
+            Canvas.ForceUpdateCanvases();
+            var board = GameObject("TimelineBoard").transform;
+            var feedbackText = GameObject("Feedback").GetComponent<TMPro.TMP_Text>();
+            Assert.That(feedbackText.text, Is.Empty, "Do not repeat instructions in the feedback row before any action.");
+            var visible = board.GetComponentsInChildren<TMPro.TMP_Text>().Select(t => t.text).ToArray();
+            foreach (string clutter in new[] { "待定位的學制卡", "錯放可再試", "Esc 暫停", "拖曳至年份", "拖到這裡", "校史探索  /  1926" })
+                Assert.That(visible.Any(t => t.Contains(clutter)), Is.False, "Remove redundant text: " + clutter);
+            var feedbackBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(board, feedbackText.rectTransform);
+            var slotBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(board, Slot(1926));
+            var cardBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(board, Card(1926));
+            Assert.That(feedbackBounds.max.y, Is.LessThan(slotBounds.min.y), "Feedback must not overlap the timeline slots.");
+            Assert.That(feedbackBounds.min.y, Is.GreaterThan(cardBounds.max.y), "Feedback must not overlap the tray cards.");
+            Drag(1926, 1946);
+            Assert.That(feedbackText.text, Does.StartWith("線索｜"));
+            yield return new WaitForSecondsRealtime(.25f);
+            Drag(1926, 1926);
+            Assert.That(feedbackText.text, Does.StartWith("1926｜"));
+            controller.Retry();
+            Assert.That(feedbackText.text, Is.Empty, "Retry clears the previous history or clue.");
         }
 
         private void Begin() => Panel("Introduction").PrimaryButton.onClick.Invoke();

@@ -18,6 +18,10 @@ namespace TrackingNIU.EditorTools
     {
         public const float OutlineWidth = 4f;
 
+        const string RegularFont = "NotoSansTC-Regular SDF";
+        const string BoldFont = "NotoSansTC-Bold SDF";
+        const string SerifFont = "NotoSerifTC-Black SDF";
+
         public UiSpriteGenerator.UiSprites Sprites { get; }
         public TMP_FontAsset Regular { get; }
         public TMP_FontAsset Bold { get; }
@@ -26,9 +30,9 @@ namespace TrackingNIU.EditorTools
         public UiBuilder()
         {
             Sprites = UiSpriteGenerator.EnsureSprites();
-            Regular = LoadFont("NotoSansTC-Regular SDF");
-            Bold = LoadFont("NotoSansTC-Bold SDF");
-            Serif = LoadFont("NotoSerifTC-Black SDF");
+            Regular = LoadFont(RegularFont);
+            Bold = LoadFont(BoldFont);
+            Serif = LoadFont(SerifFont);
         }
 
         static TMP_FontAsset LoadFont(string name)
@@ -40,17 +44,23 @@ namespace TrackingNIU.EditorTools
         }
 
         /// <summary>建立相機、EventSystem 與 1920×1080 的 Canvas，回傳置中的 1920×1080 畫面區域。</summary>
-        public RectTransform CreateScreen(string canvasName, out Canvas canvas)
+        /// <param name="backgroundColor">畫面底色，預設是 UiPalette.Background。</param>
+        public RectTransform CreateScreen(string canvasName, out Canvas canvas, Color? backgroundColor = null)
         {
+            var background = backgroundColor ?? UiPalette.Background;
             var cameraObject = new GameObject("Main Camera") { tag = "MainCamera" };
             var camera = cameraObject.AddComponent<Camera>();
+            // 沒有 AudioListener 的話，畫面上的 BGM 與音效都聽不到。
+            cameraObject.AddComponent<AudioListener>();
             camera.clearFlags = CameraClearFlags.SolidColor;
-            camera.backgroundColor = UiPalette.Background;
+            camera.backgroundColor = background;
             camera.orthographic = true;
             cameraObject.transform.position = new Vector3(0f, 0f, -10f);
 
             var eventSystem = new GameObject("EventSystem", typeof(EventSystem));
-            eventSystem.AddComponent<InputSystemUIInputModule>().AssignDefaultActions();
+            // 不在這裡呼叫 AssignDefaultActions：它快取的動作在換場景後會失效，同一次編輯器工作階段第二次產生場景就會出錯。
+            // 沒有指定動作時，InputSystemUIInputModule 會在執行時的 OnEnable 自動套用預設動作。
+            eventSystem.AddComponent<InputSystemUIInputModule>();
 
             var canvasObject = new GameObject(canvasName, typeof(RectTransform));
             canvas = canvasObject.AddComponent<Canvas>();
@@ -62,8 +72,7 @@ namespace TrackingNIU.EditorTools
             scaler.matchWidthOrHeight = 0.5f;
             canvasObject.AddComponent<GraphicRaycaster>();
 
-            var background = Stretch("Background", canvasObject.transform);
-            AddImage(background, null, UiPalette.Background);
+            AddImage(Stretch("Background", canvasObject.transform), null, background);
 
             // 非 16:9 的螢幕上，內容維持 1920×1080 置中，多出來的部分顯示背景色。
             var frame = (RectTransform)new GameObject("Frame", typeof(RectTransform)).transform;
@@ -263,8 +272,10 @@ namespace TrackingNIU.EditorTools
         /// </summary>
         void DiscardFontChanges()
         {
-            foreach (var font in new[] { Regular, Bold, Serif })
+            // 存檔時字型可能被重新匯入，原本的物件會失效，所以依名稱重新載入。
+            foreach (var name in new[] { RegularFont, BoldFont, SerifFont })
             {
+                var font = LoadFont(name);
                 font.ClearFontAssetData();
                 EditorUtility.SetDirty(font);
                 AssetDatabase.SaveAssetIfDirty(font);

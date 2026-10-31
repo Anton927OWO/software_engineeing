@@ -14,6 +14,9 @@ namespace XunJiYiDa.Levels.Shared
         [SerializeField, TextArea(3, 10)] private string introductionBody = "這裡提供關卡共用的時間、暫停、介紹與知識卡介面。\n準備好後，按下開始探索。";
         [SerializeField] private Sprite introductionImage;
         [SerializeField] private bool showIntroduction = true;
+        [Tooltip("Looping background music while the attempt is running. Leave empty for silence.")]
+        [SerializeField] private AudioClip music;
+        [SerializeField, Range(0, 1)] private float musicVolume = 0.3f;
 
         public string LevelId => levelId;
         public string DisplayName => displayName;
@@ -23,6 +26,8 @@ namespace XunJiYiDa.Levels.Shared
         public string IntroductionBody => introductionBody;
         public Sprite IntroductionImage => introductionImage;
         public bool ShowIntroduction => showIntroduction;
+        public AudioClip Music => music;
+        public float MusicVolume => musicVolume;
 
         public LevelSession CreateSession() => new LevelSession(levelId, durationSeconds, mistakeLimit);
     }

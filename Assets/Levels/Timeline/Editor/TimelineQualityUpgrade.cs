@@ -57,20 +57,39 @@ namespace XunJiYiDa.Levels.Timeline.Editor
         {
             var board = scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<TimelineBoard>(true)).Single();
             var root = board.transform;
+            // Keep the original objects and references, but remove duplicate reading from gameplay.
+            root.Find("Eyebrow").gameObject.SetActive(false);
+            root.Find("TrayLabel").gameObject.SetActive(false);
+            root.Find("Footer").gameObject.SetActive(false);
+            var title = root.Find("Title").GetComponent<TMP_Text>();
+            Place(title.rectTransform, new Vector2(-530, 300), new Vector2(740, 90));
+            title.fontSize = 56;
+            var instructions = root.Find("Instructions").GetComponent<TMP_Text>();
+            instructions.text = "將學制卡拖到對應年份";
+            instructions.fontSize = 28;
+            var tray = (RectTransform)root.Find("CardTray");
+            Place(tray, new Vector2(0, -380), new Vector2(1840, 270));
             var feedback = root.Find("Feedback").GetComponent<TMP_Text>();
-            Place(feedback.rectTransform, new Vector2(180, -194), new Vector2(1420, 68));
-            feedback.fontSize = 28;
-            feedback.alignment = TextAlignmentOptions.MidlineLeft;
+            Place(feedback.rectTransform, new Vector2(0, -198), new Vector2(1740, 64));
+            feedback.fontSize = 30;
+            feedback.text = string.Empty;
+            feedback.alignment = TextAlignmentOptions.Center;
             feedback.color = new Color32(31, 58, 46, 255);
-            var trayLabel = root.Find("TrayLabel").GetComponent<TMP_Text>();
-            Place(trayLabel.rectTransform, new Vector2(-730, -196), new Vector2(340, 50));
-            trayLabel.fontSize = 24;
+            foreach (var slot in board.GetComponentsInChildren<TimelineSlot>(true))
+            {
+                var prompt = slot.transform.Find("DropPrompt").GetComponent<TMP_Text>();
+                prompt.text = "+";
+                prompt.fontSize = 54;
+                prompt.color = new Color32(165, 148, 122, 255);
+            }
             root.Find("Knowledge/Label").GetComponent<TMP_Text>().text = "年代提示";
             var guide = (Button)new SerializedObject(board).FindProperty("spaceIntroduction").objectReferenceValue;
             guide.GetComponentInChildren<TMP_Text>(true).text = "操作說明";
             foreach (var card in board.GetComponentsInChildren<TimelineCard>(true))
             {
                 int i = card.TargetIndex;
+                var cardRect = (RectTransform)card.transform;
+                cardRect.anchoredPosition = new Vector2(cardRect.anchoredPosition.x, -380);
                 card.GetComponent<Image>().color = Paper[i];
                 var outline = card.GetComponent<Outline>() ?? card.gameObject.AddComponent<Outline>();
                 outline.effectColor = Accents[i];
@@ -100,11 +119,12 @@ namespace XunJiYiDa.Levels.Timeline.Editor
                 }
                 var name = card.transform.Find("SchoolName").GetComponent<TMP_Text>();
                 name.fontSize = 36;
-                Place(name.rectTransform, new Vector2(0, -62), new Vector2(280, 56));
+                Place(name.rectTransform, new Vector2(0, -78), new Vector2(280, 56));
                 var gesture = card.transform.Find("Gesture").GetComponent<TMP_Text>();
                 gesture.fontSize = 22;
                 Place(gesture.rectTransform, new Vector2(0, -104), new Vector2(260, 40));
                 gesture.color = Accents[i];
+                gesture.gameObject.SetActive(false);
             }
             ApplyLearning(scene, board);
         }
@@ -117,8 +137,8 @@ namespace XunJiYiDa.Levels.Timeline.Editor
             var knowledgePanel = panels.Single(p => p.name == "KnowledgeCard");
             var knowledgeCard = knowledgePanel.transform.Find("Card");
             var font = board.transform.Find("Progress").GetComponent<TMP_Text>().font;
-            TextAt("CultureConnection", board.transform, font, TimelineHistory.Stages[4].Connection, 24,
-                new Vector2(220, 302), new Vector2(630, 88));
+            var cultureCaption = board.transform.Find("CultureConnection");
+            if (cultureCaption != null) cultureCaption.gameObject.SetActive(false);
             var body = knowledgeCard.Find("Body").GetComponent<TMP_Text>();
             Place(body.rectTransform, new Vector2(-210, 45), new Vector2(770, 300));
             body.fontSize = 30;
