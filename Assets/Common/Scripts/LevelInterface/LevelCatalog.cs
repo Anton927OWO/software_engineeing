@@ -40,14 +40,15 @@ namespace TrackingNIU
     /// <summary>全部關卡的設定表。只有游士霆修改這個檔案。</summary>
     public static class LevelCatalog
     {
-        // 文物分配為開工會議提案，確認後在這裡修改即可，各關程式不用動。
+        // 文物盡量配合關卡內容：考古挖到金箔片、地層有陶片紋飾、百年軌跡的農林教育對上推測為農具的木鏟、
+        // 列車車廂像串起的瑪瑙珠、書海找回雕板紀錄、文化廊道的漁獵對上魚形的金鯉魚。各關程式不用動。
         static readonly LevelDefinition[] s_levels =
         {
             new LevelDefinition(LevelId.Prologue,  "序章：知識之林尋書", "圖資館前廣場「知識之林」",   LevelPool.Prologue, 0f,  0,  ArtifactId.None),
             new LevelDefinition(LevelId.Dig,       "考古小隊",           "2F 宜大記憶庫・展區二",       LevelPool.Indoor,   60f, 50, ArtifactId.GoldFoil),
-            new LevelDefinition(LevelId.Timeline,  "百年軌跡",           "2F 宜大記憶庫・展區四",       LevelPool.Indoor,   45f, 20, ArtifactId.WoodenDisc),
+            new LevelDefinition(LevelId.Timeline,  "百年軌跡",           "2F 宜大記憶庫・展區四",       LevelPool.Indoor,   45f, 20, ArtifactId.WoodenSpade),
             new LevelDefinition(LevelId.Train,     "知識列車",           "3F 學習共享空間・車廂區",     LevelPool.Indoor,   60f, 30, ArtifactId.AgateBead),
-            new LevelDefinition(LevelId.Bookshelf, "書海尋寶",           "5F 中文圖書區",               LevelPool.Indoor,   60f, 20, ArtifactId.WoodenSpade),
+            new LevelDefinition(LevelId.Bookshelf, "書海尋寶",           "5F 中文圖書區",               LevelPool.Indoor,   60f, 20, ArtifactId.WoodenDisc),
             // 期末擴充：文物待實地確認後決定。
             new LevelDefinition(LevelId.Collage,   "黃春明撕畫工作室",   "3F 黃春明體驗行動館",         LevelPool.Indoor,   60f, 20, ArtifactId.None, availableInMidterm: false),
             // 規畫書沒有寫擋鹿的失誤扣分，提案：每隻鹿離開地圖算一次失誤。

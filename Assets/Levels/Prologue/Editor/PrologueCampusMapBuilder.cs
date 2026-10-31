@@ -53,8 +53,9 @@ public static class PrologueCampusMapBuilder
         new Spot
         {
             Name = "萬斌廳", Book = "Book3", Pin = new Vector2(924, 491), BookSpot = new Vector2(924, 375),
-            Title = "從土裡讀歷史：淇武蘭遺址",
-            Body = "淇武蘭遺址位在礁溪，是噶瑪蘭族的舊社遺址，出土了陶罐、瑪瑙珠與金屬飾品等大量文物。" +
+            Title = "從土裡讀歷史：宜蘭農校遺址",
+            Body = "宜大校園底下就有一座遺址，沿用學校舊名稱作「宜蘭農校遺址」，出土了陶罐、瑪瑙珠與金屬飾品等文物，" +
+                   "萬斌廳以仿真復刻與圖文呈現它的文化層。" +
                    "\n考古學家一層一層挖開土壤，越深的地層通常年代越久遠。接下來的旅程，你也要親手試試看！",
         },
     };
@@ -134,13 +135,13 @@ public static class PrologueCampusMapBuilder
             styleData.ApplyModifiedPropertiesWithoutUndo();
         }
 
-        SetText(Find("IntroDescription"), "<line-height=130%>圖資館的館員發現，三本記錄宜蘭故事的書被風吹散到校園各處。\n" +
+        SetText(Find("IntroDescription"), "<line-height=130%>宜大迎來創校百年，記憶庫正在整理文物的故事，三本記錄宜蘭故事的書卻被風吹散到校園各處。\n" +
             "打開宜大校園地圖，把書找回來，也認識這座校園與噶瑪蘭的故事！</line-height>");
         SetText(Find("IntroControlsBody"), "<line-height=130%>1. 點擊地圖上閃爍的地點，閱讀知識卡。\n" +
             "2. 把出現的書本拖進「知識之林」的書箱。\n3. 三本書都歸位就完成序章，順序不限。</line-height>");
         SetText(Find("CompleteDescription"), "<line-height=140%><size=36><b><color=#243D32>成功收集三本書！</color></b></size>\n\n" +
-            "<voffset=36><color=#735A46>你認識了宜大的百年起點、噶瑪蘭族，\n以及淇武蘭遺址的考古故事。\n" +
-            "接下來，循著線索找回散落的文物吧！</color></voffset></line-height>");
+            "<voffset=36><color=#735A46>你認識了宜大的百年起點、噶瑪蘭族，\n以及宜蘭農校遺址的考古故事。\n" +
+            "宜大百年，幫記憶庫找回三件文物的故事吧！</color></voffset></line-height>");
 
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);

@@ -18,8 +18,8 @@ MonoBehaviour:
     prompt: "宜蘭大學創校於西元哪一年？"
     options:
     - "1926 年"
-    - "1956 年"
-    - "2003 年"
+    - "1946 年"
+    - "1988 年"
     correctIndex: 0
     explanation: "民國十五年就是 1926 年，這是宜大百年故事的起點。"
     sourceTitle: "國立宜蘭大學｜校史"
@@ -30,9 +30,9 @@ MonoBehaviour:
     station: "百年起點"
     prompt: "宜大創校時，以哪個校名展開農林教育？"
     options:
-    - "國立宜蘭技術學院"
+    - "臺灣省立宜蘭農業職業學校"
     - "台北州立宜蘭農林學校"
-    - "國立宜蘭大學"
+    - "國立宜蘭農工專科學校"
     correctIndex: 1
     explanation: "創校校名是台北州立宜蘭農林學校，農林是辦學起點。"
     sourceTitle: "國立宜蘭大學｜校史"
@@ -43,8 +43,8 @@ MonoBehaviour:
     station: "校園記憶"
     prompt: "宜大記憶庫整合了哪三種功能？"
     options:
-    - "車站、郵局、商店"
-    - "餐廳、宿舍、體育館"
+    - "圖書館、美術館、音樂廳"
+    - "博物館、科學館、天文台"
     - "圖書館、博物館、檔案館"
     correctIndex: 2
     explanation: "記憶庫結合閱讀、文物展示與檔案保存，讓校園記憶相連。"
@@ -57,8 +57,8 @@ MonoBehaviour:
     prompt: "哪一項是宜大記憶庫保存與呈現的內容？"
     options:
     - "校園地景、師生物件與故事"
-    - "只有本週考試答案"
-    - "只有列車班次"
+    - "全臺各地博物館的借展品"
+    - "宜蘭縣的戶政與地籍檔案"
     correctIndex: 0
     explanation: "記憶庫以地景、物件與故事呈現學校過去的生活樣貌。"
     sourceTitle: "宜大圖資館｜宜大記憶庫"
@@ -82,8 +82,8 @@ MonoBehaviour:
     station: "考古發現"
     prompt: "宜蘭農校遺址的木質文物，為何能部分保存？"
     options:
-    - "因為全都由金屬製成"
-    - "因為一直放在乾燥書架"
+    - "土壤長年乾燥，隔絕了水分"
+    - "木器外層包著金屬保護"
     - "地下水豐沛，形成泡水環境"
     correctIndex: 2
     explanation: "宜蘭地下水豐沛，泡水環境讓部分木質文物得以保存。"
@@ -97,9 +97,22 @@ MonoBehaviour:
     options:
     - "推測為農具，尚非確定用途"
     - "已確定是祭祀法器"
-    - "已確定是鐵路工具"
+    - "已確定是划船用的槳"
     correctIndex: 0
     explanation: "官方僅推測木鏟是農具，推測不能當成已確定的用途。"
+    sourceTitle: "宜大圖資館｜出土文物"
+    sourceUrl: "https://lic.niu.edu.tw/p/412-1010-6107.php"
+    verified: 1
+    verifiedOn: "2026-10-29"
+  - id: "archaeology-agate"
+    station: "考古發現"
+    prompt: "宜蘭農校遺址出土的瑪瑙珠，以哪種形狀最多？"
+    options:
+    - "六角管形"
+    - "圓球形"
+    - "扁平圓片形"
+    correctIndex: 0
+    explanation: "遺址出土的瑪瑙珠以六角管形最多，呈現當時的裝飾文化。"
     sourceTitle: "宜大圖資館｜出土文物"
     sourceUrl: "https://lic.niu.edu.tw/p/412-1010-6107.php"
     verified: 1
@@ -110,7 +123,7 @@ MonoBehaviour:
     options:
     - "居住在高山的人"
     - "居住在平原的人"
-    - "駕駛列車的人"
+    - "居住在海邊的人"
     correctIndex: 1
     explanation: "Kavalan 指居住在平原的人，連結噶瑪蘭與蘭陽平原。"
     sourceTitle: "宜大圖資館｜噶瑪蘭族簡介"
@@ -121,8 +134,8 @@ MonoBehaviour:
     station: "噶瑪蘭文化"
     prompt: "噶瑪蘭族的香蕉絲織布，使用哪種材料？"
     options:
-    - "銅質金屬線"
-    - "玻璃纖維"
+    - "羊毛"
+    - "蠶絲"
     - "香蕉纖維"
     correctIndex: 2
     explanation: "香蕉絲織布取用香蕉纖維，是噶瑪蘭族重要的民族工藝。"
@@ -135,8 +148,8 @@ MonoBehaviour:
     prompt: "文化廊道以哪些元素，讓人認識噶瑪蘭生活？"
     options:
     - "家屋、漁獵、工藝與植物"
-    - "列車時刻與車票價格"
-    - "遊樂設施身高限制"
+    - "日式宿舍、神社與校門"
+    - "梯田、礦坑與鐵道"
     correctIndex: 0
     explanation: "廊道把家屋、漁獵、工藝與植物融入校園，呈現生活文化。"
     sourceTitle: "宜大圖資館｜噶瑪蘭文化廊道"
@@ -161,7 +174,7 @@ MonoBehaviour:
     prompt: "參觀萬斌廳文化層展區，應如何理解展示？"
     options:
     - "每件展示都保證是出土原件"
-    - "文物皆無考古資料可查"
+    - "只展示照片，沒有立體展品"
     - "以仿真復刻結合圖文呈現遺址"
     correctIndex: 2
     explanation: "文化層以仿真復刻配合圖文展示，不能將復刻品當成原件。"

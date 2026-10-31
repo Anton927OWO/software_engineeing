@@ -15,7 +15,7 @@ Unity **6000.3.19f1**。開啟 `Assets/Levels/Train/L_Train.unity` 按 Play，�
 
 ## 編輯題庫
 
-在 Inspector 選取 `Data/TrainQuestions.asset`，編輯 questions。預設 12 題，不需要改程式。
+在 Inspector 選取 `Data/TrainQuestions.asset`，編輯 questions。預設 13 題，不需要改程式。
 
 | 欄位 | 用法 |
 | --- | --- |
@@ -30,7 +30,7 @@ Unity **6000.3.19f1**。開啟 `Assets/Levels/Train/L_Train.unity` 按 Play，�
 
 格式錯誤的題目會略過；沒有有效題目時開始後安全失敗。正式題庫請維持至少十題。`TrainQuestions.seed.json` 僅用於首次生成缺少的題庫，不會覆蓋 Inspector 已編輯的 asset。
 
-預設 12 題於 **2026-10-29（Asia/Taipei）**重新查核，涵蓋五主題，各至少兩題；詳見 [逐題來源與教育目標](來源查核.md)。題幹、選項與解釋在 `TrainQuestions.asset` 和首次生成 seed 保持一致。查核範圍為官方頁面支持的事實，不把 URL 格式測試視為史實查核。
+預設題目於 **2026-10-29（Asia/Taipei）**重新查核；2026-11-01 把明顯不合理的錯誤選項換成看似合理的同類選項，並新增本關獎勵文物瑪瑙珠的題目（共 13 題）。涵蓋五主題，各至少兩題；詳見 [逐題來源與教育目標](來源查核.md)。題幹、選項與解釋在 `TrainQuestions.asset` 和首次生成 seed 保持一致。查核範圍為官方頁面支持的事實，不把 URL 格式測試視為史實查核。
 
 「校史車站」為關卡情境，未宣稱校內存在實際鐵道或車站。題目與解說是依來源重新撰寫。
 

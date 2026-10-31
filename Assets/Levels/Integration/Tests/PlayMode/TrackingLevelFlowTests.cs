@@ -52,7 +52,7 @@ namespace XunJiYiDa.Levels.Integration.Tests
             controller.Succeed();
             Assert.That(TeamSession.HasReported, Is.True, "Completing the game must report to TrackingNIU.");
             Assert.That(TeamSession.Result.LevelId, Is.EqualTo(TrackingNIU.LevelId.Timeline));
-            Assert.That(TeamSession.Result.Artifact, Is.EqualTo(TrackingNIU.ArtifactId.WoodenDisc));
+            Assert.That(TeamSession.Result.Artifact, Is.EqualTo(TrackingNIU.ArtifactId.WoodenSpade));
             Assert.That(TeamSession.Result.Mistakes, Is.EqualTo(1));
             Assert.That(TeamSession.Score.MistakePenalty, Is.EqualTo(20));
             Assert.That(exits, Is.Zero, "The result card must remain until Continue.");
