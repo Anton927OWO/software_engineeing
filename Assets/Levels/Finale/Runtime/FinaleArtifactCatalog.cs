@@ -16,6 +16,8 @@ namespace XunJiYiDa.Levels.Finale
         public string summary;
         public string knowledge;
         public string memoryCue;
+        /// <summary>Text on the clue card; never names the artifact, so the pair must be recalled.</summary>
+        public string clue;
         public string sourceUrl;
         public string verificationStatus;
         public string verifiedOn;
@@ -24,6 +26,7 @@ namespace XunJiYiDa.Levels.Finale
 
         public bool IsVerified => verificationStatus == "VerifiedOfficialSource";
         public string Summary => IsVerified ? summary : "觀察輪廓與紋樣，記住這件文物的特色。";
+        public string Clue => IsVerified && !string.IsNullOrEmpty(clue) ? clue : memoryCue;
         public string GalleryBody => IsVerified
             ? knowledge
             : "仔細看看圖卡。\n辨識線索：" + memoryCue;

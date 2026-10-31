@@ -17,7 +17,7 @@ MonoBehaviour:
   durationSeconds: 90
   mistakeLimit: 0
   introductionTitle: "\u7D42\u7AE0\u7A7A\u9593\uFF5C\u627E\u56DE\u6587\u7269\u8A18\u61B6"
-  introductionBody: "先看本局的三件文物；2 秒提示不扣時間。\n\n90 秒內完成六組配對。相同文物保留金框；不同則在 0.8 秒後翻回並記錄一次失誤。\n\n配對時認識文物，通關後可點圖鑑查看來源。閱讀與暫停不扣時間。圖像為示意。"
+  introductionBody: "先看本局的三件文物；2 秒提示不扣時間。\n\n90 秒內完成六組配對：每組是一張文物圖和一張描述它的線索卡。配對成功保留金框；配錯則在 0.8 秒後翻回並記錄一次失誤。\n\n配對時認識文物，通關後可點圖鑑查看來源。閱讀與暫停不扣時間。圖像為示意。"
   introductionImage: {fileID: 290658076908743098, guid: 847e17a6ad766492eb2a4fed84278210, type: 3}
   showIntroduction: 1
   music: {fileID: 8300000, guid: 81ab6b84bd2c48cbb452c6b8179ed320, type: 3}

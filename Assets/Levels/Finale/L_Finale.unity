@@ -8899,7 +8899,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u6BCF\u6B21\u7FFB\u5169\u5F35\uFF0C\u627E\u51FA\u76F8\u540C\u6587\u7269\u3002\n\u91D1\u6846\u8868\u793A\u914D\u5C0D\u6210\u529F\u3002\n\u5931\u914D\u5F8C\u8A18\u4F4F\u5169\u5F35\u7684\u4F4D\u7F6E\u3002"
+  m_text: "\u6BCF\u6B21\u7FFB\u5169\u5F35\uFF0C\u628A\u6587\u7269\u5716\u548C\u63CF\u8FF0\u5B83\u7684\u7DDA\u7D22\u5361\u914D\u6210\u4E00\u5C0D\u3002\n\u91D1\u6846\u8868\u793A\u914D\u5C0D\u6210\u529F\uFF1B\u672C\u5C40\u627E\u56DE\u7684\u6587\u7269\u6703\u7279\u5225\u6A19\u793A\u3002"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 602bbe7f8d8f545fba803fdf33991478, type: 2}
   m_sharedMaterial: {fileID: -43271464612342262, guid: 602bbe7f8d8f545fba803fdf33991478, type: 2}
@@ -14022,6 +14022,7 @@ MonoBehaviour:
     face: {fileID: -8276371786008654977, guid: d1bac8a945a5d411aac98f2822aaa3ae, type: 3}
     icon: {fileID: -133472046158393260, guid: 8770b2bdabcd04d5f8e186386d7a6f00, type: 3}
   cardBack: {fileID: -8622259438476403829, guid: 924c5819a6db04b5e88c61cb1c0a931c, type: 3}
+  clueFace: {fileID: -3986131177259440346, guid: d9450bcf43154c42b37410a884cdef75, type: 3}
   cards:
   - {fileID: 1348610023}
   - {fileID: 228295595}

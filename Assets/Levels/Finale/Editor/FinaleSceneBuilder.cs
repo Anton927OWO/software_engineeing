@@ -81,7 +81,7 @@ namespace XunJiYiDa.Levels.Finale.Editor
             so.FindProperty("showIntroduction").boolValue = true;
             so.FindProperty("introductionTitle").stringValue = "終章空間｜找回文物記憶";
             so.FindProperty("introductionBody").stringValue =
-                "先看本局的三件文物；2 秒提示不扣時間。\n\n90 秒內完成六組配對。相同文物保留金框；不同則在 0.8 秒後翻回並記錄一次失誤。\n\n配對時認識文物，通關後可點圖鑑查看來源。閱讀與暫停不扣時間。圖像為示意。";
+                "先看本局的三件文物；2 秒提示不扣時間。\n\n90 秒內完成六組配對：每組是一張文物圖和一張描述它的線索卡。配對成功保留金框；配錯則在 0.8 秒後翻回並記錄一次失誤。\n\n配對時認識文物，通關後可點圖鑑查看來源。閱讀與暫停不扣時間。圖像為示意。";
             so.FindProperty("introductionImage").objectReferenceValue = Sprite("Artifact_01");
             so.ApplyModifiedPropertiesWithoutUndo();
             AssetDatabase.CreateAsset(definition, DefinitionPath);
@@ -158,7 +158,7 @@ namespace XunJiYiDa.Levels.Finale.Editor
             var sideTitle = Text("Title", side.transform, font, "文物的樣子，\n你還記得嗎？", 36, Ink);
             Place(sideTitle.rectTransform, new Vector2(0, 230), new Vector2(390, 110));
             var note = Text("Instructions", side.transform, font,
-                "90 秒內完成六組配對。\n\n每次翻兩張，找出相同文物。\n配對成功會亮起金框。\n\n先翻一張，再閱讀知識卡，\n認識這件文物的圖像。", 23, Ink);
+                "90 秒內完成六組配對。\n\n每次翻兩張，把文物圖和線索卡配成一對。\n配對成功會亮起金框。\n\n先翻一張，再閱讀知識卡，\n認識這件文物的圖像。", 23, Ink);
             Place(note.rectTransform, new Vector2(0, 44), new Vector2(390, 250));
             var progress = Text("Progress", side.transform, font, "記憶拼圖　0 / 6", 32, Ink);
             Place(progress.rectTransform, new Vector2(0, -130), new Vector2(390, 65));

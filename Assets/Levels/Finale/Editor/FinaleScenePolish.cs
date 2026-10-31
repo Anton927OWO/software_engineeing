@@ -34,7 +34,7 @@ namespace XunJiYiDa.Levels.Finale.Editor
             var safe = root.GetComponentInChildren<Canvas>(true).transform.Find("SafeArea");
             var side = safe.Find("FinaleView/GuideCard");
             var instructions = side.Find("Instructions").GetComponent<TMP_Text>();
-            instructions.text = "每次翻兩張，找出相同文物。\n金框表示配對成功。\n失配後記住兩張的位置。";
+            instructions.text = "每次翻兩張，把文物圖和描述它的線索卡配成一對。\n金框表示配對成功；本局找回的文物會特別標示。";
             instructions.fontSize = 24;
             instructions.alignment = TextAlignmentOptions.TopLeft;
             Place(instructions.rectTransform, 0, 100, 390, 140);

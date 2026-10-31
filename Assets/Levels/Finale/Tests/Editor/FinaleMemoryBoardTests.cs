@@ -14,6 +14,17 @@ namespace XunJiYiDa.Levels.Finale.Tests
             Assert.That(Enumerable.Range(0, 12).All(i => !board.IsFaceUp(i) && !board.IsMatched(i)), Is.True);
         }
 
+        [TestCase(1)] [TestCase(27)] [TestCase(802)]
+        public void EachArtifactHasOnePictureCardAndOneClueCard(int seed)
+        {
+            var board = new FinaleMemoryBoard(seed);
+            for (int artifact = 0; artifact < 6; artifact++)
+            {
+                var pair = Enumerable.Range(0, 12).Where(i => board.ArtifactAt(i) == artifact).ToArray();
+                Assert.That(pair.Count(board.IsClueCard), Is.EqualTo(1), "artifact " + artifact);
+            }
+        }
+
         [Test]
         public void DifferentSeedsDoNotAlwaysReuseTheSameLayout()
         {

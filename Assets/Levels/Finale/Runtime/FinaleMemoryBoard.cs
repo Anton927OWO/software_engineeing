@@ -2,12 +2,14 @@ using System;
 
 namespace XunJiYiDa.Levels.Finale
 {
-    /// <summary>Pair-selection contract; presentation and time belong to the scene controller.</summary>
+    /// <summary>Pair-selection contract; presentation and time belong to the scene controller.
+    /// Each artifact has one picture card and one clue card; a pair is a picture and its clue.</summary>
     public sealed class FinaleMemoryBoard
     {
         public const int CardCount = 12;
         public const int PairCount = 6;
         private readonly int[] artifacts = new int[CardCount];
+        private readonly bool[] clues = new bool[CardCount];
         private readonly bool[] faceUp = new bool[CardCount];
         private readonly bool[] matched = new bool[CardCount];
         private int first = -1;
@@ -15,16 +17,18 @@ namespace XunJiYiDa.Levels.Finale
 
         public FinaleMemoryBoard(int seed)
         {
-            for (int i = 0; i < CardCount; i++) artifacts[i] = i / 2;
+            for (int i = 0; i < CardCount; i++) { artifacts[i] = i / 2; clues[i] = i % 2 == 1; }
             var random = new Random(seed);
             for (int i = CardCount - 1; i > 0; i--)
             {
                 int j = random.Next(i + 1);
                 int value = artifacts[i]; artifacts[i] = artifacts[j]; artifacts[j] = value;
+                bool clue = clues[i]; clues[i] = clues[j]; clues[j] = clue;
             }
         }
 
         public int ArtifactAt(int index) => artifacts[index];
+        public bool IsClueCard(int index) => clues[index];
         public bool IsFaceUp(int index) => faceUp[index];
         public bool IsMatched(int index) => matched[index];
         public bool PairReady => second >= 0;

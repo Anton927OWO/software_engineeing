@@ -32,6 +32,8 @@ namespace XunJiYiDa.Levels.Finale
         [SerializeField] private FinaleArtifact[] artifacts;
         private FinaleArtifactCatalog facts;
         [SerializeField] private Sprite cardBack;
+        [Tooltip("線索卡的空白牌面，文字由程式疊上")]
+        [SerializeField] private Sprite clueFace;
         [SerializeField] private FinaleCardView[] cards;
         [SerializeField] private TMP_Text progress;
         [SerializeField] private TMP_Text feedback;
@@ -148,9 +150,15 @@ namespace XunJiYiDa.Levels.Finale
             acquiredSummary.text = "本局文物\n開始後顯示本局的三件文物";
             hintPanel.SetActive(false);
             Board = new FinaleMemoryBoard(UnityEngine.Random.Range(0, int.MaxValue));
-            for (int i = 0; i < cards.Length; i++) cards[i].ResetCard(artifacts[Board.ArtifactAt(i)].face, cardBack);
+            for (int i = 0; i < cards.Length; i++)
+            {
+                var artifact = artifacts[Board.ArtifactAt(i)];
+                if (Board.IsClueCard(i))
+                    cards[i].ResetCard(clueFace != null ? clueFace : cardBack, cardBack, facts.Find(artifact.id).Clue);
+                else cards[i].ResetCard(artifact.face, cardBack);
+            }
             progress.text = "記憶拼圖　0 / 6";
-            feedback.text = "每次翻兩張；配對成功就能學到一句文物知識。";
+            feedback.text = "每次翻兩張，把文物圖和描述它的線索卡配成一對。";
             learningNote.text = "邊配對，邊認識文物\n配對後在這裡留下新發現。";
             RefreshInteractivity();
         }
@@ -174,7 +182,7 @@ namespace XunJiYiDa.Levels.Finale
             yield return Flip(cards[index], null, true);
             if (!second)
             {
-                feedback.text = "再翻一張，找出相同的文物。";
+                feedback.text = Board.IsClueCard(index) ? "再翻一張，找出這段線索說的文物。" : "再翻一張，找出描述這件文物的線索卡。";
                 busy = false;
                 yield break;
             }
@@ -182,28 +190,39 @@ namespace XunJiYiDa.Levels.Finale
             if (correct)
             {
                 Board.ResolvePair();
-                cards[previous].SetMatched(true); cards[index].SetMatched(true);
-                audioPlayer?.PlayCorrect();
-                progress.text = $"記憶拼圖　{Board.MatchedPairs} / 6";
                 lastMatchedArtifact = Board.ArtifactAt(index);
                 var artifact = artifacts[lastMatchedArtifact];
                 var fact = facts.Find(artifact.id);
-                feedback.text = "配對成功｜" + artifact.title + "。金框會保留，繼續找下一組。";
-                learningNote.text = "文物小知識\n" + fact.Summary;
+                bool acquired = Array.IndexOf(acquiredIds, artifact.id) >= 0;
+                string label = acquired ? "本局找回" : null;
+                cards[previous].SetMatched(true, label); cards[index].SetMatched(true, label);
+                audioPlayer?.PlayCorrect();
+                progress.text = $"記憶拼圖　{Board.MatchedPairs} / 6";
+                feedback.text = "配對成功｜" + artifact.title + (acquired
+                    ? "，這是你這一局找回的文物！" : "。金框會保留，繼續找下一組。");
+                learningNote.text = (acquired ? "你找回的文物\n" : "文物小知識\n") + fact.Summary;
                 first = -1; busy = false;
                 if (Board.IsComplete) controller.Succeed();
             }
             else
             {
-                string comparison = "比較線索｜" + facts.Find(artifacts[Board.ArtifactAt(previous)].id).memoryCue +
-                    "／" + facts.Find(artifacts[Board.ArtifactAt(index)].id).memoryCue;
+                string comparison = MismatchHint(previous, index);
                 feedback.text = comparison + "\n0.8 秒後翻回，記住它們的位置。";
                 yield return WaitForRunningSeconds(MismatchSeconds);
                 yield return Flip(cards[previous], cards[index], false);
                 Board.ResolvePair();
                 first = -1; busy = false;
-                feedback.text = comparison + "\n兩張已翻回，再試著找相同的形狀。";
+                feedback.text = comparison + "\n兩張已翻回，記住它們的位置。";
             }
+        }
+
+        private string MismatchHint(int a, int b)
+        {
+            if (Board.IsClueCard(a) == Board.IsClueCard(b))
+                return (Board.IsClueCard(a) ? "兩張都是線索卡" : "兩張都是文物圖") + "；一組要一張文物圖配一張線索。";
+            int picture = Board.IsClueCard(a) ? b : a;
+            var artifact = artifacts[Board.ArtifactAt(picture)];
+            return "線索說的不是" + artifact.title + "｜觀察它的" + facts.Find(artifact.id).memoryCue;
         }
 
         private IEnumerator Flip(FinaleCardView a, FinaleCardView b, bool up)
