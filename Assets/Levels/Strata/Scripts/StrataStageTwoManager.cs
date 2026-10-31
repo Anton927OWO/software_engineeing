@@ -233,8 +233,8 @@ public sealed class StrataStageTwoManager : MonoBehaviour
             ApplyVisual(enlargedPattern, q.artifactImage, q.focusRegion, new Vector2(620, 220));
             targetName.text = DescribePattern(q.prompt);
         }
-        enlargedPattern.enabled = false; // ApplyVisual turns it on; keep it hidden until the match is correct.
         else ShowFeedback("本題尚未就緒：" + reason, Incorrect, 1.5f);
+        enlargedPattern.enabled = false; // ApplyVisual turns it on; keep it hidden until the match is correct.
         RefreshProgress();
         RefreshInput();
     }
