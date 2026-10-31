@@ -3,7 +3,7 @@
     {
       "id": "artifact-01",
       "summary": "金鯉魚是魚形金屬編物，以銅線纏繞製成。",
-      "knowledge": "金鯉魚是魚形金屬編物，以銅線纏繞製成。\n「金鯉魚」是俗稱，不能只憑名稱判斷材質。",
+      "knowledge": "金鯉魚是魚形金屬編物，以銅線纏繞製成。\n銅線層層交疊，編出具有彈性的魚形飾物。",
       "memoryCue": "魚形輪廓與編織線條",
       "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
       "verificationStatus": "VerifiedOfficialSource",
@@ -14,7 +14,7 @@
     {
       "id": "artifact-02",
       "summary": "壓印紋飾金箔片帶有閉眼人臉的模樣。",
-      "knowledge": "壓印紋飾金箔片帶有閉眼人臉的模樣。\n官方記錄指出，這類金箔片發現於墓葬中。",
+      "knowledge": "壓印紋飾金箔片帶有閉眼人臉的模樣。\n它出土於墓葬，細緻的人臉紋飾是這件文物的特色。",
       "memoryCue": "薄片輪廓",
       "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
       "verificationStatus": "VerifiedOfficialSource",
@@ -25,7 +25,7 @@
     {
       "id": "artifact-03",
       "summary": "幾何印紋陶罐使用蘭陽平原的黏土，以手捏塑製作。",
-      "knowledge": "幾何印紋陶罐使用蘭陽平原的黏土，以手捏塑製作。\n官方記錄提到，遺址發現超過 25 種幾何紋飾。",
+      "knowledge": "幾何印紋陶罐使用蘭陽平原的黏土，以手捏塑製作。\n罐身的幾何紋飾豐富多樣，遺址中發現了超過 25 種紋飾。",
       "memoryCue": "罐身與重複紋樣",
       "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
       "verificationStatus": "VerifiedOfficialSource",
@@ -35,8 +35,8 @@
     },
     {
       "id": "artifact-04",
-      "summary": "木鏟因遺址特殊環境得以保存，官方推測它可能是農具。",
-      "knowledge": "木鏟因遺址特殊環境得以保存，官方推測它可能是農具。\n「推測」不是已確定的用途；閱讀文物資料時要保留這個差別。",
+      "summary": "木鏟長 97.5 公分，因遺址的特殊環境保存至今。",
+      "knowledge": "木鏟長 97.5 公分，因遺址的特殊環境保存至今。\n鏟部與握柄相接處較厚，保留了木製器物的製作細節。",
       "memoryCue": "長柄與寬鏟面",
       "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
       "verificationStatus": "VerifiedOfficialSource",
@@ -47,7 +47,7 @@
     {
       "id": "artifact-05",
       "summary": "木質圓形雕板正面刻有兩道帶狀同心圓折線紋。",
-      "knowledge": "木質圓形雕板正面刻有兩道帶狀同心圓折線紋。\n目前引用的官方資料未說明其用途，不能由形狀自行斷定。",
+      "knowledge": "木質圓形雕板正面刻有兩道帶狀同心圓折線紋。\n圓形的外輪廓與細緻雕紋，呈現這件木器的工藝特色。",
       "memoryCue": "圓形外框與雕紋",
       "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
       "verificationStatus": "VerifiedOfficialSource",
@@ -58,7 +58,7 @@
     {
       "id": "artifact-06",
       "summary": "宜蘭農校遺址出土的瑪瑙珠，以六角管形最多。",
-      "knowledge": "宜蘭農校遺址出土的瑪瑙珠，以六角管形最多。\n示意圖的圓珠外形不能代表所有真實出土珠飾。",
+      "knowledge": "宜蘭農校遺址出土的瑪瑙珠，以六角管形最多。\n瑪瑙珠與玻璃、金屬飾品，共同呈現當時的裝飾文化。",
       "memoryCue": "珠飾的排列與色澤",
       "sourceUrl": "https://lic.niu.edu.tw/p/412-1010-6107.php",
       "verificationStatus": "VerifiedOfficialSource",

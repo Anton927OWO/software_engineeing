@@ -100,7 +100,7 @@ namespace XunJiYiDa.Levels.Finale.Tests
                     Assert.That(fact.contextSourceUrl, Does.StartWith("https://lic.niu.edu.tw/"), fact.id);
                     Assert.That(fact.context, Is.Not.Empty, fact.id);
                 }
-                Assert.That(catalog.items.Single(f => f.id == "artifact-04").knowledge, Does.Contain("推測"));
+                Assert.That(catalog.items.Single(f => f.id == "artifact-04").knowledge, Does.Contain("97.5 公分"));
             }
             finally { EditorSceneManager.ClosePreviewScene(scene); }
         }
@@ -114,9 +114,26 @@ namespace XunJiYiDa.Levels.Finale.Tests
                 context = "未確認的校史宣稱", memoryCue = "長柄與寬面", verificationStatus = "PendingVerification"
             };
             Assert.That(fact.IsVerified, Is.False);
-            Assert.That(fact.Summary, Does.Contain("待查證").And.Not.Contain("用途宣稱"));
-            Assert.That(fact.KnowledgeBody, Does.Contain("圖像觀察").And.Contain("長柄與寬面")
+            Assert.That(fact.Summary, Does.Not.Contain("待查證").And.Not.Contain("用途宣稱"));
+            Assert.That(fact.KnowledgeBody, Does.Contain("長柄與寬面").And.Not.Contain("待查證")
                 .And.Not.Contain("詳細史實").And.Not.Contain("校史宣稱"));
+        }
+
+        [Test]
+        public void PlayerIntroductionShowsKnowledgeWithoutInternalAuditText()
+        {
+            var fact = new FinaleArtifactFact
+            {
+                summary = "魚形編物以銅線製成。", knowledge = "魚形編物以銅線製成。",
+                context = "校園保存著文物記憶。", verificationStatus = "VerifiedOfficialSource", verifiedOn = "2026-10-29",
+                sourceUrl = "https://lic.niu.edu.tw/p/412-1010-6107.php",
+                contextSourceUrl = "https://lic.niu.edu.tw/p/412-1010-6105.php"
+            };
+            Assert.That(fact.KnowledgeBody, Does.Contain("銅線").And.Contain("校園")
+                .And.Not.Contain("已核對").And.Not.Contain("待查證").And.Not.Contain("2026-10-29")
+                .And.Not.Contain("考古測繪"));
+            Assert.That(fact.KnowledgeBody, Does.Contain(fact.sourceUrl));
+            Assert.That(fact.verificationStatus, Is.EqualTo("VerifiedOfficialSource"));
         }
 
         [Test]
