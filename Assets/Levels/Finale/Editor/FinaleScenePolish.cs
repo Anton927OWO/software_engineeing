@@ -68,7 +68,7 @@ namespace XunJiYiDa.Levels.Finale.Editor
             var note = noteTransform != null ? noteTransform.GetComponent<TMP_Text>() :
                 UnityEngine.Object.Instantiate(side.Find("AcquiredSummary").GetComponent<TMP_Text>(), side);
             note.name = "LearningNote";
-            note.text = "邊配對，邊認識文物\n配對後在這裡留下新發現。\n圖像為示意圖。";
+            note.text = "邊配對，邊認識文物\n配對後在這裡留下新發現。";
             note.fontSize = 22;
             Place(note.rectTransform, 0, -255, 390, 174);
             Bind(root.GetComponentInChildren<FinaleLevelController>(true), "learningNote", note);

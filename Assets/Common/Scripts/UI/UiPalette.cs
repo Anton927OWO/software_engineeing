@@ -17,6 +17,12 @@ namespace TrackingNIU
         public static readonly Color Disabled = Hex(0xB5B0A6);
         public static readonly Color MutedText = Hex(0x7A776F);
 
+        // 結算畫面（圖 4）的深色底與金色總分。
+        public static readonly Color ResultsBackground = Hex(0x271E1C);
+        public static readonly Color ResultsSlot = Hex(0x433835);
+        public static readonly Color ResultsMutedText = Hex(0xBFB6A8);
+        public static readonly Color ResultsGold = Hex(0xF5C518);
+
         public static Color GetZoneColor(LevelId levelId)
         {
             switch (levelId)

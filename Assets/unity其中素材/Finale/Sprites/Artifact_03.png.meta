@@ -129,10 +129,10 @@ TextureImporter:
       name: Artifact_03_0
       rect:
         serializedVersion: 2
-        x: 136
-        y: 81
-        width: 242
-        height: 347
+        x: 46
+        y: 62
+        width: 424
+        height: 404
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -101,6 +101,25 @@ namespace TrackingNIU
             }
         }
 
+        /// <summary>直接打開結算場景按 Play 時使用：開新局並把所有關卡模擬通關，過程中不切換場景。</summary>
+        public void StartPreviewResults()
+        {
+            _stayInScene = true;
+            try
+            {
+                StartNewGame(skipPrologue: true);
+                foreach (var level in Run.IndoorLevels)
+                    SimulateClear(level);
+                foreach (var level in Run.OutdoorLevels)
+                    SimulateClear(level);
+                SimulateClear(LevelId.Finale);
+            }
+            finally
+            {
+                _stayInScene = false;
+            }
+        }
+
         /// <summary>地圖上的「前往」按鈕呼叫這個。關卡目前不能進入時回傳 false。</summary>
         public bool EnterLevel(LevelId levelId)
         {
@@ -174,6 +193,10 @@ namespace TrackingNIU
             Run.Complete(result, score);
             if (Run.Phase == RunPhase.Finished)
                 _finishTime = Time.time;
+
+            // 取得文物就寫進跨局圖鑑；直接打開地圖或結算場景的預覽局不算。
+            if (result.Artifact != ArtifactId.None && !_stayInScene)
+                ArtifactCollection.Add(new[] { result.Artifact });
 
             Debug.Log($"[GameManager] 完成 {result}｜{score}｜目前總分 {Run.TotalScore}｜階段 {Run.Phase}");
             RunChanged?.Invoke();
