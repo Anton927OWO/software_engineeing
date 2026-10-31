@@ -71,6 +71,8 @@ public class FinaleInventoryAdapter : MonoBehaviour, IFinaleArtifactSource
 
 所有既有圖像均為示意圖；未聲稱為真實出土物的測繪或等比例影像。本關不提供未核實的館舍規則或額外年代、用途推斷。來源網頁日後可能變動，更新文字時須重新核對並記錄狀態與日期。
 
+2026-10-31：為統一考古小隊的寫實文物風格，`unity其中素材/Finale/Sprites/` 的 `Artifact_02`／`CardFace_02`（金箔片）改用 `Levels/Dig/Art/Gold.png`，`Artifact_03`／`CardFace_03`（幾何印紋陶罐）改用 `Pottery.png`（陶片示意，非完整罐形），`Artifact_06`／`CardFace_06`（瑪瑙珠）改用 `Agate.png`；檔名與 GUID 不變，原圖備份於 `Docs/ArtifactArt_Backup/`。`Artifact_01`／`CardFace_01`（金鯉魚）、`04`（木鏟）、`05`（木質圓形雕板）改用專案外 `10_31新文化素材/` 的 `金鯉魚.png`、`木鏟.png`、`木質圓形雕板.png`。六件文物圖現已統一為寫實風格。
+
 ## 結果與共用系統
 
 Scene 保留 `Assets/Levels/Shared/Prefabs/SharedLevelRoot.prefab` 的 Prefab 連結，以場景覆寫指定 `Data/Finale.asset`。圖鑑是 Finale 場景內的附加 UI，沒有套用變更到 Shared Prefab。使用原有 SharedLevelController、SharedLevelUI、SharedAudioPlayer、LevelResultRelay；只有一個 Camera／AudioListener 和一個 InputSystem EventSystem。
