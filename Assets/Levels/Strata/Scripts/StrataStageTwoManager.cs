@@ -34,6 +34,8 @@ public sealed class StrataStageTwoManager : MonoBehaviour
     private RectTransform root, matchTarget, focusFrame, feedbackGroup;
     private Image artifactImage;
     private RawImage enlargedPattern;
+    // The target shows the pattern's name and a short description; the picture appears only after a correct match.
+    private TMP_Text targetName;
     private TMP_Text prompt, progress, feedback, notice, dropCaption;
     private readonly StrataPatternOptionDrag[] choices = new StrataPatternOptionDrag[3];
     private readonly RawImage[] choiceImages = new RawImage[3];
@@ -155,6 +157,8 @@ public sealed class StrataStageTwoManager : MonoBehaviour
         }
         option.Place(matchTarget);
         dropCaption.gameObject.SetActive(false);
+        targetName.gameObject.SetActive(false);
+        enlargedPattern.enabled = true;
         CorrectCount++;
         if(CorrectCount<3) OperationFeedback?.Invoke(true);
         resolving = true;
@@ -204,7 +208,7 @@ public sealed class StrataStageTwoManager : MonoBehaviour
             DataQuestionIndex < questionSet.Count ? questionSet.questions[DataQuestionIndex] : null;
         artifactImage.sprite = q != null ? q.artifactImage : null;
         artifactImage.enabled = false; // Retain the original Sprite source; the cropped target below is the sole visible preview.
-        prompt.text = "觀察紋樣，拖曳相同圖案完成配對";
+        prompt.text = "讀紋飾名稱，拖曳符合的紋樣到配對區";
         notice.text = questionSet == null ? "題庫尚未設定，無法開始配對。" : "預覽題組";
         notice.gameObject.SetActive(questionSet == null || questionSet.previewOnly);
         int[] optionOrder={0,1,2};
@@ -222,15 +226,29 @@ public sealed class StrataStageTwoManager : MonoBehaviour
         string reason = "請在 Inspector 指定三題題庫。";
         questionReady = questionSet != null && questionSet.IsQuestionReady(DataQuestionIndex, out reason);
         focusFrame.gameObject.SetActive(false); // The single target preview needs no duplicate full-image focus frame.
-        enlargedPattern.enabled = questionReady;
+        enlargedPattern.enabled = false;
+        targetName.gameObject.SetActive(questionReady);
         if (questionReady)
         {
             SetFocus(q.focusRegion);
             ApplyVisual(enlargedPattern, q.artifactImage, q.focusRegion, new Vector2(620, 220));
+            targetName.text = DescribePattern(q.prompt);
         }
         else ShowFeedback("本題尚未就緒：" + reason, Incorrect, 1.5f);
         RefreshProgress();
         RefreshInput();
+    }
+    // Prompts read "目標紋樣：菱形紋。…"; the descriptions are drawing hints, not claims about specific finds.
+    private static string DescribePattern(string questionPrompt)
+    {
+        string name = questionPrompt ?? "";
+        int start = name.IndexOf('：'), end = name.IndexOf('。');
+        if (start >= 0 && end > start) name = name.Substring(start + 1, end - start - 1);
+        string hint = name == "菱形紋" ? "斜方格一格格相連"
+            : name == "折線紋" ? "線條上下來回彎折，像鋸齒"
+            : name == "平行線紋" ? "一條條直線並排，間隔相近"
+            : "";
+        return hint.Length > 0 ? name + "\n<size=55%>" + hint + "</size>" : name;
     }
     private void RefreshProgress()
     {
@@ -318,6 +336,7 @@ public sealed class StrataStageTwoManager : MonoBehaviour
         focusFrame.gameObject.SetActive(false);
         enlargedPattern = Rect("PatternEnlargement", root, new Vector2(-390, 10), new Vector2(620, 220)).gameObject.AddComponent<RawImage>();
         enlargedPattern.raycastTarget = false;
+        targetName = Label("TargetPatternName", root, "", new Vector2(-390, 10), new Vector2(600, 210), 56, Ink, true);
 
         Surface("PatternDropBorder", root, new Vector2(390, 50), new Vector2(700, 360), Hex("FAF4E9"));
         Surface("PatternDropWellCard", root, new Vector2(390, 10), new Vector2(644, 240), Hex("F4ECDD"));
