@@ -107,7 +107,7 @@ namespace XunJiYiDa.Levels.Finale.Tests
             var note = Safe.Find("FinaleView/GuideCard/LearningNote");
             Assert.That(note, Is.Not.Null, "Matched artifacts need a nonmodal knowledge sentence.");
             var text = note.GetComponent<TMP_Text>();
-            Assert.That(text.text, Does.Contain("銅線").And.Contain("已核對").And.Contain("宜大記憶庫"));
+            Assert.That(text.text, Does.Contain("銅線").And.Not.Contain("整合圖書館").And.Not.Contain("已核對"));
             Assert.That(shared.CanInteract, Is.True);
             Assert.That(Panel("KnowledgeCard").gameObject.activeSelf, Is.False);
             string learned = text.text;
@@ -150,14 +150,14 @@ namespace XunJiYiDa.Levels.Finale.Tests
             Assert.That(gallery, Is.Not.Null, "Successful results must expose the six artifact entries.");
             Assert.That(gallery.gameObject.activeInHierarchy, Is.True);
             yield return null; // Let newly enabled UI graphics enter the canvas rebuild and raycast registry.
-            string[] evidence = { "銅線", "閉眼人臉", "蘭陽平原", "推測", "同心圓", "六角管形" };
+            string[] evidence = { "銅線", "閉眼人臉", "蘭陽平原", "97.5", "同心圓", "六角管形" };
             for (int i = 0; i < 6; i++)
             {
                 var button = gallery.Find("Artifact" + i).GetComponent<Button>();
                 Assert.That(button.interactable, Is.True);
                 ClickByRaycast(button);
                 var detail = gallery.Find("Description").GetComponent<TMP_Text>();
-                Assert.That(detail.text, Does.Contain(evidence[i]).And.Contain("已核對").And.Contain("2026-10-29"));
+                Assert.That(detail.text, Does.Contain(evidence[i]).And.Not.Contain("整合圖書館").And.Not.Contain("出土文物包含").And.Not.Contain("已核對").And.Not.Contain("待查證").And.Not.Contain("2026-10-29"));
                 Assert.That(gallery.Find("ArtifactSource").GetComponent<Button>().interactable, Is.True);
                 Assert.That(gallery.Find("ContextSource").GetComponent<Button>().interactable, Is.True);
                 AssertVisibleTextFits();
