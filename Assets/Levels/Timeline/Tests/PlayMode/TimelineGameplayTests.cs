@@ -454,6 +454,31 @@ namespace XunJiYiDa.Levels.Timeline.Tests
             Capture("failure-learning");
         }
 
+        [UnityTest]
+        public IEnumerator ClearLayoutShowsOnlyActionFeedbackAndKeepsItBetweenTheRows()
+        {
+            Begin();
+            Canvas.ForceUpdateCanvases();
+            var board = GameObject("TimelineBoard").transform;
+            var feedbackText = GameObject("Feedback").GetComponent<TMPro.TMP_Text>();
+            Assert.That(feedbackText.text, Is.Empty, "Do not repeat instructions in the feedback row before any action.");
+            var visible = board.GetComponentsInChildren<TMPro.TMP_Text>().Select(t => t.text).ToArray();
+            foreach (string clutter in new[] { "待定位的學制卡", "錯放可再試", "Esc 暫停", "拖曳至年份", "拖到這裡", "校史探索  /  1926" })
+                Assert.That(visible.Any(t => t.Contains(clutter)), Is.False, "Remove redundant text: " + clutter);
+            var feedbackBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(board, feedbackText.rectTransform);
+            var slotBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(board, Slot(1926));
+            var cardBounds = RectTransformUtility.CalculateRelativeRectTransformBounds(board, Card(1926));
+            Assert.That(feedbackBounds.max.y, Is.LessThan(slotBounds.min.y), "Feedback must not overlap the timeline slots.");
+            Assert.That(feedbackBounds.min.y, Is.GreaterThan(cardBounds.max.y), "Feedback must not overlap the tray cards.");
+            Drag(1926, 1946);
+            Assert.That(feedbackText.text, Does.StartWith("線索｜"));
+            yield return new WaitForSecondsRealtime(.25f);
+            Drag(1926, 1926);
+            Assert.That(feedbackText.text, Does.StartWith("1926｜"));
+            controller.Retry();
+            Assert.That(feedbackText.text, Is.Empty, "Retry clears the previous history or clue.");
+        }
+
         private void Begin() => Panel("Introduction").PrimaryButton.onClick.Invoke();
         private T Find<T>() where T : Component => scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<T>(true)).Single();
         private GameObject GameObject(string name) => scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Transform>(true)).Single(t => t.name == name).gameObject;
