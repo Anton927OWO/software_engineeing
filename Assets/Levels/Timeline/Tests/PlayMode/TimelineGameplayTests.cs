@@ -394,9 +394,8 @@ namespace XunJiYiDa.Levels.Timeline.Tests
                 Assert.That(text.isTextOverflowing, Is.False, $"{name}: font={text.fontSize}, rect={text.rectTransform.rect}, text={text.text}");
             }
             Assert.That(GameObject("ResultHistory").activeInHierarchy, Is.True);
-            Assert.That(GameObject("ResultHistoryTitle").GetComponent<TMPro.TMP_Text>().text, Does.Contain("2003"),
-                "The last correct placement must still teach its change after the result overlay opens.");
-            for (int i = 0; i < 4; i++) Button("ResultPrevious").onClick.Invoke();
+            Assert.That(GameObject("ResultHistoryTitle").GetComponent<TMPro.TMP_Text>().text, Does.Contain("1926"),
+                "The completed summary must begin at the first stage, regardless of the last placed card.");
             Assert.That(Button("ResultPrevious").interactable, Is.False);
             for (int i = 0; i < years.Length; i++)
             {
@@ -438,10 +437,14 @@ namespace XunJiYiDa.Levels.Timeline.Tests
         {
             Begin();
             Drag(1926, 1946);
+            Drag(1946, 1946);
             controller.Session.Tick(45);
             string result = relay.LastResultJson;
             Assert.That(controller.Session.State, Is.EqualTo(LevelState.Failed));
             Assert.That(GameObject("ResultHistory").activeInHierarchy, Is.True);
+            Assert.That(GameObject("ResultHistoryTitle").GetComponent<TMPro.TMP_Text>().text, Does.Contain("1926"),
+                "The timeout summary must also start at the first stage after a later card was placed.");
+            Assert.That(Button("ResultPrevious").interactable, Is.False);
             Button("ResultNext").onClick.Invoke();
             Assert.That(GameObject("ResultHistoryTitle").GetComponent<TMPro.TMP_Text>().text, Does.Contain("1946"));
             Assert.That(relay.LastResultJson, Is.EqualTo(result));
