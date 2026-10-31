@@ -3875,7 +3875,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3992,7 +3992,7 @@ MonoBehaviour:
   replayButton: {fileID: 1714275067}
   musicSource: {fileID: 1414673255}
   sfxSource: {fileID: 1414673254}
-  music: {fileID: 0}
+  music: {fileID: 8300000, guid: 1037749e880b4ad0a7c39de1fe459592, type: 3}
   clickSound: {fileID: 8300000, guid: e81ad0492e21fbd4d9f78319c357a886, type: 3}
   finishSound: {fileID: 8300000, guid: 74add24d5eabad8419f8782d07437240, type: 3}
 --- !u!114 &1414673257

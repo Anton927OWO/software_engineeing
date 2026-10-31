@@ -1531,8 +1531,8 @@ MonoBehaviour:
   damageVolume: 0.7
   successVolume: 0.7
   failureVolume: 0.6
-  brushVolume: 0.2
-  bgmVolume: 0.12
+  brushVolume: 1
+  bgmVolume: 0.32
 --- !u!1 &800000001
 GameObject:
   m_ObjectHideFlags: 0

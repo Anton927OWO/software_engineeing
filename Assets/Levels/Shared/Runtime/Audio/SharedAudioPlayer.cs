@@ -8,9 +8,11 @@ namespace XunJiYiDa.Levels.Shared
         [SerializeField] private SharedAudioLibrary library;
         [SerializeField] private AudioSource uiSource;
         [SerializeField] private AudioSource gameplaySource;
-        [SerializeField, Range(0, 1)] private float volume = 0.8f;
+        [SerializeField, Range(0, 1)] private float volume = 1f;
         [SerializeField] private bool muted;
         private bool gameplayPaused;
+        private AudioSource musicSource;
+        private float musicGain;
 
         private void Awake()
         {
@@ -35,20 +37,52 @@ namespace XunJiYiDa.Levels.Shared
             if (source != null) source.PlayOneShot(clip, Mathf.Clamp01(gain) * volume);
         }
 
+        /// <summary>Starts looping music from the beginning; it pauses and resumes with gameplay.</summary>
+        public void PlayMusic(AudioClip clip, float gain)
+        {
+            StopMusic();
+            if (clip == null) return;
+            if (musicSource == null)
+            {
+                musicSource = gameObject.AddComponent<AudioSource>();
+                musicSource.playOnAwake = false;
+                musicSource.loop = true;
+                musicSource.spatialBlend = 0;
+            }
+            musicGain = Mathf.Clamp01(gain);
+            musicSource.clip = clip;
+            musicSource.volume = musicGain * volume;
+            musicSource.mute = muted;
+            musicSource.Play();
+            if (gameplayPaused) musicSource.Pause();
+        }
+
+        public void StopMusic()
+        {
+            if (musicSource != null) musicSource.Stop();
+        }
+
         public void SetMuted(bool value)
         {
             muted = value;
             if (uiSource != null) uiSource.mute = value;
             if (gameplaySource != null) gameplaySource.mute = value;
+            if (musicSource != null) musicSource.mute = value;
         }
         public void SetVolume(float value)
         {
             volume = float.IsNaN(value) ? 0 : Mathf.Clamp01(value);
+            if (musicSource != null) musicSource.volume = musicGain * volume;
         }
         public void SetGameplayPaused(bool paused)
         {
             if (gameplayPaused == paused) return;
             gameplayPaused = paused;
+            if (musicSource != null)
+            {
+                if (paused) musicSource.Pause();
+                else musicSource.UnPause();
+            }
             if (gameplaySource == null) return;
             if (paused) gameplaySource.Pause();
             else gameplaySource.UnPause();

@@ -1980,7 +1980,7 @@ MonoBehaviour:
   incorrectVolume: 0.6
   failureVolume: 0.6
   switchVolume: 0.5
-  bgmVolume: 0.12
+  bgmVolume: 0.5
 --- !u!1 &800000001
 GameObject:
   m_ObjectHideFlags: 0

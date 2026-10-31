@@ -27,7 +27,7 @@ namespace TrackingNIU
         [SerializeField] Button quitButton;
         [SerializeField] Button replayButton;
 
-        [Header("音效（結算 BGM 到位後再指定）")]
+        [Header("音效")]
         [SerializeField] AudioSource musicSource;
         [SerializeField] AudioSource sfxSource;
         [SerializeField] AudioClip music;

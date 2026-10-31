@@ -19,6 +19,7 @@ namespace TrackingNIU.EditorTools
 
         const string ArtifactSpriteFolder = "Assets/unity其中素材/Finale/Sprites/";
         const string SoundFolder = "Assets/Common/audio/kenney_interface-sounds/Audio/";
+        const string MusicPath = "Assets/Common/audio/RandomMind - Medieval Victory Theme.mp3";
         const float CornerRadius = 32f;
         const int ScoreRowCount = 4;
         const float CardSize = 140f;
@@ -80,7 +81,7 @@ namespace TrackingNIU.EditorTools
 
             var music = canvas.gameObject.AddComponent<AudioSource>();
             music.playOnAwake = false;
-            music.volume = 0.5f;
+            music.volume = 0.1f; // 曲子原檔較響，對齊各關 BGM 的實際音量
             var sfx = canvas.gameObject.AddComponent<AudioSource>();
             sfx.playOnAwake = false;
 
@@ -99,6 +100,9 @@ namespace TrackingNIU.EditorTools
 
             var clickSound = AssetDatabase.LoadAssetAtPath<AudioClip>(SoundFolder + "click_001.ogg");
             var finishSound = AssetDatabase.LoadAssetAtPath<AudioClip>(SoundFolder + "confirmation_002.ogg");
+            var musicClip = AssetDatabase.LoadAssetAtPath<AudioClip>(MusicPath);
+            if (musicClip != null)
+                UiBuilder.Wire(screen, ("music", musicClip));
             if (clickSound != null)
                 UiBuilder.Wire(screen, ("clickSound", clickSound));
             if (finishSound != null)

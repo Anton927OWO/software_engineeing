@@ -2164,7 +2164,7 @@ MonoBehaviour:
   library: {fileID: 11400000, guid: 79d05a1cb4a8c4982baa9cab3cf696a6, type: 2}
   uiSource: {fileID: 2645469249771314835}
   gameplaySource: {fileID: 9188105944795492869}
-  volume: 0.8
+  volume: 1
   muted: 0
 --- !u!1 &2725710207704718610
 GameObject:

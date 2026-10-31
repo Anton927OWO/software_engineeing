@@ -26,11 +26,18 @@ namespace TrackingNIU
         [SerializeField] Image goButtonFill;
         [SerializeField] TMP_Text goLabel;
 
-        [Header("音效（共用音效到位後再指定）")]
+        [Header("音效")]
         [SerializeField] AudioSource sfxSource;
         [SerializeField] AudioClip clickSound;
+        [Tooltip("兩張地圖共用的 BGM，換地圖時從上次停下的位置接續")]
+        [SerializeField] AudioClip music;
+
+        const float MusicVolume = 0.18f; // 曲子原檔較響，對齊各關 BGM 的實際音量
+        // 兩張地圖切換或進出關卡時記住播放位置，回到地圖不會每次從頭開始。
+        static float s_musicTime;
 
         readonly List<MapMarker> _markers = new List<MapMarker>();
+        float _musicStartedAt = -1f;
         LevelId? _selected;
 
         GameRun Run => GameManager.Instance.Run;
@@ -55,12 +62,29 @@ namespace TrackingNIU
             GameManager.Instance.RunChanged += OnRunChanged;
             SelectDefault();
             Refresh();
+            PlayMusic();
         }
 
         void OnDestroy()
         {
             if (GameManager.Instance != null)
                 GameManager.Instance.RunChanged -= OnRunChanged;
+            // 卸載場景時 AudioSource 可能先被銷毀，所以用經過時間推算播放位置。
+            if (_musicStartedAt >= 0f)
+                s_musicTime = (s_musicTime + Time.unscaledTime - _musicStartedAt) % music.length;
+        }
+
+        void PlayMusic()
+        {
+            if (music == null)
+                return;
+            var source = gameObject.AddComponent<AudioSource>();
+            source.clip = music;
+            source.loop = true;
+            source.volume = MusicVolume;
+            source.time = s_musicTime % music.length;
+            source.Play();
+            _musicStartedAt = Time.unscaledTime;
         }
 
         void EnsureGameManager()
