@@ -71,7 +71,7 @@ public class FinaleInventoryAdapter : MonoBehaviour, IFinaleArtifactSource
 
 所有既有圖像均為示意圖；未聲稱為真實出土物的測繪或等比例影像。本關不提供未核實的館舍規則或額外年代、用途推斷。來源網頁日後可能變動，更新文字時須重新核對並記錄狀態與日期。
 
-2026-10-31：為統一考古小隊的寫實文物風格，`unity其中素材/Finale/Sprites/` 的 `Artifact_02`／`CardFace_02`（金箔片）改用 `Levels/Dig/Art/Gold.png`，`Artifact_03`／`CardFace_03`（幾何印紋陶罐）改用 `Pottery.png`（陶片示意，非完整罐形），`Artifact_06`／`CardFace_06`（瑪瑙珠）改用 `Agate.png`；檔名與 GUID 不變，原圖備份於 `Docs/ArtifactArt_Backup/`。`Artifact_01`／`CardFace_01`（金鯉魚）、`04`（木鏟）、`05`（木質圓形雕板）改用專案外 `10_31新文化素材/` 的 `金鯉魚.png`、`木鏟.png`、`木質圓形雕板.png`。六件文物圖現已統一為寫實風格。
+2026-10-31：為統一考古小隊的寫實文物風格，`unity其中素材/Finale/Sprites/` 的 `Artifact_02`／`CardFace_02`（金箔片）改用 `Levels/Dig/Art/Gold.png`，`Artifact_03`／`CardFace_03`（幾何印紋陶罐）改用 `Pottery.png`（陶片示意，非完整罐形），`Artifact_06`／`CardFace_06`（瑪瑙珠）改用 `Agate.png`；檔名與 GUID 不變，原圖備份於 `Docs/ArtifactArt_Backup/`。`Artifact_01`／`CardFace_01`（金鯉魚）、`04`（木鏟）、`05`（木質圓形雕板）改用專案外 `10_31新文化素材/` 的 `金鯉魚.png`、`木鏟.png`、`木質圓形雕板.png`。六件文物圖現已統一為寫實風格。同日稍晚，`Artifact_01`／`04`／`05` 改以原始 1254px 素材重新輸出為 1024×1024（留白比例同前，Pixels Per Unit 改為 200 以維持顯示尺寸，sprite 矩形同步更新），`CardFace_01`／`04`／`05` 以新圖重繪文物區；GUID 與 sprite ID 不變。
 
 ## 結果與共用系統
 
