@@ -135,10 +135,15 @@ public static class PrologueCampusMapBuilder
             styleData.ApplyModifiedPropertiesWithoutUndo();
         }
 
-        SetText(Find("IntroDescription"), "<line-height=130%>宜大迎來創校百年，記憶庫正在整理文物的故事，三本記錄宜蘭故事的書卻被風吹散到校園各處。\n" +
+        // 簡介與操作方式各三行，文字框要夠高，否則簡介會蓋到下面的「操作方式」標題。
+        SetText(Find("IntroDescription"), "<line-height=115%>宜大迎來創校百年，記憶庫正在整理文物的故事，三本記錄宜蘭故事的書卻被風吹散到校園各處。\n" +
             "打開宜大校園地圖，把書找回來，也認識這座校園與噶瑪蘭的故事！</line-height>");
-        SetText(Find("IntroControlsBody"), "<line-height=130%>1. 點擊地圖上閃爍的地點，閱讀知識卡。\n" +
+        SetText(Find("IntroControlsBody"), "<line-height=115%>1. 點擊地圖上閃爍的地點，閱讀知識卡。\n" +
             "2. 把出現的書本拖進「知識之林」的書箱。\n3. 三本書都歸位就完成序章，順序不限。</line-height>");
+        Place((RectTransform)Find("IntroDescription"), new Vector2(0, 68), new Vector2(920, 145));
+        Place((RectTransform)Find("IntroControlsHeading"), new Vector2(0, -43), new Vector2(920, 46));
+        Place((RectTransform)Find("IntroControlsBody"), new Vector2(0, -148), new Vector2(920, 145));
+        Place((RectTransform)Find("StartButton"), new Vector2(0, -280), new Vector2(360, 88));
         SetText(Find("CompleteDescription"), "<line-height=140%><size=36><b><color=#243D32>成功收集三本書！</color></b></size>\n\n" +
             "<voffset=36><color=#735A46>你認識了宜大的百年起點、噶瑪蘭族，\n以及宜蘭農校遺址的考古故事。\n" +
             "宜大百年，幫記憶庫找回三件文物的故事吧！</color></voffset></line-height>");

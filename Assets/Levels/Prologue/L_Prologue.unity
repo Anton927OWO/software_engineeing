@@ -5139,7 +5139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -270}
+  m_AnchoredPosition: {x: 0, y: -280}
   m_SizeDelta: {x: 360, y: 88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1612246852
@@ -5648,8 +5648,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 90}
-  m_SizeDelta: {x: 920, y: 88}
+  m_AnchoredPosition: {x: 0, y: 68}
+  m_SizeDelta: {x: 920, y: 145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701329149
 MonoBehaviour:
@@ -5671,7 +5671,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<line-height=130%>\u5B9C\u5927\u8FCE\u4F86\u5275\u6821\u767E\u5E74\uFF0C\u8A18\u61B6\u5EAB\u6B63\u5728\u6574\u7406\u6587\u7269\u7684\u6545\u4E8B\uFF0C\u4E09\u672C\u8A18\u9304\u5B9C\u862D\u6545\u4E8B\u7684\u66F8\u537B\u88AB\u98A8\u5439\u6563\u5230\u6821\u5712\u5404\u8655\u3002\n\u6253\u958B\u5B9C\u5927\u6821\u5712\u5730\u5716\uFF0C\u628A\u66F8\u627E\u56DE\u4F86\uFF0C\u4E5F\u8A8D\u8B58\u9019\u5EA7\u6821\u5712\u8207\u5676\u746A\u862D\u7684\u6545\u4E8B\uFF01</line-height>"
+  m_text: "<line-height=115%>\u5B9C\u5927\u8FCE\u4F86\u5275\u6821\u767E\u5E74\uFF0C\u8A18\u61B6\u5EAB\u6B63\u5728\u6574\u7406\u6587\u7269\u7684\u6545\u4E8B\uFF0C\u4E09\u672C\u8A18\u9304\u5B9C\u862D\u6545\u4E8B\u7684\u66F8\u537B\u88AB\u98A8\u5439\u6563\u5230\u6821\u5712\u5404\u8655\u3002\n\u6253\u958B\u5B9C\u5927\u6821\u5712\u5730\u5716\uFF0C\u628A\u66F8\u627E\u56DE\u4F86\uFF0C\u4E5F\u8A8D\u8B58\u9019\u5EA7\u6821\u5712\u8207\u5676\u746A\u862D\u7684\u6545\u4E8B\uFF01</line-height>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee8b358cfbceb7b4488ac394ed467bb9, type: 2}
   m_sharedMaterial: {fileID: 2417406004052356673, guid: ee8b358cfbceb7b4488ac394ed467bb9, type: 2}
@@ -8663,7 +8663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2}
+  m_AnchoredPosition: {x: 0, y: -43}
   m_SizeDelta: {x: 920, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2112000202
@@ -8800,8 +8800,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -94}
-  m_SizeDelta: {x: 920, y: 128}
+  m_AnchoredPosition: {x: 0, y: -148}
+  m_SizeDelta: {x: 920, y: 145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2112000302
 CanvasRenderer:
@@ -8831,7 +8831,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<line-height=130%>1. \u9EDE\u64CA\u5730\u5716\u4E0A\u9583\u720D\u7684\u5730\u9EDE\uFF0C\u95B1\u8B80\u77E5\u8B58\u5361\u3002\n2.
+  m_text: "<line-height=115%>1. \u9EDE\u64CA\u5730\u5716\u4E0A\u9583\u720D\u7684\u5730\u9EDE\uFF0C\u95B1\u8B80\u77E5\u8B58\u5361\u3002\n2.
     \u628A\u51FA\u73FE\u7684\u66F8\u672C\u62D6\u9032\u300C\u77E5\u8B58\u4E4B\u6797\u300D\u7684\u66F8\u7BB1\u3002\n3.
     \u4E09\u672C\u66F8\u90FD\u6B78\u4F4D\u5C31\u5B8C\u6210\u5E8F\u7AE0\uFF0C\u9806\u5E8F\u4E0D\u9650\u3002</line-height>"
   m_isRightToLeft: 0

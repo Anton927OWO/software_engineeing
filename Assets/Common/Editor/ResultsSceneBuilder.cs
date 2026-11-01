@@ -114,9 +114,10 @@ namespace TrackingNIU.EditorTools
                 Debug.Log($"[場景產生器] 已產生 {ScenePath}。");
         }
 
-        static ResultArtifactCard BuildCard(UiBuilder ui, RectTransform parent, ArtifactId artifact, float x, float y)
+        /// <summary>文物圖鑑的一格，標題畫面也用同一種格子。</summary>
+        internal static ResultArtifactCard BuildCard(UiBuilder ui, RectTransform parent, ArtifactId artifact, float x, float y, float size = CardSize)
         {
-            var root = UiBuilder.Node($"Artifact {artifact}", parent, x, y, CardSize, CardSize);
+            var root = UiBuilder.Node($"Artifact {artifact}", parent, x, y, size, size);
             var frameImage = UiBuilder.AddImage(root, ui.Sprites.RoundedRect, UiPalette.MutedText, CornerRadius / 20f);
             float innerScale = CornerRadius / (20f - UiBuilder.OutlineWidth);
             UiBuilder.AddImage(UiBuilder.Stretch("Fill", root, UiBuilder.OutlineWidth), ui.Sprites.RoundedRect, UiPalette.ResultsSlot, innerScale);

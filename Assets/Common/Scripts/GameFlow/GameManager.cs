@@ -25,6 +25,7 @@ namespace TrackingNIU
 
         string _bootScene;
         bool _stayInScene;
+        bool _redrawOnTitle;
         float _startTime;
         float? _finishTime;
         System.Random _random;
@@ -60,9 +61,16 @@ namespace TrackingNIU
                 Instance = null;
         }
 
-        /// <summary>重新抽關並從序章開始。結算畫面的「重新遊玩」也呼叫這個。</summary>
+        /// <summary>重新抽關並從序章開始。</summary>
         /// <param name="skipPrologue">測試用：直接把序章記為完成，進入圖資館樓層地圖。</param>
         public void StartNewGame(bool skipPrologue = false)
+        {
+            DrawNewRun();
+            BeginRun(skipPrologue);
+        }
+
+        /// <summary>只抽關、不切換場景。標題畫面先抽關並翻牌顯示路線，玩家按「出發」再呼叫 BeginRun。</summary>
+        public void DrawNewRun()
         {
             if (LevelSession.IsActive)
                 LevelSession.Abort();
@@ -72,6 +80,14 @@ namespace TrackingNIU
             _finishTime = null;
             Debug.Log($"[GameManager] 新的一局｜館內：{Names(Run.IndoorLevels)}｜戶外：{Names(Run.OutdoorLevels)}");
             RunChanged?.Invoke();
+        }
+
+        /// <summary>從序章開始已抽好的這一局，計時也從這裡開始。還沒抽關時會先抽。</summary>
+        public void BeginRun(bool skipPrologue = false)
+        {
+            if (Run == null)
+                DrawNewRun();
+            _startTime = Time.time;
 
             if (skipPrologue)
                 SimulateClear(LevelId.Prologue);
@@ -158,14 +174,26 @@ namespace TrackingNIU
         /// <summary>前往目前階段該去的地圖或結算畫面，地圖上的「前往校園地圖」「返回圖資館」按鈕呼叫這個。</summary>
         public void ReturnToMap() => LoadScene(GetSceneForPhase());
 
-        /// <summary>結束這一局，回到 Boot 場景。</summary>
-        public void ReturnToTitle()
+        /// <summary>
+        /// 回到標題畫面（Boot 場景）。由 TitleScreen 呼叫 ConsumeRedrawRequest 決定要不要直接開始抽關。
+        /// </summary>
+        /// <param name="redraw">結算畫面的「重新遊玩」用：回到標題後直接抽關翻牌。</param>
+        public void ReturnToTitle(bool redraw = false)
         {
             if (LevelSession.IsActive)
                 LevelSession.Abort();
+            _redrawOnTitle = redraw;
             Run = null;
             RunChanged?.Invoke();
             LoadScene(_bootScene);
+        }
+
+        /// <summary>回傳上一次 ReturnToTitle 是否要求重新抽關，讀取後清除。</summary>
+        public bool ConsumeRedrawRequest()
+        {
+            bool redraw = _redrawOnTitle;
+            _redrawOnTitle = false;
+            return redraw;
         }
 
         bool CanStartLevel(LevelId levelId)

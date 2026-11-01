@@ -133,7 +133,7 @@ namespace TrackingNIU
 
         void OnQuitClicked() => StartCoroutine(ClickThen(() => GameManager.Instance.ReturnToTitle()));
 
-        void OnReplayClicked() => StartCoroutine(ClickThen(() => GameManager.Instance.StartNewGame()));
+        void OnReplayClicked() => StartCoroutine(ClickThen(() => GameManager.Instance.ReturnToTitle(redraw: true)));
 
         /// <summary>播完點擊音效再切換場景，否則音效會被切掉。等待期間停用按鈕，避免連點。</summary>
         IEnumerator ClickThen(System.Action action)

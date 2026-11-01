@@ -8,11 +8,12 @@ namespace TrackingNIU
 {
     /// <summary>
     /// 流程測試面板，和 GameManager 放在同一個物件上。按 F1 顯示或隱藏。
-    /// 地圖還沒做好前用它開新局、進入關卡或模擬通關；正式版本取消勾選 Visible 即可。
+    /// 用它開新局、進入關卡或模擬通關。只在編輯器與 Development Build 中出現，
+    /// 一般 Build 給玩家玩時完全不會顯示；編輯器裡隱藏時左下角另有一顆小按鈕。
     /// </summary>
     public sealed class GameFlowDebugPanel : MonoBehaviour
     {
-        [SerializeField] bool visible = true;
+        [SerializeField] bool visible;
 
         GUIStyle _label;
         GUIStyle _button;
@@ -21,6 +22,12 @@ namespace TrackingNIU
         {
             get => visible;
             set => visible = value;
+        }
+
+        void Awake()
+        {
+            if (!Debug.isDebugBuild)
+                enabled = false;
         }
 
         void Update()
@@ -46,8 +53,8 @@ namespace TrackingNIU
 
             if (!visible)
             {
-                // 隱藏時在左下角留一個小按鈕，避免忘記怎麼打開。
-                if (GUI.Button(new Rect(16, 1080 - 56, 220, 40), "測試面板（F1）", _button))
+                // 編輯器裡隱藏時在左下角留一個小按鈕，避免忘記怎麼打開；Development Build 只能按 F1，Demo 畫面才乾淨。
+                if (Application.isEditor && GUI.Button(new Rect(16, 1080 - 56, 220, 40), "測試面板（F1）", _button))
                     visible = true;
                 return;
             }
