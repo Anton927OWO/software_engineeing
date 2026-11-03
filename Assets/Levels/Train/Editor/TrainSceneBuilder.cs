@@ -44,7 +44,7 @@ namespace XunJiYiDa.Levels.Train.Editor
                 definition = ScriptableObject.CreateInstance<SharedLevelDefinition>();
                 var so = new SerializedObject(definition);
                 so.FindProperty("levelId").stringValue = "Train";
-                so.FindProperty("displayName").stringValue = "尋跡宜大｜知識列車";
+                so.FindProperty("displayName").stringValue = "知識列車";
                 so.FindProperty("durationSeconds").floatValue = 60;
                 so.FindProperty("mistakeLimit").intValue = 0;
                 so.FindProperty("introductionTitle").stringValue = "知識列車｜校史車站";
@@ -132,6 +132,13 @@ namespace XunJiYiDa.Levels.Train.Editor
                 text.font = font;
                 PrefabUtility.RecordPrefabInstancePropertyModifications(text);
             }
+            // Suppress duplicate live labels only on the Train prefab instance.
+            foreach (var text in sharedRoot.GetComponentsInChildren<TMP_Text>(true))
+                if (text.name == "Status" || text.name == "Mistakes")
+                {
+                    text.gameObject.SetActive(false);
+                    PrefabUtility.RecordPrefabInstancePropertyModifications(text.gameObject);
+                }
             // Widen the shared card's body through instance overrides when no illustration is used.
             foreach (var panel in sharedRoot.GetComponentsInChildren<SharedContentPanel>(true))
             {
@@ -156,16 +163,21 @@ namespace XunJiYiDa.Levels.Train.Editor
             safe.gameObject.AddComponent<SharedSafeArea>();
             var card = Picture("QuestionCard", safe, SharedSprite("Panel_Cream"), new Vector2(0, 115), new Vector2(1610, 540));
             card.type = Image.Type.Sliced;
-            var number = Text("QuestionNumber", card.transform, font, "知識車站", 25, new Vector2(-410, 205), new Vector2(650, 46), TextAlignmentOptions.MidlineLeft);
+            var number = Text("QuestionNumber", card.transform, font, "知識車站", 25, new Vector2(-170, 205), new Vector2(1080, 46), TextAlignmentOptions.MidlineLeft);
             var instruction = Text("Goal", card.transform, font, "60 秒・答對五題・接滿車廂", 23, new Vector2(425, 205), new Vector2(650, 46));
-            instruction.color = new Color32(125, 92, 48, 255);
-            var question = Text("Prompt", card.transform, font, "準備出發", 38, new Vector2(0, 130), new Vector2(1450, 100));
+            instruction.gameObject.SetActive(false);
+            var question = Text("Prompt", card.transform, font, "準備出發", 38, new Vector2(0, 130), new Vector2(1420, 100), TextAlignmentOptions.MidlineLeft);
             var choices = new Button[3];
             for (int i = 0; i < 3; i++) choices[i] = Button("Choice" + i, card.transform, font,
                 ((char)('A' + i)).ToString(), new Vector2(0, 28 - i * 89), new Vector2(1420, 76), 29);
+            foreach (var choice in choices)
+                choice.GetComponentInChildren<TMP_Text>().alignment = TextAlignmentOptions.MidlineLeft;
             var source = Text("Source", card.transform, font, "資料來源", 22, new Vector2(0, -220), new Vector2(1450, 45));
-            var feedback = Text("Feedback", safe, font, "", 26, new Vector2(190, -210), new Vector2(1260, 100));
+            source.gameObject.SetActive(false); // Full citations remain in the on-demand knowledge card.
+            var feedback = Text("Feedback", card.transform, font, "", 24,
+                new Vector2(0, -230), new Vector2(1420, 74), TextAlignmentOptions.MidlineLeft);
             var progress = Text("Progress", safe, font, "已連接　0 / 5 節車廂", 25, new Vector2(-610, -195), new Vector2(450, 65));
+            progress.gameObject.SetActive(false);
             var trainRoot = Rect("Train", safe);
             Place(trainRoot, new Vector2(0, -330), new Vector2(1750, 200));
             Picture("Locomotive", trainRoot, Sprite("Locomotive"), new Vector2(-650, 0), new Vector2(270, 145));
@@ -176,13 +188,14 @@ namespace XunJiYiDa.Levels.Train.Editor
                 carriages[i] = Picture("Carriage" + (i + 1), trainRoot, Sprite("Carriage"),
                     new Vector2(-380 + i * 235, -10), new Vector2(224, 125)).rectTransform;
                 stations[i] = Text("StationLabel", carriages[i], font, "", 22,
-                    new Vector2(0, 5), new Vector2(215, 65));
+                    new Vector2(0, -8), new Vector2(215, 45));
                 carriages[i].gameObject.SetActive(false);
             }
             var intro = Button("SpaceIntroduction", safe, font, "玩法", new Vector2(-630, -490), new Vector2(310, 72), 27);
-            var knowledge = Button("Knowledge", safe, font, "知識卡／來源", new Vector2(-245, -490), new Vector2(390, 72), 27);
+            intro.gameObject.SetActive(false); // Rules already appear before starting.
+            var knowledge = Button("Knowledge", card.transform, font, "解說／來源", new Vector2(620, 205), new Vector2(180, 55), 23);
             Text("OperationHint", safe, font, "滑鼠點選 A／B／C　｜　Escape 暫停　｜　暫停面板可重新開始", 22,
-                new Vector2(490, -490), new Vector2(950, 65));
+                new Vector2(490, -490), new Vector2(950, 65)).gameObject.SetActive(false);
             var logic = new GameObject("TrainLevelController").AddComponent<TrainLevelController>();
             logic.transform.SetParent(sharedRoot.transform.Find("GameplayRoot"), false);
             Set(logic, "shared", shared); Set(logic, "sharedUI", sharedUI);

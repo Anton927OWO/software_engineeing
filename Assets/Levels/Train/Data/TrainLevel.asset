@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TrainLevel
   m_EditorClassIdentifier: XunJiYiDa.Levels.Shared::XunJiYiDa.Levels.Shared.SharedLevelDefinition
   levelId: Train
-  displayName: "\u5C0B\u8DE1\u5B9C\u5927\uFF5C\u77E5\u8B58\u5217\u8ECA"
+  displayName: "知識列車"
   durationSeconds: 60
   mistakeLimit: 0
   introductionTitle: "\u77E5\u8B58\u5217\u8ECA\uFF5C\u6821\u53F2\u8ECA\u7AD9"

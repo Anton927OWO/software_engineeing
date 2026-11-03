@@ -81,7 +81,7 @@ namespace XunJiYiDa.Levels.Train.Tests
             Panel("KnowledgeCard").PrimaryButton.onClick.Invoke();
             Assert.That(shared.Session.State, Is.EqualTo(LevelState.Paused));
             shared.Resume(); yield return null;
-            Click(Find<Button>("SpaceIntroduction")); yield return null;
+            train.ShowIntroduction(); yield return null;
             Click(Panel("Introduction").PrimaryButton); yield return null;
             Click(Find<Button>("Choice" + train.Round.Current.correctIndex));
             Assert.That(train.Round.Carriages, Is.EqualTo(1));
@@ -120,8 +120,8 @@ namespace XunJiYiDa.Levels.Train.Tests
                 {
                     var station = Find<RectTransform>("Carriage" + (c + 1)).GetComponentInChildren<TMP_Text>();
                     Assert.That(station, Is.Not.Null, "Earned carriages need a readable station name.");
-                    Assert.That(station.text, Does.Contain(earnedStations[c]));
-                    Assert.That(station.text, Does.Contain((c + 1).ToString()));
+                    Assert.That(station.text, Is.EqualTo(earnedStations[c]),
+                        "The station name is enough; the carriage itself already shows progress.");
                     station.ForceMeshUpdate();
                     Assert.That(station.isTextOverflowing, Is.False);
                 }
@@ -170,7 +170,15 @@ namespace XunJiYiDa.Levels.Train.Tests
             Click(Find<Button>("Choice" + ((q.correctIndex + 1) % 3)));
             Capture("wrong-answer");
             Assert.That(Find<TMP_Text>("Feedback").text, Does.Contain(q.options[q.correctIndex]));
-            Assert.That(Find<TMP_Text>("Feedback").text, Does.Contain(q.explanation), "A mistake must teach a reason immediately.");
+            var feedback = Find<TMP_Text>("Feedback");
+            Assert.That(feedback.text, Does.Contain(q.explanation), "A mistake must teach a reason immediately.");
+            var corners = new Vector3[4];
+            feedback.rectTransform.GetWorldCorners(corners);
+            var card = Find<RectTransform>("QuestionCard");
+            foreach (var corner in corners)
+                Assert.That(RectTransformUtility.RectangleContainsScreenPoint(card,
+                    RectTransformUtility.WorldToScreenPoint(null, corner)), Is.True,
+                    "Keep the explanation inside the question card, beside the task it explains.");
             Assert.That(shared.Session.MistakeCount, Is.EqualTo(1));
             train.SubmitAnswer(q.correctIndex);
             Assert.That(train.Round.Carriages, Is.Zero);
