@@ -1,0 +1,32 @@
+{
+  "release": "v0.1-midterm",
+  "releaseCommit": "cb96909491b9794832f8e6038c1fe8447cc71249",
+  "protectedFilesChecked": 1173,
+  "protectedChanges": [],
+  "sceneOriginalObjects": 177,
+  "sceneRetainedObjects": 177,
+  "sceneAddedObjects": 0,
+  "sceneRemovedObjects": 0,
+  "testedFileHashes": {
+    "L_Train.unity": "ce4722def671562b083d90286d92692ad6bbfb4c2869097134155dfed4e8bda3",
+    "Runtime/TrainQuestion.cs": "3c96f5c938901342172c12ad899930327661a1160980458eb98683d3aa1fe537",
+    "Runtime/TrainRound.cs": "036511e87f7e5ee299d92e1f7fee6ae97226bcc076a72b0c6e92a5c86a605316",
+    "Runtime/TrainLevelController.cs": "b1ec83f76049c32fb4ab70fdeb75bac3ed5f199c2b7852f3fb892997450083e1",
+    "Runtime/XunJiYiDa.Levels.Train.asmdef": "e3cdfd3226980a694bed1c0969155fd43b62c348510ae80f04a1f2c9262f6d96",
+    "Runtime/TrainQuestionBank.cs": "b26bb47346c883f988c094cbb16af2470e877d316be7e7985386da9749f6e377",
+    "Data/TrainLevel.asset": "69d9226222520d89b535dabd80af00b973087cb1f71e94f64340750c8df6929b",
+    "Data/TrainQuestions.asset": "71fdb0516deb9592f6f182793da641725111a877976291f619786f7350dc6e45",
+    "Data/TrainQuestions.seed.json": "f5ec7a7d3d9081910b16de72d9171fe809708bbca52265367757d01d2bdab807",
+    "Editor/XunJiYiDa.Levels.Train.Editor.asmdef": "59ca7313456cfb3efa7b4bf545d9f2d146a17a98c072e8a4f1ff77e6a60b514c",
+    "Editor/TrainSceneBuilder.cs": "0ff071f316be5bf539b1a14d1da8b6bf6f6568f668e9456ab99ad400e990b12a",
+    "Tests/PlayMode/TrainGameplayTests.cs": "4cdf57a29d70fc1ac02df1818c085c2a440acb09cdd5b95acfa55a51498169af",
+    "Tests/PlayMode/XunJiYiDa.Levels.Train.PlayMode.Tests.asmdef": "ebaf67d8b628b015a08c7cf6063edbb6f7e437d83d331851c4c26f7db6a5329b",
+    "Tests/Editor/TrainAssetTests.cs": "32af018d04efa996e3aeffa105acdec859ea7f050f6a5ac8566505ee751cb4d6",
+    "Tests/Editor/XunJiYiDa.Levels.Train.Editor.Tests.asmdef": "b973da7a91643581bddb3312eca52992e28f4158e6d9ed79fa720d13b2667629",
+    "Tests/Editor/TrainRoundTests.cs": "3381014c0292f3e7cf9244ef4c0b38daa016fda4bc6b7835cf45ce7a1eac3783"
+  },
+  "releaseArchiveSha256": "7bf4dd07c0fbfcd770e09c33703c6f4a7f91b3c8d205bf1651152f67b36c3a98",
+  "validationFontCacheSha256": "cec1b8783a11a3f88626ff627748ebe57aa56e1ecd6bd79f495cbe4631daa0ad",
+  "preservedReleaseFontSha256": "8b60d614845b725799985c784b476391855e35936298cb80d7d366c3d502096d",
+  "fontCacheNote": "Unity TMP glyph prewarming changed the generated font cache in the validation copy only. The delivered font is the unchanged release asset; file-equivalence checks cover the other 16 authored inputs."
+}

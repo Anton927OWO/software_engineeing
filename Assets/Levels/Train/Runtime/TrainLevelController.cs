@@ -79,7 +79,7 @@ namespace XunJiYiDa.Levels.Train
             lastAnswered = Round.Current;
             if (Round.LastWasCorrect)
             {
-                carriageStations[Round.Carriages - 1].text = $"{Round.Carriages:00}\n{lastAnswered.StationName}";
+                carriageStations[Round.Carriages - 1].text = lastAnswered.StationName;
                 audioPlayer.PlayCorrect();
             }
             // Shared.RecordMistake's sound is not used by the pure round, so play once here.
@@ -116,7 +116,7 @@ namespace XunJiYiDa.Levels.Train
                     choices[i].GetComponentInChildren<TMP_Text>().text = $"{(char)('A' + i)}　{q.options[i]}";
             }
             if (q == null) { prompt.text = "題庫沒有可用題目，請編輯 TrainQuestions。"; source.text = ""; }
-            questionNumber.text = $"{q?.StationName ?? "知識車站"}　{Mathf.Min(Round.AnsweredCount + (Round.Phase == TrainPhase.Asking ? 1 : 0), Round.QuestionCount):00} / {Round.QuestionCount:00}";
+            questionNumber.text = q?.StationName ?? "知識列車";
             progress.text = $"已連接　{Round.Carriages} / {TrainRound.TargetCarriages} 節車廂";
             bool answering = shared.CanInteract && Round.Phase == TrainPhase.Asking && q != null;
             introductionButton.interactable = knowledgeButton.interactable = shared.CanInteract;
@@ -135,15 +135,14 @@ namespace XunJiYiDa.Levels.Train
                 feedback.text = shared.Session.Result.Success ? "知識列車已出站！" :
                     shared.Session.RemainingTime <= 0 ? "時間已到，可重新開始再探索。" : "題目已用完，可重新開始再探索。";
             else if (Round.Phase == TrainPhase.Departing)
-                feedback.text = "五節集滿！知識列車出發……\n" + lastAnswered.explanation;
+                feedback.text = "列車出站｜" + lastAnswered.explanation;
             else if (lastAnswered != null)
             {
-                string status = Round.LastWasCorrect ? "答對了！" : "再想想｜正解：" + lastAnswered.options[lastAnswered.correctIndex];
+                string status = Round.LastWasCorrect ? "答對｜" : "正解：" + lastAnswered.options[lastAnswered.correctIndex] + "｜";
                 // Keep the explanation through the next question so the one-second lock is not a reading deadline.
-                feedback.text = (Round.Phase == TrainPhase.Asking ? "上一題｜" : "") + status +
-                    "\n" + lastAnswered.explanation;
+                feedback.text = (Round.Phase == TrainPhase.Asking ? "上一題｜" : status) + lastAnswered.explanation;
             }
-            else feedback.text = "選一個答案接車廂；答完可開知識卡細讀。";
+            else feedback.text = "";
 
             float departure = Round.Phase == TrainPhase.Departing ? Round.PhaseProgress :
                 shared.Session.Result != null && shared.Session.Result.Success ? 1 : 0;
