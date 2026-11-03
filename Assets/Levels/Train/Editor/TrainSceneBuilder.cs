@@ -48,7 +48,7 @@ namespace XunJiYiDa.Levels.Train.Editor
                 so.FindProperty("durationSeconds").floatValue = 60;
                 so.FindProperty("mistakeLimit").intValue = 0;
                 so.FindProperty("introductionTitle").stringValue = "知識列車｜校史車站";
-                so.FindProperty("introductionBody").stringValue = "60 秒內答對五題，接滿五節車廂並出站。\n答錯不扣車廂；正解與原因會留在回饋區，可開「知識卡／來源」暫停細讀。\n\n時間到或題庫用完即失敗；接車與出站仍計時。\n介紹、知識卡與暫停不扣秒；暫停面板可重新開始。";
+                so.FindProperty("introductionBody").stringValue = "60 秒內答對五題，接滿五節車廂並出站。\n答錯不扣車廂；正解與原因會留在回饋區，可開「解說／來源」暫停細讀。\n\n時間到或題庫用完即失敗；接車與出站仍計時。\n介紹、知識卡與暫停不扣秒；暫停面板可重新開始。";
                 so.FindProperty("showIntroduction").boolValue = true;
                 so.ApplyModifiedPropertiesWithoutUndo();
                 AssetDatabase.CreateAsset(definition, Root + "/Data/TrainLevel.asset");
