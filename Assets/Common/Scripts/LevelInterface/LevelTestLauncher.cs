@@ -27,8 +27,8 @@ namespace TrackingNIU
 
             var definition = LevelCatalog.Get(levelId);
             var sceneName = SceneManager.GetActiveScene().name;
-            if (sceneName != definition.SceneName)
-                Debug.LogWarning($"[測試] Scene 名稱是 {sceneName}，但 Level Id 對應的是 {definition.SceneName}，請確認 Level Id 是否選對。");
+            if (sceneName != definition.SceneName && sceneName != definition.XRSceneName)
+                Debug.LogWarning($"[測試] Scene 名稱是 {sceneName}，但 Level Id 對應的是 {definition.SceneName} 或 {definition.XRSceneName}，請確認 Level Id 是否選對。");
 
             var context = new LevelContext(definition, collectedArtifacts, isTestRun: true, timeLimitOverride);
             LevelSession.Begin(context, OnExit);

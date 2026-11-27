@@ -97,10 +97,25 @@ namespace TrackingNIU
             LevelCatalog.Get(levelId).Pool == LevelPool.Outdoor ? MapKind.Campus : MapKind.Library;
 
         /// <param name="includeFinalsLevels">期末加入黃春明關後設為 true，館內改為 5 抽 2。</param>
-        public GameRun(bool includeFinalsLevels, Random random)
+        public GameRun(bool includeFinalsLevels, Random random) : this(includeFinalsLevels, random, null)
         {
-            IndoorLevels = LevelDraw.Draw(LevelDraw.GetPool(LevelPool.Indoor, includeFinalsLevels), IndoorDrawCount, random);
-            OutdoorLevels = LevelDraw.Draw(LevelDraw.GetPool(LevelPool.Outdoor, includeFinalsLevels), OutdoorDrawCount, random);
+        }
+
+        /// <param name="isPlayable">
+        /// 只從可以遊玩的關卡中抽（MR 原型用來排除還沒有 MR 版的關卡）。
+        /// 可玩的關卡不夠時抽到幾關算幾關；某個階段一關都沒有時，完成前一階段後直接跳過。
+        /// </param>
+        public GameRun(bool includeFinalsLevels, Random random, Func<LevelId, bool> isPlayable)
+        {
+            IndoorLevels = DrawUpTo(LevelPool.Indoor, IndoorDrawCount, includeFinalsLevels, random, isPlayable);
+            OutdoorLevels = DrawUpTo(LevelPool.Outdoor, OutdoorDrawCount, includeFinalsLevels, random, isPlayable);
+        }
+
+        static List<LevelId> DrawUpTo(LevelPool pool, int count, bool includeFinalsLevels, Random random,
+            Func<LevelId, bool> isPlayable)
+        {
+            var levels = LevelDraw.GetPool(pool, includeFinalsLevels, isPlayable);
+            return LevelDraw.Draw(levels, Math.Min(count, levels.Count), random);
         }
 
         public LevelStatus GetStatus(LevelId levelId)
@@ -183,6 +198,12 @@ namespace TrackingNIU
                     Phase = RunPhase.Finished;
                     break;
             }
+
+            // 抽不到關卡的階段（例如 MR 版還沒做好）直接跳過，避免卡在沒有關卡可玩的地圖。
+            if (Phase == RunPhase.Indoor && IndoorLevels.Count == 0)
+                Phase = RunPhase.Outdoor;
+            if (Phase == RunPhase.Outdoor && OutdoorLevels.Count == 0)
+                Phase = RunPhase.Finale;
         }
 
         bool AllCompleted(IReadOnlyList<LevelId> levels)

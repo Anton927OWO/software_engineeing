@@ -7,12 +7,17 @@ namespace TrackingNIU
     public static class LevelDraw
     {
         /// <summary>回傳 GameManager 這一局要用的關卡池。</summary>
-        public static List<LevelId> GetPool(LevelPool pool, bool includeFinalsLevels)
+        public static List<LevelId> GetPool(LevelPool pool, bool includeFinalsLevels) =>
+            GetPool(pool, includeFinalsLevels, null);
+
+        /// <param name="isPlayable">額外篩選，例如 MR 模式只留下已經有 MR 版 Scene 的關卡；null 代表不篩選。</param>
+        public static List<LevelId> GetPool(LevelPool pool, bool includeFinalsLevels, Func<LevelId, bool> isPlayable)
         {
             var levels = new List<LevelId>();
             foreach (var level in LevelCatalog.All)
             {
-                if (level.Pool == pool && (level.AvailableInMidterm || includeFinalsLevels))
+                if (level.Pool == pool && level.Enabled && (level.AvailableInMidterm || includeFinalsLevels)
+                    && (isPlayable == null || isPlayable(level.Id)))
                     levels.Add(level.Id);
             }
             return levels;
