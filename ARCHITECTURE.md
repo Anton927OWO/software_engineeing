@@ -8,7 +8,7 @@
 1. **沿用現有遊戲流程**：`GameManager`、`GameRun`、`LevelCatalog`、`ScoreCalculator`、`LevelSession` 不重寫。MR 版只換「畫面與輸入」這一層。
 2. **玩家只有一份**：攝影機、手把、passthrough 放在一個常駐物件裡，切換場景時不銷毀。關卡場景只放「桌上的內容」。
 3. **關卡彼此獨立**：每關是獨立的資料夾、Scene 和 asmdef，只依賴 `Common` 與 `Common/XR`，不互相引用。
-4. **2D 版保留**：原本的 `L_<關卡>.unity` 不刪不改，MR 版另開新 Scene。MR 版還沒做好的關卡，暫時退回載入 2D 版。
+4. **2D 版保留**：原本的 `L_<關卡>.unity` 不刪不改，MR 版另開新 Scene。MR 版還沒做好的關卡不放進抽關池。
 
 ## 2. 套件
 
@@ -17,8 +17,8 @@
 | 套件 | 用途 |
 |---|---|
 | Meta XR Core SDK | 玩家物件、passthrough、手把輸入 |
-| Meta XR Interaction SDK | 抓取、放置、射線點擊 UI、手勢（加分項） |
-| Meta MR Utility Kit（MRUK） | 偵測真實桌面 |
+| Meta XR Interaction SDK | 抓取、放置、射線點擊 UI |
+| Meta MR Utility Kit（MRUK） | 偵測真實桌面（P1） |
 | Meta XR Simulator | 沒有頭盔時在編輯器裡測試 |
 | 既有：URP 17.3、UGUI、Input System、TextMeshPro | 沿用 |
 
@@ -37,7 +37,7 @@ Boot.unity
  └─ GameManager（DontDestroyOnLoad，既有）
 
 GameManager.EnterLevel(id)
- └─ 用 Single 模式載入 L_<Id>_XR.unity（沒有的話退回 L_<Id>.unity）
+ └─ 用 Single 模式載入 L_<Id>_XR.unity（沒有 MR 版的關卡不會被抽到）
       └─ XRLevelRoot（場景根物件）
            載入後 MRCore 把它移到 TableAnchor 上
            ├─ 關卡物件（土堆、書、卡片……）
@@ -65,7 +65,7 @@ Assets/
 │   └─ 素材來源與授權.csv
 ├─ Levels/
 │   ├─ Shared/XR/          關卡共用面板（新）       Teatarossa
-│   ├─ Prologue/XR/        L_Prologue_XR.unity      Juelang0305
+│   ├─ Prologue/XR/        L_Prologue_XR.unity      Anton927OWO
 │   ├─ Dig/XR/             L_Dig_XR.unity           Juelang0305
 │   ├─ Strata/XR/          L_Strata_XR.unity        Juelang0305
 │   ├─ Timeline/XR/        L_Timeline_XR.unity      Teatarossa
@@ -98,7 +98,7 @@ asmdef 只能引用 `TrackingNIU.Common`、`TrackingNIU.XR`、`XunJiYiDa.Levels.
 | 元件 | 功能 | 主要使用者 |
 |---|---|---|
 | `MRCore` prefab | 玩家物件、passthrough、XR EventSystem、暫停鍵 | 全部 |
-| `TableAnchor` | 提供桌面 `Pose` 與可用尺寸；偵測不到時生成虛擬檯面；可以抓住把手調整位置 | 全部 |
+| `TableAnchor` | 提供桌面 `Pose` 與可用尺寸；先做虛擬檯面＋把手調整（P0），再加自動偵測真實桌面（P1） | 全部 |
 | `XRLevelRoot` | 放在關卡場景根物件，宣告需要的桌面尺寸；載入時自動對齊 TableAnchor | 全部 |
 | `XRGrabbable` | 可以抓起的物件，帶有物件 ID；放開時沒落在插槽就回到原位 | 序章、百年軌跡、知識列車、擋鹿、地層 |
 | `XRSnapSocket` | 放置插槽，設定接受的 ID；事件 `Accepted(id)`、`Rejected(id)`，放錯時讓物件彈回 | 序章、百年軌跡、知識列車、地層 |
@@ -144,7 +144,7 @@ void OnFinished(bool cleared)
 
 主流程需要的改動（Anton927OWO 負責）：
 
-- `LevelDefinition` 新增 MR 版場景名稱 `L_<Id>_XR`；`GameManager` 優先載入 MR 版，不存在時退回 2D 版。
+- `LevelDefinition` 新增 MR 版場景名稱 `L_<Id>_XR`；`GameManager` 載入 MR 版。2D 版的 Screen Space Overlay 畫面在頭盔裡看不到，所以**沒有 MR 版的關卡直接不放進抽關池**，不退回 2D 版。
 - `LevelCatalog` 把書海尋寶設成 `availableInMidterm: false`。
 
 ## 8. 3D 素材規格
@@ -175,4 +175,4 @@ void OnFinished(bool cleared)
 | 規則邏輯 | EditMode 測試（判斷放對放錯、刷土覆蓋率、計時等純邏輯） | 各關負責人 |
 | 單關操作 | 打開 `L_<關卡>_XR.unity` 按 Play，用 Meta XR Simulator 操作 | 各關負責人 |
 | 實機手感 | 用開發者模式的 Quest 3 直接執行（Quest Link 或安裝測試用 APK） | 各關負責人，依排程 |
-| 完整流程 | 從 Boot 玩完一局 | Anton927OWO 每週一次 |
+| 完整流程（12/9 起每天） | 從 Boot 玩完一局 | Anton927OWO |

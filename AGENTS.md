@@ -11,7 +11,9 @@
 - 分工與進度：`task.md`
 - 既有關卡接口：`Docs/關卡介面說明.md`
 
-**原型範圍**：只做 Quest 3、只做 MR。不處理上架、正式版輸出、多平台、多人、存檔。遇到這類需求時先停下來問，不要自行加入。
+**時程**：2026/11/30 開工，2026/12/16 完成，12/14 起功能凍結（見 `task.md`）。
+
+**原型範圍**：只做 Quest 3、只做 MR、只做手把輸入。不處理上架、正式版輸出、多平台、多人、存檔。遇到這類需求時先停下來問，不要自行加入。
 
 ## 環境
 
@@ -25,9 +27,9 @@
 
 | 範圍 | 擁有者 |
 |---|---|
-| `Assets/Common/`（含 `Common/XR/`）、`Assets/Scenes/`、`ProjectSettings/`、`Packages/`、`LevelCatalog.cs`、Build Settings | Anton927OWO |
+| `Assets/Common/`（含 `Common/XR/`）、`Assets/Scenes/`、`Assets/Levels/Prologue/XR/`、`ProjectSettings/`、`Packages/`、`LevelCatalog.cs`、Build Settings | Anton927OWO |
 | `Assets/Levels/Shared/`、`Timeline/`、`Train/`、`Finale/`、`Integration/` | Teatarossa |
-| `Assets/Levels/Prologue/`、`Dig/`、`Strata/`、`Assets/Common/audio/` | Juelang0305 |
+| `Assets/Levels/Prologue/`（`XR/` 除外）、`Dig/`、`Strata/`、`Assets/Common/audio/` | Juelang0305 |
 | `Assets/Levels/Junting/`、`Assets/Art3D/` | Chun |
 | 根目錄文件（`AGENTS.md`、`GOD.md`、`ARCHITECTURE.md`、`task.md`） | 各自更新自己負責的段落；結構調整找 Anton927OWO |
 
