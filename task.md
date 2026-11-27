@@ -36,7 +36,7 @@
 | 6 件文物模型 | P0 | Chun |
 | 知識列車 | P1 | Teatarossa |
 | 地層解碼 | P1 | Juelang0305 |
-| 自動偵測真實桌面（MRUK） | P1 | Anton927OWO |
+| 自動偵測真實桌面（AR Foundation 平面偵測） | P1 | Anton927OWO |
 | 正式道具模型（書、刷子、柵欄、鹿……） | P1 | Chun |
 | 立體校園地圖、手勢追蹤、VR 場景、撕畫 | 不做 | — |
 
@@ -57,7 +57,7 @@ A0 合併前（11/30–12/1），其他人**不要自己裝套件**，先做不�
 
 | 日期 | 里程碑 | 驗收方式 |
 |---|---|---|
-| **12/1（二）** | M0：XR 環境就緒 | 任何人複製範本場景按 Play，在 XR Simulator 看得到 passthrough 背景與雙手 |
+| **12/1（二）** | M0：XR 環境就緒 | 任何人複製範本場景按 Play，在模擬器裡看得到桌面與雙手 |
 | **12/4（五）** | M1：共用元件＋灰盒 | 共用元件和共用面板可直接使用；每個 P0 關卡的灰盒在 Simulator 能玩出核心動作 |
 | **12/9（三）** | M2：完整流程 | 從 Boot 開始，序章 → 地圖 → 3 關 → 終章 → 結算，在頭盔上完整玩一輪（允許灰盒） |
 | **12/11（五）** | M3：砍關日＋換素材 | P1 關卡決定留或砍；主要物件換成正式模型 |
@@ -70,11 +70,13 @@ A0 合併前（11/30–12/1），其他人**不要自己裝套件**，先做不�
 ## 11/30（一）– 12/1（二）：開工
 
 ### Anton927OWO
-- [ ] **A0** `feature/xr-core`：安裝 Meta XR Core SDK、Interaction SDK、MRUK、XR Simulator；切換 Android；調整 URP 給 Quest 的設定
-- [ ] **A0** `Common/XR/`、`TrackingNIU.XR.asmdef`、`MRCore` prefab（玩家物件＋passthrough）
-- [ ] **A0** `XRLevelRoot`、`XRLevelTestLauncher`、範本場景 `Common/XR/Templates/L_Template_XR.unity`
-- [ ] **A0** `LevelCatalog`：書海尋寶設為 `availableInMidterm: false`，同步更新受影響的測試
-- [ ] 12/1 晚上前合併 A0，並在群組通知大家 `git pull`
+> 標示 `[~]` 的項目：程式與建置選單已寫好，**還沒在 Unity 編譯、也沒在 Quest 上測試**。Anton927OWO 在 Unity 執行 `Assets/Common/XR/README.md` 的步驟、修正錯誤後改成 `[x]`。
+
+- [~] **A0** 安裝 XR 套件（XR Interaction Toolkit、OpenXR、Meta OpenXR、AR Foundation）；切換 Android；調整 URP 給 Quest 的設定（選單 1、2）
+- [~] **A0** `Common/XR/`、`TrackingNIU.XR.asmdef`、`MRCore` prefab（玩家物件＋passthrough）（選單 3）
+- [~] **A0** `XRLevelRoot`、範本場景 `Common/XR/Templates/L_Template_XR.unity`
+- [~] **A0** `LevelCatalog`：書海尋寶設為 `enabled: false`，同步更新受影響的測試
+- [ ] 在 Unity 跑完選單 1～3、EditMode 測試全過，12/1 晚上前合併 A0，並在群組通知大家 `git pull`
 
 ### Teatarossa
 - [ ] 百年軌跡、終章、知識列車的 MR 玩法定稿，更新 `GOD.md` 第 6 節
@@ -97,11 +99,12 @@ A0 合併前（11/30–12/1），其他人**不要自己裝套件**，先做不�
 ## 12/2（三）– 12/4（五）：共用元件＋灰盒
 
 ### Anton927OWO
-- [ ] **A1** 虛擬檯面：在玩家面前生成，可以抓住把手調整位置與高度（`TableAnchor`）
-- [ ] **A1** `XRGrabbable`、`XRSnapSocket`（含放錯彈回）
-- [ ] **A1** `BrushTool`（接觸點、速度、按壓深度）、`XRPokeTarget`
-- [ ] **A1** `Haptics`、`WorldPanel` prefab、暫停鍵 → 既有暫停流程
-- [ ] 序章灰盒：三本書依序放進書箱（同時當作元件示範）
+- [~] **A1** 虛擬檯面：在玩家面前生成，可以抓住把手調整位置與高度（`TableAnchor`、`TableMoveHandle`）
+- [~] **A1** `XRGrabbable`、`XRSnapSocket`（含放錯彈回）
+- [~] **A1** `BrushTool`（接觸點、速度、按壓深度）、`XRPokeTarget`
+- [~] **A1** `Haptics`、`WorldPanel` prefab、選單鍵事件 `MRCore.MenuPressed`（暫停面板由 Teatarossa 的共用面板訂閱）
+- [~] **A1** 共用元件示範場景 `Common/XR/Samples/XR_Components_Demo.unity`
+- [~] 序章灰盒：三本書依序放進書箱（同時當作元件示範）
 - **完成條件**：序章灰盒可以抓書、放錯彈回並震動、放對通關
 
 ### Teatarossa
@@ -122,9 +125,9 @@ A0 合併前（11/30–12/1），其他人**不要自己裝套件**，先做不�
 ## 12/7（一）– 12/9（三）：接上流程，完整玩一輪
 
 ### Anton927OWO
-- [ ] `GameManager` 載入 `L_<Id>_XR`；沒有 MR 版的關卡不放進抽關池
-- [ ] `Map_XR.unity`：用空間面板顯示地圖，點地點進關
-- [ ] 序章接上 `LevelSession` 與共用面板
+- [~] `GameManager` 載入 `L_<Id>_XR`；沒有 MR 版的關卡不放進抽關池（提前完成）
+- [~] `Map_XR.unity`：用空間面板顯示標題、地圖、結算，點按鈕進關（提前完成）
+- [~] 序章接上 `LevelSession`（已完成）；共用面板完成後改用共用面板
 - [ ] 每天合併大家的 PR；12/9 從 Boot 在頭盔上完整跑一輪，問題開成 issue 指派
 
 ### Teatarossa
@@ -146,7 +149,7 @@ A0 合併前（11/30–12/1），其他人**不要自己裝套件**，先做不�
 
 - [ ] 知識列車可以從頭玩到結算（Teatarossa）
 - [ ] 地層解碼可以從頭玩到結算（Juelang0305）
-- [ ] 自動偵測真實桌面，偵測不到時退回虛擬檯面（Anton927OWO，P1）
+- [~] 自動偵測真實桌面，偵測不到時退回虛擬檯面（Anton927OWO，P1，`TableDetector`，需實機測試）
 - [ ] 道具模型：書、書箱、刷子、卡片、柵欄、鹿（Chun，P1）
 - [ ] 各關把主要物件換成正式模型（各關負責人）
 - [ ] **12/11 砍關會議**：P1 關卡沒辦法完整玩，就由 Anton927OWO 從抽關池移除

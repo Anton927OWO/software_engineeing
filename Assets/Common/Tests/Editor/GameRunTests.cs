@@ -8,10 +8,11 @@ namespace TrackingNIU.Tests
     public class LevelDrawTests
     {
         [Test]
-        public void MidtermPools_AreIndoor4_Outdoor2()
+        public void MidtermPools_AreIndoor3_Outdoor2()
         {
+            // MR 原型停用書海尋寶。
             CollectionAssert.AreEquivalent(
-                new[] { LevelId.Dig, LevelId.Timeline, LevelId.Train, LevelId.Bookshelf },
+                new[] { LevelId.Dig, LevelId.Timeline, LevelId.Train },
                 LevelDraw.GetPool(LevelPool.Indoor, includeFinalsLevels: false));
             CollectionAssert.AreEquivalent(
                 new[] { LevelId.Deer, LevelId.Strata },
@@ -19,10 +20,24 @@ namespace TrackingNIU.Tests
         }
 
         [Test]
+        public void DisabledLevel_IsNeverInPool()
+        {
+            CollectionAssert.DoesNotContain(LevelDraw.GetPool(LevelPool.Indoor, false), LevelId.Bookshelf);
+            CollectionAssert.DoesNotContain(LevelDraw.GetPool(LevelPool.Indoor, true), LevelId.Bookshelf);
+        }
+
+        [Test]
+        public void GetPool_FiltersByPlayable()
+        {
+            var pool = LevelDraw.GetPool(LevelPool.Indoor, false, id => id == LevelId.Dig);
+            CollectionAssert.AreEqual(new[] { LevelId.Dig }, pool);
+        }
+
+        [Test]
         public void FinalsIndoorPool_AddsCollage()
         {
             var pool = LevelDraw.GetPool(LevelPool.Indoor, includeFinalsLevels: true);
-            Assert.AreEqual(5, pool.Count);
+            Assert.AreEqual(4, pool.Count);
             CollectionAssert.Contains(pool, LevelId.Collage);
         }
 
@@ -43,14 +58,14 @@ namespace TrackingNIU.Tests
         [Test]
         public void Draw_CoversEveryPair()
         {
-            // 4 抽 2 共 6 種組合，抽很多次後每一種都應該出現。
+            // 3 抽 2 共 3 種組合，抽很多次後每一種都應該出現。
             var pool = LevelDraw.GetPool(LevelPool.Indoor, false);
             var random = new Random(7);
             var combinations = new HashSet<string>();
             for (int i = 0; i < 500; i++)
                 combinations.Add(string.Join(",", LevelDraw.Draw(pool, 2, random).OrderBy(id => id)));
 
-            Assert.AreEqual(6, combinations.Count);
+            Assert.AreEqual(3, combinations.Count);
         }
 
         [Test]
@@ -204,6 +219,28 @@ namespace TrackingNIU.Tests
                 var expected = level.Pool == LevelPool.Outdoor ? MapKind.Campus : MapKind.Library;
                 Assert.AreEqual(expected, GameRun.GetMap(level.Id), level.Id.ToString());
             }
+        }
+
+        [Test]
+        public void PlayableFilter_DrawsOnlyPlayableLevels()
+        {
+            var run = new GameRun(false, new Random(3), id => id == LevelId.Dig || id == LevelId.Deer);
+            CollectionAssert.AreEqual(new[] { LevelId.Dig }, run.IndoorLevels);
+            CollectionAssert.AreEqual(new[] { LevelId.Deer }, run.OutdoorLevels);
+        }
+
+        [Test]
+        public void EmptyPhases_AreSkipped()
+        {
+            // MR 版只有序章與終章時，完成序章後直接進入終章。
+            var run = new GameRun(false, new Random(3), id => false);
+            Assert.AreEqual(0, run.IndoorLevels.Count);
+            Assert.AreEqual(0, run.OutdoorLevels.Count);
+
+            Play(run, LevelId.Prologue);
+            Assert.AreEqual(RunPhase.Finale, run.Phase);
+            Play(run, LevelId.Finale);
+            Assert.AreEqual(RunPhase.Finished, run.Phase);
         }
     }
 }

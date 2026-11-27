@@ -19,7 +19,7 @@
 
 - Unity **6000.3.19f1**（不要升級或降級）
 - URP 17.3、UGUI、TextMeshPro、Input System（New）
-- Meta XR Core SDK、Interaction SDK、MR Utility Kit、XR Simulator
+- XR Interaction Toolkit 3.x、OpenXR、Meta OpenXR、AR Foundation 6.x（安裝方式見 `Assets/Common/XR/README.md`）
 
 ## 擁有者規則（最重要）
 
@@ -49,8 +49,8 @@
 ## 新增 MR 關卡的固定做法
 
 1. 在 `Assets/Levels/<關卡>/XR/` 建立 `L_<關卡>_XR.unity`、`Runtime/`、`Prefabs/`、`Tests/`。
-2. `Runtime/` 建 asmdef `XunJiYiDa.Levels.<關卡>.XR`，只引用 `TrackingNIU.Common`、`TrackingNIU.XR`、`XunJiYiDa.Levels.Shared.XR`、該關原本的 Runtime asmdef、Meta SDK。
-3. 場景根物件掛 `XRLevelRoot`，所有關卡物件放在它底下；另放一個 `XRLevelTestLauncher`。
+2. `Runtime/` 建 asmdef `XunJiYiDa.Levels.<關卡>.XR`，只引用 `TrackingNIU.Common`、`TrackingNIU.XR`、`XunJiYiDa.Levels.Shared.XR`、該關原本的 Runtime asmdef、`Unity.XR.Interaction.Toolkit`。**複製序章的 asmdef 來改**，保留它的 `defineConstraints` 與 `versionDefines`。
+3. 場景根物件掛 `XRLevelRoot`，所有關卡物件放在它底下；另放一個既有的 `LevelTestLauncher`。建議用 Editor 腳本產生場景（參考 `Assets/Levels/Prologue/XR/Editor/PrologueXRSceneBuilder.cs`，選單放在「尋跡宜大 → MR 原型 → 關卡」底下）。
 4. 互動一律使用 `Common/XR` 的元件（`XRGrabbable`、`XRSnapSocket`、`BrushTool`……），缺功能就開 issue，不要自己複製一份。
 5. 介紹、HUD、暫停、結算使用 `Levels/Shared/XR` 的共用面板。
 6. 遊戲結束呼叫 `LevelSession.Report()`，按繼續時呼叫 `LevelSession.Exit()`，重試呼叫 `LevelSession.Retry()`。
@@ -79,7 +79,7 @@
 - [ ] 只改了自己負責的資料夾
 - [ ] Unity Console 沒有新的錯誤或警告
 - [ ] 自己的 EditMode 測試全部通過
-- [ ] 打開自己的 `L_<關卡>_XR.unity` 用 XR Simulator 可以從開始玩到結算
+- [ ] 打開自己的 `L_<關卡>_XR.unity` 用模擬器可以從開始玩到結算
 - [ ] 新素材已登記來源與授權
 - [ ] 有影響其他人的改動（共用元件 API、共用面板）已在 PR 說明並通知相關的人
 - [ ] 更新 `task.md` 對應項目的狀態

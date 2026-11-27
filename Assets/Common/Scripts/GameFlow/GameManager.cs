@@ -17,6 +17,13 @@ namespace TrackingNIU
         [SerializeField] string campusMapScene = "Map_Campus";
         [SerializeField] string resultsScene = "Results";
 
+        [SerializeField, Tooltip("MR 原型：載入 L_<關卡>_XR，地圖與結算都使用 MR 地圖場景，只抽已經有 MR 版的關卡。" +
+            "預設關閉以維持 2D 流程與既有測試；MR 建置選單會在 Boot 場景勾選。")]
+        bool mixedReality;
+
+        [SerializeField, Tooltip("MR 模式下的地圖（含標題與結算）場景")]
+        string mixedRealityMapScene = "Map_XR";
+
         [SerializeField, Tooltip("期末加入黃春明關後勾選，館內改為 5 抽 2")]
         bool includeFinalsLevels;
 
@@ -29,6 +36,8 @@ namespace TrackingNIU
         float? _finishTime;
         System.Random _random;
 
+        const string BootSceneName = "Boot";
+
         public static GameManager Instance { get; private set; }
 
         /// <summary>目前這一局；還沒開始時為 null。</summary>
@@ -39,6 +48,45 @@ namespace TrackingNIU
 
         /// <summary>抽關、完成關卡或開新局時觸發，地圖可以藉此更新標記。</summary>
         public event Action RunChanged;
+
+        /// <summary>是否為 MR 模式。</summary>
+        public bool IsMixedReality => mixedReality;
+
+        /// <summary>
+        /// 切換 2D／MR 模式，只能在開新局之前呼叫。
+        /// 直接打開 2D 地圖測試時用來維持 2D 流程。
+        /// </summary>
+        public void SetMixedReality(bool value)
+        {
+            if (Run != null)
+            {
+                Debug.LogWarning("[GameManager] 已經開始一局，不能切換 2D／MR 模式。");
+                return;
+            }
+            mixedReality = value;
+        }
+
+        /// <summary>
+        /// 從程式建立 MR 模式的 GameManager（直接打開 MR 地圖場景按 Play 時）。已經有的話直接回傳現有的。
+        /// </summary>
+        public static GameManager EnsureMixedReality()
+        {
+            if (Instance != null)
+                return Instance;
+            var manager = new GameObject("GameManager（MR）").AddComponent<GameManager>();
+            manager.mixedReality = true;
+            return manager;
+        }
+
+        /// <summary>這個關卡實際要載入的 Scene 名稱：MR 模式為 L_<關卡>_XR。</summary>
+        public string GetLevelScene(LevelId levelId)
+        {
+            var definition = LevelCatalog.Get(levelId);
+            return mixedReality ? definition.XRSceneName : definition.SceneName;
+        }
+
+        /// <summary>這個關卡目前能不能真的載入（MR 模式下要有 MR 版 Scene）。</summary>
+        public bool HasLevelScene(LevelId levelId) => SceneLoader.Exists(GetLevelScene(levelId));
 
         void Awake()
         {
@@ -54,6 +102,13 @@ namespace TrackingNIU
             _random = randomSeed != 0 ? new System.Random(randomSeed) : new System.Random();
         }
 
+        void Start()
+        {
+            // MR 模式下 Boot 只負責建立 GameManager，標題畫面在 MR 地圖場景裡。
+            if (Instance == this && mixedReality && SceneManager.GetActiveScene().name == BootSceneName)
+                LoadScene(mixedRealityMapScene);
+        }
+
         void OnDestroy()
         {
             if (Instance == this)
@@ -67,7 +122,9 @@ namespace TrackingNIU
             if (LevelSession.IsActive)
                 LevelSession.Abort();
 
-            Run = new GameRun(includeFinalsLevels, _random);
+            Run = mixedReality
+                ? new GameRun(includeFinalsLevels, _random, HasLevelScene)
+                : new GameRun(includeFinalsLevels, _random);
             _startTime = Time.time;
             _finishTime = null;
             Debug.Log($"[GameManager] 新的一局｜館內：{Names(Run.IndoorLevels)}｜戶外：{Names(Run.OutdoorLevels)}");
@@ -109,7 +166,7 @@ namespace TrackingNIU
 
             var definition = LevelCatalog.Get(levelId);
             LevelSession.Begin(new LevelContext(definition, Run.CollectedArtifacts), OnLevelExit);
-            if (SceneLoader.Load(definition.SceneName))
+            if (SceneLoader.Load(GetLevelScene(levelId)))
                 return true;
 
             LevelSession.Abort();
@@ -146,7 +203,7 @@ namespace TrackingNIU
                 LevelSession.Abort();
             Run = null;
             RunChanged?.Invoke();
-            LoadScene(_bootScene);
+            LoadScene(mixedReality ? mixedRealityMapScene : _bootScene);
         }
 
         bool CanStartLevel(LevelId levelId)
@@ -180,19 +237,26 @@ namespace TrackingNIU
 
             // 先回到這一關所在的地圖，再由地圖指引下一站。
             // 例如完成戶外關卡後回到校園地圖，畫面上顯示返回圖資館的路線。
-            LoadScene(Run.Phase == RunPhase.Finished ? resultsScene : GetMapScene(GameRun.GetMap(result.LevelId)));
+            LoadScene(Run.Phase == RunPhase.Finished ? GetResultsScene() : GetMapScene(GameRun.GetMap(result.LevelId)));
         }
 
         string GetSceneForPhase()
         {
             if (Run == null)
-                return _bootScene;
+                return mixedReality ? mixedRealityMapScene : _bootScene;
             if (Run.Phase == RunPhase.Finished)
-                return resultsScene;
+                return GetResultsScene();
             return Run.CurrentMap.HasValue ? GetMapScene(Run.CurrentMap.Value) : _bootScene;
         }
 
-        string GetMapScene(MapKind map) => map == MapKind.Campus ? campusMapScene : libraryMapScene;
+        string GetMapScene(MapKind map)
+        {
+            if (mixedReality)
+                return mixedRealityMapScene;
+            return map == MapKind.Campus ? campusMapScene : libraryMapScene;
+        }
+
+        string GetResultsScene() => mixedReality ? mixedRealityMapScene : resultsScene;
 
         void LoadScene(string sceneName)
         {

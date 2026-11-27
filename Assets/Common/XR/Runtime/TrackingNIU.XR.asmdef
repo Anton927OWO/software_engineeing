@@ -1,0 +1,37 @@
+{
+    "name": "TrackingNIU.XR",
+    "rootNamespace": "TrackingNIU.XR",
+    "references": [
+        "TrackingNIU.Common",
+        "Unity.XR.Interaction.Toolkit",
+        "Unity.XR.CoreUtils",
+        "Unity.XR.ARFoundation",
+        "Unity.XR.ARSubsystems",
+        "Unity.InputSystem",
+        "Unity.TextMeshPro",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "TRACKINGNIU_XRI3",
+        "TRACKINGNIU_ARF6"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.xr.interaction.toolkit",
+            "expression": "3.0.0",
+            "define": "TRACKINGNIU_XRI3"
+        },
+        {
+            "name": "com.unity.xr.arfoundation",
+            "expression": "6.0.0",
+            "define": "TRACKINGNIU_ARF6"
+        }
+    ],
+    "noEngineReferences": false
+}

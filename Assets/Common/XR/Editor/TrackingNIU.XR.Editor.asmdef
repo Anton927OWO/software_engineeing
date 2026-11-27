@@ -1,0 +1,52 @@
+{
+    "name": "TrackingNIU.XR.Editor",
+    "rootNamespace": "TrackingNIU.XR.Editor",
+    "references": [
+        "TrackingNIU.Common",
+        "TrackingNIU.XR",
+        "Unity.XR.Interaction.Toolkit",
+        "Unity.XR.CoreUtils",
+        "Unity.XR.ARFoundation",
+        "Unity.XR.ARSubsystems",
+        "Unity.XR.Management",
+        "Unity.XR.Management.Editor",
+        "Unity.XR.OpenXR",
+        "Unity.XR.OpenXR.Editor",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.InputSystem",
+        "Unity.TextMeshPro",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "TRACKINGNIU_XRI3",
+        "TRACKINGNIU_ARF6",
+        "TRACKINGNIU_OPENXR"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.xr.interaction.toolkit",
+            "expression": "3.0.0",
+            "define": "TRACKINGNIU_XRI3"
+        },
+        {
+            "name": "com.unity.xr.arfoundation",
+            "expression": "6.0.0",
+            "define": "TRACKINGNIU_ARF6"
+        },
+        {
+            "name": "com.unity.xr.openxr",
+            "expression": "1.0.0",
+            "define": "TRACKINGNIU_OPENXR"
+        }
+    ],
+    "noEngineReferences": false
+}

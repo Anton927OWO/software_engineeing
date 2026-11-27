@@ -1,0 +1,37 @@
+{
+    "name": "TrackingNIU.XR.Tests",
+    "rootNamespace": "TrackingNIU.XR.Tests",
+    "references": [
+        "TrackingNIU.XR",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS",
+        "TRACKINGNIU_XRI3",
+        "TRACKINGNIU_ARF6"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.xr.interaction.toolkit",
+            "expression": "3.0.0",
+            "define": "TRACKINGNIU_XRI3"
+        },
+        {
+            "name": "com.unity.xr.arfoundation",
+            "expression": "6.0.0",
+            "define": "TRACKINGNIU_ARF6"
+        }
+    ],
+    "noEngineReferences": false
+}

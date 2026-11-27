@@ -18,13 +18,17 @@ namespace TrackingNIU
         public ArtifactId Artifact { get; }
         /// <summary>期中版本是否放進抽關。</summary>
         public bool AvailableInMidterm { get; }
+        /// <summary>false 代表整個停用，不論期中或期末都不會被抽到（MR 原型的書海尋寶）。</summary>
+        public bool Enabled { get; }
 
         public string SceneName => "L_" + Id;
+        /// <summary>MR 版的 Scene 名稱，例如 L_Dig_XR。</summary>
+        public string XRSceneName => SceneName + "_XR";
         public bool IsScored => Pool != LevelPool.Prologue;
         public bool IsFinale => Pool == LevelPool.Finale;
 
         public LevelDefinition(LevelId id, string displayName, string location, LevelPool pool,
-            float timeLimit, int mistakePenalty, ArtifactId artifact, bool availableInMidterm = true)
+            float timeLimit, int mistakePenalty, ArtifactId artifact, bool availableInMidterm = true, bool enabled = true)
         {
             Id = id;
             DisplayName = displayName;
@@ -34,6 +38,7 @@ namespace TrackingNIU
             MistakePenalty = mistakePenalty;
             Artifact = artifact;
             AvailableInMidterm = availableInMidterm;
+            Enabled = enabled;
         }
     }
 
@@ -47,7 +52,8 @@ namespace TrackingNIU
             new LevelDefinition(LevelId.Dig,       "考古小隊",           "2F 宜大記憶庫・展區二",       LevelPool.Indoor,   60f, 50, ArtifactId.GoldFoil),
             new LevelDefinition(LevelId.Timeline,  "百年軌跡",           "2F 宜大記憶庫・展區四",       LevelPool.Indoor,   45f, 20, ArtifactId.WoodenDisc),
             new LevelDefinition(LevelId.Train,     "知識列車",           "3F 學習共享空間・車廂區",     LevelPool.Indoor,   60f, 30, ArtifactId.AgateBead),
-            new LevelDefinition(LevelId.Bookshelf, "書海尋寶",           "5F 中文圖書區",               LevelPool.Indoor,   60f, 20, ArtifactId.WoodenSpade),
+            // MR 原型停用書海尋寶，不放進抽關；木鏟改給哪一關待全組決定。
+            new LevelDefinition(LevelId.Bookshelf, "書海尋寶",           "5F 中文圖書區",               LevelPool.Indoor,   60f, 20, ArtifactId.WoodenSpade, enabled: false),
             // 期末擴充：文物待實地確認後決定。
             new LevelDefinition(LevelId.Collage,   "黃春明撕畫工作室",   "3F 黃春明體驗行動館",         LevelPool.Indoor,   60f, 20, ArtifactId.None, availableInMidterm: false),
             // 規畫書沒有寫擋鹿的失誤扣分，提案：每隻鹿離開地圖算一次失誤。
